@@ -152,6 +152,7 @@
 		6571C7A11B1BF948007D95C0 /* HospitalEnterResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 6571C7A01B1BF948007D95C0 /* HospitalEnterResult.m */; };
 		6571C7A41B1BFB7C007D95C0 /* LDFormData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6571C7A31B1BFB7C007D95C0 /* LDFormData.m */; };
 		6571C7A71B1C0444007D95C0 /* PatientEnterParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 6571C7A61B1C0444007D95C0 /* PatientEnterParam.m */; };
+		65812D6C1B258A8100B05565 /* AppendInviteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65812D6B1B258A8100B05565 /* AppendInviteViewController.m */; };
 		6599E6741B032721001C1582 /* UIButton+LD.m in Sources */ = {isa = PBXBuildFile; fileRef = 6599E6731B032721001C1582 /* UIButton+LD.m */; };
 		6599E7971B0C7E46007396E8 /* SignUpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6599E7961B0C7E46007396E8 /* SignUpTool.m */; };
 		6599E79A1B0C7EFD007396E8 /* SignUpParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 6599E7991B0C7EFD007396E8 /* SignUpParam.m */; };
@@ -159,6 +160,13 @@
 		65BD7F0E1B22DA6B004238AB /* SearchDoctorTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 65BD7F0D1B22DA6B004238AB /* SearchDoctorTool.m */; };
 		65BD7F111B22DAFC004238AB /* SearchDoctorParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 65BD7F101B22DAFC004238AB /* SearchDoctorParam.m */; };
 		65BD7F141B22DB18004238AB /* SearchDoctorResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 65BD7F131B22DB18004238AB /* SearchDoctorResult.m */; };
+		65BE8ECC1B252FE2006B9E89 /* InviteDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65BE8ECB1B252FE2006B9E89 /* InviteDetailController.m */; };
+		65BE8ECF1B253CC6006B9E89 /* InviteDoctorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65BE8ECE1B253CC6006B9E89 /* InviteDoctorView.m */; };
+		65BE8ED21B253DA3006B9E89 /* MessageOfInviteDoctor.m in Sources */ = {isa = PBXBuildFile; fileRef = 65BE8ED11B253DA3006B9E89 /* MessageOfInviteDoctor.m */; };
+		65BE8ED51B254048006B9E89 /* UILabel+LD.m in Sources */ = {isa = PBXBuildFile; fileRef = 65BE8ED41B254048006B9E89 /* UILabel+LD.m */; };
+		65BE8ED81B25637C006B9E89 /* ResponsedDoctorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65BE8ED71B25637C006B9E89 /* ResponsedDoctorView.m */; };
+		65BE8EDB1B2569FB006B9E89 /* ResponsedDoctorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65BE8EDA1B2569FB006B9E89 /* ResponsedDoctorController.m */; };
+		65BE8EE11B2578AB006B9E89 /* UITextField+LD.m in Sources */ = {isa = PBXBuildFile; fileRef = 65BE8EE01B2578AB006B9E89 /* UITextField+LD.m */; };
 		65C3478F1B22C51800919BE4 /* LoginDocDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C3478E1B22C51800919BE4 /* LoginDocDetailController.m */; };
 		65C3D1BF1B1BF0A40050F540 /* LDHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C3D1BE1B1BF0A40050F540 /* LDHttpTool.m */; };
 		65C3D1C21B1BF3B20050F540 /* HospitalEnterTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C3D1C11B1BF3B20050F540 /* HospitalEnterTool.m */; };
@@ -559,6 +567,8 @@
 		6571C7A31B1BFB7C007D95C0 /* LDFormData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDFormData.m; sourceTree = "<group>"; };
 		6571C7A51B1C0444007D95C0 /* PatientEnterParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientEnterParam.h; sourceTree = "<group>"; };
 		6571C7A61B1C0444007D95C0 /* PatientEnterParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientEnterParam.m; sourceTree = "<group>"; };
+		65812D6A1B258A8100B05565 /* AppendInviteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppendInviteViewController.h; sourceTree = "<group>"; };
+		65812D6B1B258A8100B05565 /* AppendInviteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppendInviteViewController.m; sourceTree = "<group>"; };
 		6599E6721B032721001C1582 /* UIButton+LD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+LD.h"; sourceTree = "<group>"; };
 		6599E6731B032721001C1582 /* UIButton+LD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+LD.m"; sourceTree = "<group>"; };
 		6599E7951B0C7E46007396E8 /* SignUpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpTool.h; sourceTree = "<group>"; };
@@ -573,6 +583,20 @@
 		65BD7F101B22DAFC004238AB /* SearchDoctorParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchDoctorParam.m; sourceTree = "<group>"; };
 		65BD7F121B22DB18004238AB /* SearchDoctorResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchDoctorResult.h; sourceTree = "<group>"; };
 		65BD7F131B22DB18004238AB /* SearchDoctorResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchDoctorResult.m; sourceTree = "<group>"; };
+		65BE8ECA1B252FE2006B9E89 /* InviteDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteDetailController.h; sourceTree = "<group>"; };
+		65BE8ECB1B252FE2006B9E89 /* InviteDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteDetailController.m; sourceTree = "<group>"; };
+		65BE8ECD1B253CC6006B9E89 /* InviteDoctorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteDoctorView.h; sourceTree = "<group>"; };
+		65BE8ECE1B253CC6006B9E89 /* InviteDoctorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteDoctorView.m; sourceTree = "<group>"; };
+		65BE8ED01B253DA3006B9E89 /* MessageOfInviteDoctor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageOfInviteDoctor.h; sourceTree = "<group>"; };
+		65BE8ED11B253DA3006B9E89 /* MessageOfInviteDoctor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageOfInviteDoctor.m; sourceTree = "<group>"; };
+		65BE8ED31B254048006B9E89 /* UILabel+LD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+LD.h"; sourceTree = "<group>"; };
+		65BE8ED41B254048006B9E89 /* UILabel+LD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+LD.m"; sourceTree = "<group>"; };
+		65BE8ED61B25637C006B9E89 /* ResponsedDoctorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponsedDoctorView.h; sourceTree = "<group>"; };
+		65BE8ED71B25637C006B9E89 /* ResponsedDoctorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponsedDoctorView.m; sourceTree = "<group>"; };
+		65BE8ED91B2569FB006B9E89 /* ResponsedDoctorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponsedDoctorController.h; sourceTree = "<group>"; };
+		65BE8EDA1B2569FB006B9E89 /* ResponsedDoctorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponsedDoctorController.m; sourceTree = "<group>"; };
+		65BE8EDF1B2578AB006B9E89 /* UITextField+LD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+LD.h"; sourceTree = "<group>"; };
+		65BE8EE01B2578AB006B9E89 /* UITextField+LD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+LD.m"; sourceTree = "<group>"; };
 		65C3478D1B22C51800919BE4 /* LoginDocDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginDocDetailController.h; sourceTree = "<group>"; };
 		65C3478E1B22C51800919BE4 /* LoginDocDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginDocDetailController.m; sourceTree = "<group>"; };
 		65C3D1BD1B1BF0A40050F540 /* LDHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDHttpTool.h; sourceTree = "<group>"; };
@@ -988,6 +1012,10 @@
 				65C4123D1B05BD5000A8B75F /* UIButton+SignUp.m */,
 				65C50C351B0D9DF80027455E /* UIBarButtonItem+ENTER.h */,
 				65C50C361B0D9DF80027455E /* UIBarButtonItem+ENTER.m */,
+				65BE8ED31B254048006B9E89 /* UILabel+LD.h */,
+				65BE8ED41B254048006B9E89 /* UILabel+LD.m */,
+				65BE8EDF1B2578AB006B9E89 /* UITextField+LD.h */,
+				65BE8EE01B2578AB006B9E89 /* UITextField+LD.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1773,6 +1801,12 @@
 				65CAB2F31B242B90005DAED4 /* PatientPlatformController.m */,
 				65CAB3011B244294005DAED4 /* FreeInviteController.h */,
 				65CAB3021B244294005DAED4 /* FreeInviteController.m */,
+				65BE8ECA1B252FE2006B9E89 /* InviteDetailController.h */,
+				65BE8ECB1B252FE2006B9E89 /* InviteDetailController.m */,
+				65BE8ED91B2569FB006B9E89 /* ResponsedDoctorController.h */,
+				65BE8EDA1B2569FB006B9E89 /* ResponsedDoctorController.m */,
+				65812D6A1B258A8100B05565 /* AppendInviteViewController.h */,
+				65812D6B1B258A8100B05565 /* AppendInviteViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1780,6 +1814,8 @@
 		65CAB2851B241130005DAED4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				65BE8ED01B253DA3006B9E89 /* MessageOfInviteDoctor.h */,
+				65BE8ED11B253DA3006B9E89 /* MessageOfInviteDoctor.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1787,6 +1823,10 @@
 		65CAB2861B241130005DAED4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				65BE8ECD1B253CC6006B9E89 /* InviteDoctorView.h */,
+				65BE8ECE1B253CC6006B9E89 /* InviteDoctorView.m */,
+				65BE8ED61B25637C006B9E89 /* ResponsedDoctorView.h */,
+				65BE8ED71B25637C006B9E89 /* ResponsedDoctorView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2137,17 +2177,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65BE8ED51B254048006B9E89 /* UILabel+LD.m in Sources */,
 				65C563981B1ECC9D007FC968 /* DoctorEnterParam.m in Sources */,
 				65BD7F141B22DB18004238AB /* SearchDoctorResult.m in Sources */,
 				65CAB2E51B241453005DAED4 /* TemporaryController.m in Sources */,
 				655453F91AFCA59D00C4BFFA /* HomeGroup.m in Sources */,
 				6554545B1AFCA59D00C4BFFA /* ActionSheetCustomPicker.m in Sources */,
+				65BE8EDB1B2569FB006B9E89 /* ResponsedDoctorController.m in Sources */,
 				655454671AFCA59D00C4BFFA /* IWSettingViewController.m in Sources */,
 				65CAB2931B241130005DAED4 /* PostHospitalController.m in Sources */,
 				65CAB2DF1B241317005DAED4 /* HospitalEnterTextField.m in Sources */,
 				65CFC7BF1B185F8F007F7062 /* AFURLConnectionOperation.m in Sources */,
 				655454451AFCA59D00C4BFFA /* SDWebImageManager+MJ.m in Sources */,
 				6554544F1AFCA59D00C4BFFA /* SDWebImageDecoder.m in Sources */,
+				65BE8EE11B2578AB006B9E89 /* UITextField+LD.m in Sources */,
 				654DF9C11B16A8FB00CC2062 /* ActionSheetCustomPicker+LD.m in Sources */,
 				6554544B1AFCA59D00C4BFFA /* MKAnnotationView+WebCache.m in Sources */,
 				655453FB1AFCA59D00C4BFFA /* Hospital.m in Sources */,
@@ -2227,6 +2270,7 @@
 				655454401AFCA59D00C4BFFA /* MJPhotoBrowser.m in Sources */,
 				650295E71B009575002249C0 /* MoreHeader.m in Sources */,
 				6554546A1AFCA59D00C4BFFA /* IWSettingItem.m in Sources */,
+				65812D6C1B258A8100B05565 /* AppendInviteViewController.m in Sources */,
 				6549963F1B02EA8D00FA33DC /* RecommendResult.m in Sources */,
 				650037D31B05E938009016E5 /* RDVTabBarController.m in Sources */,
 				65CFC7CB1B186190007F7062 /* HospitalEnterParam.m in Sources */,
@@ -2253,6 +2297,7 @@
 				655454111AFCA59D00C4BFFA /* CommonDisResult.m in Sources */,
 				65C6B2501B043174000BAFC6 /* ARSegmentView.m in Sources */,
 				654A30C81B00896C0043821B /* MJRefreshGifHeader.m in Sources */,
+				65BE8ECF1B253CC6006B9E89 /* InviteDoctorView.m in Sources */,
 				655454571AFCA59D00C4BFFA /* UIImage+WebP.m in Sources */,
 				6554543D1AFCA59D00C4BFFA /* NSObject+MJMember.m in Sources */,
 				650295EA1B009957002249C0 /* PostDocRecruitController.m in Sources */,
@@ -2324,12 +2369,14 @@
 				650295E31B009575002249C0 /* MoreGroup.m in Sources */,
 				6554544D1AFCA59D00C4BFFA /* SDImageCache.m in Sources */,
 				65CAB28E1B241130005DAED4 /* MessageTypeController.m in Sources */,
+				65BE8ED21B253DA3006B9E89 /* MessageOfInviteDoctor.m in Sources */,
 				655453E61AFCA59D00C4BFFA /* UIBarButtonItem+MJ.m in Sources */,
 				655454151AFCA59D00C4BFFA /* MultiJobResult.m in Sources */,
 				655454201AFCA59D00C4BFFA /* LDHomeFooterView.m in Sources */,
 				6599E7971B0C7E46007396E8 /* SignUpTool.m in Sources */,
 				65CFC7BE1B185F8F007F7062 /* AFSecurityPolicy.m in Sources */,
 				655454271AFCA59D00C4BFFA /* IWTabBarButton.m in Sources */,
+				65BE8ECC1B252FE2006B9E89 /* InviteDetailController.m in Sources */,
 				65CAB28A1B241130005DAED4 /* SurgeryViewController.m in Sources */,
 				6554541E1AFCA59D00C4BFFA /* HospitalCell.m in Sources */,
 				654A30CB1B00896C0043821B /* MJRefreshLegendHeader.m in Sources */,
@@ -2358,6 +2405,7 @@
 				65CAB2D81B241317005DAED4 /* WelcomeController.m in Sources */,
 				650295C71B00952E002249C0 /* RecruitMessageController.m in Sources */,
 				655453FA1AFCA59D00C4BFFA /* HomeItem.m in Sources */,
+				65BE8ED81B25637C006B9E89 /* ResponsedDoctorView.m in Sources */,
 				65CAB28F1B241130005DAED4 /* PlatformController.m in Sources */,
 				655454281AFCA59D00C4BFFA /* AppDelegate.m in Sources */,
 				650295E51B009575002249C0 /* Province.m in Sources */,
@@ -2477,6 +2525,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Wei Feng Hou (W5X736XVC4)";
 				INFOPLIST_FILE = "邻医家/Classes/SupportingFiles/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -2489,6 +2538,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Wei Feng Hou (W5X736XVC4)";
 				INFOPLIST_FILE = "邻医家/Classes/SupportingFiles/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;

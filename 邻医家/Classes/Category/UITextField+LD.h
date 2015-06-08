@@ -1,0 +1,17 @@
+//
+//  UITextField+LD.h
+//  邻医家
+//
+//  Created by Daniel on 15/6/8.
+//  Copyright (c) 2015年 DanielGrason. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface UITextField (LD)
++ (UITextField *)textFieldWithPlaceholder:(NSString *)placeholder
+                                      tag:(int)tag
+                                     font:(int)font
+                                textColor:(UIColor *)color
+                                 delegate:(id<UITextFieldDelegate>)delegate;
+@end

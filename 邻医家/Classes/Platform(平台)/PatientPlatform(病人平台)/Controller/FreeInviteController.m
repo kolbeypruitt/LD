@@ -5,8 +5,10 @@
 //  Created by Daniel on 15/6/7.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
-
+#import "AppendInviteViewController.h"
 #import "FreeInviteController.h"
+#import "InviteDetailController.h"
+#import "Common.h"
 #import "UIBarButtonItem+ENTER.h"
 @interface FreeInviteController ()
 
@@ -31,7 +33,8 @@
 }
 - (void)addInviteMessage
 {
-    
+    AppendInviteViewController *append = [[AppendInviteViewController alloc] init];
+    [self.navigationController pushViewController:append animated:YES];
 }
 #pragma mark - Table Datasource and Delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -49,6 +52,7 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    InviteDetailController *invite = [[InviteDetailController alloc] init];
+    [self.navigationController pushViewController:invite animated:YES];
 }
 @end

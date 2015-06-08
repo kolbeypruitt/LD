@@ -7,6 +7,7 @@
 //
 
 #import "AllResumeViewController.h"
+#import "ResponsedDoctorController.h"
 #import "Doctor.h"
 #import "IWCommon.h"
 #import "DoctorCell.h"
@@ -40,5 +41,10 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 90;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ResponsedDoctorController  *docVC = [[ResponsedDoctorController alloc] init];
+    [self.navigationController pushViewController:docVC animated:YES];
 }
 @end

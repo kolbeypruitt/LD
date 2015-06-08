@@ -27,4 +27,14 @@
     
     return button;
 }
++ (UIButton *)buttonWithTitle:(NSString *)title font:(int)fontSize titleColor:(UIColor *)color target:(id)target action:(SEL)action
+{
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setTitleColor:color forState:UIControlStateNormal];
+    [button setTitle:title forState:UIControlStateNormal];
+    button.titleLabel.font = [UIFont systemFontOfSize:fontSize];
+    button.titleLabel.backgroundColor = [UIColor clearColor];
+    [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+    return button;
+}
 @end

@@ -10,4 +10,9 @@
 
 @interface UIButton (LD)
 + (UIButton *)setupBtnWithImage:(NSString *)image selectedImage:(NSString *)selImage target:(id)target action:(SEL)action;
++ (UIButton *)buttonWithTitle:(NSString *)title
+                         font:(int)fontSize
+                   titleColor:(UIColor *)color
+                       target:(id)target
+                       action:(SEL)action;
 @end

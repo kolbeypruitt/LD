@@ -1,24 +1,27 @@
 //
-//  FreeForwardController.m
+//  AppendInviteViewController.m
 //  邻医家
 //
-//  Created by Daniel on 15/6/6.
+//  Created by Daniel on 15/6/8.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
 
-#import "FreeForwardController.h"
-#import "UIBarButtonItem+ENTER.h"
-#import "IWCommon.h"
+
+#define COUNT 12
+#import "AppendInviteViewController.h"
 #import "Common.h"
-#import "HospitalEnterTextField.h"
-@interface FreeForwardController () <UITextFieldDelegate,UIScrollViewDelegate,UITextViewDelegate>
-@property (nonatomic,strong) NSMutableArray *labels;
+#import "UILabel+LD.h"
+#import "UIBarButtonItem+ENTER.h"
+#import "UIButton+LD.h"
+#import "UITextField+LD.h"
+@interface AppendInviteViewController () <UIScrollViewDelegate,UITextFieldDelegate>
+@property (nonatomic,weak) UIScrollView *scrollView;
+@property (nonatomic,weak) UIButton *commitBtn;
 @property (nonatomic,strong) NSMutableArray *textFields;
 @property (nonatomic,strong) NSMutableArray *lines;
-@property (nonatomic,weak) UIScrollView *scrollView;
+@property (nonatomic,strong) NSMutableArray *labels;
 @end
-
-@implementation FreeForwardController
+@implementation AppendInviteViewController
 - (NSMutableArray *)labels
 {
     if (_labels == nil) {
@@ -46,24 +49,17 @@
 }
 - (void)setup
 {
-    self.title = @"自由转诊";
+    self.title = @"增加自由请医";
     self.view.backgroundColor = [UIColor whiteColor];
-    [self setNav];
+    self.navigationItem.rightBarButtonItem = nil;
     [self addCustomViews];
     [self layoutCustomViews];
 }
-- (void)setNav
-{
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(post) title:@"发布"];
-}
-- (void)post
-{
-    
-}
+
 - (void)addCustomViews
 {
-    NSArray *labelArray = @[@"选择科室",@"病人姓名",@"身份证号",@"最后一次就医医院",@"最后一次医院诊断",@"拟转诊就医地址",@"详细地址",@"接诊医师专业",@"接诊医师职务",@"是否住院",@"转诊目的",@"是否需要VIP",@"是否需要抢救"];
-    NSArray *placeholderArray = @[@"请点击选择",@"请输入真实姓名",@"请输入身份证号",@"请输入医院名称",@"请输入诊断详情",@"请点击选择",@"请输入详细地址",@"请点击选择",@"请点击选择",@"请点击选择",@"请点击选择",@"请点击选择",@"请点击选择"];
+    NSArray *labelArray = @[@"姓名",@"身份证号",@"性别",@"最后一次就医医院",@"最后一次就医科室",@"最后一次诊断",@"邀请医生的地址",@"邀请医生的专业",@"邀请医生的职位",@"请医目的",@"VIP",@"备注"];
+    NSArray *placeholderArray = @[@"请输入姓名",@"请输入身份证号",@"选择性别",@"请输入",@"请输入",@"请输入",@"请输入请医地址",@"请输入医生专业",@"请输入医生职位",@"请输入请医目的",@"是否需要VIP",@"请输入备注"];
     const int count = (int)labelArray.count;
     //1.scrollView
     UIScrollView *scrollView = [[UIScrollView alloc] init];
@@ -85,7 +81,7 @@
         [self.scrollView addSubview:label];
         [self.labels addObject:label];
         
-        HospitalEnterTextField *textfield = [[HospitalEnterTextField alloc] init];
+        UITextField *textfield = [[UITextField alloc] init];
         textfield.placeholder = [placeholderArray objectAtIndex:i];
         textfield.borderStyle = UITextBorderStyleNone;
         textfield.tag = i;
@@ -99,7 +95,19 @@
         [self.textFields addObject:textfield];
         
         [self.lines addObject:[self addLine]];
+        
+        UIButton *commitBtn = [[UIButton alloc] init];;
+        [commitBtn setTitle:@"提交" forState:UIControlStateNormal];
+        commitBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+        commitBtn.titleLabel.backgroundColor = [UIColor clearColor];
+        [commitBtn addTarget:self action:@selector(commitBtnClicked) forControlEvents:UIControlEventTouchUpInside];
+        self.commitBtn = commitBtn;
+        [self.scrollView addSubview:commitBtn];
     }
+}
+- (void)commitBtnClicked
+{
+    
 }
 - (UIView *)addLine
 {
@@ -136,15 +144,18 @@
         lineY = CGRectGetMaxY(label.frame) + padding/2;
         line.frame = CGRectMake(lineX, lineY, lineW, lineH);
         
-        HospitalEnterTextField *textfield = [self.textFields objectAtIndex:i];
+        UITextField *textfield = [self.textFields objectAtIndex:i];
         textfX = CGRectGetMaxX(label.frame);
         textfY = labelY + 7;
         textfW = SCREENWIDTH - textfX - padding;
         textfield.frame = CGRectMake(textfX, textfY, textfW, textfH);
         
     }
+    
+    UIView *lastline = [self.lines lastObject];
+    [self.commitBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    self.commitBtn.frame = CGRectMake(padding, CGRectGetMaxY(lastline.frame) + padding/2, SCREENWIDTH - 2 * padding, 35);
 }
-
 
 
 @end
