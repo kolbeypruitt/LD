@@ -6,28 +6,49 @@
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
 #define COUNT 11
+#import "ConsultMessage.h"
+#import "ConsultDetailTool.h"
+#import "ConsultDetailParam.h"
+#import "ConsultDetailResult.h"
 #import "AllResumeViewController.h"
 #import "ConfirmedResumeController.h"
-#import "RecruitDetailController.h"
+#import "ConsultDetailController.h"
 #import "ResumeMessageView.h"
 #import "Common.h"
 #import "RecruitMessageView.h"
-@interface RecruitDetailController ()<ResumeMessageViewDelegate>
+@interface ConsultDetailController ()<ResumeMessageViewDelegate>
 @property (nonatomic,weak) ResumeMessageView *resumeView;
 @property (nonatomic,weak) RecruitMessageView  *messageView;
+@property (nonatomic,strong) ConsultDetailResult *result;
 @end
 
-@implementation RecruitDetailController
+@implementation ConsultDetailController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self loadData];
     [self setup];
     [self addCustomViews];
     [self layoutCustomViews];
 }
+- (void)loadData
+{
+    ConsultDetailParam *param = [ConsultDetailParam paramWithId:self.consultMessage.id];
+    [ConsultDetailTool consultDetailWithParam:param success:^(ConsultDetailResult *result) {
+        self.result = result;
+    } failure:^(NSError *error) {
+        
+    }];
+}
+- (void)setResult:(ConsultDetailResult *)result
+{
+    _result = result;
+    self.resumeView.result = result;
+}
 - (void)setup
 {
     self.title = @"招聘详情";
+    self.view.backgroundColor  = IWColor(226, 226, 226);
 }
 - (void)addCustomViews
 {

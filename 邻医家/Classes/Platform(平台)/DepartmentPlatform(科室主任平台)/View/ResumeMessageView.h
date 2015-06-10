@@ -5,7 +5,7 @@
 //  Created by Daniel on 15/6/4.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
-@class ResumeMessageView;
+@class ResumeMessageView,ConsultDetailResult;
 #import <UIKit/UIKit.h>
 @protocol ResumeMessageViewDelegate <NSObject>
 @optional
@@ -15,4 +15,5 @@
 
 @interface ResumeMessageView : UIView
 @property (nonatomic,weak) id<ResumeMessageViewDelegate> delegate;
+@property (nonatomic,strong) ConsultDetailResult *result;
 @end

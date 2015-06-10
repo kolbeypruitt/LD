@@ -25,5 +25,16 @@
  *  职称
  */
 @property (nonatomic,assign) int techtile;
-
+/**
+ *  是否住院
+ */
+@property (nonatomic,assign) int ishospital;
+/**
+ *  是否需要VIP
+ */
+@property (nonatomic,assign) int isvip;
+/**
+ *   是否需要急救
+ */
+@property (nonatomic,assign) int isfirstaid;
 @end

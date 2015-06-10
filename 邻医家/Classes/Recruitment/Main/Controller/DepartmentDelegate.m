@@ -15,7 +15,6 @@
 
 @interface DepartmentDelegate () 
 @property (nonatomic,copy) NSString *firstContent;
-@property (nonatomic,strong) NSMutableArray *departmentsArray;
 @property (nonatomic,copy) NSString *secondContent;
 @property (nonatomic,assign) int choosedId;
 @end

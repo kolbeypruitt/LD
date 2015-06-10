@@ -27,9 +27,12 @@
 #define HOSPITALENTERURL @"http://116.228.153.157:8888/assfinance/hospital/hospitalSignIn"
 #define SIGNUPURL @"http://116.228.153.157:8888/assfinance/user/toRegister"
 #define GETCHECKINURL @"http://116.228.153.157:8888/assfinance/user/sendSecurityCode"
-#define LOGINURL @"http://116.228.153.157:8888/assfinance/user/login"
+#define LOGINURL @"http://192.168.1.17:8080/assfinance/user/login"
 #define DOCTORENTERURL @"http://192.168.1.17:8080/assfinance/doctor/doctorSignIn"
 #define PATIENTENTERURL @"http://192.168.1.17:8080/assfinance/patient/patientSignIn"
+#define POSTCONSULTURL @"http://192.168.1.17:8080/assfinance/hospital/releaseGroupConsultation"
+#define QUERYCONSULTURL @"http://192.168.1.17:8080/assfinance/hospital/getMyGroupConsultation"
+#define CONSULTDETAILURL @"http://192.168.1.17:8080/assfinance/hospital/getMyGroupConsultationById"
 #define SUCCESSSTATUS @"S"
 #define TABLEMARGIN 5
 #define CELLMARGIN 8

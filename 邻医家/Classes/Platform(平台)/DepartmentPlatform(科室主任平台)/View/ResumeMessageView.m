@@ -5,7 +5,7 @@
 //  Created by Daniel on 15/6/4.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
-
+#import "ConsultDetailResult.h"
 #import "ResumeMessageView.h"
 @interface ResumeMessageView ()
 /**
@@ -20,11 +20,18 @@
 @property (nonatomic,weak) UIImageView *secondLine;
 @end
 @implementation ResumeMessageView
+- (void)setResult:(ConsultDetailResult *)result
+{
+    _result = result;
+    NSString *allResume = [NSString stringWithFormat:@"一共收到%d封简历",result.all];
+    NSString *confirmedResume = [NSString stringWithFormat:@"已录取%d封简历",result.accept];
+    [self.receivedBtn setTitle:allResume forState:UIControlStateNormal];
+    [self.confirmedBtn setTitle:confirmedResume forState:UIControlStateNormal];
+}
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
         UIButton *receivedBtn = [[UIButton alloc] init];
-        [receivedBtn setTitle:@"已收到3封简历" forState:UIControlStateNormal];
         receivedBtn.tag = 1;
         receivedBtn.titleLabel.font = [UIFont systemFontOfSize:15];
         receivedBtn.titleLabel.backgroundColor = [UIColor clearColor];
@@ -35,7 +42,6 @@
         
         UIButton *confirmedBtn = [[UIButton alloc] init];
         confirmedBtn.tag = 2;
-        [confirmedBtn setTitle:@"已录取2封简历" forState:UIControlStateNormal];
         [confirmedBtn setTitleColor:[UIColor purpleColor] forState:UIControlStateNormal];
         confirmedBtn.titleLabel.font = [UIFont systemFontOfSize:15];
         confirmedBtn.titleLabel.backgroundColor = [UIColor clearColor];

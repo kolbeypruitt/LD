@@ -5,28 +5,53 @@
 //  Created by Daniel on 15/6/6.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
-
+#import "ConsultDetailController.h"
+#import "ConsultMessage.h"
+#import "ConsultDetailController.h"
 #import "DepartmentDirectorController.h"
 #import "TemporaryController.h"
+#import "ConsultDetailParam.h"
 #import "FreeForwardController.h"
 #import "UIBarButtonItem+ENTER.h"
 #import "SurgeryViewController.h"
 #import "StubbornViewController.h"
-
+#import "LDBaseParam.h"
+#import "QueryConsultTool.h"
+#import "QueryConsultResult.h"
 @interface DepartmentDirectorController () <UIActionSheetDelegate>
-
+/**
+ *  ConsultMessage模型数组
+ */
+@property (nonatomic,strong) NSMutableArray *datas;
 @end
 
 @implementation DepartmentDirectorController
-
+- (NSMutableArray *)datas
+{
+    if (_datas == nil) {
+        _datas = [NSMutableArray array];
+    }
+    return _datas;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self loadData];
     [self setup];
+}
+- (void)loadData
+{
+    LDBaseParam *param = [LDBaseParam param];
+    [QueryConsultTool queryConsultWithParam:param success:^(QueryConsultResult *result) {
+        [self.datas addObjectsFromArray:result.gs];
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+    }];
 }
 - (void)setup
 {
     self.title = @"科室主任平台";
     self.view.backgroundColor = [UIColor whiteColor];
+    
     [self setNav];
 }
 - (void)setNav
@@ -39,9 +64,10 @@
     [actionSheet showInView:self.view];
 //    [actionSheet showFromBarButtonItem:self.navigationItem.rightBarButtonItem animated:YES];
 }
+#pragma mark - TableView delegate and datasource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 20;
+    return self.datas.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -49,14 +75,19 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
     }
-    NSDate *date = [NSDate date];
-    NSDateFormatter *formater = [[NSDateFormatter alloc] init];
-    formater.dateFormat = @"yy-MM-dd HH:mm:ss";
-    NSString *dateStr = [formater stringFromDate:date];
-    cell.textLabel.text = [NSString stringWithFormat:@"已发布开刀信息"];
-    cell.detailTextLabel.text = dateStr;
+    ConsultMessage *consult = self.datas[indexPath.row];
+    cell.textLabel.text = consult.title;
+    cell.detailTextLabel.text = consult.createTime;
     
     return cell;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ConsultMessage *consult = self.datas[indexPath.row];
+    ConsultDetailController *consultVC = [[ConsultDetailController alloc] init];
+    consultVC.consultMessage = consult;
+    [self.navigationController pushViewController:consultVC animated:YES];
+    
 }
 #pragma mark - UIActionSheet Delegate
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex

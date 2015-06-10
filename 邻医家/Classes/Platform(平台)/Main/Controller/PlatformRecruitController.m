@@ -7,7 +7,7 @@
 //
 
 #import "PlatformRecruitController.h"
-#import "RecruitDetailController.h"
+#import "ConsultDetailController.h"
 @interface PlatformRecruitController ()
 
 @end
@@ -41,7 +41,7 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    RecruitDetailController *detatilVC = [[RecruitDetailController alloc] init];
+    ConsultDetailController *detatilVC = [[ConsultDetailController alloc] init];
     [self.navigationController pushViewController:detatilVC animated:NO];
 }
 @end

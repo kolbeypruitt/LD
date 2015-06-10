@@ -17,19 +17,27 @@
     at.token = token;
     return at;
 }
-- (instancetype)initWithCoder:(NSCoder *)aDecoder
++ (Account *)accountWithTelnum:(NSString *)telnum password:(NSString *)password token:(NSString *)token type:(int)type department:(NSString *)department
 {
-    if (self = [super init]) {
-        self.telnum = [aDecoder decodeObjectForKey:@"telnum"];
-        self.password = [aDecoder decodeObjectForKey:@"password"];
-        self.token = [aDecoder decodeObjectForKey:@"token"];
-    }
-    return self;
+    Account *acco = [Account accountWithTelnum:telnum password:password token:token];
+    acco.department = department;
+    acco.type = type;
+    return acco;
 }
-- (void)encodeWithCoder:(NSCoder *)aCoder
-{
-    [aCoder encodeObject:self.telnum forKey:@"telnum"];
-    [aCoder encodeObject:self.token forKey:@"token"];
-    [aCoder encodeObject:self.password forKey:@"password"];
-}
+MJCodingImplementation
+//- (instancetype)initWithCoder:(NSCoder *)aDecoder
+//{
+//    if (self = [super init]) {
+//        self.telnum = [aDecoder decodeObjectForKey:@"telnum"];
+//        self.password = [aDecoder decodeObjectForKey:@"password"];
+//        self.token = [aDecoder decodeObjectForKey:@"token"];
+//    }
+//    return self;
+//}
+//- (void)encodeWithCoder:(NSCoder *)aCoder
+//{
+//    [aCoder encodeObject:self.telnum forKey:@"telnum"];
+//    [aCoder encodeObject:self.token forKey:@"token"];
+//    [aCoder encodeObject:self.password forKey:@"password"];
+//}
 @end

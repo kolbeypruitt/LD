@@ -9,4 +9,5 @@
 #import <Foundation/Foundation.h>
 @interface LDBaseParam : NSObject
 @property (nonatomic,copy) NSString *token;
++ (instancetype)param;
 @end

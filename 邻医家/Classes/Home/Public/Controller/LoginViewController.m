@@ -81,7 +81,11 @@
                     Account *at = [AccountTool account];
                     if (at == nil )
                     {
-                        at = [Account accountWithTelnum:self.telnumField.text password:self.passwdField.text token:result.token];
+                        at = [Account accountWithTelnum:self.telnumField.text
+                                               password:self.passwdField.text
+                                                  token:result.token
+                                                   type:result.type
+                                             department:result.department];
                         [AccountTool saveAccount:at];
                     }
 //                    [[NSNotificationCenter defaultCenter] postNotificationName:LOGINDONWNOTIFICATION object:nil];

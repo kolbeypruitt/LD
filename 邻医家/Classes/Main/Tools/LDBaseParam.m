@@ -16,4 +16,9 @@
     }
     return _token;
 }
++ (instancetype)param
+{
+    LDBaseParam *param = [[LDBaseParam alloc] init];
+    return param;
+}
 @end

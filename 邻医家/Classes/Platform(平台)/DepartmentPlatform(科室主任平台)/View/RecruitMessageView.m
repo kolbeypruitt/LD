@@ -29,6 +29,10 @@
     }
     return _messages;
 }
+- (void)setMessage:(ConsultDetailMessage *)message
+{
+    _message = message;
+}
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
