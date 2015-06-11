@@ -10,6 +10,19 @@
 #import "Common.h"
 #import "UIBarButtonItem+ENTER.h"
 #import "HospitalEnterTextField.h"
+#import "MBProgressHUD+MJ.h"
+#import "IshospitalDelegate.h"
+#import "PostConsultParam.h"
+#import "NiyaoDelegate.h"
+#import "BaseResult.h"
+#import "LDEnterData.h"
+#import "SingleDepartmentDelegate.h"
+#import "ZonePickerDelegate.h"
+#import "ActionSheetCustomPicker+LD.h"
+#import "ActionSheetDatePicker+LD.h"
+#import "PostConsultTool.h"
+#import "UIBarButtonItem+ENTER.h"
+
 @interface StubbornViewController () <UITextFieldDelegate>
 @property (nonatomic,strong) NSMutableArray *labels;
 @property (nonatomic,strong) NSMutableArray *textfields;
@@ -57,7 +70,21 @@
 }
 - (void)post
 {
-    
+    PostConsultParam *param = [[PostConsultParam alloc] init];
+    param.department = [[[self.textfields firstObject] enterData] department];
+    param.illness = [[self.textfields objectAtIndex:1] text];
+    param.caseAbstract = [[self.textfields objectAtIndex:2] text];
+    param.gctime = [[self.textfields objectAtIndex:3] text];
+    param.location = [[[self.textfields objectAtIndex:4] enterData] hospitalLocation];
+    param.address = [[self.textfields objectAtIndex:5] text];
+    param.appointHospital = [[self.textfields objectAtIndex:6] text];
+    param.doctorJob = [[self.textfields objectAtIndex:7] text];
+    param.isHospital = [[[self.textfields lastObject] enterData] ishospital];
+    [PostConsultTool postConsulWithParam:param success:^(BaseResult *result) {
+        [self.navigationController popViewControllerAnimated:YES];
+    } failure:^(NSError *error) {
+        [MBProgressHUD showError:@"信息不完整,发布失败!"];
+    }];
 }
 - (void)addCustomViews
 {
@@ -136,8 +163,62 @@
 {
     [self.view endEditing:YES];
 }
-
-
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    switch (textField.tag) {
+        case 0:
+        {
+             ActionSheetCustomPicker *customPicker = [ActionSheetCustomPicker customPickerWithTitle:@"选择科室"
+                                                                                              delegate:[[SingleDepartmentDelegate alloc] init]
+                                                                                                origin:textField];
+                [customPicker showActionSheetPicker];
+            return NO;
+        }
+        case 3:
+        {
+            ActionSheetDatePicker *datePicker = [ActionSheetDatePicker dataPickerWithTitle:@"选择时间"
+                                                                            datePickerMode:UIDatePickerModeDate
+                                                                                doneBlocke:^(ActionSheetDatePicker *picker, id selectedDate, id origin) {
+                NSDateFormatter *dateFormater = [[NSDateFormatter alloc] init];
+                dateFormater.dateFormat = @"yyyy-MM-dd";
+                NSString *dateStr = [dateFormater stringFromDate:selectedDate];
+                textField.text = dateStr;
+            }
+                                                                               cancelBlock:^(ActionSheetDatePicker *picker) {
+                
+            }
+                                                                                    origin:textField];
+            [datePicker showActionSheetPicker];
+            return NO;
+        }
+        case 4:
+        {
+              ActionSheetCustomPicker *customPicker = [ActionSheetCustomPicker customPickerWithTitle:@"选择地区"
+                                                                                              delegate:[[ZonePickerDelegate alloc] init]
+                                                                                                origin:textField];
+                [customPicker showActionSheetPicker];
+            return NO;
+        }
+        case 7:
+        {
+                ActionSheetCustomPicker *customPicker = [ActionSheetCustomPicker customPickerWithTitle:@"请选择"
+                                                                                              delegate:[[NiyaoDelegate alloc] init]
+                                                                                                origin:textField];
+                [customPicker showActionSheetPicker];
+            return NO;
+        }
+        case 8:
+        {
+                ActionSheetCustomPicker *customPicker = [ActionSheetCustomPicker customPickerWithTitle:@"请选择"
+                                                                                              delegate:[[IshospitalDelegate alloc] init]
+                                                                                                origin:textField];
+                [customPicker showActionSheetPicker];
+            return NO;
+        }
+        default:
+            return YES;
+    }
+}
 
 
 @end

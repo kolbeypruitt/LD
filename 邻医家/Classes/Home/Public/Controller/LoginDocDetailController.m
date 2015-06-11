@@ -5,10 +5,11 @@
 //  Created by Daniel on 15/6/6.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
-
+#import "AchieveMentCell.h"
 #import "LoginDocDetailController.h"
 #import "Common.h"
 #import "IWCommon.h"
+#import "IntroductionView.h"
 @interface LoginDocDetailController () <UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate>
 /**
  *  选项卡
@@ -18,7 +19,7 @@
 /**
  *   介绍
  */
-@property (nonatomic,weak) UIView *introductionView;
+@property (nonatomic,weak) IntroductionView *introductionView;
 /**
  *   成果
  */
@@ -61,7 +62,7 @@
     [self.view addSubview:scrollView];
     
     //介绍
-    UIView *introductionView = [[UIView alloc] init];
+    IntroductionView *introductionView = [[IntroductionView alloc] init];
     self.introductionView = introductionView;
     [self.scrollView addSubview:introductionView];
     
@@ -187,12 +188,26 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if ([tableView isEqual:self.achievementView]) {
+        AchieveMentCell *cell = [AchieveMentCell cellWithTabelView:tableView];
+        return cell;
+    }
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
     cell.textLabel.text = [NSString stringWithFormat:@"cell %d",(int)indexPath.row];
     return cell;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([tableView isEqual:self.achievementView]) {
+        return 144;
+    }else
+    {
+        return 40;
+    }
+    
 }
 
 

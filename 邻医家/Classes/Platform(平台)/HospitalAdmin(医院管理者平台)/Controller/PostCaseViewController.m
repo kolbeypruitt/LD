@@ -7,7 +7,7 @@
 //
 
 #import "PostCaseViewController.h"
-
+#import "Common.h"
 @interface PostCaseViewController ()
 
 @end
@@ -20,6 +20,7 @@
 }
 - (void)setup
 {
+    self.view.backgroundColor = IWColor(226, 226, 226);
     self.title = @"发布病例";
 }
 @end

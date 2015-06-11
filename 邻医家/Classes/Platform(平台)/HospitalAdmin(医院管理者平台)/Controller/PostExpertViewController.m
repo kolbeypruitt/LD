@@ -50,6 +50,7 @@
 }
 - (void)setNav
 {
+    self.view.backgroundColor = IWColor(226, 226, 226);
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(submit) title:@"提交"];
 }
 - (void)submit

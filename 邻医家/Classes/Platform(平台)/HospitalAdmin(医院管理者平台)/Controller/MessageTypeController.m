@@ -41,6 +41,7 @@
 }
 - (void)setup
 {
+    self.view.backgroundColor = IWColor(226, 226, 226);
     self.title = @"选择发布类型";
     [self addCustomViews];
     [self layoutCustomViews];

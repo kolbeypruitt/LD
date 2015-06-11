@@ -33,6 +33,10 @@
 #define POSTCONSULTURL @"http://192.168.1.17:8080/assfinance/hospital/releaseGroupConsultation"
 #define QUERYCONSULTURL @"http://192.168.1.17:8080/assfinance/hospital/getMyGroupConsultation"
 #define CONSULTDETAILURL @"http://192.168.1.17:8080/assfinance/hospital/getMyGroupConsultationById"
+#define GETEMPLOYURL @"http://192.168.1.17:8080/assfinance/hospital/getMyEmployInfo"
+#define GETEMPLOYDETAILURL @"http://192.168.1.17:8080/assfinance/hospital/getMyEmployInfoById"
+#define GETACCEPTEDURL @"http://192.168.1.17:8080/assfinance/hospital/getAcceptedResumeById"
+#define GETALLRESUMEURL @"http://192.168.1.17:8080/assfinance/hospital/getAllResumeById"
 #define SUCCESSSTATUS @"S"
 #define TABLEMARGIN 5
 #define CELLMARGIN 8

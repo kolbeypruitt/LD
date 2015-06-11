@@ -1,16 +1,16 @@
 //
-//  PlatformController.m
+//  HospitalAdminController.m
 //  邻医家
 //
 //  Created by Daniel on 15/6/1.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
 #import "Common.h"
-#import "PlatformController.h"
+#import "HospitalAdminController.h"
 #import "IWCommon.h"
 #import "PlatformRecruitController.h"
 #import "MessageTypeController.h"
-@interface PlatformController ()
+@interface HospitalAdminController ()
 /**
  *    招聘
  */
@@ -25,7 +25,7 @@
 @property (nonatomic,weak) UIButton *postMessageBtn;
 @end
 
-@implementation PlatformController
+@implementation HospitalAdminController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

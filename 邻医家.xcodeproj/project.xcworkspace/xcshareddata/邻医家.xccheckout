@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>A747CB97-8E75-471B-8F62-683E191069E7</string>
 	<key>IDESourceControlProjectName</key>
-	<string>邻医家</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>B2E968C734CBCF835625F04B94B284B9B64A9534</key>
 		<string>github.com:ShawnLeee/LD.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>邻医家.xcodeproj</string>
+	<string>邻医家.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>B2E968C734CBCF835625F04B94B284B9B64A9534</key>

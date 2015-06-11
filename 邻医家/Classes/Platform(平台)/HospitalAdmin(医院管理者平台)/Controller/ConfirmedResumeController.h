@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-
 @interface ConfirmedResumeController : UITableViewController
-
+@property (nonatomic,strong) NSArray *employers;
 @end

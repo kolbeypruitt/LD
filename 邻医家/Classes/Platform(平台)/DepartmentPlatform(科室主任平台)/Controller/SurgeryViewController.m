@@ -5,6 +5,7 @@
 //  Created by Daniel on 15/6/6.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "MBProgressHUD+MJ.h"
 #import "IshospitalDelegate.h"
 #import "PostConsultParam.h"
 #import "NiyaoDelegate.h"
@@ -67,31 +68,20 @@
 - (void)post
 {
     PostConsultParam *param = [[PostConsultParam alloc] init];
-    param.gctime = [[self.textfields objectAtIndex:4] text];
+    param.department = [[[self.textfields firstObject] enterData] department];
     param.illness = [[self.textfields objectAtIndex:1] text];
-    param.location = [[[self.textfields objectAtIndex:5] enterData] hospitalLocation];
-    param.address = [[self.textfields objectAtIndex:6] text];
-    param.isHospital = 1;
-    param.appointHospital = [[self.textfields objectAtIndex:8] text];
-//    param.doctorJob = ;
-    param.consultationType = 1;
     param.operationName = [[self.textfields objectAtIndex:2] text];;
     param.operationNum = [[[self.textfields objectAtIndex:3] text] intValue];
-    param.caseAbstract = @"hdshldhf";
-    param.patientName = @"Nina";
-    param.idcardNo = @"112";
-    param.lastHospitalDepartment = @"外科";
-    param.lastDiagnose = @"aaaaa";
-    param.hospitalLocationTogo = 2;
-    param.hospitalAddressTogo = @"Danver";
-    param.profession = @"aaaaa";
-    param.purpose = @"I dont know";
-    param.isvip = 1;
-    param.isfirstaid = 2;
+    param.gctime = [[self.textfields objectAtIndex:4] text];
+    param.location = [[[self.textfields objectAtIndex:5] enterData] hospitalLocation];
+    param.address = [[self.textfields objectAtIndex:6] text];
+    param.appointHospital = [[self.textfields objectAtIndex:7] text];
+    param.doctorJob = [[self.textfields objectAtIndex:8] text];
+    param.isHospital = [[[self.textfields lastObject] enterData] ishospital];
     [PostConsultTool postConsulWithParam:param success:^(BaseResult *result) {
-        NSLog(@"You are amazing!!!");
+        [self.navigationController popViewControllerAnimated:YES];
     } failure:^(NSError *error) {
-        NSLog(@"error");
+        [MBProgressHUD showError:@"信息不完整,发布失败!"];
     }];
 }
 - (void)addCustomViews

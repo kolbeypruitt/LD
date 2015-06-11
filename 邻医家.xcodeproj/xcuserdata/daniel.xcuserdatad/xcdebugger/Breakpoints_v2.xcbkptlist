@@ -59,19 +59,5 @@
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x90bb;&#x533b;&#x5bb6;/Classes/Platform(&#x5e73;&#x53f0;)/DepartmentPlatform(&#x79d1;&#x5ba4;&#x4e3b;&#x4efb;&#x5e73;&#x53f0;)/Controller/IshospitalDelegate.m"
-            timestampString = "455628613.869465"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22">
-         </BreakpointContent>
-      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

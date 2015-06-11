@@ -5,7 +5,18 @@
 //  Created by Daniel on 15/6/6.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
-
+#import "MBProgressHUD+MJ.h"
+#import "IshospitalDelegate.h"
+#import "PostConsultParam.h"
+#import "NiyaoDelegate.h"
+#import "BaseResult.h"
+#import "LDEnterData.h"
+#import "SingleDepartmentDelegate.h"
+#import "ZonePickerDelegate.h"
+#import "ActionSheetCustomPicker+LD.h"
+#import "ActionSheetDatePicker+LD.h"
+#import "PostConsultTool.h"
+#import "UIBarButtonItem+ENTER.h"
 #import "FreeForwardController.h"
 #import "UIBarButtonItem+ENTER.h"
 #import "IWCommon.h"
@@ -142,6 +153,55 @@
         textfW = SCREENWIDTH - textfX - padding;
         textfield.frame = CGRectMake(textfX, textfY, textfW, textfH);
         
+    }
+}
+
+#pragma mark - UITextfield delegate
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    switch (textField.tag) {
+        case 0:
+        {
+            ActionSheetCustomPicker *customPicker = [ActionSheetCustomPicker customPickerWithTitle:@"选择科室"
+                                                                                              delegate:[[SingleDepartmentDelegate alloc] init]
+                                                                                                origin:textField];
+                [customPicker showActionSheetPicker];
+            return NO;
+        }
+        case 4:
+        {
+            ActionSheetDatePicker *datePicker = [ActionSheetDatePicker dataPickerWithTitle:@"选择时间"
+                                                                            datePickerMode:UIDatePickerModeDate
+                                                                                doneBlocke:^(ActionSheetDatePicker *picker, id selectedDate, id origin) {
+                NSDateFormatter *dateFormater = [[NSDateFormatter alloc] init];
+                dateFormater.dateFormat = @"yyyy-MM-dd";
+                NSString *dateStr = [dateFormater stringFromDate:selectedDate];
+                textField.text = dateStr;
+            }
+                                                                               cancelBlock:^(ActionSheetDatePicker *picker) {
+                
+            }
+                                                                                    origin:textField];
+            [datePicker showActionSheetPicker];
+            return NO;
+        }case 5:
+        {
+             ActionSheetCustomPicker *customPicker = [ActionSheetCustomPicker customPickerWithTitle:@"选择地区"
+                                                                                              delegate:[[ZonePickerDelegate alloc] init]
+                                                                                                origin:textField];
+                [customPicker showActionSheetPicker];
+            return NO;
+        }
+        case 9:
+        {
+            ActionSheetCustomPicker *customPicker = [ActionSheetCustomPicker customPickerWithTitle:@"请选择"
+                                                                                              delegate:[[IshospitalDelegate alloc] init]
+                                                                                                origin:textField];
+                [customPicker showActionSheetPicker];
+            return NO;
+        }
+        default:
+            return YES;
     }
 }
 

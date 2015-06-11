@@ -10,7 +10,7 @@
 #import "UIBarButtonItem+ENTER.h"
 #import "PublicHomeController.h"
 #import "IWNavigationController.h"
-#import "PlatformController.h"
+#import "HospitalAdminController.h"
 #import "IWMeViewController.h"
 @interface ReviewController ()
 

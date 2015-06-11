@@ -33,6 +33,7 @@
 - (void)setup
 {
     self.title = @"填写医院简介";
+    self.view.backgroundColor = IWColor(226, 226, 226);
     [self addCustomViews];
     [self layoutCustomViews];
     [self setNav];

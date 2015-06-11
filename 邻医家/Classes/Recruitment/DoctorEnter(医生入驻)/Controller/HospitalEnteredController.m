@@ -11,7 +11,7 @@
 #import "RDVTabBarItem.h"
 #import "IWNavigationController.h"
 #import "PublicHomeController.h"
-#import "PlatformController.h"
+#import "HospitalAdminController.h"
 #import "IWMeViewController.h"
 @interface HospitalEnteredController ()
 
@@ -29,8 +29,8 @@
     PublicHomeController *home = [[PublicHomeController alloc] init];
     IWNavigationController *nav1 = [[IWNavigationController alloc] initWithRootViewController:home];
     
-//    PlatformController  *recruit = [[PlatformController alloc] init];
-    DepartmentDirectorController *recruit = [[DepartmentDirectorController alloc] init];
+    HospitalAdminController  *recruit = [[HospitalAdminController alloc] init];
+//    DepartmentDirectorController *recruit = [[DepartmentDirectorController alloc] init];
     IWNavigationController *nav2 = [[IWNavigationController alloc] initWithRootViewController:recruit];
     
     IWMeViewController *me = [[IWMeViewController alloc] init];
