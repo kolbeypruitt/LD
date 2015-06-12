@@ -70,6 +70,10 @@
 - (void)actionSheetPickerDidSucceed:(AbstractActionSheetPicker *)actionSheetPicker origin:(id)origin
 {
     if ([origin isKindOfClass:[UIButton class]]) {
+        if (self.secondDepartment.length) {
+            UIButton *button = (UIButton *)origin;
+            [button setTitle:self.secondDepartment forState:UIControlStateNormal];
+        }
     }else if([origin isKindOfClass:[HospitalEnterTextField class]])
     {
         HospitalEnterTextField *textfield = (HospitalEnterTextField *)origin;

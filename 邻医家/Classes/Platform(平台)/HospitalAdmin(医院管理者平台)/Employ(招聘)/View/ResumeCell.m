@@ -46,14 +46,12 @@
     self.hospitalLabel.text = employer.hospital;
     
     if (employer.status == 1) {
-        [self.statusBtn setTitle:@"录取" forState:UIControlStateNormal];
+        [self.statusBtn setTitle:@"待录取" forState:UIControlStateNormal];
         [self.statusBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-        self.statusBtn.enabled = YES;
     }else if (employer.status == 2)
     {
         [self.statusBtn setTitle:@"已录取" forState:UIControlStateNormal];
         [self.statusBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-        self.statusBtn.enabled = NO;
     }
 }
 - (void)setFrame:(CGRect)frame

@@ -8,6 +8,7 @@
 #import "ResumeCell.h"
 #import "ConfirmedResumeController.h"
 #import "IWCommon.h"
+#import "DoctorResumeController.h"
 #import "Employer.h"
 @interface ConfirmedResumeController ()
 
@@ -39,4 +40,21 @@
 {
     return 90;
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Employer *employer = [self.employers objectAtIndex:indexPath.row];
+    DoctorResumeController *docVC = [[DoctorResumeController alloc] init];
+    docVC.employer = employer;
+    [self.navigationController pushViewController:docVC animated:YES];
+}
 @end
+
+
+
+
+
+
+
+
+
+

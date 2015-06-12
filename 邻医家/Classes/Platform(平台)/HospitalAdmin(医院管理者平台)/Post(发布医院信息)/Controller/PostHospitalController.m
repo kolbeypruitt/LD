@@ -5,9 +5,13 @@
 //  Created by Daniel on 15/6/5.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "BaseResult.h"
 #import "UIBarButtonItem+ENTER.h"
 #import "PostHospitalController.h"
+#import "HospitalInfoParam.h"
+#import "PostHosInfoTool.h"
 #import "LDTextView.h"
+#import "MBProgressHUD+MJ.h"
 #import "Common.h"
 #import "IWCommon.h"
 @interface PostHospitalController () <UITextViewDelegate>
@@ -40,11 +44,26 @@
 }
 - (void)setNav
 {
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(nextStep) title:@"下一步"];
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(commit) title:@"提交"];
 }
-- (void)nextStep
+- (void)commit
 {
-    
+    if (self.webTextField.text.length == 0) {
+        [MBProgressHUD showError:@"请输入医院网址"];
+        return;
+    }
+    if (self.hospitalProfileView.text.length == 0) {
+        [MBProgressHUD showError:@"请输入医院简介"];
+        return;
+    }
+    HospitalInfoParam *param = [HospitalInfoParam paramWithName:self.webTextField.text website:self.hospitalProfileView.text];
+    [PostHosInfoTool sendHosInfoWithParam:param success:^(BaseResult *result) {
+        if ([result.status isEqualToString:@"S"]) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    } failure:^(NSError *error) {
+        
+    }];
 }
 #pragma mark -  Add subviews
 - (void)addCustomViews

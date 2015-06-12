@@ -1,5 +1,5 @@
 //
-//  ResponsedDoctorView.m
+//  DoctorResumeView.m
 //  邻医家
 //
 //  Created by Daniel on 15/6/8.
@@ -7,16 +7,17 @@
 //
 #import "Common.h"
 #define COUNT 7
+#import "DoctorResume.h"
 #import "UIButton+LD.h"
-#import "ResponsedDoctorView.h"
+#import "DoctorResumeView.h"
 #import "UILabel+LD.h"
-@interface ResponsedDoctorView ()
+@interface DoctorResumeView ()
 @property (nonatomic,strong) NSMutableArray *labels;
 @property (nonatomic,strong) NSMutableArray *contentLabels;
 @property (nonatomic,strong) NSMutableArray *lines;
 @property (nonatomic,weak) UIButton  *inviteBtn;
 @end
-@implementation ResponsedDoctorView
+@implementation DoctorResumeView
 - (NSMutableArray *)labels
 {
     if (_labels == nil) {
@@ -65,10 +66,41 @@
 - (void)setupContentLabels
 {
     for (int i = 0; i < COUNT; i++) {
-        UILabel *contentLabel = [UILabel labelWithTitle:nil font:14 textColor:[UIColor blueColor]];
+        UILabel *contentLabel = [UILabel labelWithTitle:nil font:14 textColor:[UIColor blackColor]];
         [self addSubview:contentLabel];
         [self.contentLabels addObject:contentLabel];
     }
+}
+- (void)setResume:(DoctorResume *)resume
+{
+    _resume = resume;
+    UILabel *hospital = [self.contentLabels objectAtIndex:0];
+    UILabel *techtitle = [self.contentLabels objectAtIndex:1];
+    UILabel *introduction = [self.contentLabels objectAtIndex:2];
+    UILabel *deparament = [self.contentLabels objectAtIndex:3];
+    UILabel *telnum = [self.contentLabels objectAtIndex:4];
+    UILabel *resumeStatus = [self.contentLabels objectAtIndex:5];
+    UILabel *papers = [self.contentLabels lastObject];
+    
+    hospital.text = resume.hospital;
+    techtitle.text = resume.techtitle;
+    introduction.text = resume.introduction;
+    deparament.text = resume.department;
+    NSString *title = nil;
+    if (resume.resumeStatus == 1) {
+        title = @"审核中";
+        self.inviteBtn.enabled = YES;
+    }else if(resume.resumeStatus == 2)
+    {
+        title = @"已录取";
+        self.inviteBtn.hidden = YES;
+        UIView *line = [self.lines lastObject];
+        line.hidden = YES;
+    }
+    resumeStatus.text = title;
+    papers.text = resume.papers;
+    telnum.text = resume.telnum;
+    
 }
 - (void)setupLines
 {
@@ -92,9 +124,9 @@
 }
 - (void)inviteBtnClicked:(UIButton *)button
 {
-    if([self.delegate respondsToSelector:@selector(responsedDoctorView:inviteBtnClicked:)])
+    if([self.delegate respondsToSelector:@selector(DoctorResumeView:inviteBtnClicked:)])
     {
-        [self.delegate responsedDoctorView:self inviteBtnClicked:button];
+        [self.delegate DoctorResumeView:self inviteBtnClicked:button];
     }
 }
 - (void)layoutSubviews
@@ -122,8 +154,8 @@
         label.frame = CGRectMake(labelX, labelY, labelW, labelH);
         
         UILabel *contentLabel = [self.contentLabels objectAtIndex:i];
-        contentX = CGRectGetMaxX(label.frame);
-        contentY = labelY;
+        contentX = CGRectGetMaxX(label.frame) + padding;
+        contentY = labelY + 4;
         contentW = SCREENWIDTH - contentX - padding;
         contentLabel.frame = CGRectMake(contentX, contentY, contentW, contentH);
         

@@ -7,9 +7,9 @@
 //
 
 #import "ResponsedDoctorController.h"
-#import "ResponsedDoctorView.h"
-@interface ResponsedDoctorController () <ResponsedDoctorViewDelegate>
-@property (nonatomic,weak) ResponsedDoctorView *doctorView;
+#import "DoctorResumeView.h"
+@interface ResponsedDoctorController () <DoctorResumeViewDelegate>
+@property (nonatomic,weak) DoctorResumeView *doctorView;
 @end
 @implementation ResponsedDoctorController
 - (void)viewDidLoad
@@ -19,14 +19,14 @@
 }
 - (void)setupDoctorView
 {
-    ResponsedDoctorView *doctorView = [[ResponsedDoctorView alloc] init];
+    DoctorResumeView *doctorView = [[DoctorResumeView alloc] init];
     doctorView.delegate = self;
     [self.view addSubview:doctorView];
     self.doctorView = doctorView;
     
     self.doctorView.frame = self.view.bounds;
 }
-- (void)responsedDoctorView:(ResponsedDoctorView *)doctorView inviteBtnClicked:(UIButton *)inviteBtn
+- (void)DoctorResumeView:(DoctorResumeView *)doctorView inviteBtnClicked:(UIButton *)inviteBtn
 {
     NSLog(@"You are amazing!!!");
 }

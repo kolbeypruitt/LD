@@ -7,6 +7,7 @@
 //
 #import "Common.h"
 #import "HospitalAdminController.h"
+#import "AssignDepartmentController.h"
 #import "IWCommon.h"
 #import "PlatformRecruitController.h"
 #import "MessageTypeController.h"
@@ -91,7 +92,8 @@
 }
 - (void)capitalBtnClicked
 {
-    
+    AssignDepartmentController *assignVC = [[AssignDepartmentController alloc] init];
+    [self.navigationController pushViewController:assignVC animated:YES];
 }
 - (void)postMessageBtnClicked
 {
