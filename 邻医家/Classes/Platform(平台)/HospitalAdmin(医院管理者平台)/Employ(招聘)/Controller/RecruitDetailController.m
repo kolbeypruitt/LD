@@ -6,8 +6,10 @@
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
 #import "GetAllResumeTool.h"
+#import "BaseResult.h"
 #import "RecruitDetailController.h"
 #import "GetAcceptedResumeTool.h"
+#import "WithDrawTool.h"
 #import "ConfirmedResumeController.h"
 #import "GetAcceptedResult.h"
 #import "GetEmployDetailTool.h"
@@ -16,6 +18,7 @@
 #import "EmployDetail.h"
 #import "EmployDetailResult.h"
 #import "UIBarButtonItem+ENTER.h"
+#import "MBProgressHUD+MJ.h"
 @interface RecruitDetailController ()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *jobtypeLabel;
@@ -42,9 +45,20 @@
 - (void)setup
 {
     self.title = @"招聘详情";
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:nil title:@"撤销"];
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(withDraw) title:@"撤销"];
     [self.allBtn addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.acceptBtn addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+}
+- (void)withDraw
+{
+    EmployDetailParam *param = [EmployDetailParam paramWithId:self.empl.id];
+    [WithDrawTool withDrawResumeWithParam:param success:^(BaseResult *result) {
+        if ([result.status isEqualToString:@"S"]) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    } failure:^(NSError *error) {
+        [MBProgressHUD showError:@"撤销失败!"];
+    }];
 }
 - (void)buttonClicked:(UIButton *)button
 {

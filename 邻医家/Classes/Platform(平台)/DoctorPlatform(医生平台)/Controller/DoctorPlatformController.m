@@ -5,7 +5,7 @@
 //  Created by Daniel on 15/6/7.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
-
+#import "DoctorConsultListParam.h"
 #import "DoctorPlatformController.h"
 #import "Common.h"
 #import "PostedSurgeryController.h"
@@ -50,28 +50,33 @@
 #pragma mark - UIActionSheet Delegate
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
+    DoctorConsultListParam *param = [DoctorConsultListParam paramWithType:(int)(buttonIndex + 1)];
     switch (buttonIndex) {
         case 0:
         {
             PostedSurgeryController *surgery = [[PostedSurgeryController alloc] init];
+            surgery.param = param;
             [self.navigationController pushViewController:surgery animated:YES];
             break;
         }
         case 1:
         {
             PostedStubbornController *stubborn = [[PostedStubbornController alloc] init];
+            stubborn.param = param;
             [self.navigationController pushViewController:stubborn animated:YES];
             break;
         }
         case 2:
         {
             PostedTemporaryController *temporary = [[PostedTemporaryController alloc] init];
+            temporary.param  = param;
             [self.navigationController pushViewController:temporary animated:YES];
             break;
         }
         case 3:
         {
             PostedFreeFController *freeF = [[PostedFreeFController alloc] init];
+            freeF.param = param;
             [self.navigationController pushViewController:freeF animated:YES];
             break;
         }

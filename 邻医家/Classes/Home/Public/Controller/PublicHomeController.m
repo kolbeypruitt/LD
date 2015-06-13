@@ -176,19 +176,22 @@
     self.scrollView = scrollView;
     
     //添加三个tableview
-    UITableView *doctorView = [[UITableView alloc] init];
+    UITableView *doctorView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+    doctorView.contentInset = UIEdgeInsetsMake(-35, 0, 0, 0);
     doctorView.delegate = self;
     doctorView.dataSource = self;
     [self.scrollView addSubview:doctorView];
     self.doctorView = doctorView;
     
-    UITableView *hospitalView = [[UITableView alloc] init];
+    UITableView *hospitalView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+    hospitalView.contentInset = UIEdgeInsetsMake(-35, 0, 0, 0);
     hospitalView.delegate = self;
     hospitalView.dataSource = self;
     [self.scrollView addSubview:hospitalView];
     self.hospitalView = hospitalView;
     
-    UITableView *diseaseView = [[UITableView alloc] init];
+    UITableView *diseaseView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+    diseaseView.contentInset = UIEdgeInsetsMake(-35, 0, 0, 0);
     diseaseView.dataSource = self;
     diseaseView.delegate = self;
     [self.scrollView addSubview:diseaseView];
@@ -227,7 +230,7 @@
     CGFloat hosX = 0;
     CGFloat hosY = 0;
     CGFloat hosW = scrollW;
-    CGFloat hosH = scrollH;
+    CGFloat hosH = scrollH - 50;
     self.doctorView.frame = CGRectMake(hosX, hosY, hosW, hosH);
     //推荐医院
     CGFloat doctorX = SCREENWIDTH;

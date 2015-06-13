@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-@class ConsultMessage;
 @interface QueryConsultResult : NSObject
 @property (nonatomic,copy) NSString *status;
 @property (nonatomic,strong) NSArray *gs;
