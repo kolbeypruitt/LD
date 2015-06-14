@@ -5,6 +5,7 @@
 //  Created by Daniel on 15/6/7.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "DonConsultCell.h"
 #import "DocSurgeryController.h"
 #import "DocGetInfoTool.h"
 #import "PostedSurgeryController.h"
@@ -63,15 +64,13 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ConsultMessage *message = self.consults[indexPath.row];
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
-    }
-    cell.textLabel.text = message.title;
-    cell.detailTextLabel.text = message.createTime;
-    
+    DonConsultCell *cell = [DonConsultCell cellWithTable:tableView];
+    cell.message = [self.consults objectAtIndex:indexPath.row];
     return cell;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 64;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

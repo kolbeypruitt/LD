@@ -48,6 +48,9 @@
 #define ReleaseTypicalCaseRul @"http://192.168.1.4:8080/assfinance/hospital/releaseTypicalCase"
 #define GETGCINFOLISTURL @"http://192.168.1.4:8080/assfinance/doctor/getGCInfoList"
 #define DOCCONSULTDETAILURL @"http://192.168.1.4:8080/assfinance/doctor/getGCInfoById"
+#define SDINFOLISTURL @"http://192.168.1.4:8080/assfinance/doctor/getSDInfoList"
+#define FREEDETAILURL @"http://192.168.1.4:8080/assfinance/doctor/getSDInfoById"
+#define REPLYINVITEURL @"http://192.168.1.4:8080/assfinance/doctor/replySDInfoById"
 #define SUCCESSSTATUS @"S"
 #define TABLEMARGIN 5
 #define CELLMARGIN 8

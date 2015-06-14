@@ -8,6 +8,7 @@
 #import "DoctorConsultListParam.h"
 #import "DoctorPlatformController.h"
 #import "Common.h"
+#import "FreeMessageController.h"
 #import "PostedSurgeryController.h"
 #import "PostedStubbornController.h"
 #import "PostedTemporaryController.h"
@@ -44,7 +45,8 @@
                                                         otherButtonTitles:@"开刀",@"疑难杂症会诊",@"临时会诊",@"自由转诊", nil];
         [actionSheet showInView:self.view];
     }else{
-        
+        FreeMessageController *free = [[FreeMessageController alloc] init];
+        [self.navigationController pushViewController:free animated:YES];
     }
 }
 #pragma mark - UIActionSheet Delegate
