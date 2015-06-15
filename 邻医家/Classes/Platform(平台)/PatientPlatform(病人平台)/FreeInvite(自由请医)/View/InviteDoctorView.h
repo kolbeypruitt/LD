@@ -5,9 +5,9 @@
 //  Created by Daniel on 15/6/8.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
-@class MessageOfInviteDoctor;
+@class PatienInviteDetail;
 #import <UIKit/UIKit.h>
 
 @interface InviteDoctorView : UIScrollView
-@property (nonatomic,strong) MessageOfInviteDoctor *message;
+@property (nonatomic,strong) PatienInviteDetail *message;
 @end

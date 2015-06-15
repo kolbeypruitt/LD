@@ -8,6 +8,7 @@
 #import "Common.h"
 #define NUMBEROFCONTENT 12
 #import "InviteDoctorView.h"
+#import "PatienInviteDetail.h"
 #import "UILabel+LD.h"
 @interface InviteDoctorView ()
 @property (nonatomic,strong) NSMutableArray *labels;
@@ -74,9 +75,35 @@
         [self.lines addObject:line];
     }
 }
-- (void)setMessage:(MessageOfInviteDoctor *)message
+- (void)setMessage:(PatienInviteDetail *)message
 {
     _message = message;
+    UILabel *nameLabel = self.contentLabels[0];
+    UILabel *idcardLabel = self.contentLabels[1];
+    UILabel *genderLabel = self.contentLabels[2];
+    UILabel *lastHospitalLabel = self.contentLabels[3];
+    UILabel *lastDepartmentLabel = self.contentLabels[4];
+    UILabel *lastDiagnoseLabel = self.contentLabels[5];
+    UILabel *addressLabel = self.contentLabels[6];
+    UILabel *professionLabel = self.contentLabels[7];
+    UILabel *jobLabel = self.contentLabels[8];
+    UILabel *purposeLabel = self.contentLabels[9];
+    UILabel *vipLabel = self.contentLabels[10];
+    UILabel *remarkLabel = self.contentLabels[11];
+    
+    nameLabel.text = message.name;
+    idcardLabel.text = message.idcardNo;
+    genderLabel.text = message.gender;
+    lastHospitalLabel.text = message.lastHospital;
+    lastDepartmentLabel.text = message.lastDepartment;
+    lastDiagnoseLabel.text = message.lastDiagnose;
+    addressLabel.text = message.address;
+    professionLabel.text = message.profession;
+    jobLabel.text = message.job;
+    vipLabel.text = message.isVIP;
+    purposeLabel.text = message.purpose;
+    remarkLabel.text = message.remark;
+    
 }
 - (void)layoutSubviews
 {
@@ -105,8 +132,8 @@
         label.frame = CGRectMake(labelX, labelY, labelW, labelH);
         
         UILabel *contentLabel = [self.contentLabels objectAtIndex:i];
-        contentX = CGRectGetMaxX(label.frame);
-        contentY = labelY;
+        contentX = CGRectGetMaxX(label.frame) + padding;
+        contentY = labelY + 5;
         contentW = SCREENWIDTH - contentX - padding;
         contentLabel.frame = CGRectMake(contentX, contentY, contentW, contentH);
         

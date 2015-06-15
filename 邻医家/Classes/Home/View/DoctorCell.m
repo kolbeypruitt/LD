@@ -8,8 +8,10 @@
 #import "DoctorCell.h"
 #import "Doctor.h"
 #import "UIImageView+WebCache.h"
+#import "Employer.h"
 #import "Common.h"
 #import "UIImage+MJ.h"
+#import "UILabel+LD.h"
 @interface DoctorCell ()
 @property (nonatomic,weak) UIImageView *iconView;
 @property (nonatomic,weak) UILabel *nameLabel;
@@ -17,6 +19,7 @@
 @property (nonatomic,weak) UILabel *professionLabel;
 @property (nonatomic,weak) UILabel *introductionLabel;
 @property (nonatomic,weak) UILabel *hospital;
+@property (nonatomic,weak) UILabel *statusLabel;
 @end
 @implementation DoctorCell
 
@@ -46,38 +49,27 @@
         [self.contentView addSubview:iconView];
         self.iconView = iconView;
         
-        UILabel *nameLabel = [[UILabel alloc] init];
-        nameLabel.textColor = [UIColor blackColor];
-        nameLabel.backgroundColor = [UIColor clearColor];
-        nameLabel.font = [UIFont boldSystemFontOfSize:15];
+        UILabel *nameLabel = [UILabel labelWithTitle:nil font:15 textColor:[UIColor blackColor]];
         [self.contentView addSubview:nameLabel];
         self.nameLabel = nameLabel;
         
-        UILabel *techLabel = [[UILabel alloc] init];
-        techLabel.textColor = [UIColor blackColor];
-        techLabel.backgroundColor = [UIColor clearColor];
-        techLabel.font = [UIFont systemFontOfSize:14];
+        UILabel *techLabel = [UILabel labelWithTitle:nil font:14 textColor:[UIColor blackColor]];
         [self.contentView addSubview:techLabel];
         self.techLabel = techLabel;
         
-        UILabel *professionLabel = [[UILabel alloc] init];
-        professionLabel.textColor = [UIColor grayColor];
-        professionLabel.font = [UIFont systemFontOfSize:13];
-        professionLabel.backgroundColor = [UIColor clearColor];
+        UILabel *statusLabel = [UILabel labelWithTitle:nil font:14 textColor:nil];
+        self.statusLabel = statusLabel;
+        [self.contentView addSubview:statusLabel];
+        
+        UILabel *professionLabel = [UILabel labelWithTitle:nil font:13 textColor:[UIColor grayColor]];
         [self.contentView addSubview:professionLabel];
         self.professionLabel = professionLabel;
         
-        UILabel *hospitalLabel = [[UILabel alloc] init];
-        hospitalLabel.textColor = [UIColor grayColor];
-        hospitalLabel.backgroundColor = [UIColor clearColor];
-        hospitalLabel.font = [UIFont systemFontOfSize:14];
+        UILabel *hospitalLabel = [UILabel labelWithTitle:nil font:14 textColor:[UIColor grayColor]];
         [self.contentView addSubview:hospitalLabel];
         self.hospital = hospitalLabel;
         
-        UILabel *introductionLabel = [[UILabel alloc] init];
-        introductionLabel.font = [UIFont systemFontOfSize:14];
-        introductionLabel.textColor = [UIColor lightGrayColor];
-        introductionLabel.backgroundColor = [UIColor clearColor];
+        UILabel *introductionLabel = [UILabel labelWithTitle:nil font:14 textColor:[UIColor lightGrayColor]];
         [self.contentView addSubview:introductionLabel];
         self.introductionLabel = introductionLabel;
     }
@@ -99,6 +91,30 @@
     self.introductionLabel.text = doctor.detail;
     self.hospital.text = doctor.hospital;
 }
+- (void)setEmployer:(Employer *)employer
+{
+    _employer = employer;
+    if (employer.headurl) {
+        NSString *imageName = [IMAGEPREF stringByAppendingString:employer.headurl];
+        [self.iconView setImageWithURL:[NSURL URLWithString:imageName] placeholderImage:[UIImage imageWithName:@"doctor_def_img"]];
+    }else
+    {
+        [self.iconView setImage:[UIImage imageNamed:@"doctor_def_img"]];
+    }
+    
+    self.nameLabel.text = employer.name;
+    self.techLabel.text = employer.techtitle;
+    self.introductionLabel.text = employer.detail;
+    self.hospital.text = employer.hospital;
+    if (employer.status == 1) {
+        self.statusLabel.text = @"待录取";
+        self.statusLabel.textColor = [UIColor redColor];
+    }else if(employer.status == 2)
+    {
+        self.statusLabel.text = @"已录取";
+        self.statusLabel.textColor = [UIColor blueColor];
+    }
+}
 - (void)layoutSubviews
 {
     [super layoutSubviews];
@@ -118,6 +134,12 @@
     CGFloat techW = 80;
     CGFloat techH = nameH;
     self.techLabel.frame = CGRectMake(techX, techY, techW, techH);
+    
+    CGFloat statW = 60;
+    CGFloat statH = techH;
+    CGFloat statX = SCREENWIDTH - CELLBORDER - statW;
+    CGFloat statY = techY;
+    self.statusLabel.frame = CGRectMake(statX, statY, statW, statH);
     
     CGFloat professionX = CGRectGetMaxX(self.nameLabel.frame) + CELLBORDER * 0.5;
     CGFloat professionY = nameY;
