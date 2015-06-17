@@ -5,7 +5,7 @@
 //  Created by Daniel on 15/5/20.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
-#import "DoctorEnteredController.h"
+#import "DoctorTabbarController.h"
 #import "LDFormData.h"
 #import "BaseResult.h"
 #import "ZonePickerDelegate.h"
@@ -191,7 +191,7 @@
 }
 - (void)auditBtnClicked
 {
-    DoctorEnteredController *newroot = [[DoctorEnteredController alloc] init];
+    DoctorTabbarController *newroot = [[DoctorTabbarController alloc] init];
     self.view.window.rootViewController = newroot;
     if ([self checkChooseField]) {
         HospitalEnterTextField *doctornameField = [self.textFields objectAtIndex:0];

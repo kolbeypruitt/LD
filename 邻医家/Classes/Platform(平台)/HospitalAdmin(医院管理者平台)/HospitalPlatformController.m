@@ -1,36 +1,34 @@
 //
-//  IWTabBarViewController.m
-//  ItcastWeibo
+//  HospitalPlatformController.m
+//  邻医家
 //
-//  Created by apple on 14-5-5.
-//  Copyright (c) 2014年 itcast. All rights reservedm.
+//  Created by Daniel on 15/6/17.
+//  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
-#import "EnterViewController.h"
-#import "IWTabBarViewController.h"
-#import "IWMeViewController.h"
-#import "PublicHomeController.h"
+#import "Common.h"
 #import "IWNavigationController.h"
-#import "IWCommon.h"
+#import "PublicHomeController.h"
+#import "HospitalAdminController.h"
+#import "IWMeViewController.h"
+#import "HospitalPlatformController.h"
 #import "IWTabBar.h"
 #import "UIImage+MJ.h"
-@interface IWTabBarViewController () <IWTabBarDelegate>
-
+@interface HospitalPlatformController () <IWTabBarDelegate>
+/**
+ *  自定义的tabbar
+ */
+@property (nonatomic, weak) IWTabBar *customTabBar;
+//@property (nonatomic, strong) PublicHomeController *home;
+@property (nonatomic,strong) PublicHomeController *home;
+@property (nonatomic, strong) IWMeViewController *me;
 @end
 
-@implementation IWTabBarViewController
+@implementation HospitalPlatformController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // 初始化tabbar
-    [self setupTabbar];
-    
-    // 初始化所有的子控制器
-    [self setupAllChildViewControllers];
-    
+    // Do any additional setup after loading the view.
 }
-
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -77,8 +75,8 @@
     self.home = home;
     
     //2.招聘
-    EnterViewController *enter = [[EnterViewController alloc] init];
-    [self setupChildViewController:enter title:@"入驻" imageName:@"tab_diary" selectedImageName:@"tab_diary_click"];
+    HospitalAdminController *enter = [[HospitalAdminController alloc] init];
+    [self setupChildViewController:enter title:@"平台" imageName:@"tab_diary" selectedImageName:@"tab_diary_click"];
     // 3.我
     IWMeViewController *me = [[IWMeViewController alloc] init];
     [self setupChildViewController:me title:@"设置" imageName:@"tab_settings" selectedImageName:@"tab_settings_click"];
@@ -114,5 +112,5 @@
     // 3.添加tabbar内部的按钮
     [self.customTabBar addTabBarButtonWithItem:childVc.tabBarItem];
 }
-
 @end
+

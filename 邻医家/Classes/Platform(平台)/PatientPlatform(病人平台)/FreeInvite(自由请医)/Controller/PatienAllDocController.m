@@ -7,6 +7,7 @@
 //
 #import "PatientDocResumeController.h"
 #import "PatienAllDocController.h"
+#import "LDNotification.h"
 #import "AllInviteParam.h"
 #import "AllInviteResult.h"
 #import "AllInviteTool.h"
@@ -29,7 +30,16 @@
     [super viewDidLoad];
     [self setup];
     [self loadData];
+    [self setNotification];
     
+}
+- (void)setNotification
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(patientAcceptedDoc) name:PATIENTACCEPTDOCSUCCESSNOTIFICATION object:nil];
+}
+- (void)patientAcceptedDoc
+{
+    [self loadData];
 }
 - (void)setup
 {
@@ -41,6 +51,9 @@
 {
     AllInviteParam *param = [AllInviteParam paramWithId:self.detailMsg.id];
     [AllInviteTool allInviteDataWithParam:param success:^(AllInviteResult *result) {
+        if (self.allDoctors.count) {
+            [self.allDoctors removeAllObjects];
+        }
         [self.allDoctors addObjectsFromArray:result.employers];
         [self.tableView reloadData];
     } failure:^(NSError *error) {

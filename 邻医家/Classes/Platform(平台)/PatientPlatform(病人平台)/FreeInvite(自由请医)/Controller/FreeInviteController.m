@@ -5,6 +5,7 @@
 //  Created by Daniel on 15/6/7.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "MBProgressHUD+MJ.h"
 #import "InviteDocMessage.h"
 #import "InviteDocMsgCell.h"
 #import "AppendInviteViewController.h"
@@ -14,6 +15,7 @@
 #import "UIBarButtonItem+ENTER.h"
 #import "InfoListResult.h"
 #import "InviteDocListParam.h"
+#import "MJRefresh.h"
 #import "PatientInviteListTool.h"
 @interface FreeInviteController ()
 @property (nonatomic,strong) NSMutableArray *inviteDocList;
@@ -29,8 +31,34 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self loadData];
+    [self setupRefreshView];
     [self setup];
+}
+- (void)setupRefreshView
+{
+    __weak typeof(self) weakSelf = self;
+    //下拉刷新
+    [self.tableView addLegendHeaderWithRefreshingBlock:^{
+        [weakSelf loadNewData];
+    }];
+    //自动进入下拉刷新
+    [self.tableView.header beginRefreshing];
+    
+}
+- (void)loadNewData
+{
+    InviteDocListParam *param = [InviteDocListParam paramWithType:1];
+    [PatientInviteListTool patienInviteListWithParam:param success:^(InfoListResult *result) {
+        if (self.inviteDocList.count) {
+            [self.inviteDocList removeAllObjects];
+        }
+        [self.inviteDocList addObjectsFromArray:result.seekDoctor];
+        [self.tableView reloadData];
+        [self.tableView.header endRefreshing];
+    } failure:^(NSError *error) {
+        [MBProgressHUD showError:@"请求失败!"];
+        [self.tableView.header endRefreshing];
+    }];
 }
 - (void)loadData
 {
@@ -46,6 +74,20 @@
 {
     self.title = @"自由请医";
     [self setNav];
+    [self setNotification];
+}
+- (void)setNotification
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(withDrawSuccess) name:PATIENTWITHDRAWSUCCESSNOTIFICATION object:nil];
+}
+- (void)dealloc
+{
+//    [super dealloc];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+- (void)withDrawSuccess
+{
+    [self.tableView.header beginRefreshing];
 }
 - (void)setNav
 {

@@ -5,7 +5,7 @@
 //  Created by Daniel on 15/6/7.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
-
+#import "RewardInviteController.h"
 #import "PatientPlatformController.h"
 #import "FreeInviteController.h"
 #import "Common.h"
@@ -22,7 +22,8 @@
 }
 - (void)setup
 {
-    self.title = @"病人平台";
+    self.navigationItem.title = @"病人平台";
+    self.view.backgroundColor = IWColor(226, 226, 226);
     [self addCustomviews];
     [self layoutCustomViews];
 }
@@ -37,7 +38,8 @@
         FreeInviteController *freeInvite = [[FreeInviteController alloc] init];
         [self.navigationController pushViewController:freeInvite animated:YES];
     }else{
-        
+        RewardInviteController *reward = [[RewardInviteController alloc] init];
+        [self.navigationController pushViewController:reward animated:YES];
     }
 }
 - (void)layoutCustomViews

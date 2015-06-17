@@ -5,8 +5,8 @@
 //  Created by Daniel on 15/5/20.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "HospitalPlatformController.h"
 #import "HospitalEnterParam.h"
-#import "HospitalEnteredController.h"
 #import "IWCommon.h"
 #import "AFNetworking.h"
 #import "LDFormData.h"
@@ -160,7 +160,7 @@
 - (void)auditBtnClicked
 {
     
-     HospitalEnteredController *vc = [[HospitalEnteredController alloc] init];
+     HospitalPlatformController *vc = [[HospitalPlatformController alloc] init];
     self.view.window.rootViewController = vc;
     NSArray *msg = @[@"请输入医院名称",@"请选择地区",@"请输入地址",@"请选择性质",@"请输入税务登记号",@"请输入姓名",@"请输入身份证号"];
     for (int i = 0 ; i < self.textfields.count - 1; i++) {
@@ -190,7 +190,7 @@
                                                     {
                                                         if ([result.status isEqualToString:@"S"]) {
                                                             NSLog(@"You are amazing!!!");
-                                                            self.view.window.rootViewController = [[HospitalEnteredController alloc] init];
+                                                            self.view.window.rootViewController = [[HospitalPlatformController alloc] init];
                                                         }
                                                         NSLog(@"%@",result.errorCode);
                                                     }

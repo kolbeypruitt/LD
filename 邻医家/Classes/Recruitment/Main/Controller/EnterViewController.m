@@ -69,6 +69,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = IWColor(226, 226, 226);
     self.title = @"入驻";
     [self setupSubview];
 }

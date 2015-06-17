@@ -5,6 +5,10 @@
 //  Created by Daniel on 15/6/8.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "AllInviteParam.h"
+#import "BaseResult.h"
+#import "MBProgressHUD+MJ.h"
+#import "WithDrawDocTool.h"
 #import "AcceptedDocController.h"
 #import "FreeInviteDeResult.h"
 #import "PatienAllDocController.h"
@@ -30,6 +34,7 @@
     [self setup];
     [self loadData];
 }
+
 - (void)loadData
 {
     FreeDetailMsgParam *param = [FreeDetailMsgParam paramWithId:self.message.id];
@@ -79,6 +84,8 @@
     self.confirmBtn.backgroundColor = [UIColor orangeColor];
     
     InviteDoctorView *scrollView = [[InviteDoctorView alloc] init];
+    scrollView.contentSize = CGSizeMake(SCREENWIDTH, SCREENHEIGHT);
+    scrollView.contentInset = UIEdgeInsetsMake(0, 0, 60, 0);
     self.scrollView = scrollView;
     [self.view addSubview:scrollView];
 }
@@ -111,7 +118,7 @@
     CGFloat scrollX = 0;
     CGFloat scrollY = CGRectGetMaxY(self.receiveBtn.frame);
     CGFloat scrollW = SCREENWIDTH;
-    CGFloat scrollH = self.view.bounds.size.height - scrollY;
+    CGFloat scrollH = self.view.bounds.size.height - scrollY - 50;
     self.scrollView.frame = CGRectMake(scrollX, scrollY, scrollW, scrollH);
     
 }
@@ -123,6 +130,21 @@
 }
 - (void)retreat
 {
-    
+    AllInviteParam *param = [AllInviteParam paramWithId:self.message.id];
+    [WithDrawDocTool withDrawDocWithParam:param success:^(BaseResult *result) {
+        if ([result.status isEqualToString:SUCCESSSTATUS]) {
+            [self postWithDrawNotification];
+            [self.navigationController popViewControllerAnimated:YES];
+        }else if([result.status isEqualToString:FAILURESTATUS])
+        {
+            [MBProgressHUD showError:result.errorMsg];
+        }
+    } failure:^(NSError *error) {
+        [MBProgressHUD showError:@"请求失败!"];
+    }];
+}
+- (void)postWithDrawNotification
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:PATIENTWITHDRAWSUCCESSNOTIFICATION object:self];
 }
 @end

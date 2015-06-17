@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "IWTabBarViewController.h"
-#import "LDTabBarViewController.h"
 #import "PublicHomeController.h"
 #import "IWNavigationController.h"
 #import "Account.h"
@@ -21,14 +20,14 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-//    IWTabBarViewController  *tabBarController = [[IWTabBarViewController alloc] init];
-    LDTabBarViewController  *tabBarController = [[LDTabBarViewController alloc] init];
+    IWTabBarViewController  *tabBarController = [[IWTabBarViewController alloc] init];
+//    LDTabBarViewController  *tabBarController = [[LDTabBarViewController alloc] init];
 //    LDEnteredController *tabBarController = [[LDEnteredController alloc] init];
     PublicHomeController *home = [[PublicHomeController alloc] init];
+    home.navigationController.toolbar.backgroundColor = [UIColor redColor];
     IWNavigationController *nav = [[IWNavigationController alloc] initWithRootViewController:home];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.window makeKeyAndVisible];
-    self.window.rootViewController  = nav;
     Account *userAccount = [AccountTool account];
     if (userAccount == nil) {
         self.window.rootViewController = nav;

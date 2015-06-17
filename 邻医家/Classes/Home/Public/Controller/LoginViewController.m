@@ -5,8 +5,8 @@
 //  Created by Daniel on 15/5/15.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
-#import "LDTabBarViewController.h"
 #import "ForgetPassController.h"
+#import "IWTabBarViewController.h"
 #import "UIImage+MJ.h"
 #import "Account.h"
 #import "AccountTool.h"
@@ -91,7 +91,7 @@
 //                    [[NSNotificationCenter defaultCenter] postNotificationName:LOGINDONWNOTIFICATION object:nil];
 //                    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
 //                    [self.navigationController popToRootViewControllerAnimated:YES];
-                    self.view.window.rootViewController = [[LDTabBarViewController alloc] init];
+                    self.view.window.rootViewController = [[IWTabBarViewController alloc] init];
                 }else
                 {
                     [MBProgressHUD showError:@"用户名或密码错误"];

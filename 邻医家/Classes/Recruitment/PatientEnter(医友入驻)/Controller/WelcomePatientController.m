@@ -13,7 +13,7 @@
 #import "LDEnterData.h"
 #import "WelcomePatientController.h"
 #import "HospitalEnterTextField.h"
-#import "PatientEnteredController.h"
+#import "PatientTabbarController.h"
 #import "UIImage+MJ.h"
 #import "MBProgressHUD+MJ.h"
 #import "ZonePickerDelegate.h"
@@ -93,8 +93,8 @@
 }
 - (void)auditBtnClicked
 {
-    PatientEnteredController *newrootTabVC = [[PatientEnteredController alloc] init];
-    self.view.window.rootViewController = newrootTabVC;
+    PatientTabbarController *newrootVC = [[PatientTabbarController alloc] init];
+    self.view.window.rootViewController = newrootVC;
     NSArray *placeholderArray = @[@"请输入真实姓名",@"请输入身份证号",@"请点击选择地区",@"请输入详细地址",@""];
     for (int i = 0 ; i < self.textFields.count - 1; i++) {
         HospitalEnterTextField *textfield = [self.textFields objectAtIndex:i];

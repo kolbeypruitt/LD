@@ -15,7 +15,7 @@
 #import "EmployDetailParam.h"
 #import "PatientAcceptTool.h"
 #import "DoctorResumeTool.h"
-
+#import "LDNotification.h"
 @interface PatientDocResumeController () <DoctorResumeViewDelegate>
 @property (nonatomic,strong) DoctorResume  *resume;
 @property (nonatomic,weak) DoctorResumeView *resumeView;
@@ -52,6 +52,7 @@
     EmployDetailParam *param = [EmployDetailParam paramWithId:self.resume.id];
     [PatientAcceptTool acceptDocResumeWithParam:param success:^(BaseResult *result) {
         if ([result.status isEqualToString:@"S"]) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:PATIENTACCEPTDOCSUCCESSNOTIFICATION object:self];
             [self.navigationController popViewControllerAnimated:YES];
         }
     } failure:^(NSError *error) {

@@ -10,6 +10,7 @@
 #import "AssignDepartmentController.h"
 #import "IWCommon.h"
 #import "PlatformRecruitController.h"
+#import "UILabel+LD.h"
 #import "MessageTypeController.h"
 @interface HospitalAdminController ()
 /**
@@ -33,10 +34,12 @@
     [self setup];
     [self addCustomViews];
     [self layoutCustomViews];
+    
 }
 - (void)setup
 {
-    self.title = @"医院管理者平台";
+    self.navigationItem.title  = @"医院管理者平台";
+    self.view.backgroundColor = IWColor(226, 226, 226);
 }
 - (void)addCustomViews
 {
@@ -58,7 +61,7 @@
 - (void)layoutCustomViews
 {
     CGFloat recruitBtnX = 0;
-    CGFloat recruitBtnY = 84;
+    CGFloat recruitBtnY = 64;
     CGFloat recruitBtnW = SCREENWIDTH;
     CGFloat recruitBtnH = 84;
     self.recruitBtn.frame = CGRectMake(recruitBtnX, recruitBtnY, recruitBtnW, recruitBtnH);

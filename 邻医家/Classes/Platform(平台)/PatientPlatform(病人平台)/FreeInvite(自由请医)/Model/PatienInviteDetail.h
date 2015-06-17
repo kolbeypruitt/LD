@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 @interface PatienInviteDetail : NSObject
+@property (nonatomic,assign) int money;
 @property (nonatomic,assign) int accept;
 @property (nonatomic,assign) int all;
 @property (nonatomic,assign) int id;
