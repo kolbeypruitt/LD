@@ -57,6 +57,7 @@
 #define ACCEPTDOCURL @"http://192.168.1.4:8080/assfinance/patient/getAcceptById"
 #define PATIENTACCEPTDOCURL @"http://192.168.1.4:8080/assfinance/patient/acceptDoctor"
 #define DELETEEMPLOYURL @"http://192.168.1.4:8080/assfinance/patient/deleteSDById"
+#define APPENDINVITEURL @"http://192.168.1.4:8080/assfinance/patient/releaseSeekDoctor"
 #define SUCCESSSTATUS @"S"
 #define FAILURESTATUS @"F"
 #define TABLEMARGIN 5
@@ -64,7 +65,8 @@
 #define HEADERHEIGHT 285
 #define NAVBARHEIGHT 64
 #define LOGINDONWNOTIFICATION @"logindown"
-#define PATIENTWITHDRAWSUCCESSNOTIFICATION @"patientwithdraw"
+#define FREEINVITENEEDREFRESHNOTIFICATION @"freeinviteneedrefreshnotification"
 #define SCREENWIDTH ([UIScreen mainScreen].bounds.size.width)
 #define SCREENHEIGHT ([UIScreen mainScreen].bounds.size.height)
+#define DefaultCenter [NSNotificationCenter defaultCenter]
 #endif

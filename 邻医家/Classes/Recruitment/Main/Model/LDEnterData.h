@@ -37,4 +37,8 @@
  *   是否需要急救
  */
 @property (nonatomic,assign) int isfirstaid;
+/**
+ *   性别
+ */
+@property (nonatomic,assign) int gender;
 @end

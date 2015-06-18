@@ -102,7 +102,7 @@
     jobLabel.text = message.job;
     vipLabel.text = message.isVIP;
     purposeLabel.text = message.purpose;
-    remarkLabel.text = message.remark;
+    remarkLabel.text = message.ramark;
     
 }
 - (void)layoutSubviews

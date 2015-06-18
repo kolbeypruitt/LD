@@ -5,6 +5,7 @@
 //  Created by Daniel on 15/6/17.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "AppendRewardController.h"
 #import "RewardDetailController.h"
 #import "MBProgressHUD+MJ.h"
 #import "InviteDocMsgCell.h"
@@ -61,10 +62,20 @@
 {
     self.title = @"悬赏请医";
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(appendReward) title:@"添加"];
+    [DefaultCenter addObserver:self selector:@selector(refreshData) name:FREEINVITENEEDREFRESHNOTIFICATION object:nil];
+}
+- (void)dealloc
+{
+    [DefaultCenter removeObserver:self];
+}
+- (void)refreshData
+{
+    [self.tableView.header beginRefreshing];
 }
 - (void)appendReward
 {
-    
+    AppendRewardController *apvc = [[AppendRewardController alloc] init];
+    [self.navigationController pushViewController:apvc animated:YES];
 }
 
 #pragma mark - TableView datasource and delegate method
@@ -88,6 +99,7 @@
     rewardVC.message = [self.rewardList objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:rewardVC animated:YES];
 }
+
 @end
 
 

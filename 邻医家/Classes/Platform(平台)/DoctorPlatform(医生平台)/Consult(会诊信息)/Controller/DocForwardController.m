@@ -5,6 +5,7 @@
 //  Created by Daniel on 15/6/13.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "UIBarButtonItem+ENTER.h"
 #import "UILabel+LD.h"
 #import "DocForwordModel.h"
 #import "Common.h"
@@ -51,6 +52,7 @@
 - (void)setup
 {
     self.view.backgroundColor = IWColor(226, 226, 226);
+    self.navigationItem.title = @"会诊详情";
     [self addCustomViews];
     [self layoutCustomViews];
 }
@@ -127,6 +129,15 @@
 }
 - (void)updateUI
 {
+    NSString *condition = nil;
+    if (self.model.gsstatus == 1) {
+        condition = @"等待录取";
+    }else if(self.model.gsstatus == 2)
+    {
+        condition = @"已录取";
+    }
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:nil action:nil title:condition];
+    
     NSArray *contentArray = @[self.model.telnum,self.model.department,self.model.patientName,self.model.idcardNo,self.model.lastHospitalDepartment,self.model.lastDiagnose,self.model.locationToGo,self.model.addressToGo,self.model.profession,self.model.jobType,self.model.ishospital,self.model.purpose,self.model.isVIP,self.model.idfirstaid];
     for (int i = 0; i < self.contentLabels.count; i++) {
         UILabel *contentLabel = [self.contentLabels objectAtIndex:i];

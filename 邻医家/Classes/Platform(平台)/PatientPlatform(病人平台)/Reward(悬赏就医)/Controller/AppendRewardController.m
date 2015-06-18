@@ -1,56 +1,52 @@
 //
-//  AppendInviteViewController.m
+//  AppendRewardController.m
 //  邻医家
 //
-//  Created by Daniel on 15/6/8.
+//  Created by Daniel on 15/6/18.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
-
-
-#define COUNT 12
-#import "AppendInviteParam.h"
 #import "BaseResult.h"
 #import "AppendInviteTool.h"
 #import "MBProgressHUD+MJ.h"
-#import "AppendInviteViewController.h"
 #import "Common.h"
-#import "AppendInviteView.h"
-@interface AppendInviteViewController () <ApppendInviteViewDelegate>
-@property (nonatomic,weak) AppendInviteView *appendView;
+#import "AppendRewardView.h"
+#import "AppendRewardController.h"
+
+@interface AppendRewardController () <AppendRewardDelegate>
+
 @end
-@implementation AppendInviteViewController
+
+@implementation AppendRewardController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setup];
-    [self setupKeyboard];
 }
-
 - (void)setup
 {
-    self.title = @"增加自由请医";
+    self.navigationItem.title = @"增加悬赏请医";
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.rightBarButtonItem = nil;
     [self addCustomViews];
+    [self setupKeyboard];
 }
 - (void)addCustomViews
 {
-    AppendInviteView *appendView = [[AppendInviteView alloc] initWithFrame:self.view.bounds];
+    AppendRewardView *appendView = [[AppendRewardView alloc] initWithFrame:self.view.bounds];
     appendView.delegate = self;
     [self.view addSubview:appendView];
-    self.appendView = appendView;
 }
-- (void)appendView:(AppendInviteView *)appendView commitedData:(AppendInviteParam *)dataParam
+- (void)appendView:(AppendRewardView *)appendView commitedData:(AppendInviteParam *)dataParam
 {
-    [AppendInviteTool appendInviteWithParam:dataParam
-                                    success:^(BaseResult *result) {
-                                        if ([result.status isEqualToString:SUCCESSSTATUS]) {
+    [AppendInviteTool appendInviteWithParam:dataParam success:^(BaseResult *result) {
+                          if ([result.status isEqualToString:SUCCESSSTATUS]) {
                                             [DefaultCenter postNotificationName:FREEINVITENEEDREFRESHNOTIFICATION object:self];
                                             [self.navigationController popViewControllerAnimated:YES];
-                                        }
-                                    } failure:^(NSError *error) {
-                                        [MBProgressHUD showError:@"请求网络失败!"];
-                                    }];
+                          }
+        
+    } failure:^(NSError *error) {
+        [MBProgressHUD showError:@"请求网络失败!"];
+    }];
 }
 #pragma mark - keyboard related
 - (void)setupKeyboard
@@ -76,26 +72,3 @@
     }];
 }
 @end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

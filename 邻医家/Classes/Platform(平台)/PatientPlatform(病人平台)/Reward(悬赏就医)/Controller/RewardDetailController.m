@@ -5,6 +5,7 @@
 //  Created by Daniel on 15/6/17.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "WithDrawDocTool.h"
 #import "AllInviteParam.h"
 #import "BaseResult.h"
 #import "MBProgressHUD+MJ.h"
@@ -49,8 +50,28 @@
 }
 - (void)setNav
 {
-    
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(retreat) title:@"撤销"];
 }
+- (void)retreat
+{
+    AllInviteParam *param = [AllInviteParam paramWithId:self.message.id];
+    [WithDrawDocTool withDrawDocWithParam:param success:^(BaseResult *result) {
+        if ([result.status isEqualToString:SUCCESSSTATUS]) {
+            [self postWithDrawNotification];
+            [self.navigationController popViewControllerAnimated:YES];
+        }else if([result.status isEqualToString:FAILURESTATUS])
+        {
+            [MBProgressHUD showError:result.errorMsg];
+        }
+    } failure:^(NSError *error) {
+        [MBProgressHUD showError:@"请求失败!"];
+    }];
+}
+- (void)postWithDrawNotification
+{
+    [DefaultCenter postNotificationName:FREEINVITENEEDREFRESHNOTIFICATION object:self];
+}
+
 - (void)addCustomViews
 {
     UILabel *moneyLabel = [UILabel labelWithTitle:nil font:14 textColor:[UIColor blueColor]];

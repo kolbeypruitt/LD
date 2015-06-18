@@ -11,6 +11,9 @@
 @interface DocSurgeryModel : NSObject
 @property (nonatomic,copy) NSString *address;
 @property (nonatomic,copy) NSString *department;
+/**
+ *  1,等待录取 2，已录取
+ */
 @property (nonatomic,assign) int gsstatus;
 @property (nonatomic,copy) NSString *hospital;
 @property (nonatomic,copy) NSString *illness;

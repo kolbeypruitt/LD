@@ -145,6 +145,6 @@
 }
 - (void)postWithDrawNotification
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:PATIENTWITHDRAWSUCCESSNOTIFICATION object:self];
+    [DefaultCenter postNotificationName:FREEINVITENEEDREFRESHNOTIFICATION object:self];
 }
 @end

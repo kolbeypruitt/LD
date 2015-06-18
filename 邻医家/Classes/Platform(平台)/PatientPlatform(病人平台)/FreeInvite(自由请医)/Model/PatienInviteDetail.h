@@ -23,5 +23,5 @@
 @property (nonatomic,copy) NSString *name;
 @property (nonatomic,copy) NSString *profession;
 @property (nonatomic,copy) NSString *purpose;
-@property (nonatomic,copy) NSString *remark;
+@property (nonatomic,copy) NSString *ramark;
 @end

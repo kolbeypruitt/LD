@@ -12,6 +12,7 @@
 #import "SDinfoListTool.h"
 #import "LDBaseParam.h"
 #import "InfoListResult.h"
+#import "MJRefresh.h"
 @interface FreeMessageController ()
 @property (nonatomic,strong) NSMutableArray *inviteDocMessages;
 @end
@@ -26,15 +27,27 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self loadData];
+    [self setupRefresh];
     [self setup];
+}
+- (void)setupRefresh
+{
+    __weak typeof(self) weakSelf = self;
+    [self.tableView addLegendHeaderWithRefreshingBlock:^{
+        [weakSelf loadData];
+    }];
+    [self.tableView.header beginRefreshing];
 }
 - (void)loadData
 {
     LDBaseParam *param = [LDBaseParam param];
     [SDinfoListTool getSDInfoListWithParam:param success:^(InfoListResult *result) {
+        if (self.inviteDocMessages.count) {
+            [self.inviteDocMessages removeAllObjects];
+        }
         [self.inviteDocMessages addObjectsFromArray:result.seekDoctor];
         [self.tableView reloadData];
+        [self.tableView.header endRefreshing];
     } failure:^(NSError *error) {
         
     }];

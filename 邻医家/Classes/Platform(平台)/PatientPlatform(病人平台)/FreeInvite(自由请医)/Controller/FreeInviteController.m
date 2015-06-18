@@ -78,7 +78,7 @@
 }
 - (void)setNotification
 {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(withDrawSuccess) name:PATIENTWITHDRAWSUCCESSNOTIFICATION object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(withDrawSuccess) name:FREEINVITENEEDREFRESHNOTIFICATION object:nil];
 }
 - (void)dealloc
 {

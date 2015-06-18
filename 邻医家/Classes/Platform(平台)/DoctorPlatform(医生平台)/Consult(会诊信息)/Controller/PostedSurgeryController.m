@@ -27,15 +27,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self loadData];
-    [self setup];
     [self setupRefresh];
+    [self setup];
 }
 - (void)loadData
 {
     [DocGetInfoTool getGCInfoListWithParam:self.param success:^(QueryConsultResult *result) {
+        if (self.consults.count) {
+            [self.consults removeAllObjects];
+        }
         [self.consults  addObjectsFromArray:result.gs];
         [self.tableView reloadData];
+        [self.tableView.header endRefreshing];
     } failure:^(NSError *error) {
         
     }];
@@ -43,19 +46,15 @@
 - (void)setup
 {
     self.title = @"开刀";
+    self.navigationItem.rightBarButtonItem = nil;
 }
 - (void)setupRefresh
 {
     __weak typeof (self) weakSelf = self;
     [self.tableView addLegendHeaderWithRefreshingBlock:^{
-        [weakSelf refreshData];
+        [weakSelf loadData];
     }];
-}
-- (void)refreshData
-{
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.tableView.header endRefreshing];
-    });
+    [self.tableView.header beginRefreshing];
 }
 #pragma mark - TableView DataSource and Delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

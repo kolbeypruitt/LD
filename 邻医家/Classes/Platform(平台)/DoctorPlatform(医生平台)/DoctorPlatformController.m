@@ -26,7 +26,8 @@
 }
 - (void)setup
 {
-    self.title = @"医生平台";
+    self.view.backgroundColor = IWColor(226, 226, 226);
+    self.navigationItem.title = @"医生平台";
     [self addSubviews];
     [self layoutViews];
 }

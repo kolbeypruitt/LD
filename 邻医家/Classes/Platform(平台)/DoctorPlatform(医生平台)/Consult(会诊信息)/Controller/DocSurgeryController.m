@@ -6,6 +6,7 @@
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
 #import "DocConsultDetailTool.h"
+#import "UIBarButtonItem+ENTER.h"
 #import "DocConsultDetailParam.h"
 #import "DocSurgeryController.h"
 #import "ConsultMessage.h"
@@ -32,6 +33,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadData];
+    [self setup];
+}
+- (void)setup
+{
+    self.navigationItem.title = @"会诊详情";
 }
 - (void)loadData
 {
@@ -45,6 +51,15 @@
 }
 - (void)updateUI
 {
+    NSString *condition = nil;
+    if (self.model.gsstatus == 1) {
+        condition = @"等待录取";
+    }else if(self.model.gsstatus == 2)
+    {
+        condition = @"已录取";
+    }
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:nil action:nil title:condition];
+    
     self.view.backgroundColor = IWColor(226, 226, 226);
     self.telnumLabel.text = self.model.telnum;
     self.departmentLabel.text = self.model.department;

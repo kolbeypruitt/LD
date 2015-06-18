@@ -45,7 +45,9 @@
     if ([origin isKindOfClass:[HospitalEnterTextField class]]) {
         HospitalEnterTextField *textfield = (HospitalEnterTextField *)origin;
         textfield.text = self.selectedChoice.name;
+        textfield.enterData.isvip = self.selectedChoice.type;
         textfield.enterData.ishospital = self.selectedChoice.type;
+        textfield.enterData.gender = self.selectedChoice.type;
     }
 }
 @end

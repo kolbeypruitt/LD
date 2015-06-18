@@ -6,6 +6,7 @@
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
 
+#import "UIBarButtonItem+ENTER.h"
 #import "DocStubbornController.h"
 #import "Common.h"
 #import "MJExtension.h"
@@ -31,8 +32,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = IWColor(226, 226, 226);
     [self loadData];
+    [self setup];
+}
+- (void)setup
+{
+    self.navigationItem.title = @"会诊详情";
+    self.view.backgroundColor = IWColor(226, 226, 226);
 }
 - (void)loadData
 {
@@ -46,6 +52,15 @@
 }
 - (void)updateUI
 {
+    NSString *condition = nil;
+    if (self.model.gsstatus == 1) {
+        condition = @"等待录取";
+    }else if(self.model.gsstatus == 2)
+    {
+        condition = @"已录取";
+    }
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:nil action:nil title:condition];
+    
     self.telnumLable.text = self.model.telnum;
     self.departmentLabel.text = self.model.department;
     self.illnessLabel.text = self.model.illness;
