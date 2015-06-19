@@ -5,11 +5,11 @@
 //  Created by Daniel on 15/6/10.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
-@class ConsultDetailParam,ConsultDetailResult;
+@class ConsultDetailParam,ConsutlDetailResult;
 #import <Foundation/Foundation.h>
 
 @interface ConsultDetailTool : NSObject
 + (void)consultDetailWithParam:(ConsultDetailParam *)param
-                       success:(void (^)(ConsultDetailResult *result))success
+                       success:(void (^)(ConsutlDetailResult *result))success
                        failure:(void (^)(NSError *error))failure;
 @end

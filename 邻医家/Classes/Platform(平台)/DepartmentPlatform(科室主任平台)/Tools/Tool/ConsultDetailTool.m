@@ -9,14 +9,14 @@
 #import "MJExtension.h"
 #import "Common.h"
 #import "LDHttpTool.h"
+#import "ConsutlDetailResult.h"
 #import "ConsultDetailParam.h"
-#import "ConsultDetailResult.h"
 @implementation ConsultDetailTool
-+ (void)consultDetailWithParam:(ConsultDetailParam *)param success:(void (^)(ConsultDetailResult *))success failure:(void (^)(NSError *))failure
++ (void)consultDetailWithParam:(ConsultDetailParam *)param success:(void (^)(ConsutlDetailResult *))success failure:(void (^)(NSError *))failure
 {
     [LDHttpTool getWithURL:CONSULTDETAILURL params:param.keyValues success:^(id json) {
         if (success) {
-            ConsultDetailResult *result = [ConsultDetailResult objectWithKeyValues:json];
+            ConsutlDetailResult *result = [ConsutlDetailResult objectWithKeyValues:json];
             success(result);
         }
     } failure:^(NSError *error) {

@@ -12,5 +12,8 @@
 @property (nonatomic,assign) int id;
 @property (nonatomic,copy) NSString *createTime;
 @property (nonatomic,copy) NSString *title;
-@property (nonatomic,copy) NSString *type;
+/**
+ *  1，开刀 2，疑难杂症会诊 3，临时坐诊 4，转诊
+ */
+@property (nonatomic,assign) int type;
 @end

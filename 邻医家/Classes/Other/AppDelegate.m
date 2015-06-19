@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "DepartmentPlatformController.h"
 #import "IWTabBarViewController.h"
 #import "PublicHomeController.h"
 #import "IWNavigationController.h"
@@ -29,12 +30,14 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.window makeKeyAndVisible];
     Account *userAccount = [AccountTool account];
-    if (userAccount == nil) {
-        self.window.rootViewController = nav;
-    }else
-    {
-        self.window.rootViewController = tabBarController;
-    }
+    DepartmentPlatformController *depVC = [[DepartmentPlatformController alloc] init];
+    self.window.rootViewController = depVC;
+//    if (userAccount == nil) {
+//        self.window.rootViewController = nav;
+//    }else
+//    {
+//        self.window.rootViewController = depVC;
+//    }
 
     return YES;
 }

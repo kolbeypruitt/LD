@@ -1,28 +1,30 @@
 //
-//  HospitalPlatformController.m
+//  DepartmentPlatformController.m
 //  邻医家
 //
-//  Created by Daniel on 15/6/17.
+//  Created by Daniel on 15/6/19.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
 #import "Common.h"
 #import "IWNavigationController.h"
 #import "PublicHomeController.h"
-#import "HospitalAdminController.h"
 #import "IWMeViewController.h"
-#import "HospitalPlatformController.h"
+#import "DepartmentDirectorController.h"
+#import "DepartmentPlatformController.h"
 #import "IWTabBar.h"
 #import "UIImage+MJ.h"
-@interface HospitalPlatformController () <IWTabBarDelegate>
+
+@interface DepartmentPlatformController () <IWTabBarDelegate>
 
 @end
 
-@implementation HospitalPlatformController
+@implementation DepartmentPlatformController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -69,7 +71,7 @@
     self.home = home;
     
     //2.招聘
-    HospitalAdminController *enter = [[HospitalAdminController alloc] init];
+    DepartmentDirectorController  *enter = [[DepartmentDirectorController alloc] init];
     [self setupChildViewController:enter title:@"平台" imageName:@"tab_diary" selectedImageName:@"tab_diary_click"];
     // 3.我
     IWMeViewController *me = [[IWMeViewController alloc] init];
@@ -106,5 +108,5 @@
     // 3.添加tabbar内部的按钮
     [self.customTabBar addTabBarButtonWithItem:childVc.tabBarItem];
 }
-@end
 
+@end

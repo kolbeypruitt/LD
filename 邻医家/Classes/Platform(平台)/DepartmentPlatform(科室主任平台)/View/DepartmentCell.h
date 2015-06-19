@@ -1,5 +1,5 @@
 //
-//  ConsultDetailController.h
+//  DeparmentCell.h
 //  邻医家
 //
 //  Created by Daniel on 15/6/19.
@@ -8,6 +8,7 @@
 @class ConsultMessage;
 #import <UIKit/UIKit.h>
 
-@interface ConsultDetailController : UIViewController
+@interface DepartmentCell : UITableViewCell
 @property (nonatomic,strong) ConsultMessage *message;
++ (instancetype)cellWithTableView:(UITableView *)tableView;
 @end

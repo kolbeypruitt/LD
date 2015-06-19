@@ -5,6 +5,7 @@
 //  Created by Daniel on 15/6/6.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "DepartmentCell.h"
 #import "ConsultDetailController.h"
 #import "ConsultMessage.h"
 #import "ConsultDetailController.h"
@@ -49,7 +50,7 @@
 }
 - (void)setup
 {
-    self.title = @"科室主任平台";
+    self.navigationItem.title = @"科室主任平台";
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self setNav];
@@ -71,23 +72,34 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
-    }
-    ConsultMessage *consult = self.datas[indexPath.row];
-    cell.textLabel.text = consult.title;
-    cell.detailTextLabel.text = consult.createTime;
+    DepartmentCell *cell = [DepartmentCell cellWithTableView:tableView];
+    cell.message = self.datas[indexPath.row];
     
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ConsultMessage *consult = self.datas[indexPath.row];
+    if (consult.type == 1) {//开刀
+        
+    }else if (consult.type == 2)
+    {//疑难杂症
+        
+    }else if (consult.type == 3)
+    {//临时坐诊
+        
+    }else if (consult.type == 4)
+    {//转诊
+        
+    }
     ConsultDetailController *consultVC = [[ConsultDetailController alloc] init];
-    consultVC.consultMessage = consult;
+    consultVC.message = consult;
     [self.navigationController pushViewController:consultVC animated:YES];
     
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 64;
 }
 #pragma mark - UIActionSheet Delegate
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
