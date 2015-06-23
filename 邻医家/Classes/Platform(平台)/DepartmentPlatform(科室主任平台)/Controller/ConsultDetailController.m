@@ -5,6 +5,7 @@
 //  Created by Daniel on 15/6/19.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "WithDrawConsultTool.h"
 #import "UIBarButtonItem+ENTER.h"
 #import "ConsultDetailController.h"
 #import "ConsultMessage.h"
@@ -19,8 +20,10 @@
 #import "ForwardModel.h"
 #import "SurgeryView.h"
 #import "StubbornView.h"
+#import "BaseResult.h"
 #import "ForwardView.h"
 #import "TemporaryView.h"
+#import "LDNotification.h"
 @interface ConsultDetailController ()
 @property (nonatomic,strong) SurgeryModel *surgeryModel;
 @property (nonatomic,strong) StubbornModel *stubbornModel;
@@ -46,7 +49,19 @@
 {
     self.navigationItem.title = @"招聘详情";
     self.view.backgroundColor = IWColor(226, 226, 226);
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:nil title:@"撤销"];
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(withDraw) title:@"撤销"];
+}
+- (void)withDraw
+{
+    ConsultDetailParam *param = [ConsultDetailParam paramWithId:self.message.id];
+    [WithDrawConsultTool withDrawConsultWithParam:param success:^(BaseResult *result) {
+        if ([result.status isEqualToString:SUCCESSSTATUS]) {
+            [DefaultCenter postNotificationName:DEPARTMENTMSGREFRESHNOTIFICATION object:self];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    } failure:^(NSError *error) {
+        
+    }];
 }
 - (void)addCustomViews
 {

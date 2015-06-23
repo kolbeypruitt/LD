@@ -42,7 +42,7 @@
     
     self.nameLabel.text = employer.name;
     self.techtitleLabel.text = employer.techtitle;
-    self.detailLabel.text = employer.detail;
+    self.detailLabel.text = employer.introduction;
     self.hospitalLabel.text = employer.hospital;
     
     if (employer.status == 1) {

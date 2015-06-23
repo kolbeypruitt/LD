@@ -8,7 +8,5 @@
 @class MoreGroup;
 #import <UIKit/UIKit.h>
 
-@interface SearchHosController : UICollectionViewController
-@property (nonatomic,strong) NSMutableArray *groups;
-- (MoreGroup *)addGroup;
+@interface SearchHosController : UIViewController
 @end

@@ -88,7 +88,12 @@
     
     self.nameLabel.text = doctor.name;
     self.techLabel.text = doctor.techtitle;
-    self.introductionLabel.text = doctor.detail;
+    if (doctor.detail) {
+        self.introductionLabel.text = doctor.detail;
+    }else if (doctor.introduction)
+    {
+        self.introductionLabel.text = doctor.introduction;
+    }
     self.hospital.text = doctor.hospital;
 }
 - (void)setEmployer:(Employer *)employer
@@ -104,7 +109,12 @@
     
     self.nameLabel.text = employer.name;
     self.techLabel.text = employer.techtitle;
-    self.introductionLabel.text = employer.detail;
+    if (employer.detail) {
+        self.introductionLabel.text = employer.detail;
+    }else if (employer.introduction)
+    {
+        self.introductionLabel.text = employer.introduction;
+    }
     self.hospital.text = employer.hospital;
     if (employer.status == 1) {
         self.statusLabel.text = @"待录取";

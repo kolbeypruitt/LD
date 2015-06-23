@@ -19,6 +19,9 @@
 #import "LDBaseParam.h"
 #import "QueryConsultTool.h"
 #import "QueryConsultResult.h"
+#import "LDNotification.h"
+#import "Common.h"
+#import "MJRefresh.h"
 @interface DepartmentDirectorController () <UIActionSheetDelegate>
 /**
  *  ConsultMessage模型数组
@@ -36,15 +39,33 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self loadData];
+    [self setupRefreshView];
     [self setup];
+    [self setupNotification];
+}
+- (void)setupRefreshView
+{
+    __weak typeof(self) weakSelf = self;
+    [self.tableView addLegendHeaderWithRefreshingBlock:^{
+        [weakSelf loadData];
+    }];
+    
+    [self.tableView.header beginRefreshing];
+}
+- (void)setupNotification
+{
+    [DefaultCenter addObserver:self.tableView.header selector:@selector(beginRefreshing) name:DEPARTMENTMSGREFRESHNOTIFICATION object:nil];
 }
 - (void)loadData
 {
     LDBaseParam *param = [LDBaseParam param];
     [QueryConsultTool queryConsultWithParam:param success:^(QueryConsultResult *result) {
+        if (self.datas.count) {
+            [self.datas removeAllObjects];
+        }
         [self.datas addObjectsFromArray:result.gs];
         [self.tableView reloadData];
+        [self.tableView.header endRefreshing];
     } failure:^(NSError *error) {
     }];
 }

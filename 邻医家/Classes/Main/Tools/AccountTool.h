@@ -18,4 +18,8 @@
 *     取出存储的帐号
 */
 + (Account *)account;
+/**
+ *  清除账号信息
+ */
++ (BOOL)deleteAccount;
 @end

@@ -6,6 +6,7 @@
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
 #import "Account.h"
+#import "MBProgressHUD+MJ.h"
 #import "AccountTool.h"
 #import "LoginViewController.h"
 #import "MultiJobController.h"
@@ -29,7 +30,7 @@
 #import "Case.h"
 #import "LDHomeHeadView.h"
 #import "UIBarButtonItem+MJ.h"
-#import "DocSearchParam.h"
+#import "UIBarButtonItem+ENTER.h"
 #import "LoginDocDetailController.h"
 @interface PublicHomeController () <UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource,LDHomeFooterViewDelegate,LDHomeHeaderViewDelegate>
 @property (nonatomic,weak) UIScrollView *scrollView;
@@ -98,9 +99,22 @@
 {
     self.title = @"首页";
     //登录按钮
-    Account *acc = [AccountTool account];
-    if (acc == nil) {
+//    Account *acc = [AccountTool account];
+//    if (acc == nil) {
         self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemwithImage:@"login_img" title:nil target:self action:@selector(loginBtnClicked)];
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(logout) title:@"注销"];
+//    }
+}
+- (void)logout
+{
+    if ([AccountTool deleteAccount]) {
+        [MBProgressHUD showMessage:@"注销成功"];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUD];
+        });
+    }else
+    {
+        [MBProgressHUD showError:@"未登录"];
     }
 }
 - (void)loginBtnClicked

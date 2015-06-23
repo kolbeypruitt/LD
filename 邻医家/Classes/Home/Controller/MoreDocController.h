@@ -5,9 +5,9 @@
 //  Created by Daniel on 15/5/4.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
-
+@class SearchDoctorParam;
 #import "IWSettingViewController.h"
 
 @interface MoreDocController : UITableViewController
-
+@property (nonatomic,strong) SearchDoctorParam *param;
 @end

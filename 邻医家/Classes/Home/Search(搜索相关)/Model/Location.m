@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
 
-#import "HotArea.h"
+#import "Location.h"
 
-@implementation HotArea
+@implementation Location
 
 @end

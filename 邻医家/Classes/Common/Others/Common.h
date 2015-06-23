@@ -15,6 +15,7 @@
 #define DOCID @"doctor"
 #define DISID @"disease"
 #define IMAGEPREF @"http://116.228.153.157:8888/assfinance/welcome/image"
+#define HOTAREAURL @"http://192.168.1.4:8080/assfinance/public/hotLocations"
 #define GETRECOMMENDURL @"http://116.228.153.157:8888/assfinance/public/getRecommanded"
 #define RECOMMENDDOCURL @"http://116.228.153.157:8888/assfinance/public/recommandedDoctors"
 #define CELLBORDER 10
@@ -22,7 +23,7 @@
 #define COMMONDISURL @"http://116.228.153.157:8888/assfinance/welcome/image"
 #define MULTIJOBURL @"http://116.228.153.157:8888/assfinance/public/getPolicyList"
 #define COREEXPERTURL @"http://116.228.153.157:8888/assfinance/public/getImpartantDoctors"
-#define DOCSEARCHURL @"http://116.228.153.157:8888/assfinance/public/searchDoctors"
+#define DOCSEARCHURL @"http://192.168.1.4:8080/assfinance/public/searchDoctors"
 #define HOSRANKURL @"http://116.228.153.157:8888/assfinance/public/getHospitalLevel"
 #define POSTDOCSTATIONURL @"http://116.228.153.157:8888/assfinance/public/getPostdoctorStationList"
 #define HOSPITALLEVELURL @"http://116.228.153.157:8888/assfinance/public/getHospitalLevel"
@@ -58,6 +59,7 @@
 #define PATIENTACCEPTDOCURL @"http://116.228.153.157:8888/assfinance/patient/acceptDoctor"
 #define DELETEEMPLOYURL @"http://116.228.153.157:8888/assfinance/patient/deleteSDById"
 #define APPENDINVITEURL @"http://116.228.153.157:8888/assfinance/patient/releaseSeekDoctor"
+#define DEPARTMENTWITHDRAWURL @"http://116.228.153.157:8888/assfinance/hospital/deleteGCById"
 #define SUCCESSSTATUS @"S"
 #define FAILURESTATUS @"F"
 #define TABLEMARGIN 5

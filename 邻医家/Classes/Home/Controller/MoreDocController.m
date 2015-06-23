@@ -5,6 +5,9 @@
 //  Created by Daniel on 15/5/4.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "SearchDoctorParam.h"
+#import "SearchDoctorTool.h"
+#import "SearchDoctorResult.h"
 #import "DoctorDetailController.h"
 #import "Common.h"
 #import "MoreDocController.h"
@@ -13,18 +16,46 @@
 #import "Doctor.h"
 #import "IWCommon.h"
 #import "MJRefresh.h"
+#import "MBProgressHUD+MJ.h"
 @interface MoreDocController () <UISearchBarDelegate>
+@property (nonatomic,strong) NSMutableArray *doctors;
 @property (nonatomic,weak) UISearchBar *searchBar;
 @end
 
 @implementation MoreDocController
+- (NSMutableArray *)doctors
+{
+    if (_doctors == nil) {
+        _doctors = [NSMutableArray array];
+    }
+    return _doctors;
+}
 - (instancetype)initWithStyle:(UITableViewStyle)style
 {
     return [super initWithStyle:UITableViewStyleGrouped];
 }
+- (void)setParam:(SearchDoctorParam *)param
+{
+    _param = param;
+    [SearchDoctorTool searchDoctorWithParam:param success:^(SearchDoctorResult *result) {
+        if ([result.status isEqualToString:SUCCESSSTATUS]) {
+            if (self.doctors.count) {
+                [self.doctors removeAllObjects];
+            }
+            [self.doctors addObjectsFromArray:result.doctors];
+            [self.tableView reloadData];
+        }else
+        {
+            [MBProgressHUD showError:@"请重新搜索"];
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setup];
+    [self loadData];
     [self setupTableHeader];
     [self setupRefresh];
 }
@@ -34,10 +65,21 @@
     [self.tableView addLegendHeaderWithRefreshingBlock:^{
         [weakSelf loadMoreData];
     }];
+    [self.tableView addLegendFooterWithRefreshingBlock:^{
+        [weakSelf loadMoreData];
+    }];
+}
+- (void)loadData
+{
+    SearchDoctorParam *param = [[SearchDoctorParam alloc] init];
+    param.lastId = 0;
+    param.num = 10;
+    self.param = param;
 }
 - (void)setup
 {
     self.title = @"医生列表";
+    self.navigationItem.rightBarButtonItem = nil;
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
     [self.tableView registerClass:[DoctorCell class] forCellReuseIdentifier:DOCID];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
@@ -47,20 +89,19 @@
 {
     UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 74, self.view.frame.size.width, 30)];
     searchBar.delegate = self;
-    searchBar.placeholder = @"热门地区/热门科室/重要专家/关键字";
+    searchBar.placeholder = @"医生名字";
     self.searchBar = searchBar;
     self.tableView.tableHeaderView = searchBar;
 }
 #pragma mark - Tableview delegate method
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 20;
+    return self.doctors.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     DoctorCell *cell = [DoctorCell cellWithTableView:tableView];
-    Doctor *doc = [Doctor doctorWithName:@"莫文蔚" icon:nil detail:@"博士，教授，著名专家，中西医结合治疗各种疾病" hospital:@"湘雅医院" techtitil:@"主任医师"];
-    cell.doctor = doc;
+    cell.doctor = self.doctors[indexPath.row];
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -86,13 +127,18 @@
 
 - (void)loadMoreData
 {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    Doctor *lastDoctor = [self.doctors lastObject];
+    self.param.lastId = lastDoctor.id;
+    [SearchDoctorTool searchDoctorWithParam:self.param success:^(SearchDoctorResult *result) {
+        [self.doctors addObjectsFromArray:result.doctors];
+        [self.tableView.footer endRefreshing];
         [self.tableView.header endRefreshing];
-    });
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        
+    }];
 }
-- (void)loadNewData
-{
-}
+
 @end
 
 

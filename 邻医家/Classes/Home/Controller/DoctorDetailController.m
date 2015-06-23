@@ -29,7 +29,7 @@
 {
     self.title = self.doctor.name;
     self.navigationItem.rightBarButtonItem = nil;
-    self.detailLabel.text = self.doctor.detail;
+    self.detailLabel.text = self.doctor.introduction;
 }
 - (void)setDoctor:(Doctor *)doctor
 {

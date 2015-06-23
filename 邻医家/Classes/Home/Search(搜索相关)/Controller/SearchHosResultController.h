@@ -5,9 +5,9 @@
 //  Created by Daniel on 15/5/8.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
-@class DocSearchParam;
+@class SearchDoctorParam;
 #import <UIKit/UIKit.h>
 
 @interface SearchHosResultController : UITableViewController
-@property (nonatomic,strong) DocSearchParam *param;
+@property (nonatomic,strong) SearchDoctorParam *param;
 @end

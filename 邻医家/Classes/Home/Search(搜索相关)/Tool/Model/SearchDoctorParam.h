@@ -9,7 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface SearchDoctorParam : NSObject
-@property (nonatomic,weak) NSString *cities;
-@property (nonatomic,weak) NSString *departments;
-@property (nonatomic,weak) NSString *name;
+@property (nonatomic,copy) NSString *cities;
+@property (nonatomic,copy) NSString *departments;
+@property (nonatomic,copy) NSString *keyWord;
+@property (nonatomic,strong) NSNumber *doctor;
+@property (nonatomic,assign) NSInteger lastId;
+@property (nonatomic,assign) NSInteger num;
 @end

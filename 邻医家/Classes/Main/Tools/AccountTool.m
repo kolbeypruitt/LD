@@ -18,4 +18,15 @@
     Account *account = [NSKeyedUnarchiver unarchiveObjectWithFile:ACCOUNTFILE];
     return account;
 }
++ (BOOL)deleteAccount
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    BOOL accoutExist = [fileManager fileExistsAtPath:ACCOUNTFILE];
+    if (accoutExist) {
+        BOOL deleteSuccess = [fileManager removeItemAtPath:ACCOUNTFILE error:nil];
+        return deleteSuccess;
+    }else{
+        return NO;
+    }
+}
 @end

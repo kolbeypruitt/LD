@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface HotArea : NSObject
-@property (nonatomic,assign) int Id;
+@interface Location : NSObject
+@property (nonatomic,assign) int id;
 @property (nonatomic,copy) NSString *name;
 @property (nonatomic,copy) NSString *type;
 @end

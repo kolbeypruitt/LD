@@ -16,7 +16,6 @@
 #import "MultiJobResult.h"
 #import "CoreExpertParam.h"
 #import "CoreExpertResult.h"
-#import "DocSearchParam.h"
 #import "DocSearchResult.h"
 #import "HosRankParam.h"
 #import "HosRankResult.h"
@@ -100,18 +99,7 @@
         
     }];
 }
-+ (void)docSearchResultWithParam:(DocSearchParam *)param success:(void (^)(DocSearchResult *))success failure:(void (^)(NSError *))failure
-{
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:DOCSEARCHURL parameters:param.keyValues success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if (success) {
-            DocSearchResult *result = [DocSearchResult objectWithKeyValues:responseObject];
-            success(result);
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-    }];
-}
+
 + (void)hosRankResultWithParam:(HosRankParam *)param success:(void (^)(HosRankResult *))success failure:(void (^)(NSError *))failure
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];

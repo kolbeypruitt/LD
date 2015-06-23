@@ -18,7 +18,7 @@
     Doctor *doc = [[Doctor alloc] init];
     doc.techtitle = techtitle;
     doc.headurl = icon;
-    doc.detail = detail;
+    doc.introduction = detail;
     doc.name = name;
     doc.hospital = hospital;
     return doc;

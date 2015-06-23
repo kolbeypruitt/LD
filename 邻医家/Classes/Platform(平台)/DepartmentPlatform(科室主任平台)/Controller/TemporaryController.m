@@ -7,6 +7,7 @@
 //
 
 #import "TemporaryController.h"
+#import "LDNotification.h"
 #import "Common.h"
 #import "UIBarButtonItem+ENTER.h"
 #import "HospitalEnterTextField.h"
@@ -72,6 +73,7 @@
 - (void)post
 {
     PostConsultParam *param = [[PostConsultParam alloc] init];
+    param.consultationType = 3;
     param.department = [[[self.textfields firstObject] enterData] department];
     param.gctime = [[self.textfields objectAtIndex:1] text];
     param.location = [[[self.textfields objectAtIndex:2] enterData] hospitalLocation];
@@ -80,9 +82,15 @@
     param.doctorJob = [[self.textfields objectAtIndex:5] text];
     param.isHospital = [[[self.textfields lastObject] enterData] ishospital];
     [PostConsultTool postConsulWithParam:param success:^(BaseResult *result) {
-        [self.navigationController popViewControllerAnimated:YES];
+        if ([result.status isEqualToString:SUCCESSSTATUS]) {
+            [DefaultCenter postNotificationName:DEPARTMENTMSGREFRESHNOTIFICATION object:self];
+            [self.navigationController popViewControllerAnimated:YES];
+        }else
+        {
+            [MBProgressHUD showError:@"信息不完整,发布失败!"];
+        }
     } failure:^(NSError *error) {
-        [MBProgressHUD showError:@"信息不完整,发布失败!"];
+        [MBProgressHUD showError:@"请求网络失败!"];
     }];
 }
 - (void)addCustomViews

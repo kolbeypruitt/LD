@@ -5,7 +5,8 @@
 //  Created by Daniel on 15/6/6.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
-
+#import "LDNotification.h"
+#import "BaseResult.h"
 #import "StubbornViewController.h"
 #import "Common.h"
 #import "UIBarButtonItem+ENTER.h"
@@ -14,7 +15,6 @@
 #import "IshospitalDelegate.h"
 #import "PostConsultParam.h"
 #import "NiyaoDelegate.h"
-#import "BaseResult.h"
 #import "LDEnterData.h"
 #import "SingleDepartmentDelegate.h"
 #import "ZonePickerDelegate.h"
@@ -71,6 +71,7 @@
 - (void)post
 {
     PostConsultParam *param = [[PostConsultParam alloc] init];
+    param.consultationType = 2;
     param.department = [[[self.textfields firstObject] enterData] department];
     param.illness = [[self.textfields objectAtIndex:1] text];
     param.caseAbstract = [[self.textfields objectAtIndex:2] text];
@@ -81,9 +82,15 @@
     param.doctorJob = [[self.textfields objectAtIndex:7] text];
     param.isHospital = [[[self.textfields lastObject] enterData] ishospital];
     [PostConsultTool postConsulWithParam:param success:^(BaseResult *result) {
-        [self.navigationController popViewControllerAnimated:YES];
+        if ([result.status isEqualToString:SUCCESSSTATUS]) {
+            [DefaultCenter postNotificationName:DEPARTMENTMSGREFRESHNOTIFICATION object:self];
+            [self.navigationController popViewControllerAnimated:YES];
+        }else
+        {
+            [MBProgressHUD showError:@"信息不完整,发布失败!"];
+        }
     } failure:^(NSError *error) {
-        [MBProgressHUD showError:@"信息不完整,发布失败!"];
+        [MBProgressHUD showError:@"请求网络失败!"];
     }];
 }
 - (void)addCustomViews

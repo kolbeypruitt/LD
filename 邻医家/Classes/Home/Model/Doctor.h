@@ -9,8 +9,10 @@
 #import "HomeItem.h"
 @interface Doctor : NSObject
 @property (nonatomic,copy) NSString *hospital;
+@property (nonatomic,assign) int id;
 @property (nonatomic,copy) NSString *techtitle;
 @property (nonatomic,copy) NSString *detail;
+@property (nonatomic,copy) NSString *introduction;
 @property (nonatomic,copy) NSString *name;
 @property (nonatomic,copy) NSString *headurl;
 + (instancetype)doctorWithName:(NSString *)name

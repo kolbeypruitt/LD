@@ -9,4 +9,5 @@
 #ifndef ____LDNotification_h
 #define ____LDNotification_h
 #define PATIENTACCEPTDOCSUCCESSNOTIFICATION @"pads"
+#define DEPARTMENTMSGREFRESHNOTIFICATION @"departmentmsgrefresh"
 #endif

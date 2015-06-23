@@ -5,10 +5,10 @@
 //  Created by Daniel on 15/5/8.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
-#import "HomeTool.h"
+#import "SearchDoctorTool.h"
 #import "SearchHosResultController.h"
-#import "DocSearchParam.h"
-#import "DocSearchResult.h"
+#import "SearchDoctorParam.h"
+#import "SearchDoctorResult.h"
 @interface SearchHosResultController ()
 @property (nonatomic,strong) NSMutableArray *doctors;
 @end
@@ -27,10 +27,8 @@
     
 }
 - (void)loadSearchResult{
-    DocSearchParam *param = [[DocSearchParam alloc] init];
-    
-    [HomeTool docSearchResultWithParam:param success:^(DocSearchResult *result) {
-        [self.doctors addObjectsFromArray:result.doctors];
+    [SearchDoctorTool searchDoctorWithParam:self.param success:^(SearchDoctorResult *result) {
+        
     } failure:^(NSError *error) {
         
     }];

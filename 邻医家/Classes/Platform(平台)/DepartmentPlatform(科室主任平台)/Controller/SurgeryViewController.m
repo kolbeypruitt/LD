@@ -6,6 +6,7 @@
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
 #import "MBProgressHUD+MJ.h"
+#import "LDNotification.h"
 #import "IshospitalDelegate.h"
 #import "PostConsultParam.h"
 #import "NiyaoDelegate.h"
@@ -68,6 +69,7 @@
 - (void)post
 {
     PostConsultParam *param = [[PostConsultParam alloc] init];
+    param.consultationType = 1;
     param.department = [[[self.textfields firstObject] enterData] department];
     param.illness = [[self.textfields objectAtIndex:1] text];
     param.operationName = [[self.textfields objectAtIndex:2] text];;
@@ -79,9 +81,15 @@
     param.doctorJob = [[self.textfields objectAtIndex:8] text];
     param.isHospital = [[[self.textfields lastObject] enterData] ishospital];
     [PostConsultTool postConsulWithParam:param success:^(BaseResult *result) {
-        [self.navigationController popViewControllerAnimated:YES];
+        if ([result.status isEqualToString:SUCCESSSTATUS]) {
+            [DefaultCenter postNotificationName:DEPARTMENTMSGREFRESHNOTIFICATION object:self];
+            [self.navigationController popViewControllerAnimated:YES];
+        }else
+        {
+            [MBProgressHUD showError:@"信息不完整,发布失败!"];
+        }
     } failure:^(NSError *error) {
-        [MBProgressHUD showError:@"信息不完整,发布失败!"];
+        [MBProgressHUD showError:@"请求网络失败!"];
     }];
 }
 - (void)addCustomViews
