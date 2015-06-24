@@ -5,8 +5,9 @@
 //  Created by Daniel on 15/4/30.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
-
+#import "LDHttpTool.h"
 #import "MultiJobController.h"
+#import "Common.h"
 #import "MJExtension.h"
 #import "IWSettingGroup.h"
 #import "AFNetworking.h"
@@ -32,15 +33,12 @@
 
 - (void)loadData
 {
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    
-    [manager GET:@"http://192.168.1.17:8080/assfinance/public/getPolicyList" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSArray *tmpArray = [Policy objectArrayWithKeyValuesArray:responseObject[@"policys"]];
+    [LDHttpTool getWithURL:MULTIJOBURL params:nil success:^(id json) {
+         NSArray *tmpArray = [Policy objectArrayWithKeyValuesArray:json[@"policys"]];
         [self.policys addObjectsFromArray:tmpArray];
-        [self.tableView reloadData];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self.tableView reloadData]; 
+    } failure:^(NSError *error) {
         
-        NSLog(@"%@",error);
     }];
 }
 #pragma mark tableview datasource

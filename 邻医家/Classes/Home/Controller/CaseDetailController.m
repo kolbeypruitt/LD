@@ -22,24 +22,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self loadData];
+    [self setup];
+}
+- (void)loadData
+{
+    CaseDetailParam *param = [CaseDetailParam paramWithId:self.norcase.id];
+    [CaseDetailTool caseDetailWithParam:param success:^(CaseDetailResult *result) {
+        if ([result.status isEqualToString:@"S"]) {
+            [self addCustomView];
+            self.caseView.caseDetail = result.Case;
+        }
+    } failure:^(NSError *error) {
+        
+    }]; 
 }
 - (void)setNorcase:(Case *)norcase
 {
     _norcase = norcase;
-    CaseDetailParam *param = [CaseDetailParam paramWithId:norcase.id];
-    [CaseDetailTool caseDetailWithParam:param success:^(CaseDetailResult *result) {
-        if ([result.status isEqualToString:@"S"]) {
-            self.Cs = result.Case;
-        }
-    } failure:^(NSError *error) {
-        
-    }];
 }
-- (void)setCs:(CaseDetail *)Cs
+- (void)setup
 {
-    _Cs = Cs;
-    [self addCustomView];
-    self.caseView.caseDetail = Cs;
+    self.title = self.norcase.name;
+    self.view.backgroundColor = IWColor(226, 226, 226);
+    self.navigationItem.rightBarButtonItem = nil;
 }
 - (void)addCustomView
 {

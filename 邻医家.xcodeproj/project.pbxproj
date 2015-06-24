@@ -392,6 +392,8 @@
 		65D9967F1B38FA37004C1DA6 /* ForwardDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D9967E1B38FA37004C1DA6 /* ForwardDelegate.m */; };
 		65E1DF611B1FF7ED006A09E9 /* PatientEnterTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E1DF601B1FF7ED006A09E9 /* PatientEnterTool.m */; };
 		65E1F0AA1B0993D7004AEC4A /* MultiJobIDResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E1F0A91B0993D7004AEC4A /* MultiJobIDResult.m */; };
+		B0C32E1E1B3AFBAA008E057C /* MultiJobCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C32E1C1B3AFBAA008E057C /* MultiJobCell.m */; };
+		B0C32E1F1B3AFBAA008E057C /* MultiJobCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0C32E1D1B3AFBAA008E057C /* MultiJobCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1160,6 +1162,9 @@
 		65E1DF601B1FF7ED006A09E9 /* PatientEnterTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientEnterTool.m; sourceTree = "<group>"; };
 		65E1F0A81B0993D7004AEC4A /* MultiJobIDResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiJobIDResult.h; sourceTree = "<group>"; };
 		65E1F0A91B0993D7004AEC4A /* MultiJobIDResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiJobIDResult.m; sourceTree = "<group>"; };
+		B0C32E1B1B3AFBAA008E057C /* MultiJobCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiJobCell.h; sourceTree = "<group>"; };
+		B0C32E1C1B3AFBAA008E057C /* MultiJobCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiJobCell.m; sourceTree = "<group>"; };
+		B0C32E1D1B3AFBAA008E057C /* MultiJobCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MultiJobCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1865,6 +1870,9 @@
 				65D812601B3A8AEF00A1E0EC /* HospitalDetailView.m */,
 				65D812621B3A982400A1E0EC /* CaseDetailView.h */,
 				65D812631B3A982400A1E0EC /* CaseDetailView.m */,
+				B0C32E1B1B3AFBAA008E057C /* MultiJobCell.h */,
+				B0C32E1C1B3AFBAA008E057C /* MultiJobCell.m */,
+				B0C32E1D1B3AFBAA008E057C /* MultiJobCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3168,6 +3176,7 @@
 				6516A6951B12F807006B9BBB /* department.json in Resources */,
 				6540B80C1B2D4C6B0053DB2A /* DocStubbornController.xib in Resources */,
 				65CC3F611B0F0A410099A3F3 /* CheckInForgetController.xib in Resources */,
+				B0C32E1F1B3AFBAA008E057C /* MultiJobCell.xib in Resources */,
 				655454731AFCA59D00C4BFFA /* Info.plist in Resources */,
 				656D16FC1B292BCB00C28FFA /* IntroductionView.xib in Resources */,
 				655454331AFCA59D00C4BFFA /* MBProgressHUD.bundle in Resources */,
@@ -3504,6 +3513,7 @@
 				655454591AFCA59D00C4BFFA /* main.m in Sources */,
 				65D5271C1B2A95D600CF4FC4 /* GetEmployTool.m in Sources */,
 				65D527211B2A95D600CF4FC4 /* ResumeCell.m in Sources */,
+				B0C32E1E1B3AFBAA008E057C /* MultiJobCell.m in Sources */,
 				6540B81C1B2D4C6C0053DB2A /* DocConsultDetailTool.m in Sources */,
 				65CAB2D41B241317005DAED4 /* EnterViewController.m in Sources */,
 				65C50C3D1B0DAA370027455E /* AccountTool.m in Sources */,

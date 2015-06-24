@@ -82,7 +82,7 @@
     UILabel *treatmentProcess = self.contentLabels[8];
     
     gender.text = caseDetail.gender;
-    age.text = caseDetail.age;
+    age.text =[NSString stringWithFormat:@"%ld",caseDetail.age];
     chief.text = caseDetail.chiefComplaint;
     illNow.text = caseDetail.illNow;
     illBefore.text = caseDetail.illBefore;
@@ -97,7 +97,7 @@
     CGFloat padding = 10;
     CGFloat titleX = padding;
     CGFloat titleY = 0;
-    CGFloat titleW = 40;
+    CGFloat titleW = 60;
     CGFloat titleH = 30;
     
     CGFloat lineX = padding;
@@ -110,7 +110,7 @@
     CGFloat contentW = 0;
     CGFloat contentH = titleH;
     
-    for (int i = 0; i  < self.lines.count - 1; i++) {
+    for (int i = 0; i  < self.lines.count ; i++) {
         UILabel *titleLabel = self.titleLabels[i];
         titleY = i * (titleH + padding/2);
         titleLabel.frame = CGRectMake(titleX, titleY, titleW, titleH);
@@ -125,6 +125,11 @@
         contentW = SCREENWIDTH - contentX - padding;
         contentLabel.frame = CGRectMake(contentX, contentY, contentW, contentH);
     }
+    UILabel *lastTitle = [self.titleLabels lastObject];
+    lastTitle.textAlignment = NSTextAlignmentCenter;
+    CGRect frame = lastTitle.frame;
+    frame.size.width = SCREENWIDTH - 2 * padding;
+    lastTitle.frame = frame;
     
 }
 @end
