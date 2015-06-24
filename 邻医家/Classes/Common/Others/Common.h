@@ -15,7 +15,10 @@
 #define DOCID @"doctor"
 #define DISID @"disease"
 #define IMAGEPREF @"http://116.228.153.157:8888/assfinance/welcome/image"
+#define CASEDETAILURL @"http://192.168.1.4:8080/assfinance/public/getCaseInfoById"
+#define HOSPITALDETAILURL @"http://192.168.1.4:8080/assfinance/public/getHospitalInfoById"
 #define HOTAREAURL @"http://192.168.1.4:8080/assfinance/public/hotLocations"
+#define DOCTORDETAILURL @"http://192.168.1.4:8080/assfinance/public/getDoctorInfoById"
 #define GETRECOMMENDURL @"http://116.228.153.157:8888/assfinance/public/getRecommanded"
 #define RECOMMENDDOCURL @"http://116.228.153.157:8888/assfinance/public/recommandedDoctors"
 #define CELLBORDER 10

@@ -29,4 +29,13 @@
         return NO;
     }
 }
++ (BOOL)isLogin
+{
+    if ([self account]== nil) {
+        return NO;
+    }else
+    {
+        return YES;
+    }
+}
 @end

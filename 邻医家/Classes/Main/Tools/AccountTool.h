@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Account.h"
 @interface AccountTool : NSObject
++ (BOOL)isLogin;
 /**
  *    存储账号
  *  @param account 待存储的账号

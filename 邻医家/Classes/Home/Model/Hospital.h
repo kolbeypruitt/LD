@@ -9,7 +9,7 @@
 #import "HomeItem.h"
 
 @interface Hospital : NSObject
-@property (nonatomic,copy) NSString *ID;
+@property (nonatomic,assign) int id;
 @property (nonatomic,copy) NSString *detail;
 @property (nonatomic,copy) NSString *name;
 @property (nonatomic,copy) NSString *headurl;

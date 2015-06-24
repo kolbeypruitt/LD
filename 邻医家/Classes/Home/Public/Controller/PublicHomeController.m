@@ -10,6 +10,7 @@
 #import "AccountTool.h"
 #import "LoginViewController.h"
 #import "MultiJobController.h"
+#import "CaseDetailController.h"
 #import "PostDoctorController.h"
 #import "RecruitMessageController.h"
 #import "LDHomeFooterView.h"
@@ -108,7 +109,7 @@
 - (void)logout
 {
     if ([AccountTool deleteAccount]) {
-        [MBProgressHUD showMessage:@"注销成功"];
+        [MBProgressHUD showMessage:@"正在注销"];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [MBProgressHUD hideHUD];
         });
@@ -328,19 +329,39 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    BOOL islogin = [AccountTool isLogin];
     if ([tableView isEqual:self.doctorView]) {
-//        DoctorDetailController *docVC = [[DoctorDetailController alloc] init];
-        LoginDocDetailController *docVC = [[LoginDocDetailController alloc] init];
-//        docVC.doctor = self.doctors[indexPath.row];
-        [self.navigationController pushViewController:docVC animated:YES];
+        if (islogin) {
+            
+            LoginDocDetailController *docVC = [[LoginDocDetailController alloc] init];
+            docVC.doctor = self.doctors[indexPath.row];
+            [self.navigationController pushViewController:docVC animated:YES];
+        }else
+        {
+            DoctorDetailController *docVC = [[DoctorDetailController alloc] init];
+            docVC.doctor = self.doctors[indexPath.row];
+            [self.navigationController pushViewController:docVC animated:YES];
+        }
     }else if ([tableView isEqual:self.hospitalView])
     {
-        HosDetailController *hos = [[HosDetailController alloc] init];
-        hos.hospital = self.hospitals[indexPath.row];
-        [self.navigationController pushViewController:hos animated:YES];
-    }else
+        if (islogin) {
+            
+        }else
+        {
+            HosDetailController *hos = [[HosDetailController alloc] init];
+            hos.hospital = self.hospitals[indexPath.row];
+            [self.navigationController pushViewController:hos animated:YES];
+        }
+    }else if ([tableView isEqual:self.diseaseView])
     {
-        
+        if (islogin) {
+            
+        }else
+        {
+            CaseDetailController *caseVC = [[CaseDetailController alloc] init];
+            caseVC.norcase = self.diseases[indexPath.row];
+            [self.navigationController pushViewController:caseVC animated:YES];
+        }
     }
 }
 #pragma mark - footer delegate method
