@@ -6,11 +6,27 @@
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
 
-#import "MultiJobCellTable.h"
+#import "MultiJobCell.h"
+#import "Policy.h"
+@interface MultiJobCell ()
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *spotView;
 
-@implementation MultiJobCellTable
+@end
+@implementation MultiJobCell
+
 + (instancetype)cellWithTableView:(UITableView *)tableView
 {
-    MultiJobCellTable
+    static NSString *ID = @"multijob";
+    MultiJobCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    if (cell == nil) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"MultiJobCell" owner:nil options:nil] lastObject];
+    }
+    return cell;
+}
+- (void)setPolicy:(Policy *)policy
+{
+    _policy = policy;
+    self.titleLabel.text = policy.name;
 }
 @end

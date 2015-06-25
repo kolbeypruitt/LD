@@ -1,0 +1,14 @@
+//
+//  DoctorStationCell.h
+//  邻医家
+//
+//  Created by Daniel on 15/6/25.
+//  Copyright (c) 2015年 DanielGrason. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+@class DoctorStation;
+@interface DoctorStationCell : UITableViewCell
+@property (nonatomic,strong) DoctorStation *doctorStation;
++ (instancetype)cellWithTableView:(UITableView *)tableView;
+@end

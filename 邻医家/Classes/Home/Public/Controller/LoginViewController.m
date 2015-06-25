@@ -5,6 +5,12 @@
 //  Created by Daniel on 15/5/15.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "HospitalPlatformController.h"
+#import "DepartmentPlatformController.h"
+#import "IWNavigationController.h"
+#import "PublicHomeController.h"
+#import "DoctorTabbarController.h"
+#import "PatientTabbarController.h"
 #import "ForgetPassController.h"
 #import "IWTabBarViewController.h"
 #import "UIImage+MJ.h"
@@ -88,10 +94,7 @@
                                              department:result.department];
                         [AccountTool saveAccount:at];
                     }
-//                    [[NSNotificationCenter defaultCenter] postNotificationName:LOGINDONWNOTIFICATION object:nil];
-//                    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
-//                    [self.navigationController popToRootViewControllerAnimated:YES];
-                    self.view.window.rootViewController = [[IWTabBarViewController alloc] init];
+                    [self chooseRootController];
                 }else
                 {
                     [MBProgressHUD showError:@"用户名或密码错误"];
@@ -108,7 +111,32 @@
         [MBProgressHUD showError:@"请输入手机号"];
     }
 }
-
+- (void)chooseRootController
+{
+    Account *userAccount = [AccountTool account];
+    if (userAccount.type == 0)
+    {//注册用户
+        PublicHomeController *publicHome = [[PublicHomeController alloc] init];
+        IWNavigationController *nav = [[IWNavigationController alloc] initWithRootViewController:publicHome];
+        self.view.window.rootViewController = nav;
+    }else if(userAccount.type == 1)
+    {//医院管理者
+        HospitalPlatformController *hosplat = [[HospitalPlatformController alloc] init];
+        self.view.window.rootViewController = hosplat;
+    }else if(userAccount.type == 2)
+    {//入驻医生
+        DoctorTabbarController *doc = [[DoctorTabbarController alloc] init];
+        self.view.window.rootViewController = doc;
+    } else if(userAccount.type == 3)
+    {//入驻医友
+        PatientTabbarController *patient = [[PatientTabbarController alloc] init];
+        self.view.window.rootViewController = patient;
+    }else if (userAccount.type == 4)
+    {//科室主任
+        DepartmentPlatformController *depart = [[DepartmentPlatformController alloc] init];
+        self.view.window.rootViewController = depart;
+    }
+}
 
 #pragma mark - textfield delegate method
 - (void)textFieldDidBeginEditing:(UITextField *)textField

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface PostDocRecruitController : UITableViewController
-
+@property (nonatomic,weak) UISearchBar *searchBar;
 @end

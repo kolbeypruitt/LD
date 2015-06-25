@@ -8,7 +8,7 @@
 #define BUTTONRADIUS 8
 #import "RecruitMessageController.h"
 #import "PostDocRecruitController.h"
-
+#import "MultiInviteController.h"
 @interface RecruitMessageController ()
 @property (weak, nonatomic) IBOutlet UIButton *multiJobBtn;
 @property (weak, nonatomic) IBOutlet UIButton *inviteExpertBtn;
@@ -45,7 +45,7 @@
 
 
 - (IBAction)mutiJobBtnClicked:(UIButton *)sender {
-    PostDocRecruitController *postVC = [[PostDocRecruitController alloc] init];
+    MultiInviteController *postVC = [[MultiInviteController alloc] init];
     postVC.title = sender.currentTitle;
     [self.navigationController pushViewController:postVC animated:YES];
 }

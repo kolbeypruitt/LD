@@ -14,17 +14,25 @@
 #define HOSID @"hospital"
 #define DOCID @"doctor"
 #define DISID @"disease"
+#define CELLBORDER 10
+//http://localhost:8080/assfinance/public/getEmployInfoList
+//
+//说明：type   招聘类型 1-多点执业邀请2-专家邀请3- 实习 4-进修 5-博士后
+#define RECRUITURL @"http://116.228.153.157:8888/assfinance/public/getEmployInfoList"
+#define RECRUITDETAILURL @"http://116.228.153.157:8888/assfinance/public/getEmployInfoById"
 #define IMAGEPREF @"http://116.228.153.157:8888/assfinance/welcome/image"
+#define DOCTORSTATIONURL @"http://116.228.153.157:8888/assfinance/public/getPostdoctorStationList"
+#define DOCTORSTATIONDETAILURL @"http://116.228.153.157:8888/assfinance/public/getPostdoctorStationInfoById"
 #define CASEDETAILURL @"http://116.228.153.157:8888/assfinance/public/getCaseInfoById"
 #define HOSPITALDETAILURL @"http://116.228.153.157:8888/assfinance/public/getHospitalInfoById"
 #define HOTAREAURL @"http://116.228.153.157:8888/assfinance/public/hotLocations"
 #define DOCTORDETAILURL @"http://116.228.153.157:8888/assfinance/public/getDoctorInfoById"
 #define GETRECOMMENDURL @"http://116.228.153.157:8888/assfinance/public/getRecommanded"
 #define RECOMMENDDOCURL @"http://116.228.153.157:8888/assfinance/public/recommandedDoctors"
-#define CELLBORDER 10
 #define RECOMMENDHOSURL @"http://116.228.153.157:8888/assfinance/public/recommandedHospitals"
 #define COMMONDISURL @"http://116.228.153.157:8888/assfinance/welcome/image"
 #define MULTIJOBURL @"http://116.228.153.157:8888/assfinance/public/getPolicyList"
+#define MULTIJOBDETAILURL @"http://116.228.153.157:8888/assfinance/public/getPolicyInfoById"
 #define COREEXPERTURL @"http://116.228.153.157:8888/assfinance/public/getImpartantDoctors"
 #define DOCSEARCHURL @"http://116.228.153.157:8888/assfinance/public/searchDoctors"
 #define HOSRANKURL @"http://116.228.153.157:8888/assfinance/public/getHospitalLevel"

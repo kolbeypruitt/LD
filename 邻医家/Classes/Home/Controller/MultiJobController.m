@@ -5,7 +5,9 @@
 //  Created by Daniel on 15/4/30.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "MultiJobCell.h"
 #import "LDHttpTool.h"
+#import "MultijobDetailController.h"
 #import "MultiJobController.h"
 #import "Common.h"
 #import "MJExtension.h"
@@ -27,10 +29,14 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"多点执业政策";
+    [self setup];
     [self loadData];
 }
-
+- (void)setup
+{
+    self.navigationItem.rightBarButtonItem = nil;
+    self.title = @"多点执业政策";
+}
 - (void)loadData
 {
     [LDHttpTool getWithURL:MULTIJOBURL params:nil success:^(id json) {
@@ -48,14 +54,41 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Policy *pl = self.policys[indexPath.row];
-    static NSString *ID = @"multicell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
-    }
-    cell.textLabel.text = pl.name;
+    MultiJobCell *cell = [MultiJobCell cellWithTableView:tableView];
+    cell.policy = self.policys[indexPath.row];
     return cell;
 }
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 44;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    MultijobDetailController *detailVC = [[MultijobDetailController alloc] init];
+    detailVC.policy = self.policys[indexPath.row];
+    [self.navigationController pushViewController:detailVC animated:YES];
+}
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

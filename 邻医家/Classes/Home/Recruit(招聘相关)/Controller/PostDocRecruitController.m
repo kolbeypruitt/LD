@@ -9,7 +9,6 @@
 #import "PostDocRecruitController.h"
 
 @interface PostDocRecruitController () <UISearchBarDelegate>
-@property (nonatomic,weak) UISearchBar *searchBar;
 @end
 
 @implementation PostDocRecruitController
@@ -24,13 +23,6 @@
     searchBar.placeholder = @"请输入搜索关键词";
     self.tableView.tableHeaderView = searchBar;
     self.searchBar = searchBar;
-}
-
-#pragma mark - Table view data source
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    return 0;
 }
 
 

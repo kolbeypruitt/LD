@@ -6,6 +6,7 @@
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
 #import "Account.h"
+#import "IWNavigationController.h"
 #import "MBProgressHUD+MJ.h"
 #import "AccountTool.h"
 #import "LoginViewController.h"
@@ -113,6 +114,9 @@
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [MBProgressHUD hideHUD];
         });
+        PublicHomeController *publicHome = [[PublicHomeController alloc] init];
+        IWNavigationController *nav = [[IWNavigationController alloc] initWithRootViewController:publicHome];
+        self.view.window.rootViewController = nav;
     }else
     {
         [MBProgressHUD showError:@"未登录"];

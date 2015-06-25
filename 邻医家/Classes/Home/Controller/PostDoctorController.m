@@ -5,43 +5,86 @@
 //  Created by Daniel on 15/5/11.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
-
+#import "DoctorStationDetailController.h"
 #import "PostDoctorController.h"
-
-@interface PostDoctorController ()
-
+#import "Common.h"
+#import "StationListResult.h"
+#import "DoctorStationCell.h"
+#import "DoctorStationListTool.h"
+#import "DoctorStation.h"
+@interface PostDoctorController () <UISearchBarDelegate>
+@property (nonatomic,strong) NSMutableArray *stations;
+@property (nonatomic,weak) UISearchBar *searchBar;
 @end
 
 @implementation PostDoctorController
-
+- (NSMutableArray *)stations
+{
+    if (_stations == nil) {
+        _stations = [NSMutableArray array];
+    }
+    return _stations;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(remove)];
-    
+    [self setup];
+    [self loadData];
 }
-
-- (void)remove
+- (void)loadData
 {
-    [self.tableView setEditing:!self.tableView.isEditing animated:YES];
+    [DoctorStationListTool doctorStationListSuccess:^(StationListResult *result) {
+        if ([result.status isEqualToString:SUCCESSSTATUS]) {
+            [self.stations addObjectsFromArray:result.postdoctorStations];
+            [self.tableView reloadData];
+        }else{
+            
+        }
+    } failure:^(NSError *error) {
+        
+    }];
 }
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)setup
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationBottom];
-    }
+    self.navigationItem.rightBarButtonItem = nil;
+    self.navigationItem.title = @"博士后站点";
+    [self setupSearchBar];
 }
+- (void)setupSearchBar
+{
+    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, 30)];
+    searchBar.delegate = self;
+    searchBar.placeholder = @"热门科室";
+    self.tableView.tableHeaderView = searchBar;
+    self.searchBar = searchBar;
+}
+#pragma mark - tableview delegate and datasource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 20;
+    return self.stations.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
-    }
-    cell.textLabel.text =[NSString stringWithFormat:@"北京协和医院招聘博士后信息－－－%d",(int)indexPath.row];
+    DoctorStationCell *cell = [DoctorStationCell cellWithTableView:tableView];
+    cell.doctorStation = self.stations[indexPath.row];
     return cell;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 38;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    DoctorStationDetailController *detailVC = [[DoctorStationDetailController alloc] init];
+    detailVC.doctorStation = self.stations[indexPath.row];
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 
 @end
+
+
+
+
+
+
+
+
