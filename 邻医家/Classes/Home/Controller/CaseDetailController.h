@@ -7,7 +7,9 @@
 //
 @class Case;
 #import <UIKit/UIKit.h>
-
+/**
+ *   接受一个Case模型norcase
+ */
 @interface CaseDetailController : UIViewController
 @property (nonatomic,strong) Case *norcase;
 @end

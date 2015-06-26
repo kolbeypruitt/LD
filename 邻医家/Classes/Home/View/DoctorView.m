@@ -10,6 +10,7 @@
 #import "Doctor.h"
 #import "Common.h"
 #import "UILabel+LD.h"
+#import "AccountTool.h"
 @interface DoctorView ()
 @property (nonatomic,strong) NSMutableArray *titleLabels;
 @property (nonatomic,strong) NSMutableArray *contentLabels;
@@ -77,13 +78,18 @@
     UILabel *introduction  = self.contentLabels[1];
     UILabel *department = self.contentLabels[2];
     techtitle.text = doctor.techtitle;
-    introduction.text = doctor.introduction;
+    if (doctor.detail.length) {
+        introduction.text = doctor.detail;
+    }else if(doctor.introduction.length)
+    {
+        introduction.text = doctor.introduction;
+    }
     department.text = doctor.department;
+    [self layoutCustomViews];
     
 }
-- (void)layoutSubviews
+- (void)layoutCustomViews
 {
-    [super layoutSubviews];
     CGFloat padding = 10;
     //职称
     UILabel *titleTech = self.titleLabels[0];
@@ -115,7 +121,13 @@
     CGFloat contentIntroductionY = titleIntroctionY + padding/2;
     CGFloat contentIntroductionW = SCREENWIDTH - contentX - padding;
     NSDictionary *attributes = @{NSFontAttributeName : contentIntroduction.font};
-    CGRect rect = [self.doctor.introduction boundingRectWithSize:CGSizeMake(contentIntroductionW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil];
+    CGRect rect;
+    if (self.doctor.detail.length) {
+        rect = [self.doctor.detail boundingRectWithSize:CGSizeMake(contentIntroductionW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil];
+    }else if(self.doctor.introduction.length)
+    {
+        rect = [self.doctor.introduction boundingRectWithSize:CGSizeMake(contentIntroductionW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil];
+    }
     CGSize size = rect.size;
     contentIntroduction.frame = (CGRect){{contentIntroductionX,contentIntroductionY},size};
     
@@ -138,6 +150,9 @@
     UIView *thirdLine = self.lines[2];
     thirdLine.frame = CGRectMake(padding, CGRectGetMaxY(contentDepartment.frame), SCREENWIDTH - 2 *padding, 1);
     //
+    if ([AccountTool isLogin]) {
+        return;
+    }
     UILabel *lastTitleLabel = [self.titleLabels lastObject];
     lastTitleLabel.textAlignment = NSTextAlignmentCenter;
     UIView *lastLine = [self.lines lastObject];
@@ -151,7 +166,6 @@
     
 }
 @end
-
 
 
 

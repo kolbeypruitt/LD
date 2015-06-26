@@ -38,7 +38,7 @@
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
         NSArray *departments =[Department objectArrayWithKeyValuesArray:dict[@"departments"]];
         for (Department *dep in departments) {
-            if (dep.Id == self.firstDepartment) {
+            if (dep.id == self.firstDepartment) {
                 _secondDepartments = [dep secondClass];
             }
         }

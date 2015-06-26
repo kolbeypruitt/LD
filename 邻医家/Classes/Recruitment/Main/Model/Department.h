@@ -9,10 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface Department : NSObject
-{
-    int _id;
-}
-@property (nonatomic,assign) int Id;
+@property (nonatomic,assign) int id;
 @property (nonatomic,copy) NSString *name;
 @property (nonatomic,strong) NSArray *secondClass;
 @end

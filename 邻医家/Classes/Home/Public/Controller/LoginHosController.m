@@ -1,26 +1,27 @@
 //
-//  LoginDocDetailController.m
+//  LoginHosController.m
 //  邻医家
 //
-//  Created by Daniel on 15/6/6.
+//  Created by Daniel on 15/6/26.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
-#import "LDPaperDetailController.h"
+#import "DepartmentDetailController.h"
 #import "CaseDetailController.h"
-#import "DiseaseCell.h"
-#import "AchieveMentCell.h"
-#import "Doctor.h"
-#import "LDPaper.h"
-#import "Case.h"
 #import "LoginDocDetailController.h"
-#import "Common.h"
-#import "IWCommon.h"
+#import "LoginDepartmentCell.h"
 #import "Doctor.h"
-#import "DoctorView.h"
+#import "DoctorCell.h"
+#import "DiseaseCell.h"
+#import "Disease.h"
+#import "Hospital.h"
+#import "LoginHosController.h"
+#import "Common.h"
+#import "HospitalDetailView.h"
+#import "HospitalDetail.h"
+#import "LoginHosResult.h"
+#import "LoginHosTool.h"
 #import "LDBaseParam.h"
-#import "LoginDocDetailResult.h"
-#import "LoginDocDetailTool.h"
-@interface LoginDocDetailController () <UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate>
+@interface LoginHosController () <UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
 /**
  *  选项卡
  */
@@ -29,31 +30,39 @@
 /**
  *   介绍
  */
-@property (nonatomic,weak) DoctorView *introductionView;
+@property (nonatomic,weak) HospitalDetailView *introductionView;
 /**
- *   成果
+ *   科室
  */
-@property (nonatomic,weak) UITableView *achievementView;
+@property (nonatomic,weak) UITableView *departmentView;
 /**
  *  病例
  */
 @property (nonatomic,weak) UITableView *caseView;
 /**
- *  安排
+ *  专家
  */
-@property (nonatomic,weak) UITableView *assignmentView;
-@property (nonatomic,strong) Doctor *introduction;
-@property (nonatomic,strong) NSArray *papers;
+@property (nonatomic,weak) UITableView *doctorView;
+@property (nonatomic,strong) HospitalDetail *hospitalDetail;
+@property (nonatomic,strong) NSArray *doctors;
+@property (nonatomic,strong) NSArray *departments;
 @property (nonatomic,strong) NSArray *diseases;
 @end
 
-@implementation LoginDocDetailController
-- (NSArray *)papers
+@implementation LoginHosController
+- (NSArray *)doctors
 {
-    if (_papers == nil) {
-        _papers = [NSArray array];
+    if (_doctors == nil) {
+        _doctors = [NSArray array];
     }
-    return _papers;
+    return _doctors;
+}
+- (NSArray *)departments
+{
+    if (_departments == nil) {
+        _departments = [NSArray array];
+    }
+    return _departments;
 }
 - (NSArray *)diseases
 {
@@ -67,44 +76,27 @@
     [self loadData];
     [self setup];
 }
-- (void)loadData
-{
-    LDBaseParam *param = [LDBaseParam paramWithId:self.doctor.id];
-    [LoginDocDetailTool loginDocdetailWithParam:param success:^(LoginDocDetailResult *result) {
-        if ([result.status isEqualToString:@"S"]) {
-            self.introduction = result.intorduction;
-            
-            self.diseases = result.cases;
-            [self.caseView reloadData];
-            
-            self.papers = result.papers;
-            [self.achievementView reloadData];
-        }
-    } failure:^(NSError *errror) {
-        
-    }];
-}
-- (void)setDoctor:(Doctor *)doctor
-{
-    _doctor = doctor;
-}
-- (void)setIntroduction:(Doctor *)introduction
-{
-    _introduction =  introduction;
-    self.introductionView.doctor = self.introduction;
-}
 - (void)setup
 {
-    self.view.backgroundColor = IWColor(226, 226, 226);
-    self.navigationItem.title = self.doctor.name;
+    self.view.backgroundColor = BGCOLOR;
+    self.navigationItem.title = self.hospital.name;
     self.navigationItem.rightBarButtonItem = nil;
     [self addCustomeViews];
     [self layoutCustomeViews];
 }
+- (void)setHospital:(Hospital *)hospital
+{
+    _hospital = hospital;
+}
+- (void)setHospitalDetail:(HospitalDetail *)hospitalDetail
+{
+    _hospitalDetail = hospitalDetail;
+    self.introductionView.hosdetail = hospitalDetail;
+}
 - (void)addCustomeViews
 {
     //选项卡
-    NSArray *items = @[@"介绍",@"成果",@"病例",@"安排"];
+    NSArray *items = @[@"介绍",@"科室",@"专家",@"病例"];
     UISegmentedControl *segmentControl = [[UISegmentedControl alloc] initWithItems:items];
     [segmentControl addTarget:self action:@selector(segmentControlPressed:) forControlEvents:UIControlEventValueChanged];
     segmentControl.selectedSegmentIndex = 0;
@@ -117,17 +109,17 @@
     [self.view addSubview:scrollView];
     
     //介绍
-    DoctorView *introductionView = [[DoctorView alloc] init];
+    HospitalDetailView *introductionView = [[HospitalDetailView alloc] init];
     self.introductionView = introductionView;
     [self.scrollView addSubview:introductionView];
     
-    //成果
-    UITableView *achievementView = [[UITableView alloc] init];
-    achievementView.delegate = self;
-    achievementView.dataSource = self;
-    achievementView.backgroundColor = IWColor(226, 226, 226);
-    self.achievementView = achievementView;
-    [self.scrollView addSubview:achievementView];
+    //科室
+    UITableView *departmentView = [[UITableView alloc] init];
+    departmentView.delegate = self;
+    departmentView.dataSource = self;
+    departmentView.backgroundColor = IWColor(226, 226, 226);
+    self.departmentView = departmentView;
+    [self.scrollView addSubview:departmentView];
     
     //病例
     UITableView *caseView = [[UITableView alloc] init];
@@ -137,13 +129,30 @@
     self.caseView  = caseView;
     [self.scrollView addSubview:self.caseView];
     
-    //安排
-    UITableView *assignmentView = [[UITableView alloc] init];
-    assignmentView.backgroundColor = IWColor(226, 226, 226);
-    assignmentView.delegate = self;
-    assignmentView.dataSource = self;
-    self.assignmentView = assignmentView;
-    [self.scrollView addSubview:self.assignmentView];
+    //专家
+    UITableView *doctorView = [[UITableView alloc] init];
+    doctorView.backgroundColor = IWColor(226, 226, 226);
+    doctorView.delegate = self;
+    doctorView.dataSource = self;
+    self.doctorView = doctorView;
+    [self.scrollView addSubview:self.doctorView];
+}
+- (void)loadData
+{
+    LDBaseParam *param = [LDBaseParam paramWithId:self.hospital.id];
+    [LoginHosTool loginHosWithParam:param success:^(LoginHosResult *result) {
+        if ([result.status isEqualToString:@"S"]) {
+            self.doctors = result.doctors;
+            [self.doctorView reloadData];
+            self.diseases = result.cases;
+            [self.caseView reloadData];
+            self.hospitalDetail = result.hospital;
+            self.departments = result.departments;
+            [self.departmentView reloadData];
+        }
+    } failure:^(NSError *error) {
+        
+    }];
 }
 #pragma mark - segmentcontrol 点击切换视图
 - (void)segmentControlPressed:(UISegmentedControl *)segmentControl
@@ -217,51 +226,57 @@
     CGFloat introH = tableHeight;
     self.introductionView.frame = CGRectMake(introX, introY, introW, introH);
     
-    //成果
+    //科室
     CGFloat achieveX = SCREENWIDTH;
     CGFloat achieveY = introY;
     CGFloat achieveW = SCREENWIDTH;
     CGFloat achieveH = tableHeight;
-    self.achievementView.frame = CGRectMake(achieveX, achieveY, achieveW, achieveH);
+    self.departmentView.frame = CGRectMake(achieveX, achieveY, achieveW, achieveH);
     
-    //病例
+    //专家
     CGFloat caseX = 2 *SCREENWIDTH;
     CGFloat caseY = introY;
     CGFloat caseW = SCREENWIDTH;
     CGFloat caseH = tableHeight;
-    self.caseView.frame = CGRectMake(caseX, caseY, caseW, caseH);
+    self.doctorView.frame = CGRectMake(caseX, caseY, caseW, caseH);
     
-    //安排
+    //病例
     CGFloat assignX = 3 *SCREENWIDTH;
     CGFloat assignY = introY;
     CGFloat assignW = SCREENWIDTH;
     CGFloat assignH = tableHeight;
-    self.assignmentView.frame = CGRectMake(assignX, assignY, assignW, assignH);
+    self.caseView.frame = CGRectMake(assignX, assignY, assignW, assignH);
 }
 
 #pragma mark - UITableView delegate and Datasource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if ([tableView isEqual:self.achievementView]) {
-        return self.papers.count;
+    if ([tableView isEqual:self.departmentView]) {
+        return self.departments.count;
     }else if([tableView isEqual:self.caseView])
     {
         return self.diseases.count;
-    }else
+    }else if([tableView isEqual:self.doctorView])
     {
-        return 0;
+        return self.doctors.count;
     }
+    return 0;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([tableView isEqual:self.achievementView]) {
-        AchieveMentCell *cell = [AchieveMentCell cellWithTabelView:tableView];
-        cell.paper = self.papers[indexPath.row];
+    if ([tableView isEqual:self.departmentView]) {
+        LoginDepartmentCell *cell = [LoginDepartmentCell cellWithTableView:tableView];
+        cell.department = self.departments[indexPath.row];
         return cell;
     }else if([tableView isEqual:self.caseView])
     {
         DiseaseCell *cell = [DiseaseCell cellWithTableView:tableView];
         cell.commonCase = self.diseases[indexPath.row];
+        return cell;
+    }else if([tableView isEqual:self.doctorView])
+    {
+        DoctorCell *cell = [DoctorCell cellWithTableView:tableView];
+        cell.doctor = self.doctors[indexPath.row];
         return cell;
     }
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
@@ -273,29 +288,40 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([tableView isEqual:self.achievementView]) {
-        return 120;
-    }else
-    {
-        return 90;
-    }
+    return 90;
     
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([tableView isEqual:self.caseView]) {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if ([tableView isEqual:self.doctorView]) {
+        LoginDocDetailController *VC = [[LoginDocDetailController alloc] init];
+        VC.doctor = self.doctors[indexPath.row];
+        [self.navigationController pushViewController:VC animated:YES];
+    }else if ([tableView isEqual:self.caseView])
+    {
         CaseDetailController *caseVC = [[CaseDetailController alloc] init];
         caseVC.norcase = self.diseases[indexPath.row];
         [self.navigationController pushViewController:caseVC animated:YES];
-    }else if([tableView isEqual:self.achievementView])
+    }else if([tableView isEqual:self.departmentView])
     {
-        LDPaperDetailController *ldVC = [[LDPaperDetailController alloc] init];
-        ldVC.paper = self.papers[indexPath.row];
-        [self.navigationController pushViewController:ldVC animated:YES];
+        DepartmentDetailController *detailVC = [[DepartmentDetailController alloc] init];
+        [self.navigationController pushViewController:detailVC animated:YES];
     }
 }
 
+
+
+
 @end
+
+
+
+
+
+
+
+
 
 
 

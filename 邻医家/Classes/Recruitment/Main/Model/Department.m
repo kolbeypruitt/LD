@@ -10,7 +10,6 @@
 #import "SecondClass.h"
 #import "MJExtension.h"
 @implementation Department
-@synthesize Id = _id;
 - (NSDictionary *)objectClassInArray
 {
     return @{@"secondClass" : [SecondClass class]};

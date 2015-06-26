@@ -9,5 +9,7 @@
 #import <Foundation/Foundation.h>
 @interface LDBaseParam : NSObject
 @property (nonatomic,copy) NSString *token;
+@property (nonatomic,assign) int id;
 + (instancetype)param;
++ (instancetype)paramWithId:(int)ID;
 @end

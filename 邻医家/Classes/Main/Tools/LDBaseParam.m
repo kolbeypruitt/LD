@@ -21,4 +21,10 @@
     LDBaseParam *param = [[LDBaseParam alloc] init];
     return param;
 }
++ (instancetype)paramWithId:(int)ID
+{
+    LDBaseParam *param = [LDBaseParam param];
+    param.id = ID;
+    return param;
+}
 @end

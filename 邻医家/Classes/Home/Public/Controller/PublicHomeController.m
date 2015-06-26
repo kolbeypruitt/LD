@@ -6,6 +6,7 @@
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
 #import "Account.h"
+#import "LoginHosController.h"
 #import "IWNavigationController.h"
 #import "MBProgressHUD+MJ.h"
 #import "AccountTool.h"
@@ -349,7 +350,9 @@
     }else if ([tableView isEqual:self.hospitalView])
     {
         if (islogin) {
-            
+            LoginHosController *hos = [[LoginHosController alloc] init];
+            hos.hospital = self.hospitals[indexPath.row];
+            [self.navigationController pushViewController:hos animated:YES];
         }else
         {
             HosDetailController *hos = [[HosDetailController alloc] init];
@@ -358,14 +361,10 @@
         }
     }else if ([tableView isEqual:self.diseaseView])
     {
-        if (islogin) {
-            
-        }else
-        {
-            CaseDetailController *caseVC = [[CaseDetailController alloc] init];
-            caseVC.norcase = self.diseases[indexPath.row];
-            [self.navigationController pushViewController:caseVC animated:YES];
-        }
+        
+        CaseDetailController *caseVC = [[CaseDetailController alloc] init];
+        caseVC.norcase = self.diseases[indexPath.row];
+        [self.navigationController pushViewController:caseVC animated:YES];
     }
 }
 #pragma mark - footer delegate method

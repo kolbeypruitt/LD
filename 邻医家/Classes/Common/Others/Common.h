@@ -18,6 +18,9 @@
 //http://localhost:8080/assfinance/public/getEmployInfoList
 //
 //说明：type   招聘类型 1-多点执业邀请2-专家邀请3- 实习 4-进修 5-博士后
+#define BGCOLOR IWColor(226, 226, 226)
+#define TOKENHOSINFOURL @"http://116.228.153.157:8888/assfinance/hospital/getHospitalInfoById"
+#define TOKENDOCTORINFOURL @"http://116.228.153.157:8888/assfinance/doctor/getDoctorInfoById"
 #define RECRUITURL @"http://116.228.153.157:8888/assfinance/public/getEmployInfoList"
 #define RECRUITDETAILURL @"http://116.228.153.157:8888/assfinance/public/getEmployInfoById"
 #define IMAGEPREF @"http://116.228.153.157:8888/assfinance/welcome/image"

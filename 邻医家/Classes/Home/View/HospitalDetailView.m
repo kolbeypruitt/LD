@@ -9,6 +9,7 @@
 #import "HospitalDetail.h"
 #import "HospitalDetailView.h"
 #import "Common.h"
+#import "AccountTool.h"
 @interface HospitalDetailView ()
 @property (nonatomic,strong) NSMutableArray *titleLabels;
 @property (nonatomic,strong) NSMutableArray *contentLabels;
@@ -82,6 +83,7 @@
     locationLabel.text = hosdetail.city;
     addressLabel.text = hosdetail.address;
     websiteLabel.text = hosdetail.website;
+    [self layoutSubviews];
 }
 - (void)layoutSubviews
 {
@@ -175,6 +177,9 @@
     fifthLine.frame = CGRectMake(padding, CGRectGetMaxY(webContent.frame), SCREENWIDTH -  2 *padding, 1);
     
     
+    if ([AccountTool isLogin]) {
+        return;
+    }
     UILabel *lastTitleLabel = [self.titleLabels lastObject];
     lastTitleLabel.textAlignment = NSTextAlignmentCenter;
     UIView *lastLine = [self.lines lastObject];
