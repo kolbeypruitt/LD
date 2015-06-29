@@ -1,4 +1,5 @@
 // 0.账号相关
+//116.228.153.157:8888
 #define IWAppKey @"1025145242"
 #define IWAppSecret @"2e264190d37e5d99382a4f30de539b4f"
 #define IWRedirectURI @"http://www.vocabulary.com/"

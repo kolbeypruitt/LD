@@ -10,7 +10,6 @@
 
 @interface SearchTypeView : UIImageView
 @property (nonatomic,strong) NSArray *locations;
-@property (nonatomic,weak) UIScrollView *scrollView;
 /**
  *   热门地区
  */

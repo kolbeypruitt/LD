@@ -5,13 +5,15 @@
 //  Created by Daniel on 15/5/4.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "AccountTool.h"
+#import "LoginDocDetailController.h"
 #import "SearchDoctorParam.h"
 #import "SearchDoctorTool.h"
 #import "SearchDoctorResult.h"
 #import "DoctorDetailController.h"
 #import "Common.h"
 #import "MoreDocController.h"
-#import "SearchHosController.h"
+#import "SearchDoctorController.h"
 #import "DoctorCell.h"
 #import "Doctor.h"
 #import "IWCommon.h"
@@ -110,16 +112,24 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Doctor *doc = [Doctor doctorWithName:@"莫文蔚" icon:nil detail:@"博士，教授，著名专家，中西医结合治疗各种疾病" hospital:@"湘雅医院" techtitil:@"主任医师"];
-    DoctorDetailController *docVC = [[DoctorDetailController alloc] init];
-    docVC.doctor = doc;
-    [self.navigationController pushViewController:docVC animated:YES];
+    BOOL islogin = [AccountTool isLogin];
+    if (islogin) {
+            
+            LoginDocDetailController *docVC = [[LoginDocDetailController alloc] init];
+            docVC.doctor = self.doctors[indexPath.row];
+            [self.navigationController pushViewController:docVC animated:YES];
+        }else
+        {
+            DoctorDetailController *docVC = [[DoctorDetailController alloc] init];
+            docVC.doctor = self.doctors[indexPath.row];
+            [self.navigationController pushViewController:docVC animated:YES];
+        }
     
 }
 #pragma mark - searchBar delegate
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
 {
-    SearchHosController *searchVC = [[SearchHosController alloc] init];
+    SearchDoctorController *searchVC = [[SearchDoctorController alloc] init];
     [self.navigationController pushViewController:searchVC animated:YES];
     return NO;
 }

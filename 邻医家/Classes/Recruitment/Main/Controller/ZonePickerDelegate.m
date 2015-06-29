@@ -102,7 +102,8 @@
 - (void)actionSheetPickerDidSucceed:(AbstractActionSheetPicker *)actionSheetPicker origin:(id)origin
 {
     if ([origin isKindOfClass:[UIButton class]]) {
-        [origin setTitle:self.selectedCity forState:UIControlStateNormal];
+        UIButton *button = (UIButton *)origin;
+        button.tag = self.choosedCity.id;
     }else if([origin isKindOfClass:[HospitalEnterTextField class]])
     {
         if (self.selectedProvince.length == 0) {

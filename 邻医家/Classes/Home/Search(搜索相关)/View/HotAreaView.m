@@ -8,11 +8,17 @@
 #import "Common.h"
 #import "UIImage+MJ.h"
 #import "HotAreaView.h"
+#import "UIBarButtonItem+ENTER.h"
+#import "ActionSheetCustomPicker+LD.h"
+#import "ZonePickerDelegate.h"
 #import "Location.h"
 @interface HotAreaView ()
 @property (nonatomic,strong) NSMutableArray *cityButtons;
+@property (nonatomic,weak) UIButton  *moreCityBtn;
+@property (nonatomic,strong) NSMutableArray *cities;
 @end
 @implementation HotAreaView
+
 - (NSMutableArray *)cityButtons
 {
     if (_cityButtons == nil) {
@@ -24,29 +30,45 @@
 {
     if (self = [super initWithFrame:frame]) {
         self.userInteractionEnabled = YES;
+        [self addCities];
+        [self setupMoreCityBtn];
     }
     return self;
 }
+- (void)setupMoreCityBtn
+{
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button addTarget:self action:@selector(moreBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [button setBackgroundImage:[UIImage resizedImageWithName:@"navigationbar_button_background"] forState:UIControlStateNormal];
+    [button setTitle:@"更多城市" forState:UIControlStateNormal];
+    UIColor *titleColor = IWColor(36, 76, 107);
+    [button setTitleColor:titleColor forState:UIControlStateNormal];
+    button.titleLabel.font = [UIFont systemFontOfSize:14];
+    button.titleLabel.backgroundColor = [UIColor clearColor];
+    [self addSubview:button];
+    self.moreCityBtn = button;
+}
+- (void)moreBtnClicked:(UIButton *)button
+{
+    ActionSheetCustomPicker *customPicket = [ActionSheetCustomPicker customPickerWithTitle:@"选择城市"
+                                                                                  delegate:[[ZonePickerDelegate alloc] init]
+                                                                                    origin:button];
+    [customPicket showActionSheetPicker];
+    
+}
 - (void)addCities
 {
-    for (int i = 0 ; i < self.locations.count; i++) {
-        Location *loca = [self.locations objectAtIndex:i];
-        UIButton *button = [self setupButtonWithTitle:[loca name]];
-        button.tag = [loca id];
+    NSArray *hotCities = @[@"北京",@"上海",@"天津",@"重庆",@"成都",@"广州",@"深圳",@"呼和浩特",@"乌鲁木齐",@"南京",];
+    for (int i = 0 ; i < hotCities.count; i++) {
+        UIButton *button = [self setupButtonWithTitle:[hotCities objectAtIndex:i]];
         [self.cityButtons addObject:button];
     }
-}
-- (void)setLocations:(NSArray *)locations
-{
-    _locations = locations;
-    [self addCities];
 }
 - (UIButton *)setupButtonWithTitle:(NSString *)title
 {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button addTarget:self action:@selector(clickedBtn:) forControlEvents:UIControlEventTouchUpInside];
-    [button setBackgroundImage:[UIImage resizedImageWithName:@"common_card_background"] forState:UIControlStateNormal];
-    [button setBackgroundColor:[UIColor greenColor]];
+    [button setBackgroundImage:[UIImage resizedImageWithName:@"navigationbar_button_background"] forState:UIControlStateNormal];
     [button setTitle:title forState:UIControlStateNormal];
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     button.titleLabel.font = [UIFont systemFontOfSize:14];
@@ -75,6 +97,12 @@
         UIButton *button = [self.cityButtons objectAtIndex:i];
         button.frame = CGRectMake(buttonX, buttonY, buttonW, buttonH);
     }
+    UIButton *lastCity = [self.cityButtons lastObject];
+    CGFloat moreX = padding;
+    CGFloat moreY = CGRectGetMaxY(lastCity.frame) + padding;
+    CGFloat moreW = SCREENWIDTH - 2 * padding;
+    CGFloat moreH = buttonH;
+    self.moreCityBtn.frame = CGRectMake(moreX, moreY, moreW, moreH);
 }
 @end
 

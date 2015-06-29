@@ -27,29 +27,37 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.window makeKeyAndVisible];
-    Account *userAccount = [AccountTool account];
-    if (userAccount.type == 0)
-    {//注册用户
-        PublicHomeController *publicHome = [[PublicHomeController alloc] init];
-        IWNavigationController *nav = [[IWNavigationController alloc] initWithRootViewController:publicHome];
-        self.window.rootViewController = nav;
-    }else if(userAccount.type == 1)
-    {//医院管理者
-        HospitalPlatformController *hosplat = [[HospitalPlatformController alloc] init];
-        self.window.rootViewController = hosplat;
-    }else if(userAccount.type == 2)
-    {//入驻医生
-        DoctorTabbarController *doc = [[DoctorTabbarController alloc] init];
-        self.window.rootViewController = doc;
-    } else if(userAccount.type == 3)
-    {//入驻医友
-        PatientTabbarController *patient = [[PatientTabbarController alloc] init];
-        self.window.rootViewController = patient;
-    }else if (userAccount.type == 4)
-    {//科室主任
-        DepartmentPlatformController *depart = [[DepartmentPlatformController alloc] init];
-        self.window.rootViewController = depart;
+    if ([AccountTool isLogin]) {
+        Account *userAccount = [AccountTool account];
+        if (userAccount.type == 0)
+        {//注册用户
+            IWTabBarViewController *iwVC = [[IWTabBarViewController alloc] init];
+            self.window.rootViewController = iwVC;
+        }else if(userAccount.type == 1)
+        {//医院管理者
+            HospitalPlatformController *hosplat = [[HospitalPlatformController alloc] init];
+            self.window.rootViewController = hosplat;
+        }else if(userAccount.type == 2)
+        {//入驻医生
+            DoctorTabbarController *doc = [[DoctorTabbarController alloc] init];
+            self.window.rootViewController = doc;
+        } else if(userAccount.type == 3)
+        {//入驻医友
+            PatientTabbarController *patient = [[PatientTabbarController alloc] init];
+            self.window.rootViewController = patient;
+        }else if (userAccount.type == 4)
+        {//科室主任
+            DepartmentPlatformController *depart = [[DepartmentPlatformController alloc] init];
+            self.window.rootViewController = depart;
+        }
     }
+    else
+        {
+            PublicHomeController *publicHome = [[PublicHomeController alloc] init];
+            IWNavigationController *nav = [[IWNavigationController alloc] initWithRootViewController:publicHome];
+            self.window.rootViewController = nav;
+        }
+    
     return YES;
 }
 

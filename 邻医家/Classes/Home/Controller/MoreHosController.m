@@ -6,19 +6,45 @@
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
 
+#import "SearchHosController.h"
 #import "MoreHosController.h"
+#import "LoginHosController.h"
+#import "AccountTool.h"
 #import "HosDetailController.h"
 #import "Common.h"
-#import "SearchHosController.h"
 #import "Hospital.h"
 #import "HospitalCell.h"
 #import "MJRefresh.h"
 #import "IWCommon.h"
+#import "SearchHosParam.h"
+#import "SearchHosResult.h"
+#import "SearchHosTool.h"
 @interface MoreHosController () <UISearchBarDelegate>
 @property (nonatomic,weak) UISearchBar *searchBar;
+@property (nonatomic,strong) NSMutableArray *hospitals;
 @end
 
 @implementation MoreHosController
+- (NSMutableArray *)hospital
+{
+    if (_hospitals == nil) {
+        _hospitals = [NSMutableArray array];
+    }
+    return _hospitals;
+}
+- (void)setParam:(SearchHosParam *)param
+{
+    _param = param;
+    [SearchHosTool searchHosWithParam:param success:^(SearchHosResult *result) {
+        if ([result.status isEqualToString:@"S"]) {
+            self.hospitals = result.hospitals;
+            [self.tableView reloadData];
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+    
+}
 - (instancetype)initWithStyle:(UITableViewStyle)style
 {
     return [super initWithStyle:UITableViewStyleGrouped];
@@ -26,9 +52,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self loadData];
     [self setup];
     [self setTableHeader];
     [self setupRefresh];
+}
+- (void)loadData
+{
+    SearchHosParam *param = [[SearchHosParam alloc] init];
+    param.lastId = 0;
+    param.num = 10;
+    self.param = param;
 }
 - (void)setupRefresh
 {
@@ -36,13 +70,18 @@
     [self.tableView addLegendHeaderWithRefreshingBlock:^{
         [weakSelf loadMoreData];
     }];
+    
+    [self.tableView addLegendFooterWithRefreshingBlock:^{
+        [weakSelf loadMoreData];
+    }];
 }
 - (void)setup
 {
     self.title = @"医院列表";
 //    self.tableView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);
+    self.navigationItem.rightBarButtonItem = nil;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-    self.tableView.backgroundColor = IWColor(226, 226, 226);
+    self.tableView.backgroundColor = BGCOLOR;
     
     [self.tableView registerClass:[HospitalCell class] forCellReuseIdentifier:HOSID];
 }
@@ -58,13 +97,12 @@
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 20;
+   return  self.hospitals.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    Hospital *hos = [Hospital hospitalWithName:@"湘雅附二" detail:@"中西医结合治疗各种疾病"];
     HospitalCell *cell = [HospitalCell cellWithTableView:tableView];
-    cell.hospital = hos;
+    cell.hospital = self.hospitals[indexPath.row];
     return cell;
 }
 
@@ -75,16 +113,24 @@
 #pragma mark - tableView delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Hospital *hos = [Hospital hospitalWithName:@"湘雅附二" detail:@"中西医结合治疗各种疾病"];
-    HosDetailController *hosDetailVC = [[HosDetailController alloc] init];
-    hosDetailVC.hospital = hos;
-    [self.navigationController pushViewController:hosDetailVC animated:YES];
+    BOOL islogin = [AccountTool isLogin];
+    if (islogin) {
+            LoginHosController *hos = [[LoginHosController alloc] init];
+            hos.hospital = self.hospitals[indexPath.row];
+            [self.navigationController pushViewController:hos animated:YES];
+        }else
+        {
+            HosDetailController *hos = [[HosDetailController alloc] init];
+            hos.hospital = self.hospitals[indexPath.row];
+            [self.navigationController pushViewController:hos animated:YES];
+        }
+    
 }
 #pragma mark - searchBar delegate method
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
 {
-    SearchHosController *searchVC = [[SearchHosController alloc] init];
-    [self.navigationController pushViewController:searchVC animated:YES];
+    SearchHosController *searchHosVc = [[SearchHosController alloc] init];
+    [self.navigationController pushViewController:searchHosVc animated:YES];
     return NO;
 }
 /**
@@ -94,15 +140,18 @@
 
 - (void)loadMoreData
 {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    Hospital *lastHospital = [self.hospitals lastObject];
+    self.param.lastId = lastHospital.id;
+    [SearchHosTool searchHosWithParam:self.param success:^(SearchHosResult *result) {
+        [self.hospitals addObjectsFromArray:result.hospitals];
+        [self.tableView.footer endRefreshing];
         [self.tableView.header endRefreshing];
-    });
-}
-- (void)loadNewData
-{
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        
+    }];
 }
 @end
-
 
 
 

@@ -2,62 +2,38 @@
 //  SearchHosController.m
 //  邻医家
 //
-//  Created by myApple on 15/5/5.
+//  Created by Daniel on 15/6/29.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
-#define ID @"cell"
-#import "IWCommon.h"
-#import "MoreDocController.h"
-#import "MoreHosController.h"
-#import "ActionSheetCustomPicker.h"
-#import "MoreCell.h"
-#import "MoreItem.h"
-#import "City.h"
-#import "Province.h"
-#import "MJExtension.h"
-#import "AFNetworking.h"
+
 #import "SearchHosController.h"
-#import "MoreGroup.h"
-#import "MoreHeader.h"
-#import "SearchHosResultController.h"
-#import "SearchDoctorParam.h"
-#import "SearchTypeView.h"
-#import "HotAreaTool.h"
-#import "HotAreaResult.h"
+#import "SearchHosView.h"
+#import "UIBarButtonItem+ENTER.h"
+#import "Common.h"
 #import "HotAreaView.h"
-@interface SearchHosController () <UISearchBarDelegate,HotAreaViewDelegate>
-@property (nonatomic,weak) SearchTypeView *searchView;
+#import "HotHospitalView.h"
+#import "HotDepmentView.h"
+@interface SearchHosController ()<HotAreaViewDelegate,HotDepmentViewDelegate,HotHospitalViewDelegate,UISearchBarDelegate>
+@property (nonatomic,weak) SearchHosView *searchView;
 @property (nonatomic,weak) UISearchBar *searchBar;
-@property (nonatomic,strong) NSArray *locations;
 @end
 
 @implementation SearchHosController
-- (NSArray *)locations
-{
-    if (_locations == nil) {
-        _locations = [NSMutableArray array];
-    }
-    return _locations;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = IWColor(226, 226, 226);
-    self.title = @"搜索医院";
-    
-    [self loadData];
-    [self setKeyBoard];
+    [self addCustomViews];
+    [self setup];
 }
-- (void)loadData
+- (void)setup
 {
-    [HotAreaTool hotAreaSuccess:^(HotAreaResult *result) {
-        if ([result.status isEqualToString:@"S"]) {
-            self.locations = result.locations;
-            [self addCustomViews];
-        }
-    } failure:^(NSError *error) {
-        
-    }];
+    self.title = @"搜索医院";
+    self.view.backgroundColor = BGCOLOR;
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(search) title:@"搜索"];
+}
+- (void)search
+{
+    
 }
 - (void)addCustomViews
 {
@@ -66,9 +42,11 @@
 }
 - (void)addSearchTypeView
 {
-    SearchTypeView *view = [[SearchTypeView alloc] init];
+    SearchHosView *view = [[SearchHosView alloc] init];
     view.hotAreaView.delegate = self;
-    view.locations = self.locations;
+    view.hotHosView.delegate = self;
+    view.hotdepView.delegate = self;
+    
     self.searchView = view;
     [self.view addSubview:view];
     
@@ -77,13 +55,6 @@
     CGFloat viewW = self.view.frame.size.width;
     CGFloat viewH = self.view.frame.size.height - viewY;
     self.searchView.frame = CGRectMake(viewX, viewY, viewW, viewH);
-}
-- (void)setKeyBoard
-{
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
-}
-- (void)keyboardWillChangeFrame:(NSNotification *)notification
-{
 }
 - (void)setupSearchBar
 {
@@ -96,44 +67,4 @@
     
 }
 
-#pragma mark searchBar Delegate Mehtod
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
-{
-    [searchBar resignFirstResponder];
-}
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
-{
-    int count = (int)self.navigationController.viewControllers.count;
-    MoreDocController *moreVC = [self.navigationController.viewControllers objectAtIndex:(count - 2)];
-    
-    SearchDoctorParam *param = [[SearchDoctorParam alloc] init];
-    param.lastId = 0;
-    param.num = 10;
-    param.keyWord = searchBar.text;
-    
-    moreVC.param = param;
-    [searchBar resignFirstResponder];
-    [self.navigationController popViewControllerAnimated:YES];
-    
-}
-#pragma mark - hotareaDelegate 
-- (void)hotAreaView:(HotAreaView *)areaView sender:(UIButton *)button
-{
-     int count = (int)self.navigationController.viewControllers.count;
-    MoreDocController *moreVC = [self.navigationController.viewControllers objectAtIndex:(count - 2)];
-    
-    SearchDoctorParam *param = [[SearchDoctorParam alloc] init];
-    param.lastId = 0;
-    param.num = 10;
-    param.cities = [NSString stringWithFormat:@"%d",(int)button.tag];
-    moreVC.param = param;
-    [self.navigationController popViewControllerAnimated:YES];
-}
 @end
-
-
-
-
-
-
-

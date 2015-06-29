@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface CoreExpertParam : NSObject
-@property (nonatomic,copy) NSString *Id;
+@property (nonatomic,copy) NSString *id;
 @property (nonatomic,copy) NSString *department;
 @property (nonatomic,copy) NSString *name;
 @end

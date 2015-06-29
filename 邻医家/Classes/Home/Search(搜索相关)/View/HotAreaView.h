@@ -13,6 +13,5 @@
 @end
 
 @interface HotAreaView : UIImageView
-@property (nonatomic,strong) NSArray *locations;
 @property (nonatomic,weak) id<HotAreaViewDelegate> delegate;
 @end

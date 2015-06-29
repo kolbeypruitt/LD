@@ -19,8 +19,7 @@
 		650295B51B009284002249C0 /* PostDoctorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 650295B41B009284002249C0 /* PostDoctorController.m */; };
 		650295C71B00952E002249C0 /* RecruitMessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 650295C31B00952E002249C0 /* RecruitMessageController.m */; };
 		650295C81B00952E002249C0 /* RecruitMessageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 650295C41B00952E002249C0 /* RecruitMessageController.xib */; };
-		650295DF1B009575002249C0 /* SearchHosController.m in Sources */ = {isa = PBXBuildFile; fileRef = 650295CC1B009575002249C0 /* SearchHosController.m */; };
-		650295E01B009575002249C0 /* SearchHosResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 650295CE1B009575002249C0 /* SearchHosResultController.m */; };
+		650295DF1B009575002249C0 /* SearchDoctorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 650295CC1B009575002249C0 /* SearchDoctorController.m */; };
 		650295E11B009575002249C0 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 650295D11B009575002249C0 /* City.m */; };
 		650295E21B009575002249C0 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 650295D31B009575002249C0 /* Location.m */; };
 		650295E31B009575002249C0 /* MoreGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 650295D51B009575002249C0 /* MoreGroup.m */; };
@@ -35,9 +34,18 @@
 		650E607B1B33FB6500CFF569 /* StubbornView.m in Sources */ = {isa = PBXBuildFile; fileRef = 650E607A1B33FB6500CFF569 /* StubbornView.m */; };
 		650E607E1B33FF2E00CFF569 /* TemporaryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 650E607D1B33FF2E00CFF569 /* TemporaryView.m */; };
 		650E60811B33FF3B00CFF569 /* ForwardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 650E60801B33FF3B00CFF569 /* ForwardView.m */; };
+		651106B71B40EEB400F759DE /* CoreExpertTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 651106B61B40EEB400F759DE /* CoreExpertTool.m */; };
+		651106BA1B40EECF00F759DE /* CoreExpertResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 651106B91B40EECF00F759DE /* CoreExpertResult.m */; };
+		651106BD1B41186700F759DE /* SearchHosParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 651106BC1B41186700F759DE /* SearchHosParam.m */; };
+		651106C01B41188F00F759DE /* SearchHosResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 651106BF1B41188F00F759DE /* SearchHosResult.m */; };
+		651106C31B4118BC00F759DE /* SearchHosTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 651106C21B4118BC00F759DE /* SearchHosTool.m */; };
+		651106C61B41216000F759DE /* SearchHosController.m in Sources */ = {isa = PBXBuildFile; fileRef = 651106C51B41216000F759DE /* SearchHosController.m */; };
+		651106C91B41243100F759DE /* HotHospitalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 651106C81B41243100F759DE /* HotHospitalView.m */; };
+		651106CC1B4126B100F759DE /* SearchHosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 651106CB1B4126B100F759DE /* SearchHosView.m */; };
 		6516A6951B12F807006B9BBB /* department.json in Resources */ = {isa = PBXBuildFile; fileRef = 6516A6941B12F807006B9BBB /* department.json */; };
 		6516A6A41B1305B2006B9BBB /* HospitalLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6516A6A31B1305B2006B9BBB /* HospitalLevel.m */; };
 		652077C81B33AA330032EC06 /* DepartmentPlatformController.m in Sources */ = {isa = PBXBuildFile; fileRef = 652077C71B33AA330032EC06 /* DepartmentPlatformController.m */; };
+		652356B91B40E0B700BBEF16 /* HotDepartmentResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 652356B81B40E0B700BBEF16 /* HotDepartmentResult.m */; };
 		6536D60F1B2E72AD00539F47 /* InviteDocListParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 6536D60E1B2E72AD00539F47 /* InviteDocListParam.m */; };
 		6536D6121B2E777600539F47 /* PatientInviteDetailTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6536D6111B2E777600539F47 /* PatientInviteDetailTool.m */; };
 		6536D6151B2E79DA00539F47 /* PatienInviteDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 6536D6141B2E79DA00539F47 /* PatienInviteDetail.m */; };
@@ -146,7 +154,6 @@
 		6554540F1AFCA59D00C4BFFA /* RecommendDocParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 655453021AFCA59C00C4BFFA /* RecommendDocParam.m */; };
 		655454101AFCA59D00C4BFFA /* RecommendHosParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 655453041AFCA59C00C4BFFA /* RecommendHosParam.m */; };
 		655454111AFCA59D00C4BFFA /* CommonDisResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 655453071AFCA59C00C4BFFA /* CommonDisResult.m */; };
-		655454121AFCA59D00C4BFFA /* CoreExpertResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 655453091AFCA59C00C4BFFA /* CoreExpertResult.m */; };
 		655454131AFCA59D00C4BFFA /* DocSearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 6554530B1AFCA59C00C4BFFA /* DocSearchResult.m */; };
 		655454141AFCA59D00C4BFFA /* HosRankResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 6554530D1AFCA59C00C4BFFA /* HosRankResult.m */; };
 		655454151AFCA59D00C4BFFA /* MultiJobResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 6554530F1AFCA59C00C4BFFA /* MultiJobResult.m */; };
@@ -347,6 +354,7 @@
 		65CAB2E11B241317005DAED4 /* RecruitHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CAB2C91B241317005DAED4 /* RecruitHeader.m */; };
 		65CAB2E21B241317005DAED4 /* WelcomePatientController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CAB2CD1B241317005DAED4 /* WelcomePatientController.m */; };
 		65CAB2E51B241453005DAED4 /* TemporaryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CAB2E41B241453005DAED4 /* TemporaryController.m */; };
+		65CAC0A61B40DE5500248721 /* HotDepartmentTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CAC0A51B40DE5500248721 /* HotDepartmentTool.m */; };
 		65CC3F511B0EC9E10099A3F3 /* doctorEnter.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65CC3F501B0EC9E10099A3F3 /* doctorEnter.plist */; };
 		65CC3F5B1B0F05310099A3F3 /* ForgetPassController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CC3F591B0F05310099A3F3 /* ForgetPassController.m */; };
 		65CC3F5C1B0F05310099A3F3 /* ForgetPassController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65CC3F5A1B0F05310099A3F3 /* ForgetPassController.xib */; };
@@ -463,10 +471,8 @@
 		650295C21B00952E002249C0 /* RecruitMessageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecruitMessageController.h; sourceTree = "<group>"; };
 		650295C31B00952E002249C0 /* RecruitMessageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecruitMessageController.m; sourceTree = "<group>"; };
 		650295C41B00952E002249C0 /* RecruitMessageController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecruitMessageController.xib; sourceTree = "<group>"; };
-		650295CB1B009575002249C0 /* SearchHosController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchHosController.h; sourceTree = "<group>"; };
-		650295CC1B009575002249C0 /* SearchHosController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchHosController.m; sourceTree = "<group>"; };
-		650295CD1B009575002249C0 /* SearchHosResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchHosResultController.h; sourceTree = "<group>"; };
-		650295CE1B009575002249C0 /* SearchHosResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchHosResultController.m; sourceTree = "<group>"; };
+		650295CB1B009575002249C0 /* SearchDoctorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchDoctorController.h; sourceTree = "<group>"; };
+		650295CC1B009575002249C0 /* SearchDoctorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchDoctorController.m; sourceTree = "<group>"; };
 		650295D01B009575002249C0 /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
 		650295D11B009575002249C0 /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
 		650295D21B009575002249C0 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
@@ -495,11 +501,29 @@
 		650E607D1B33FF2E00CFF569 /* TemporaryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemporaryView.m; sourceTree = "<group>"; };
 		650E607F1B33FF3B00CFF569 /* ForwardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForwardView.h; sourceTree = "<group>"; };
 		650E60801B33FF3B00CFF569 /* ForwardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForwardView.m; sourceTree = "<group>"; };
+		651106B51B40EEB400F759DE /* CoreExpertTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreExpertTool.h; sourceTree = "<group>"; };
+		651106B61B40EEB400F759DE /* CoreExpertTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreExpertTool.m; sourceTree = "<group>"; };
+		651106B81B40EECF00F759DE /* CoreExpertResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreExpertResult.h; sourceTree = "<group>"; };
+		651106B91B40EECF00F759DE /* CoreExpertResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreExpertResult.m; sourceTree = "<group>"; };
+		651106BB1B41186700F759DE /* SearchHosParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchHosParam.h; sourceTree = "<group>"; };
+		651106BC1B41186700F759DE /* SearchHosParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchHosParam.m; sourceTree = "<group>"; };
+		651106BE1B41188F00F759DE /* SearchHosResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchHosResult.h; sourceTree = "<group>"; };
+		651106BF1B41188F00F759DE /* SearchHosResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchHosResult.m; sourceTree = "<group>"; };
+		651106C11B4118BC00F759DE /* SearchHosTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchHosTool.h; sourceTree = "<group>"; };
+		651106C21B4118BC00F759DE /* SearchHosTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchHosTool.m; sourceTree = "<group>"; };
+		651106C41B41216000F759DE /* SearchHosController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchHosController.h; sourceTree = "<group>"; };
+		651106C51B41216000F759DE /* SearchHosController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchHosController.m; sourceTree = "<group>"; };
+		651106C71B41243100F759DE /* HotHospitalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotHospitalView.h; sourceTree = "<group>"; };
+		651106C81B41243100F759DE /* HotHospitalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotHospitalView.m; sourceTree = "<group>"; };
+		651106CA1B4126B100F759DE /* SearchHosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchHosView.h; sourceTree = "<group>"; };
+		651106CB1B4126B100F759DE /* SearchHosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchHosView.m; sourceTree = "<group>"; };
 		6516A6941B12F807006B9BBB /* department.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = department.json; sourceTree = "<group>"; };
 		6516A6A21B1305B2006B9BBB /* HospitalLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HospitalLevel.h; sourceTree = "<group>"; };
 		6516A6A31B1305B2006B9BBB /* HospitalLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HospitalLevel.m; sourceTree = "<group>"; };
 		652077C61B33AA330032EC06 /* DepartmentPlatformController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DepartmentPlatformController.h; sourceTree = "<group>"; };
 		652077C71B33AA330032EC06 /* DepartmentPlatformController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DepartmentPlatformController.m; sourceTree = "<group>"; };
+		652356B71B40E0B700BBEF16 /* HotDepartmentResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotDepartmentResult.h; sourceTree = "<group>"; };
+		652356B81B40E0B700BBEF16 /* HotDepartmentResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotDepartmentResult.m; sourceTree = "<group>"; };
 		6536D60D1B2E72AD00539F47 /* InviteDocListParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteDocListParam.h; sourceTree = "<group>"; };
 		6536D60E1B2E72AD00539F47 /* InviteDocListParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteDocListParam.m; sourceTree = "<group>"; };
 		6536D6101B2E777600539F47 /* PatientInviteDetailTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientInviteDetailTool.h; sourceTree = "<group>"; };
@@ -713,8 +737,6 @@
 		655453041AFCA59C00C4BFFA /* RecommendHosParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendHosParam.m; sourceTree = "<group>"; };
 		655453061AFCA59C00C4BFFA /* CommonDisResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonDisResult.h; sourceTree = "<group>"; };
 		655453071AFCA59C00C4BFFA /* CommonDisResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonDisResult.m; sourceTree = "<group>"; };
-		655453081AFCA59C00C4BFFA /* CoreExpertResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreExpertResult.h; sourceTree = "<group>"; };
-		655453091AFCA59C00C4BFFA /* CoreExpertResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreExpertResult.m; sourceTree = "<group>"; };
 		6554530A1AFCA59C00C4BFFA /* DocSearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocSearchResult.h; sourceTree = "<group>"; };
 		6554530B1AFCA59C00C4BFFA /* DocSearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocSearchResult.m; sourceTree = "<group>"; };
 		6554530C1AFCA59C00C4BFFA /* HosRankResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HosRankResult.h; sourceTree = "<group>"; };
@@ -1112,6 +1134,8 @@
 		65CAB2CD1B241317005DAED4 /* WelcomePatientController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomePatientController.m; sourceTree = "<group>"; };
 		65CAB2E31B241453005DAED4 /* TemporaryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemporaryController.h; sourceTree = "<group>"; };
 		65CAB2E41B241453005DAED4 /* TemporaryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemporaryController.m; sourceTree = "<group>"; };
+		65CAC0A41B40DE5500248721 /* HotDepartmentTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotDepartmentTool.h; sourceTree = "<group>"; };
+		65CAC0A51B40DE5500248721 /* HotDepartmentTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotDepartmentTool.m; sourceTree = "<group>"; };
 		65CC3F501B0EC9E10099A3F3 /* doctorEnter.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = doctorEnter.plist; sourceTree = "<group>"; };
 		65CC3F581B0F05310099A3F3 /* ForgetPassController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPassController.h; sourceTree = "<group>"; };
 		65CC3F591B0F05310099A3F3 /* ForgetPassController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPassController.m; sourceTree = "<group>"; };
@@ -1346,10 +1370,10 @@
 		650295CA1B009575002249C0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				650295CB1B009575002249C0 /* SearchHosController.h */,
-				650295CC1B009575002249C0 /* SearchHosController.m */,
-				650295CD1B009575002249C0 /* SearchHosResultController.h */,
-				650295CE1B009575002249C0 /* SearchHosResultController.m */,
+				650295CB1B009575002249C0 /* SearchDoctorController.h */,
+				650295CC1B009575002249C0 /* SearchDoctorController.m */,
+				651106C41B41216000F759DE /* SearchHosController.h */,
+				651106C51B41216000F759DE /* SearchHosController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1386,6 +1410,10 @@
 				659842EC1B3936C100499A68 /* HotDepmentView.m */,
 				659842EE1B39370600499A68 /* TopExpertView.h */,
 				659842EF1B39370600499A68 /* TopExpertView.m */,
+				651106C71B41243100F759DE /* HotHospitalView.h */,
+				651106C81B41243100F759DE /* HotHospitalView.m */,
+				651106CA1B4126B100F759DE /* SearchHosView.h */,
+				651106CB1B4126B100F759DE /* SearchHosView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1930,8 +1958,6 @@
 			children = (
 				655453061AFCA59C00C4BFFA /* CommonDisResult.h */,
 				655453071AFCA59C00C4BFFA /* CommonDisResult.m */,
-				655453081AFCA59C00C4BFFA /* CoreExpertResult.h */,
-				655453091AFCA59C00C4BFFA /* CoreExpertResult.m */,
 				6554530A1AFCA59C00C4BFFA /* DocSearchResult.h */,
 				6554530B1AFCA59C00C4BFFA /* DocSearchResult.m */,
 				6554530C1AFCA59C00C4BFFA /* HosRankResult.h */,
@@ -2456,10 +2482,16 @@
 		65BD7F0A1B22DA45004238AB /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				651106B51B40EEB400F759DE /* CoreExpertTool.h */,
+				651106B61B40EEB400F759DE /* CoreExpertTool.m */,
+				65CAC0A41B40DE5500248721 /* HotDepartmentTool.h */,
+				65CAC0A51B40DE5500248721 /* HotDepartmentTool.m */,
 				659842F41B3950FA00499A68 /* HotAreaTool.h */,
 				659842F51B3950FA00499A68 /* HotAreaTool.m */,
 				65BD7F0C1B22DA6B004238AB /* SearchDoctorTool.h */,
 				65BD7F0D1B22DA6B004238AB /* SearchDoctorTool.m */,
+				651106C11B4118BC00F759DE /* SearchHosTool.h */,
+				651106C21B4118BC00F759DE /* SearchHosTool.m */,
 				65BD7F0B1B22DA45004238AB /* Model */,
 			);
 			path = Tool;
@@ -2474,6 +2506,14 @@
 				65BD7F131B22DB18004238AB /* SearchDoctorResult.m */,
 				659842F71B39529400499A68 /* HotAreaResult.h */,
 				659842F81B39529400499A68 /* HotAreaResult.m */,
+				652356B71B40E0B700BBEF16 /* HotDepartmentResult.h */,
+				652356B81B40E0B700BBEF16 /* HotDepartmentResult.m */,
+				651106B81B40EECF00F759DE /* CoreExpertResult.h */,
+				651106B91B40EECF00F759DE /* CoreExpertResult.m */,
+				651106BB1B41186700F759DE /* SearchHosParam.h */,
+				651106BC1B41186700F759DE /* SearchHosParam.m */,
+				651106BE1B41188F00F759DE /* SearchHosResult.h */,
+				651106BF1B41188F00F759DE /* SearchHosResult.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3470,6 +3510,7 @@
 				6554544F1AFCA59D00C4BFFA /* SDWebImageDecoder.m in Sources */,
 				65BE8EE11B2578AB006B9E89 /* UITextField+LD.m in Sources */,
 				654DF9C11B16A8FB00CC2062 /* ActionSheetCustomPicker+LD.m in Sources */,
+				651106C91B41243100F759DE /* HotHospitalView.m in Sources */,
 				6554544B1AFCA59D00C4BFFA /* MKAnnotationView+WebCache.m in Sources */,
 				655453FB1AFCA59D00C4BFFA /* Hospital.m in Sources */,
 				6553FD061B33AFE3009ABD4D /* DepartmentCell.m in Sources */,
@@ -3501,6 +3542,7 @@
 				654A309B1B0058C70043821B /* DoctorDetailController.m in Sources */,
 				655453F31AFCA59D00C4BFFA /* MoreDocController.m in Sources */,
 				65EAE0421B3CF38E0040C4C2 /* LoginDocDetailTool.m in Sources */,
+				65CAC0A61B40DE5500248721 /* HotDepartmentTool.m in Sources */,
 				6554540F1AFCA59D00C4BFFA /* RecommendDocParam.m in Sources */,
 				6536D61B1B2E8F8900539F47 /* AllInviteParam.m in Sources */,
 				65BD7F0E1B22DA6B004238AB /* SearchDoctorTool.m in Sources */,
@@ -3520,6 +3562,7 @@
 				65D5270F1B2A95D600CF4FC4 /* DoctorResume.m in Sources */,
 				654A30C51B00896C0043821B /* MJRefreshConst.m in Sources */,
 				65D527151B2A95D600CF4FC4 /* EmployDetailResult.m in Sources */,
+				651106BA1B40EECF00F759DE /* CoreExpertResult.m in Sources */,
 				65CAB2D51B241317005DAED4 /* PropertyPickerDelegate.m in Sources */,
 				65D5271D1B2A95D600CF4FC4 /* InviteDoctorTool.m in Sources */,
 				655454601AFCA59D00C4BFFA /* DistancePickerView.m in Sources */,
@@ -3557,6 +3600,7 @@
 				653B84EA1B3B969200331252 /* PolicyDetail.m in Sources */,
 				6554543E1AFCA59D00C4BFFA /* MJPhoto.m in Sources */,
 				6536D6151B2E79DA00539F47 /* PatienInviteDetail.m in Sources */,
+				651106C31B4118BC00F759DE /* SearchHosTool.m in Sources */,
 				655420581B2EBE5200D70A08 /* ResponsedDoctorController.m in Sources */,
 				659842EA1B39369600499A68 /* HotAreaView.m in Sources */,
 				655454431AFCA59D00C4BFFA /* MJPhotoToolbar.m in Sources */,
@@ -3578,6 +3622,7 @@
 				655454421AFCA59D00C4BFFA /* MJPhotoProgressView.m in Sources */,
 				650E607E1B33FF2E00CFF569 /* TemporaryView.m in Sources */,
 				65C6B2981B046EB8000BAFC6 /* PublicHomeController.m in Sources */,
+				652356B91B40E0B700BBEF16 /* HotDepartmentResult.m in Sources */,
 				655454231AFCA59D00C4BFFA /* IWNavigationController.m in Sources */,
 				6558CD771B2ABDBF005E7685 /* PostHospitalController.m in Sources */,
 				65D5271F1B2A95D600CF4FC4 /* EmployeeCell.m in Sources */,
@@ -3609,6 +3654,7 @@
 				65C6212E1B3147AC003936EA /* RewardInviteController.m in Sources */,
 				65C4123B1B05BC7A00A8B75F /* LDTextField.m in Sources */,
 				6558CD781B2ABDBF005E7685 /* PostLectureController.m in Sources */,
+				651106BD1B41186700F759DE /* SearchHosParam.m in Sources */,
 				6540B8151B2D4C6C0053DB2A /* PostedTemporaryController.m in Sources */,
 				6554546B1AFCA59D00C4BFFA /* IWSettingLabelItem.m in Sources */,
 				655454361AFCA59D00C4BFFA /* MJIvar.m in Sources */,
@@ -3670,7 +3716,6 @@
 				65C58C1E1B325CF800D3A013 /* VipDelegate.m in Sources */,
 				65EAE0481B3D20AB0040C4C2 /* LoginHosController.m in Sources */,
 				65C3D1BF1B1BF0A40050F540 /* LDHttpTool.m in Sources */,
-				650295E01B009575002249C0 /* SearchHosResultController.m in Sources */,
 				65CFC7BA1B185F8F007F7062 /* AFHTTPRequestOperation.m in Sources */,
 				6536D6271B2EA1A000539F47 /* AllInviteTool.m in Sources */,
 				65D527341B2AA8B100CF4FC4 /* AssignDepartmentController.m in Sources */,
@@ -3703,6 +3748,7 @@
 				655454681AFCA59D00C4BFFA /* IWSettingArrowItem.m in Sources */,
 				65D5271E1B2A95D600CF4FC4 /* DoctorResumeView.m in Sources */,
 				655454441AFCA59D00C4BFFA /* MJPhotoView.m in Sources */,
+				651106CC1B4126B100F759DE /* SearchHosView.m in Sources */,
 				650295E11B009575002249C0 /* City.m in Sources */,
 				655453FC1AFCA59D00C4BFFA /* HosRank.m in Sources */,
 				65D527041B2A95D600CF4FC4 /* ConfirmedResumeController.m in Sources */,
@@ -3728,7 +3774,6 @@
 				655454411AFCA59D00C4BFFA /* MJPhotoLoadingView.m in Sources */,
 				65D527111B2A95D600CF4FC4 /* Employee.m in Sources */,
 				65B44DBF1B315E7A00371EBB /* HospitalPlatformController.m in Sources */,
-				655454121AFCA59D00C4BFFA /* CoreExpertResult.m in Sources */,
 				659842ED1B3936C100499A68 /* HotDepmentView.m in Sources */,
 				65EAE0511B3D3CC20040C4C2 /* LoginDepartmentCell.m in Sources */,
 				65D527081B2A95D600CF4FC4 /* PlatformRecruitController.m in Sources */,
@@ -3756,7 +3801,7 @@
 				6554540A1AFCA59D00C4BFFA /* CommonDiseaseParam.m in Sources */,
 				659842E71B39357000499A68 /* SearchTypeView.m in Sources */,
 				656C4ED71B284CAD005D7B0D /* OneOfTwoDelegate.m in Sources */,
-				650295DF1B009575002249C0 /* SearchHosController.m in Sources */,
+				650295DF1B009575002249C0 /* SearchDoctorController.m in Sources */,
 				6554543A1AFCA59D00C4BFFA /* MJTypeEncoding.m in Sources */,
 				656C4ED41B284547005D7B0D /* SingleDepartmentDelegate.m in Sources */,
 				650295E31B009575002249C0 /* MoreGroup.m in Sources */,
@@ -3803,6 +3848,7 @@
 				65849C291B2806E700EE2D18 /* LDMessageButton.m in Sources */,
 				65CAB2D01B241317005DAED4 /* WelcomeDosController.m in Sources */,
 				650295E21B009575002249C0 /* Location.m in Sources */,
+				651106C61B41216000F759DE /* SearchHosController.m in Sources */,
 				65C563921B1ECC22007FC968 /* DoctorEnterTool.m in Sources */,
 				650E60751B33E3CE00CFF569 /* ConsutlDetailResult.m in Sources */,
 				65C4122F1B05998700A8B75F /* LoginViewController.m in Sources */,
@@ -3810,6 +3856,8 @@
 				656A08B41B3BC0100056588A /* DocStationDetailView.m in Sources */,
 				653B84E71B3B960B00331252 /* MultijobDetailController.m in Sources */,
 				656A08CB1B3BD1AF0056588A /* RecruitParam.m in Sources */,
+				651106C01B41188F00F759DE /* SearchHosResult.m in Sources */,
+				651106B71B40EEB400F759DE /* CoreExpertTool.m in Sources */,
 				6554546E1AFCA59D00C4BFFA /* IWSettingCell.m in Sources */,
 				6540B8121B2D4C6B0053DB2A /* PostedFreeFController.m in Sources */,
 				655454611AFCA59D00C4BFFA /* SWActionSheet.m in Sources */,

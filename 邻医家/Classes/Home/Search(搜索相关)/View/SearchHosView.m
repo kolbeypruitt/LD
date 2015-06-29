@@ -1,21 +1,21 @@
 //
-//  SearchTypeView.m
+//  SearchHosView.m
 //  邻医家
 //
-//  Created by Daniel on 15/6/23.
+//  Created by Daniel on 15/6/29.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
-
-#import "SearchTypeView.h"
-#import "HotDepmentView.h"
-#import "Common.h"
 #import "HotAreaView.h"
-#import "TopExpertView.h"
-@interface SearchTypeView ()<UIScrollViewDelegate>
+#import "HotHospitalView.h"
+#import "HotDepmentView.h"
+#import "SearchHosView.h"
+#import "Common.h"
+@interface SearchHosView () <UIScrollViewDelegate>
 @property (nonatomic,weak) UIScrollView *scrollView;
 @property (nonatomic,weak) UISegmentedControl *segmentControl;
 @end
-@implementation SearchTypeView
+
+@implementation SearchHosView
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
@@ -24,10 +24,9 @@
     }
     return self;
 }
-
 - (void)addCustomViews
 {
-    UISegmentedControl *segmentControl = [[UISegmentedControl alloc] initWithItems:@[@"热门地区",@"热门科室",@"重要专家"]];
+    UISegmentedControl *segmentControl = [[UISegmentedControl alloc] initWithItems:@[@"热门地区",@"热门医院",@"热门科室"]];
     segmentControl.selectedSegmentIndex = 0;
     [segmentControl addTarget:self action:@selector(segmentControlPressed:) forControlEvents:UIControlEventValueChanged];
     self.segmentControl = segmentControl;
@@ -42,13 +41,30 @@
     self.hotAreaView  = hotAreaView;
     [self.scrollView addSubview:hotAreaView];
     
-    HotDepmentView *hotDepView = [[HotDepmentView alloc] init];
-    self.hotDepView = hotDepView;
-    [self.scrollView addSubview:hotDepView];
-    
-    TopExpertView *topView = [[TopExpertView alloc] init];
-    self.topExpertView = topView;
-    [self.scrollView addSubview:topView];
+    HotHospitalView *hotHosView = [[HotHospitalView alloc] init];
+    self.hotHosView = hotHosView;
+    [self.scrollView addSubview:hotHosView];
+ 
+    HotDepmentView *hotdepView = [[HotDepmentView alloc] init];
+    self.hotdepView = hotdepView;
+    [self.scrollView addSubview:hotdepView];
+}
+#pragma mark - segment
+- (void)segmentControlPressed:(UISegmentedControl *)seg
+{
+    switch (seg.selectedSegmentIndex) {
+        case 0:
+            [self.scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+            break;
+        case 1:
+            [self.scrollView setContentOffset:CGPointMake(SCREENWIDTH, 0) animated:YES];
+            break;
+        case 2:
+            [self.scrollView setContentOffset:CGPointMake(2 * SCREENWIDTH, 0) animated:YES];
+            break;
+        default:
+            break;
+    }
 }
 #pragma mark - scrollView delegate method
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
@@ -64,24 +80,6 @@
         {
             self.segmentControl.selectedSegmentIndex = 2;
         }
-        
-    }
-}
-#pragma mark - segmentcontrol 点击切换视图
-- (void)segmentControlPressed:(UISegmentedControl *)segmentControl
-{
-    switch (segmentControl.selectedSegmentIndex) {
-        case 0:
-            [self.scrollView setContentOffset:CGPointMake(0, 0)];
-            break;
-        case 1:
-            [self.scrollView setContentOffset:CGPointMake(SCREENWIDTH, 0)];
-            break;
-        case 2:
-            [self.scrollView setContentOffset:CGPointMake(2 * SCREENWIDTH, 0)];
-            break;
-        default:
-            break;
     }
 }
 - (void)layoutSubviews
@@ -120,18 +118,17 @@
     CGFloat hotdepY = hotAreaY;
     CGFloat hotdepW = SCREENWIDTH;
     CGFloat hotdepH = hotAreaH;
-    self.hotDepView.frame = CGRectMake(hotdepX, hotdepY, hotdepW, hotdepH);
+    self.hotHosView.frame = CGRectMake(hotdepX, hotdepY, hotdepW, hotdepH);
     
     //病例
     CGFloat topX = 2 *SCREENWIDTH;
     CGFloat topY = hotdepY;
     CGFloat topW = SCREENWIDTH;
     CGFloat topH = hotdepH;
-    self.topExpertView.frame = CGRectMake(topX, topY, topW, topH);
+    self.hotdepView.frame = CGRectMake(topX, topY, topW, topH);
     
 }
 @end
-
 
 
 

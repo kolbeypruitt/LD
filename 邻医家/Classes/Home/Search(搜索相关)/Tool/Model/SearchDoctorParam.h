@@ -13,6 +13,6 @@
 @property (nonatomic,copy) NSString *departments;
 @property (nonatomic,copy) NSString *keyWord;
 @property (nonatomic,strong) NSNumber *doctor;
-@property (nonatomic,assign) NSInteger lastId;
-@property (nonatomic,assign) NSInteger num;
+@property (nonatomic,assign) int lastId;
+@property (nonatomic,assign) int num;
 @end
