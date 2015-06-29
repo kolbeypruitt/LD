@@ -12,9 +12,11 @@
 #import "IWCommon.h"
 #import "HotDepmentView.h"
 #import "MoreDocController.h"
+#import "ActionSheetCustomPicker+LD.h"
 #import "MoreHosController.h"
 #import "ActionSheetCustomPicker.h"
 #import "MoreCell.h"
+#import "ZonePickerDelegate.h"
 #import "MoreItem.h"
 #import "City.h"
 #import "Province.h"
@@ -24,6 +26,7 @@
 #import "MoreHeader.h"
 #import "SearchDoctorParam.h"
 #import "SearchTypeView.h"
+#import "LDNotification.h"
 #import "HotAreaView.h"
 #import "TopExpertView.h"
 @interface SearchDoctorController () <UISearchBarDelegate,HotAreaViewDelegate,HotDepmentViewDelegate,TopExpertViewDelegate>
@@ -52,6 +55,15 @@
 {
     self.view.backgroundColor = BGCOLOR;
     self.title = @"搜索医生";
+    [DefaultCenter addObserver:self selector:@selector(cityChoosed:) name:CITYCHOOSEDNOTIFICATION object:nil];
+}
+- (void)cityChoosed:(NSNotification *)notification
+{
+    [self sendParamWithCitiesId:notification.userInfo[@"cityId"] departmentsId:nil doctorId:nil];
+}
+- (void)dealloc
+{
+    [DefaultCenter removeObserver:self];
 }
 - (void)setDoctors:(NSArray *)doctors
 {
@@ -123,6 +135,13 @@
 {
     
     [self sendParamWithCitiesId:[NSNumber numberWithInteger:button.tag] departmentsId:nil doctorId:nil];
+}
+- (void)hotAreaView:(HotAreaView *)areaView moreBtnClicked:(UIButton *)button
+{
+     ActionSheetCustomPicker *customPicket = [ActionSheetCustomPicker customPickerWithTitle:@"选择城市"
+                                                                                  delegate:[[ZonePickerDelegate alloc] init]
+                                                                                    origin:button];
+    [customPicket showActionSheetPicker];
 }
 #pragma mark - hotDepamentView delegate
 - (void)hotDepmentView:(HotDepmentView *)depview clickedBtn:(UIButton *)button

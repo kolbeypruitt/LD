@@ -9,8 +9,6 @@
 #import "UIImage+MJ.h"
 #import "HotAreaView.h"
 #import "UIBarButtonItem+ENTER.h"
-#import "ActionSheetCustomPicker+LD.h"
-#import "ZonePickerDelegate.h"
 #import "Location.h"
 @interface HotAreaView ()
 @property (nonatomic,strong) NSMutableArray *cityButtons;
@@ -50,10 +48,10 @@
 }
 - (void)moreBtnClicked:(UIButton *)button
 {
-    ActionSheetCustomPicker *customPicket = [ActionSheetCustomPicker customPickerWithTitle:@"选择城市"
-                                                                                  delegate:[[ZonePickerDelegate alloc] init]
-                                                                                    origin:button];
-    [customPicket showActionSheetPicker];
+    if ([self.delegate respondsToSelector:@selector(hotAreaView:moreBtnClicked:)]) {
+        [self.delegate hotAreaView:self moreBtnClicked:button];
+    }
+   
     
 }
 - (void)addCities

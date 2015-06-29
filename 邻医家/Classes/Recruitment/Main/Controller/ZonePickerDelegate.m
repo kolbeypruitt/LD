@@ -13,6 +13,8 @@
 #import "MJExtension.h"
 #import "City.h"
 #import "MBProgressHUD+MJ.h"
+#import "Common.h"
+#import "LDNotification.h"
 @interface ZonePickerDelegate ()
 @property (nonatomic,copy) NSString *selectedProvince;
 @property (nonatomic,copy) NSString *selectedCity;
@@ -102,8 +104,8 @@
 - (void)actionSheetPickerDidSucceed:(AbstractActionSheetPicker *)actionSheetPicker origin:(id)origin
 {
     if ([origin isKindOfClass:[UIButton class]]) {
-        UIButton *button = (UIButton *)origin;
-        button.tag = self.choosedCity.id;
+        NSDictionary *userInfo = @{@"cityId" : [NSNumber numberWithInt:self.choosedCity.id]};
+        [DefaultCenter postNotificationName:CITYCHOOSEDNOTIFICATION object:self userInfo:userInfo];
     }else if([origin isKindOfClass:[HospitalEnterTextField class]])
     {
         if (self.selectedProvince.length == 0) {

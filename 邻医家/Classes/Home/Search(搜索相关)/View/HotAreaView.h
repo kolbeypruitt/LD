@@ -10,6 +10,7 @@
 @protocol HotAreaViewDelegate <NSObject>
 @optional
 - (void)hotAreaView:(HotAreaView *)areaView sender:(UIButton *)button;
+- (void)hotAreaView:(HotAreaView *)areaView moreBtnClicked:(UIButton *)button;
 @end
 
 @interface HotAreaView : UIImageView
