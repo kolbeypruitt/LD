@@ -14,6 +14,7 @@
 @implementation PostDocRecruitController
 
 - (void)viewDidLoad {
+    [super viewDidLoad];
     [self setupSearchBar];
 }
 - (void)setupSearchBar

@@ -46,7 +46,6 @@
     return [super initWithStyle:UITableViewStyleGrouped];
 }
 
-- (void)viewDidAppear:(BOOL)animated {}
 
 - (void)viewDidLoad
 {
