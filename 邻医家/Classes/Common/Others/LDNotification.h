@@ -10,5 +10,7 @@
 #define ____LDNotification_h
 #define PATIENTACCEPTDOCSUCCESSNOTIFICATION @"pads"
 #define DEPARTMENTMSGREFRESHNOTIFICATION @"departmentmsgrefresh"
+#define MORECITYCHOOSEDNOTIFICATION @"morecitychoosednotification"
 #define CITYCHOOSEDNOTIFICATION @"citychoosednotification"
+#define DEPARTMENTCHOOSEDNOTIFICATION @"departmentchoosednotificaion"
 #endif

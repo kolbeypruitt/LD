@@ -6,13 +6,23 @@
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
 #import "Common.h"
+#import "LDNotification.h"
 #import "UIImage+MJ.h"
 #import "Department.h"
 #import "HotDepmentView.h"
 @interface HotDepmentView ()
+@property (nonatomic,strong) NSArray *departments;
 @property (nonatomic,strong) NSMutableArray *departmentBtns;
 @end
 @implementation HotDepmentView
+- (NSArray *)departments
+{
+    if (_departments == nil) {
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"hotdepartment" ofType:@"plist"];
+        _departments = [NSMutableArray arrayWithContentsOfFile:path];
+    }
+    return _departments;
+}
 - (NSMutableArray *)departmentBtns
 {
     if (_departmentBtns == nil) {
@@ -30,11 +40,10 @@
 }
 - (void)addDepartments
 {
-    NSArray *departments = @[@"心胸外科",@"泌尿外科",@"骨外科",@"神经内科",@"内分泌科",@"妇科",@"皮肤科",@"寄生虫",@"结核病科"];
-    for (int i = 0 ; i < departments.count; i++) {
-        NSString *title = [departments objectAtIndex:i];
-        
-        UIButton *button = [self setupButtonWithTitle:title];
+    for (int i = 0 ; i < self.departments.count; i++) {
+        NSDictionary *dict = self.departments[i];
+        UIButton *button = [self setupButtonWithTitle:dict[@"depName"]];
+        button.tag = i;
         [button addTarget:self action:@selector(clickedBtn:) forControlEvents:UIControlEventTouchUpInside];
         
         [self.departmentBtns addObject:button];
@@ -70,8 +79,8 @@
 }
 - (void)clickedBtn:(UIButton *)button
 {
-    if ([self.delegate respondsToSelector:@selector(hotDepmentView:clickedBtn:)]) {
-        [self.delegate hotDepmentView:self clickedBtn:button];
-    }
+    NSDictionary *dict = [self.departments objectAtIndex:button.tag];
+    NSDictionary *usrInfo = @{@"department" : dict[@"department"]};
+    [DefaultCenter postNotificationName:DEPARTMENTCHOOSEDNOTIFICATION object:self userInfo:usrInfo];
 }
 @end

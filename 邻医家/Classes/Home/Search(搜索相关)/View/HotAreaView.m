@@ -10,13 +10,21 @@
 #import "HotAreaView.h"
 #import "UIBarButtonItem+ENTER.h"
 #import "Location.h"
+#import "LDNotification.h"
 @interface HotAreaView ()
 @property (nonatomic,strong) NSMutableArray *cityButtons;
 @property (nonatomic,weak) UIButton  *moreCityBtn;
-@property (nonatomic,strong) NSMutableArray *cities;
+@property (nonatomic,strong) NSArray *cities;
 @end
 @implementation HotAreaView
-
+- (NSArray *)cities
+{
+    if (_cities == nil) {
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"hotarea.plist" ofType:nil];
+        _cities = [NSMutableArray arrayWithContentsOfFile:path];
+    }
+    return _cities;
+}
 - (NSMutableArray *)cityButtons
 {
     if (_cityButtons == nil) {
@@ -56,9 +64,10 @@
 }
 - (void)addCities
 {
-    NSArray *hotCities = @[@"北京",@"上海",@"天津",@"重庆",@"成都",@"广州",@"深圳",@"呼和浩特",@"乌鲁木齐",@"南京",];
-    for (int i = 0 ; i < hotCities.count; i++) {
-        UIButton *button = [self setupButtonWithTitle:[hotCities objectAtIndex:i]];
+    for (int i = 0 ; i < self.cities.count; i++) {
+        NSDictionary *dict = self.cities[i];
+        UIButton *button = [self setupButtonWithTitle:dict[@"cityName"]];
+        button.tag = i;
         [self.cityButtons addObject:button];
     }
 }
@@ -76,9 +85,9 @@
 }
 - (void)clickedBtn:(UIButton *)button
 {
-    if ([self.delegate respondsToSelector:@selector(hotAreaView:sender:)]) {
-        [self.delegate hotAreaView:self sender:button];
-    }
+    NSDictionary *dict = [self.cities objectAtIndex:button.tag];
+    NSDictionary *userInfo = @{@"cities" : dict[@"cities"]};
+    [DefaultCenter postNotificationName:CITYCHOOSEDNOTIFICATION object:self userInfo:userInfo];
 }
 - (void)layoutSubviews
 {

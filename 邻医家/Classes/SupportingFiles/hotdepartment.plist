@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>depName</key>
+		<string>心胸外科</string>
+		<key>department</key>
+		<string>112</string>
+	</dict>
+	<dict>
+		<key>depName</key>
+		<string>泌尿外科</string>
+		<key>department</key>
+		<string>114</string>
+	</dict>
+	<dict>
+		<key>depName</key>
+		<string>骨外科</string>
+		<key>department</key>
+		<string>112</string>
+	</dict>
+	<dict>
+		<key>depName</key>
+		<string>神经内科</string>
+		<key>department</key>
+		<string>103</string>
+	</dict>
+	<dict>
+		<key>depName</key>
+		<string>内分泌科</string>
+		<key>department</key>
+		<string>108</string>
+	</dict>
+	<dict>
+		<key>depName</key>
+		<string>妇科</string>
+		<key>department</key>
+		<string>121</string>
+	</dict>
+	<dict>
+		<key>depName</key>
+		<string>皮肤科</string>
+		<key>department</key>
+		<string>140</string>
+	</dict>
+	<dict>
+		<key>depName</key>
+		<string>寄生虫</string>
+		<key>department</key>
+		<string>154</string>
+	</dict>
+	<dict>
+		<key>depName</key>
+		<string>结核病科</string>
+		<key>department</key>
+		<string>153</string>
+	</dict>
+</array>
+</plist>

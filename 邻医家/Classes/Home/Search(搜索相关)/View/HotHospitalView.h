@@ -13,5 +13,6 @@
 @end
 
 @interface HotHospitalView : UIImageView
+@property (nonatomic,strong) NSArray *hospitals;
 @property (nonatomic,weak) id<HotHospitalViewDelegate> delegate;
 @end
