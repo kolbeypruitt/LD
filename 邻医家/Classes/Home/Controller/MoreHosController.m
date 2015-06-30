@@ -7,6 +7,7 @@
 //
 
 #import "SearchHosController.h"
+#import "MBProgressHUD+MJ.h"
 #import "MoreHosController.h"
 #import "LoginHosController.h"
 #import "AccountTool.h"
@@ -25,20 +26,27 @@
 @end
 
 @implementation MoreHosController
-- (NSMutableArray *)hospital
+- (NSMutableArray *)hospitals
 {
     if (_hospitals == nil) {
         _hospitals = [NSMutableArray array];
     }
     return _hospitals;
 }
+
 - (void)setParam:(SearchHosParam *)param
 {
     _param = param;
     [SearchHosTool searchHosWithParam:param success:^(SearchHosResult *result) {
-        if ([result.status isEqualToString:@"S"]) {
-            self.hospitals = result.hospitals;
+        if ([result.status isEqualToString:SUCCESSSTATUS]) {
+            if (self.hospitals.count) {
+                [self.hospitals removeAllObjects];
+            }
+            [self.hospitals addObjectsFromArray:result.hospitals];
             [self.tableView reloadData];
+        }else
+        {
+            [MBProgressHUD showError:@"请重新搜索"];
         }
     } failure:^(NSError *error) {
         
@@ -52,8 +60,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self loadData];
     [self setup];
+    [self loadData];
     [self setTableHeader];
     [self setupRefresh];
 }
@@ -152,7 +160,6 @@
     }];
 }
 @end
-
 
 
 

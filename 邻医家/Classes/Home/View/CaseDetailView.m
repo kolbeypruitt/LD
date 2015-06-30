@@ -6,6 +6,7 @@
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
 #import "UILabel+LD.h"
+#import "AccountTool.h"
 #import "CaseDetail.h"
 #import "CaseDetailView.h"
 #import "Common.h"
@@ -125,7 +126,13 @@
         contentW = SCREENWIDTH - contentX - padding;
         contentLabel.frame = CGRectMake(contentX, contentY, contentW, contentH);
     }
+    UIView *lastLine = [self.lines lastObject];
     UILabel *lastTitle = [self.titleLabels lastObject];
+    if ([AccountTool isLogin]) {
+        lastTitle.hidden = YES;
+        lastLine.hidden = YES;
+        return;
+    }
     lastTitle.textAlignment = NSTextAlignmentCenter;
     CGRect frame = lastTitle.frame;
     frame.size.width = SCREENWIDTH - 2 * padding;
@@ -133,7 +140,6 @@
     
 }
 @end
-
 
 
 

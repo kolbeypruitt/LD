@@ -19,7 +19,6 @@
 #import "MoreDocController.h"
 #import "MoreHosController.h"
 #import "HosDetailController.h"
-#import "IWCommon.h"
 #import "DoctorDetailController.h"
 #import "PublicHomeController.h"
 #import "RecommendResult.h"
@@ -35,6 +34,7 @@
 #import "UIBarButtonItem+MJ.h"
 #import "UIBarButtonItem+ENTER.h"
 #import "LoginDocDetailController.h"
+#import "MoreCaseController.h"
 @interface PublicHomeController () <UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource,LDHomeFooterViewDelegate,LDHomeHeaderViewDelegate>
 @property (nonatomic,weak) UIScrollView *scrollView;
 @property (nonatomic,weak) UISegmentedControl *segmentControl;
@@ -379,7 +379,8 @@
         [self.navigationController pushViewController:moreHos animated:YES];
     }else
     {
-        
+        MoreCaseController *moreCase = [[MoreCaseController alloc] init];
+        [self.navigationController pushViewController:moreCase animated:YES];
     }
 }
 #pragma mark - scrollView delegate method

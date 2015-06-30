@@ -13,6 +13,11 @@
 @property (nonatomic,strong) NSMutableArray *hospitalBtns;
 @end
 @implementation HotHospitalView
+- (void)setHospitals:(NSArray *)hospitals
+{
+    _hospitals = hospitals;
+    [self addHospitalBtn];
+}
 - (NSMutableArray *)hospitalBtns
 {
     if (_hospitalBtns == nil) {
@@ -25,18 +30,16 @@
     if (self = [super initWithFrame:frame]) {
         self.userInteractionEnabled = YES;
         self.backgroundColor = BGCOLOR;
-        [self addHospitalBtn];
     }
     return self;
 }
 
 - (void)addHospitalBtn
 {
-    NSArray *hotHospitals = @[@"上海交通大学附属新华医院",@"上海交通大学附属第一人民医院",@"上海交通大学附属仁济医院"];
-    for (int i = 0 ; i < hotHospitals.count; i++) {
-        NSString *title = [hotHospitals objectAtIndex:i];
-        
-        UIButton *button = [self setupButtonWithTitle:title];
+    for (int i = 0 ; i < self.hospitals.count; i++) {
+        Hospital *hos = self.hospitals[i];
+        UIButton *button = [self setupButtonWithTitle:hos.name];
+        button.tag = hos.id;
         [button addTarget:self action:@selector(clickedBtn:) forControlEvents:UIControlEventTouchUpInside];
         
         [self.hospitalBtns addObject:button];
@@ -56,7 +59,7 @@
     button.titleLabel.textAlignment = NSTextAlignmentCenter;
     [button setTitle:title forState:UIControlStateNormal];
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    button.titleLabel.font = [UIFont systemFontOfSize:14];
+    button.titleLabel.font = [UIFont systemFontOfSize:13];
     button.titleLabel.backgroundColor = [UIColor clearColor];
     [self addSubview:button];
     return button;

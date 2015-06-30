@@ -6,6 +6,7 @@
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
 #import "CoreExpertResult.h"
+#import "UIBarButtonItem+ENTER.h"
 #import "Common.h"
 #import "CoreExpertTool.h"
 #define ID @"cell"
@@ -29,7 +30,7 @@
 #import "LDNotification.h"
 #import "HotAreaView.h"
 #import "TopExpertView.h"
-@interface SearchDoctorController () <UISearchBarDelegate,HotAreaViewDelegate,HotDepmentViewDelegate,TopExpertViewDelegate>
+@interface SearchDoctorController () <UISearchBarDelegate,HotAreaViewDelegate,TopExpertViewDelegate>
 @property (nonatomic,weak) SearchTypeView *searchView;
 @property (nonatomic,weak) UISearchBar *searchBar;
 @property (nonatomic,strong) NSArray *doctors;
@@ -55,9 +56,24 @@
 {
     self.view.backgroundColor = BGCOLOR;
     self.title = @"搜索医生";
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(search) title:@"搜索"];
+    [DefaultCenter addObserver:self selector:@selector(moreCityChoosed:) name:MORECITYCHOOSEDNOTIFICATION object:nil];
     [DefaultCenter addObserver:self selector:@selector(cityChoosed:) name:CITYCHOOSEDNOTIFICATION object:nil];
+    [DefaultCenter addObserver:self selector:@selector(departmentChoosed:) name:DEPARTMENTCHOOSEDNOTIFICATION object:nil];
+}
+- (void)search
+{
+    [self searchBarSearchButtonClicked:self.searchBar];
+}
+- (void)departmentChoosed:(NSNotification *)notificaiton
+{
+    [self sendParamWithDepartment:notificaiton.userInfo[@"department"]];
 }
 - (void)cityChoosed:(NSNotification *)notification
+{
+    [self sendParamWithCities:notification.userInfo[@"cities"]];
+}
+- (void)moreCityChoosed:(NSNotification *)notification
 {
     [self sendParamWithCitiesId:notification.userInfo[@"cityId"] departmentsId:nil doctorId:nil];
 }
@@ -80,7 +96,6 @@
 {
     SearchTypeView *view = [[SearchTypeView alloc] init];
     view.hotAreaView.delegate = self;
-    view.hotDepView.delegate = self;
     view.topExpertView.delegate = self;
     
     self.searchView = view;
@@ -131,11 +146,6 @@
     
 }
 #pragma mark - hotareaDelegate 
-- (void)hotAreaView:(HotAreaView *)areaView sender:(UIButton *)button
-{
-    
-    [self sendParamWithCitiesId:[NSNumber numberWithInteger:button.tag] departmentsId:nil doctorId:nil];
-}
 - (void)hotAreaView:(HotAreaView *)areaView moreBtnClicked:(UIButton *)button
 {
      ActionSheetCustomPicker *customPicket = [ActionSheetCustomPicker customPickerWithTitle:@"选择城市"
@@ -143,15 +153,29 @@
                                                                                     origin:button];
     [customPicket showActionSheetPicker];
 }
-#pragma mark - hotDepamentView delegate
-- (void)hotDepmentView:(HotDepmentView *)depview clickedBtn:(UIButton *)button
+- (void)sendParamWithCities:(NSString *)cities
 {
-    [self sendParamWithCitiesId:nil departmentsId:[NSNumber numberWithInteger:button.tag] doctorId:nil];
+    int count = (int)self.navigationController.viewControllers.count;
+    MoreDocController *moreVC = [self.navigationController.viewControllers objectAtIndex:(count - 2)];
+    
+    SearchDoctorParam *param = [[SearchDoctorParam alloc] init];
+    param.lastId = 0;
+    param.num = 10;
+    param.cities = cities;
+    moreVC.param = param;
+    [self.navigationController popViewControllerAnimated:YES];
 }
-#pragma mark - topExpertView delegate
-- (void)topExpertView:(TopExpertView *)topView clickedBtn:(UIButton *)button
+- (void)sendParamWithDepartment:(NSString *)department
 {
-    [self sendParamWithCitiesId:nil departmentsId:nil doctorId:[NSNumber numberWithInteger:button.tag]];
+    int count = (int)self.navigationController.viewControllers.count;
+    MoreDocController *moreVC = [self.navigationController.viewControllers objectAtIndex:(count - 2)];
+    
+    SearchDoctorParam *param = [[SearchDoctorParam alloc] init];
+    param.lastId = 0;
+    param.num = 10;
+    param.departments = department;
+    moreVC.param = param;
+    [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)sendParamWithCitiesId:(NSNumber *)cityId departmentsId:(NSNumber *)depId doctorId:(NSNumber *)docId
 {

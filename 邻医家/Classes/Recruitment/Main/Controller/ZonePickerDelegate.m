@@ -105,7 +105,7 @@
 {
     if ([origin isKindOfClass:[UIButton class]]) {
         NSDictionary *userInfo = @{@"cityId" : [NSNumber numberWithInt:self.choosedCity.id]};
-        [DefaultCenter postNotificationName:CITYCHOOSEDNOTIFICATION object:self userInfo:userInfo];
+        [DefaultCenter postNotificationName:MORECITYCHOOSEDNOTIFICATION object:self userInfo:userInfo];
     }else if([origin isKindOfClass:[HospitalEnterTextField class]])
     {
         if (self.selectedProvince.length == 0) {

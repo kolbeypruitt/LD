@@ -11,7 +11,7 @@
 #import "IWSettingArrowItem.h"
 #import "IWSettingSwitchItem.h"
 #import "IWSettingLabelItem.h"
-
+#import "UILabel+LD.h"
 #import "UIImage+MJ.h"
 #import "IWCommon.h"
 @interface IWSettingCell()
@@ -26,7 +26,7 @@
 /**
  *  提醒数字
  */
-
+@property (nonatomic,strong) UILabel *rightLabel;
 @property (nonatomic, weak) UITableView *tableView;
 
 @property (nonatomic, weak) UIImageView *bgView;
@@ -34,6 +34,15 @@
 @end
 
 @implementation IWSettingCell
+- (UILabel *)rightLabel
+{
+    if (_rightLabel == nil) {
+        _rightLabel = [UILabel labelWithTitle:nil font:14 textColor:[UIColor blackColor]];
+        _rightLabel.frame = CGRectMake(0, 0, 160, 40);
+        _rightLabel.textAlignment = NSTextAlignmentRight;
+    }
+    return _rightLabel;
+}
 - (UISwitch *)switchView
 {
     if (_switchView == nil) {
@@ -159,7 +168,12 @@
     { // 右边是箭头
         self.accessoryView = self.arrowView;
     }
-    else { // 右边没有东西
+    else if([self.item isKindOfClass:[IWSettingLabelItem class]]){
+        self.rightLabel.text = self.item.subtitle;
+        self.accessoryView = self.rightLabel;
+    }else // 右边没有东西
+    {
+        
         self.accessoryView = nil;
     }
 }

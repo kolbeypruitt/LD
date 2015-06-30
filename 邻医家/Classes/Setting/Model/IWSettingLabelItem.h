@@ -9,4 +9,5 @@
 #import "IWSettingItem.h"
 
 @interface IWSettingLabelItem : IWSettingItem
++ (instancetype)itemWithTitle:(NSString *)title Subtitle:(NSString *)sutitle;
 @end

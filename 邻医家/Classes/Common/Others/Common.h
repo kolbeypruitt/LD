@@ -18,6 +18,8 @@
 //
 //说明：type   招聘类型 1-多点执业邀请2-专家邀请3- 实习 4-进修 5-博士后
 #define BGCOLOR IWColor(226, 226, 226)
+#define HOTHOSURL @"http://116.228.153.157:8888/assfinance/public/hotHospitals"
+#define SEARCHCASEURL @"http://116.228.153.157:8888/assfinance/public/searchCases"
 #define COREEXPERTURL @"http://116.228.153.157:8888/assfinance/public/getImpartantDoctors"
 #define SEARCHHOSURL @"http://116.228.153.157:8888/assfinance/public/searchHospitals"
 #define HOTDEPARTMENTURL @"http://116.228.153.157:8888/assfinance/public/hotDepartments/"
