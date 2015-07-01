@@ -46,7 +46,6 @@
     return [super initWithStyle:UITableViewStyleGrouped];
 }
 
-- (void)viewDidAppear:(BOOL)animated {}
 
 - (void)viewDidLoad
 {
@@ -57,7 +56,7 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     self.tableView.sectionHeaderHeight = 5;
-    self.tableView.sectionFooterHeight = 0;
+    self.tableView.sectionFooterHeight = 20;
     if (iOS7) {
         self.tableView.contentInset = UIEdgeInsetsMake(-30, 0, 0, 0);
     }

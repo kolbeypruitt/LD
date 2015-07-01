@@ -87,11 +87,7 @@
                     Account *at = [AccountTool account];
                     if (at == nil )
                     {
-                        at = [Account accountWithTelnum:self.telnumField.text
-                                               password:self.passwdField.text
-                                                  token:result.token
-                                                   type:result.type
-                                             department:result.department];
+                        at = (Account *)result;
                         [AccountTool saveAccount:at];
                     }
                     [self chooseRootController];

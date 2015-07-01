@@ -353,6 +353,7 @@
 		65CAB2E21B241317005DAED4 /* WelcomePatientController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CAB2CD1B241317005DAED4 /* WelcomePatientController.m */; };
 		65CAB2E51B241453005DAED4 /* TemporaryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CAB2E41B241453005DAED4 /* TemporaryController.m */; };
 		65CAC0A61B40DE5500248721 /* HotDepartmentTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CAC0A51B40DE5500248721 /* HotDepartmentTool.m */; };
+		65CBEE361B437B1E00F9F2EB /* IWSettingButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CBEE351B437B1E00F9F2EB /* IWSettingButtonItem.m */; };
 		65CC3F511B0EC9E10099A3F3 /* doctorEnter.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65CC3F501B0EC9E10099A3F3 /* doctorEnter.plist */; };
 		65CC3F5B1B0F05310099A3F3 /* ForgetPassController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CC3F591B0F05310099A3F3 /* ForgetPassController.m */; };
 		65CC3F5C1B0F05310099A3F3 /* ForgetPassController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65CC3F5A1B0F05310099A3F3 /* ForgetPassController.xib */; };
@@ -1138,6 +1139,8 @@
 		65CAB2E41B241453005DAED4 /* TemporaryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemporaryController.m; sourceTree = "<group>"; };
 		65CAC0A41B40DE5500248721 /* HotDepartmentTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotDepartmentTool.h; sourceTree = "<group>"; };
 		65CAC0A51B40DE5500248721 /* HotDepartmentTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotDepartmentTool.m; sourceTree = "<group>"; };
+		65CBEE341B437B1E00F9F2EB /* IWSettingButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWSettingButtonItem.h; sourceTree = "<group>"; };
+		65CBEE351B437B1E00F9F2EB /* IWSettingButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWSettingButtonItem.m; sourceTree = "<group>"; };
 		65CC3F501B0EC9E10099A3F3 /* doctorEnter.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = doctorEnter.plist; sourceTree = "<group>"; };
 		65CC3F581B0F05310099A3F3 /* ForgetPassController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPassController.h; sourceTree = "<group>"; };
 		65CC3F591B0F05310099A3F3 /* ForgetPassController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPassController.m; sourceTree = "<group>"; };
@@ -2334,6 +2337,8 @@
 				655453D51AFCA59D00C4BFFA /* IWSettingLabelItem.m */,
 				655453D61AFCA59D00C4BFFA /* IWSettingSwitchItem.h */,
 				655453D71AFCA59D00C4BFFA /* IWSettingSwitchItem.m */,
+				65CBEE341B437B1E00F9F2EB /* IWSettingButtonItem.h */,
+				65CBEE351B437B1E00F9F2EB /* IWSettingButtonItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3715,6 +3720,7 @@
 				655454571AFCA59D00C4BFFA /* UIImage+WebP.m in Sources */,
 				65C888A11B2C0198009056D3 /* ConsultDetailTool.m in Sources */,
 				65CDDE341B2E64EA00628862 /* InviteDetailController.m in Sources */,
+				65CBEE361B437B1E00F9F2EB /* IWSettingButtonItem.m in Sources */,
 				65E375321B3CEBFC00597B42 /* LDPaper.m in Sources */,
 				6554543D1AFCA59D00C4BFFA /* NSObject+MJMember.m in Sources */,
 				653B84ED1B3B97BA00331252 /* PolicyDetailTool.m in Sources */,

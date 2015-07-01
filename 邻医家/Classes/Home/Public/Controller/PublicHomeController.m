@@ -86,18 +86,7 @@
     UISegmentedControl *seg = [UISegmentedControl appearance];
     [seg setTintColor:[UIColor grayColor]];
 }
-//- (void)setNotification
-//{
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginDown) name:LOGINDONWNOTIFICATION object:nil];
-//}
-//- (void)dealloc
-//{
-//    [[NSNotificationCenter defaultCenter] removeObserver:self];
-//}
-//- (void)loginDown
-//{
-//    self.navigationItem.rightBarButtonItem = nil;
-//}
+
 - (void)setNav
 {
     self.title = @"首页";
@@ -105,24 +94,9 @@
 //    Account *acc = [AccountTool account];
 //    if (acc == nil) {
         self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemwithImage:@"login_img" title:nil target:self action:@selector(loginBtnClicked)];
-    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(logout) title:@"注销"];
 //    }
 }
-- (void)logout
-{
-    if ([AccountTool deleteAccount]) {
-        [MBProgressHUD showMessage:@"正在注销"];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [MBProgressHUD hideHUD];
-        });
-        PublicHomeController *publicHome = [[PublicHomeController alloc] init];
-        IWNavigationController *nav = [[IWNavigationController alloc] initWithRootViewController:publicHome];
-        self.view.window.rootViewController = nav;
-    }else
-    {
-        [MBProgressHUD showError:@"未登录"];
-    }
-}
+
 - (void)loginBtnClicked
 {
     LoginViewController *login = [[LoginViewController alloc] init];
@@ -237,20 +211,25 @@
     CGFloat scrollY = CGRectGetMaxY(self.segmentControl.frame);
     CGFloat scrollW = segmentW;
     CGFloat scrollH = self.view.frame.size.height - scrollY;
+    if ([AccountTool isLogin]) {
+        
+        scrollH -= self.tabBarController.tabBar.frame.size.height;
+    }
     self.scrollView.frame = CGRectMake(scrollX, scrollY, scrollW, scrollH);
     
     self.scrollView.contentSize = CGSizeMake(3 * SCREENWIDTH, 0);
     self.scrollView.delegate = self;
     self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.pagingEnabled = YES;
-    self.scrollView.backgroundColor = IWColor(226, 226, 226);
+//    self.scrollView.backgroundColor = IWColor(226, 226, 226);
+    self.scrollView.backgroundColor = [UIColor redColor];
     self.scrollView.bounces = NO;
     
     //推荐医生
     CGFloat hosX = 0;
     CGFloat hosY = 0;
     CGFloat hosW = scrollW;
-    CGFloat hosH = scrollH - 50;
+    CGFloat hosH = scrollH;
     self.doctorView.frame = CGRectMake(hosX, hosY, hosW, hosH);
     //推荐医院
     CGFloat doctorX = SCREENWIDTH;
@@ -305,7 +284,7 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 30;
+    return 40;
 }
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
@@ -433,7 +412,6 @@
     [self.navigationController pushViewController:controller animated:NO];
 }
 @end
-
 
 
 
