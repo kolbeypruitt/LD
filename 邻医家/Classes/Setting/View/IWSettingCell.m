@@ -115,13 +115,16 @@
     // 2.设置右边的控件
     [self setupRightView];
 }
-
+/**
+ *  设置cell的背景图片
+ *
+ */
 - (void)setIndexPath:(NSIndexPath *)indexPath
 {
     _indexPath = indexPath;
     
     // 设置背景的图片
-    int totalRows = [self.tableView numberOfRowsInSection:indexPath.section];
+    NSInteger totalRows = [self.tableView numberOfRowsInSection:indexPath.section];
     NSString *bgName = nil;
     NSString *selectedBgName = nil;
     if (totalRows == 1) { // 这组就1行

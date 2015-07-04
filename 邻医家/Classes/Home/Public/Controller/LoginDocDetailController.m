@@ -209,7 +209,7 @@
     self.scrollView.bounces = NO;
     self.scrollView.delegate = self;
     
-    CGFloat tableHeight = scrollH - 45;
+    CGFloat tableHeight = scrollH;
     //介绍
     CGFloat introX = 0;
     CGFloat introY = 0;

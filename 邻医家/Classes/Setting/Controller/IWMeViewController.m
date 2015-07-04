@@ -5,16 +5,20 @@
 //  Created by apple on 14-5-5.
 //  Copyright (c) 2014年 itcast. All rights reserved.
 //
-
+#import "IWNavigationController.h"
+#import "PublicHomeController.h"
 #import "IWMeViewController.h"
+#import "AccountTool.h"
+#import "Common.h"
 #import "IWSettingArrowItem.h"
 #import "IWSettingGroup.h"
 #import "LDHomeHeadView.h"
 #import "IWSettingLabelItem.h"
 #import "AccountTool.h"
 #import "Account.h"
+#import "UIButton+LD.h"
 @interface IWMeViewController ()
-@property (nonatomic,weak) LDHomeHeadView *headerView;
+@property (nonatomic,weak) UIButton *logoutBtn;
 @end
 
 @implementation IWMeViewController
@@ -22,14 +26,31 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setup];
     [self setupGroup0];
 }
-
+- (void)setup
+{
+    self.tableView.contentInset = UIEdgeInsetsMake(-30, 0, 40, 0);
+    UIButton *logoutBtn = [UIButton buttonWithTitle:@"退出登录" font:14 titleColor:[UIColor whiteColor] target:self action:@selector(logout)];
+    logoutBtn.backgroundColor = [UIColor redColor];
+    logoutBtn.frame = CGRectMake(0, 0, SCREENWIDTH - 200, 35);
+    self.logoutBtn = logoutBtn;
+    self.tableView.tableFooterView = logoutBtn;
+}
+- (void)logout
+{
+    if ([AccountTool deleteAccount]) {
+        PublicHomeController *publicHome = [[PublicHomeController alloc] init];
+        IWNavigationController *nav = [[IWNavigationController alloc] initWithRootViewController:publicHome];
+        self.view.window.rootViewController = nav;
+    }
+}
 - (void)setupGroup0
 {
-    Account *userAccount = [AccountTool account];
+    
     IWSettingGroup *group = [self addGroup];
-    IWSettingLabelItem *telNum = [IWSettingLabelItem itemWithTitle:@"手机号" Subtitle:userAccount.telnum];
+    IWSettingLabelItem *telNum = [IWSettingLabelItem itemWithTitle:@"手机号" Subtitle:@"13288888888"];
     IWSettingLabelItem *name = [IWSettingLabelItem itemWithTitle:@"真实姓名" Subtitle:@"郑学胜"];
     IWSettingLabelItem *idcard = [IWSettingLabelItem itemWithTitle:@"身份证号"  Subtitle:@"430821199103040303"];
     
@@ -46,7 +67,6 @@
     
     group.items  = @[telNum,name,idcard,hospital,location,address,level,department,jobType,goodAt,jobnum,passwd];
 }
-
 
 
 

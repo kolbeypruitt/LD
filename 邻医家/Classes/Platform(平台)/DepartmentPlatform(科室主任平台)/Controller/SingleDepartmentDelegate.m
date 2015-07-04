@@ -26,7 +26,7 @@
 - (int)firstDepartment
 {
         Account *acco =  [AccountTool account];
-        int department = [[acco department] intValue];
+        int department = acco.department;
         _firstDepartment = department;
     return _firstDepartment;
 }
