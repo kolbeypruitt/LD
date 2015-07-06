@@ -54,7 +54,7 @@
 #define POSTCONSULTURL @"http://116.228.153.157:8888/assfinance/hospital/releaseGroupConsultation"
 #define QUERYCONSULTURL @"http://116.228.153.157:8888/assfinance/hospital/getMyGroupConsultation"
 #define CONSULTDETAILURL @"http://116.228.153.157:8888/assfinance/hospital/getMyGroupConsultationById"
-#define GETEMPLOYURL @"http://116.228.153.157:8888/assfinance/hospital/getMyEmployInfo"
+#define GETEMPLOYURL @"http://192.168.1.4:8080/assfinance/hospital/getMyEmployInfo"
 #define GETEMPLOYDETAILURL @"http://116.228.153.157:8888/assfinance/hospital/getMyEmployInfoById"
 #define GETACCEPTEDURL @"http://116.228.153.157:8888/assfinance/hospital/getAcceptedResumeById"
 #define GETALLRESUMEURL @"http://116.228.153.157:8888/assfinance/hospital/getAllResumeById"

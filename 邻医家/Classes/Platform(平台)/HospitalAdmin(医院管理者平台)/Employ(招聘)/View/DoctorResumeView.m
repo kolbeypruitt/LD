@@ -93,13 +93,21 @@
     }else if(resume.resumeStatus == 2)
     {
         title = @"已录取";
-        self.inviteBtn.hidden = YES;
-        UIView *line = [self.lines lastObject];
-        line.hidden = YES;
+        [self.inviteBtn setTitle:@"查看已收到的消息" forState:UIControlStateNormal];
+        [self.inviteBtn removeTarget:self action:@selector(inviteBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [self.inviteBtn addTarget:self action:@selector(chat:) forControlEvents:UIControlEventTouchUpInside];
+        
     }
     resumeStatus.text = title;
     papers.text = resume.papers;
     telnum.text = resume.telnum;
+    
+}
+- (void)chat:(UIButton *)button
+{
+    if ([self.delegate respondsToSelector:@selector(doctorResumeView:chatBtnClicked:)] ) {
+        [self.delegate doctorResumeView:self chatBtnClicked:button];
+    }
     
 }
 - (void)setupLines
@@ -178,7 +186,6 @@
 }
 
 @end
-
 
 
 

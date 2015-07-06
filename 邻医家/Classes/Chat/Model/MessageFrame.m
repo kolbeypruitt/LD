@@ -34,10 +34,11 @@
     CGFloat iconW = 40;
     CGFloat iconH = 40;
     CGFloat iconX;
-    if (message.msgToUid == self.account.clientNumber) {// 别人发的
-        iconX = padding;
-    } else { // 自己的发的
+    if ([message.msgFromUid isEqualToString:self.account.clientNumber]) { // 自己的发的
         iconX = screenW - padding - iconW;
+    }else // 别人发的
+    {
+        iconX = padding;
     }
     _iconF = CGRectMake(iconX, iconY, iconW, iconH);
     
@@ -50,10 +51,12 @@
     // 按钮最终的真实尺寸
     CGSize textBtnSize = CGSizeMake(textRealSize.width + MJTextPadding * 2, textRealSize.height + MJTextPadding * 2);
     CGFloat textX;
-    if (message.msgToUid == self.account.clientNumber) {// 别人发的
-        textX = CGRectGetMaxX(_iconF) + padding;
-    } else {// 自己的发的
+    
+    if ([message.msgFromUid isEqualToString:self.account.clientNumber]) { // 自己的发的
         textX = iconX - padding - textBtnSize.width;
+    }else // 别人发的
+    {
+        textX = CGRectGetMaxX(_iconF) + padding;
     }
     _textF = (CGRect){{textX, textY}, textBtnSize};
     

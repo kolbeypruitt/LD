@@ -84,9 +84,10 @@
         viewController.hidesBottomBarWhenPushed = YES;
         
         viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithIcon:@"navigationbar_back" highIcon:@"navigationbar_back_highlighted" target:self action:@selector(back)];
-        viewController.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithIcon:@"navigationbar_more" highIcon:@"navigationbar_more_highlighted" target:self action:@selector(more)];
+//        viewController.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithIcon:@"navigationbar_more" highIcon:@"navigationbar_more_highlighted" target:self action:@selector(more)];
 
     }
+    self.view.window.backgroundColor = IWColor(226, 226, 226);
     [super pushViewController:viewController animated:animated];
 }
 - (NSArray *)popToRootViewControllerAnimated:(BOOL)animated

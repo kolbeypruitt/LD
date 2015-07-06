@@ -5,6 +5,7 @@
 //  Created by Daniel on 15/6/15.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "ChatViewController.h"
 #import "MBProgressHUD+MJ.h"
 #import "BaseResult.h"
 #import "DoctorResumeView.h"
@@ -47,6 +48,7 @@
     [self.view addSubview:resumeView];
     self.resumeView = resumeView;
 }
+#pragma mark - resumeview delegate
 - (void)DoctorResumeView:(DoctorResumeView *)doctorView inviteBtnClicked:(UIButton *)inviteBtn
 {
     EmployDetailParam *param = [EmployDetailParam paramWithId:self.resume.id];
@@ -59,6 +61,11 @@
         [MBProgressHUD showError:@"录取失败"];
     }];
 }
-
+- (void)doctorResumeView:(DoctorResumeView *)doctorView chatBtnClicked:(UIButton *)chatBtn
+{
+    ChatViewController *chatVc = [[ChatViewController alloc] init];
+    chatVc.resume = self.resume;
+    [self.navigationController pushViewController:chatVc animated:YES];
+}
 
 @end

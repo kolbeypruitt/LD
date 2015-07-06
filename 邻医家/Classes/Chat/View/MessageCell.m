@@ -69,16 +69,18 @@
     UCSMessage *message = messageFrame.message;
     
     // 2.头像
-    NSString *icon = (message.msgToUid != self.accont.clientNumber) ? @"me" : @"other";
+    NSString *icon = ([message.msgFromUid isEqualToString: self.accont.clientNumber]) ? @"me" : @"other";
     self.iconView.image = [UIImage imageNamed:icon];
     self.iconView.frame = messageFrame.iconF;
+    self.iconView.layer.cornerRadius = 10;
+    self.iconView.clipsToBounds = YES;
     
     // 3.正文
     [self.textView setTitle:message.msgContent forState:UIControlStateNormal];
     self.textView.frame = messageFrame.textF;
     
     // 4.正文的背景
-    if (message.msgToUid != self.accont.clientNumber) { // 自己发的,蓝色
+    if ([message.msgFromUid isEqualToString:self.accont.clientNumber]) { // 自己发的,蓝色
         [self.textView setBackgroundImage:[UIImage resizedImageWithName:@"chat_send_nor"] forState:UIControlStateNormal];
     } else { // 别人发的,白色
         [self.textView setBackgroundImage:[UIImage resizedImageWithName:@"chat_recive_nor"] forState:UIControlStateNormal];

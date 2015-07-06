@@ -5,6 +5,7 @@
 //  Created by Daniel on 15/6/7.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "GroupViewController.h"
 #import "RewardInviteController.h"
 #import "PatientPlatformController.h"
 #import "FreeInviteController.h"
@@ -12,6 +13,7 @@
 @interface PatientPlatformController ()
 @property (nonatomic,weak) UIButton *inviteBtn;
 @property (nonatomic,weak) UIButton *cureBtn;
+@property (nonatomic,weak) UIButton *groupBtn;
 @end
 
 @implementation PatientPlatformController
@@ -31,13 +33,20 @@
 {
     self.inviteBtn = [self createBtnWithTitle:@"自由请医" target:self action:@selector(buttonPressed:)];
     self.cureBtn = [self createBtnWithTitle:@"悬赏就医" target:self action:@selector(buttonPressed:)];
+    self.groupBtn = [self createBtnWithTitle:@"团请医生" target:self action:@selector(buttonPressed:)];
 }
 - (void)buttonPressed:(UIButton *)senderBtn
 {
     if ([senderBtn isEqual:self.inviteBtn]) {
         FreeInviteController *freeInvite = [[FreeInviteController alloc] init];
         [self.navigationController pushViewController:freeInvite animated:YES];
-    }else{
+    }else if([senderBtn isEqual:self.groupBtn])
+    {
+        GroupViewController *groupVC = [[GroupViewController alloc] init];
+        self.view.window.backgroundColor = BGCOLOR;
+        [self.navigationController pushViewController:groupVC animated:YES];
+    }
+    else{
         RewardInviteController *reward = [[RewardInviteController alloc] init];
         [self.navigationController pushViewController:reward animated:YES];
     }
@@ -53,6 +62,9 @@
     
     self.cureBtn.frame = CGRectMake(btnW+20, btnY, btnW, btnH);
     self.cureBtn.backgroundColor = IWColor(80, 80, 90);
+    
+    self.groupBtn.frame = CGRectMake(btnX, CGRectGetMaxY(self.inviteBtn.frame) + btnX, SCREENWIDTH - 2 * btnX, btnH);
+    self.groupBtn.backgroundColor = IWColor(80, 80, 80);
 }
 - (UIButton *)createBtnWithTitle:(NSString *)title target:(id)target action:(SEL)action
 {

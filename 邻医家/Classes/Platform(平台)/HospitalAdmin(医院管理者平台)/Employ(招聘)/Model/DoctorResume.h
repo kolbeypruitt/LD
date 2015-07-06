@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface DoctorResume : NSObject
+@property (nonatomic,copy) NSString *clientNumber;
 @property (nonatomic,copy) NSString *department;
 @property (nonatomic,copy) NSString *hospital;
 @property (nonatomic,copy) NSString *introduction;
@@ -18,4 +19,5 @@
 @property (nonatomic,assign) int resumeStatus;
 @property (nonatomic,copy) NSString *techtitle;
 @property (nonatomic,copy) NSString *telnum;
+
 @end

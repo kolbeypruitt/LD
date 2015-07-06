@@ -10,6 +10,8 @@
 @protocol DoctorResumeViewDelegate <NSObject>
 @optional
 - (void)DoctorResumeView:(DoctorResumeView *)doctorView inviteBtnClicked:(UIButton *)inviteBtn;
+- (void)doctorResumeView:(DoctorResumeView *)doctorView chatBtnClicked:(UIButton *)chatBtn;
+
 @end
 
 

@@ -101,6 +101,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.rightBarButtonItem = nil;
 }
 #pragma mark - table delegate and datasource 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView

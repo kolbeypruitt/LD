@@ -353,6 +353,8 @@
 		65CAB2E21B241317005DAED4 /* WelcomePatientController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CAB2CD1B241317005DAED4 /* WelcomePatientController.m */; };
 		65CAB2E51B241453005DAED4 /* TemporaryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CAB2E41B241453005DAED4 /* TemporaryController.m */; };
 		65CAC0A61B40DE5500248721 /* HotDepartmentTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CAC0A51B40DE5500248721 /* HotDepartmentTool.m */; };
+		65CBA9251B4A74040024DABA /* RecruitChildController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CBA9241B4A74040024DABA /* RecruitChildController.m */; };
+		65CBA9281B4A7A7C0024DABA /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CBA9271B4A7A7C0024DABA /* List.m */; };
 		65CBEE361B437B1E00F9F2EB /* IWSettingButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CBEE351B437B1E00F9F2EB /* IWSettingButtonItem.m */; };
 		65CC3F511B0EC9E10099A3F3 /* doctorEnter.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65CC3F501B0EC9E10099A3F3 /* doctorEnter.plist */; };
 		65CC3F5B1B0F05310099A3F3 /* ForgetPassController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CC3F591B0F05310099A3F3 /* ForgetPassController.m */; };
@@ -375,6 +377,8 @@
 		65CFC7C11B185F8F007F7062 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CFC7B71B185F8F007F7062 /* AFURLResponseSerialization.m */; };
 		65CFC7C21B185F8F007F7062 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CFC7B91B185F8F007F7062 /* AFURLSessionManager.m */; };
 		65CFC7CE1B1861B6007F7062 /* LDBaseParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CFC7CD1B1861B6007F7062 /* LDBaseParam.m */; };
+		65D0E15A1B4A10B500283275 /* libucsvoicesdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D0E1591B4A10B500283275 /* libucsvoicesdk.a */; };
+		65D0E1611B4A543B00283275 /* GroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D0E1601B4A543B00283275 /* GroupViewController.m */; };
 		65D527041B2A95D600CF4FC4 /* ConfirmedResumeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D526C51B2A95D600CF4FC4 /* ConfirmedResumeController.m */; };
 		65D527051B2A95D600CF4FC4 /* DoctorResumeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D526C71B2A95D600CF4FC4 /* DoctorResumeController.m */; };
 		65D527081B2A95D600CF4FC4 /* PlatformRecruitController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D526CD1B2A95D600CF4FC4 /* PlatformRecruitController.m */; };
@@ -1179,6 +1183,10 @@
 		65CAB2E41B241453005DAED4 /* TemporaryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemporaryController.m; sourceTree = "<group>"; };
 		65CAC0A41B40DE5500248721 /* HotDepartmentTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotDepartmentTool.h; sourceTree = "<group>"; };
 		65CAC0A51B40DE5500248721 /* HotDepartmentTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotDepartmentTool.m; sourceTree = "<group>"; };
+		65CBA9231B4A74040024DABA /* RecruitChildController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecruitChildController.h; sourceTree = "<group>"; };
+		65CBA9241B4A74040024DABA /* RecruitChildController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecruitChildController.m; sourceTree = "<group>"; };
+		65CBA9261B4A7A7C0024DABA /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
+		65CBA9271B4A7A7C0024DABA /* List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = List.m; sourceTree = "<group>"; };
 		65CBEE341B437B1E00F9F2EB /* IWSettingButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWSettingButtonItem.h; sourceTree = "<group>"; };
 		65CBEE351B437B1E00F9F2EB /* IWSettingButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWSettingButtonItem.m; sourceTree = "<group>"; };
 		65CC3F501B0EC9E10099A3F3 /* doctorEnter.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = doctorEnter.plist; sourceTree = "<group>"; };
@@ -1221,6 +1229,9 @@
 		65CFC7B91B185F8F007F7062 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 		65CFC7CC1B1861B6007F7062 /* LDBaseParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDBaseParam.h; sourceTree = "<group>"; };
 		65CFC7CD1B1861B6007F7062 /* LDBaseParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDBaseParam.m; sourceTree = "<group>"; };
+		65D0E1591B4A10B500283275 /* libucsvoicesdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libucsvoicesdk.a; path = "../../IOS_SDKV1.2.3.1/静态库/libucsvoicesdk.a"; sourceTree = "<group>"; };
+		65D0E15F1B4A543B00283275 /* GroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupViewController.h; sourceTree = "<group>"; };
+		65D0E1601B4A543B00283275 /* GroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupViewController.m; sourceTree = "<group>"; };
 		65D526C41B2A95D600CF4FC4 /* ConfirmedResumeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmedResumeController.h; sourceTree = "<group>"; };
 		65D526C51B2A95D600CF4FC4 /* ConfirmedResumeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmedResumeController.m; sourceTree = "<group>"; };
 		65D526C61B2A95D600CF4FC4 /* DoctorResumeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorResumeController.h; sourceTree = "<group>"; };
@@ -1415,6 +1426,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65D0E15A1B4A10B500283275 /* libucsvoicesdk.a in Frameworks */,
 				B05194EF1B47907D0033CA7E /* libucsvoicesdk.a in Frameworks */,
 				B05194E91B478E050033CA7E /* MessageUI.framework in Frameworks */,
 				B05194E61B478DF50033CA7E /* libstdc++.6.dylib in Frameworks */,
@@ -2853,6 +2865,7 @@
 			children = (
 				65CDDE241B2E64EA00628862 /* PatientPlatformController.h */,
 				65CDDE251B2E64EA00628862 /* PatientPlatformController.m */,
+				65D0E15B1B4A538300283275 /* GroupInvite(团请) */,
 				65CDDE391B2E657400628862 /* Reward(悬赏就医) */,
 				65CDDE1C1B2E64EA00628862 /* FreeInvite(自由请医) */,
 				65B44DC31B31660E00371EBB /* PatientTabbarController.h */,
@@ -3244,6 +3257,39 @@
 			path = Tool;
 			sourceTree = "<group>";
 		};
+		65D0E15B1B4A538300283275 /* GroupInvite(团请) */ = {
+			isa = PBXGroup;
+			children = (
+				65D0E15C1B4A538300283275 /* Controller */,
+				65D0E15D1B4A538300283275 /* Model */,
+				65D0E15E1B4A538300283275 /* View */,
+			);
+			path = "GroupInvite(团请)";
+			sourceTree = "<group>";
+		};
+		65D0E15C1B4A538300283275 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				65D0E15F1B4A543B00283275 /* GroupViewController.h */,
+				65D0E1601B4A543B00283275 /* GroupViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		65D0E15D1B4A538300283275 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		65D0E15E1B4A538300283275 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		65D526C21B2A95D600CF4FC4 /* Employ(招聘) */ = {
 			isa = PBXGroup;
 			children = (
@@ -3267,6 +3313,8 @@
 				65D526D61B2A95D600CF4FC4 /* RecruitDetailController.h */,
 				65D526D71B2A95D600CF4FC4 /* RecruitDetailController.m */,
 				65D526D81B2A95D600CF4FC4 /* RecruitDetailController.xib */,
+				65CBA9231B4A74040024DABA /* RecruitChildController.h */,
+				65CBA9241B4A74040024DABA /* RecruitChildController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3282,6 +3330,8 @@
 				65D526DF1B2A95D600CF4FC4 /* Employee.m */,
 				65D526E01B2A95D600CF4FC4 /* Employer.h */,
 				65D526E11B2A95D600CF4FC4 /* Employer.m */,
+				65CBA9261B4A7A7C0024DABA /* List.h */,
+				65CBA9271B4A7A7C0024DABA /* List.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3562,6 +3612,7 @@
 		B05194EB1B478E650033CA7E /* Framworks */ = {
 			isa = PBXGroup;
 			children = (
+				65D0E1591B4A10B500283275 /* libucsvoicesdk.a */,
 				B05194EE1B47907D0033CA7E /* libucsvoicesdk.a */,
 				B05194E81B478E050033CA7E /* MessageUI.framework */,
 				B05194E41B478DF40033CA7E /* libstdc++.6.dylib */,
@@ -3857,6 +3908,7 @@
 				65D8125E1B3A882000A1E0EC /* HospitalResult.m in Sources */,
 				65C6B24F1B043174000BAFC6 /* ARSegmentPageHeader.m in Sources */,
 				65E2546F1B426E33009B0525 /* SearchCaseParam.m in Sources */,
+				65CBA9281B4A7A7C0024DABA /* List.m in Sources */,
 				65CFC7BB1B185F8F007F7062 /* AFHTTPRequestOperationManager.m in Sources */,
 				65CFC7BC1B185F8F007F7062 /* AFHTTPSessionManager.m in Sources */,
 				655454191AFCA59D00C4BFFA /* DiseaseCell.m in Sources */,
@@ -3926,6 +3978,7 @@
 				655454401AFCA59D00C4BFFA /* MJPhotoBrowser.m in Sources */,
 				650295E71B009575002249C0 /* MoreHeader.m in Sources */,
 				6554546A1AFCA59D00C4BFFA /* IWSettingItem.m in Sources */,
+				65D0E1611B4A543B00283275 /* GroupViewController.m in Sources */,
 				6536D62A1B2EA3E500539F47 /* PatienAllDocController.m in Sources */,
 				6549963F1B02EA8D00FA33DC /* RecommendResult.m in Sources */,
 				65C888AA1B2C024D009056D3 /* ConsultDetailMessage.m in Sources */,
@@ -3940,6 +3993,7 @@
 				6554546B1AFCA59D00C4BFFA /* IWSettingLabelItem.m in Sources */,
 				655454361AFCA59D00C4BFFA /* MJIvar.m in Sources */,
 				65CFC7C01B185F8F007F7062 /* AFURLRequestSerialization.m in Sources */,
+				65CBA9251B4A74040024DABA /* RecruitChildController.m in Sources */,
 				655453E91AFCA59D00C4BFFA /* ChildView.m in Sources */,
 				654A309F1B0071E60043821B /* MoreHosController.m in Sources */,
 				65CAB2DE1B241317005DAED4 /* WelcomeDoctor.m in Sources */,
@@ -4288,6 +4342,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"/Users/daniel/Desktop/IOS_SDKV1.2.3.1/静态库",
 					"/Users/sxq/Downloads/IOS_SDKV1.2.3.1/静态库",
 				);
 				OTHER_LDFLAGS = "-ObjC";
@@ -4311,6 +4366,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"/Users/daniel/Desktop/IOS_SDKV1.2.3.1/静态库",
 					"/Users/sxq/Downloads/IOS_SDKV1.2.3.1/静态库",
 				);
 				OTHER_LDFLAGS = "-ObjC";

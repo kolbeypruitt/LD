@@ -8,10 +8,10 @@
 
 #import "GetEmployeeResult.h"
 #import "MJExtension.h"
-#import "Employee.h"
+#import "List.h"
 @implementation GetEmployeeResult
 - (NSDictionary *)objectClassInArray
 {
-    return @{@"employs" : [Employee class]};
+    return @{@"employs" : [List class]};
 }
 @end

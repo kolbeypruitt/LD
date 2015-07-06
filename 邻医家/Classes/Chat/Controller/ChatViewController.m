@@ -5,6 +5,7 @@
 //  Created by SXQ on 15/7/4.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "DoctorResume.h"
 #import "MessageFrame.h"
 #import "Account.h"
 #import "AccountTool.h"
@@ -13,6 +14,7 @@
 #import "UCSEvent.h"
 #import "UCSService.h"
 #import "ChatToolView.h"
+#import "UIBarButtonItem+ENTER.h"
 @interface ChatViewController () <UITextFieldDelegate,UCSEventDelegate>
 @property (nonatomic,strong) UCSService *uscService;
 @end
@@ -29,20 +31,29 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = [[AccountTool account] clientNumber];
+    [self setup];
+}
+- (void)setup
+{
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:nil action:nil title:@""];
+}
+- (void)setResume:(DoctorResume *)resume
+{
+    _resume = resume;
+    self.title = resume.name;
 }
 - (void)setupUCService
 {
     UCSService *service = [[UCSService alloc] initWithDelegate:self];
     Account *account = [AccountTool account];
-    NSString *accountId = @"6647890df44fc55787e94a1649518698";
-    NSString *clientNumber = account.clientNumber;
-    NSString *clientPwd = account.clientPwd;
-    NSString *acccountToken = account.token;
-    [service connect:accountId
-            withAccountToken:acccountToken
-            withClientNumber:clientNumber
-               withClientPwd:clientPwd];
+    
+    NSString *accountSid = @"6647890df44fc55787e94a1649518698";
+    NSString *accountToken = @"eae83fba6302c02ce1f22c78d3968876";
+    
+    [service connect:accountSid
+            withAccountToken:accountToken
+            withClientNumber:account.clientNumber
+               withClientPwd:account.clientPwd];
     self.uscService = service;
 }
 - (void)setupChatView
@@ -53,7 +64,7 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     
-    [self.uscService sendUcsMessage:@"73057024423725" andText:textField.text andFilePath:nil andExpandData:1];
+    [self.uscService sendUcsMessage:self.resume.clientNumber andText:textField.text andFilePath:nil andExpandData:1];
     [textField resignFirstResponder];
     textField.text = nil;
     return YES;
@@ -70,6 +81,7 @@
     msgFrame.message = msg;
     [self.messageFrames addObject:msgFrame];
     [self.messageView reloadData];
+    [self messagesScrollToLastRow];
 }
 //发送IM消息回调
 -(void)onSendUcsMessage:(UCSReason*)reason  withData:(UCSMessage*)data
@@ -78,6 +90,7 @@
     msgFrame.message = data;
     [self.messageFrames addObject:msgFrame];
     [self.messageView reloadData];
+    [self messagesScrollToLastRow];
 }
 //下载IM附件回调
 -(void)onDownloadAttached:(UCSReason*)reason withFilePath:(NSString*)filePath withMsgID:(NSString*)msgID
@@ -93,5 +106,11 @@
 - (void)onConnectionFailed:(NSInteger)reason
 {
     
+}
+#pragma mark - tableview自动滚动到最后一行
+- (void)messagesScrollToLastRow
+{
+    NSIndexPath *lastPath = [NSIndexPath indexPathForRow:self.messageFrames.count - 1 inSection:0];
+    [self.messageView scrollToRowAtIndexPath:lastPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 }
 @end

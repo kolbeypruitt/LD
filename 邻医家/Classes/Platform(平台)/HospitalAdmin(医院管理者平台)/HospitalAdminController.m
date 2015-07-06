@@ -9,14 +9,18 @@
 #import "HospitalAdminController.h"
 #import "AssignDepartmentController.h"
 #import "IWCommon.h"
-#import "PlatformRecruitController.h"
+#import "RecruitChildController.h"
 #import "UILabel+LD.h"
 #import "MessageTypeController.h"
 @interface HospitalAdminController ()
 /**
- *    招聘
+ *    招聘信息发布
  */
 @property (nonatomic,weak) UIButton *recruitBtn;
+/**
+ *  应聘管理
+ */
+@property (nonatomic,weak) UIButton *adminBtn;
 /**
  *  指定科室负责人
  */
@@ -44,16 +48,24 @@
 - (void)addCustomViews
 {
     UIButton *recruitBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self setupBtn:recruitBtn WithTitle:@"招聘" target:self action:@selector(recruitBtnClicked)];
+    recruitBtn.backgroundColor = IWColor(156, 56, 56);
+    [self setupBtn:recruitBtn WithTitle:@"招聘信息发布" target:self action:@selector(recruitBtnClicked)];
     [self.view addSubview:recruitBtn];
     self.recruitBtn = recruitBtn;
+    UIButton *adminBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    adminBtn.backgroundColor = IWColor(10, 100, 100);
+    [self setupBtn:adminBtn WithTitle:@"应聘管理" target:self action:nil];
+    [self.view addSubview:adminBtn];
+    self.adminBtn = adminBtn;
     
     UIButton *capitalBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self setupBtn:capitalBtn WithTitle:@"指定科室负责人" target:self action:@selector(capitalBtnClicked)];
+    capitalBtn.backgroundColor = IWColor(60, 160, 60);
+    [self setupBtn:capitalBtn WithTitle:@"科室权限分配" target:self action:@selector(capitalBtnClicked)];
     [self.view addSubview:capitalBtn];
     self.capitalBtn = capitalBtn;
     
     UIButton *postMessageBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    postMessageBtn.backgroundColor = IWColor(44, 55, 155);
     [self setupBtn:postMessageBtn WithTitle:@"发布医院信息" target:self action:@selector(postMessageBtnClicked)];
     [self.view addSubview:postMessageBtn];
     self.postMessageBtn = postMessageBtn;
@@ -62,13 +74,19 @@
 {
     CGFloat recruitBtnX = 0;
     CGFloat recruitBtnY = 64;
-    CGFloat recruitBtnW = SCREENWIDTH;
+    CGFloat recruitBtnW = SCREENWIDTH/2;
     CGFloat recruitBtnH = 84;
     self.recruitBtn.frame = CGRectMake(recruitBtnX, recruitBtnY, recruitBtnW, recruitBtnH);
     
+    CGFloat adminX = CGRectGetMaxX(self.recruitBtn.frame);
+    CGFloat adminY = recruitBtnY;
+    CGFloat adminW = recruitBtnW;
+    CGFloat adminH = recruitBtnH;
+    self.adminBtn.frame = CGRectMake(adminX, adminY, adminW, adminH);
+    
     CGFloat capitalBtnX = recruitBtnX;
     CGFloat capitalBtnY = CGRectGetMaxY(self.recruitBtn.frame);
-    CGFloat capitalBtnW = recruitBtnW/2;
+    CGFloat capitalBtnW = recruitBtnW;
     CGFloat capitalBtnH = recruitBtnH;
     self.capitalBtn.frame = CGRectMake(capitalBtnX, capitalBtnY, capitalBtnW, capitalBtnH);
     
@@ -85,12 +103,10 @@
     button.titleLabel.font = [UIFont systemFontOfSize:16];
     button.titleLabel.backgroundColor = [UIColor clearColor];
     [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
-    UIColor *randomColor = IWColor(arc4random()%255, arc4random()%255, arc4random()%255);
-    button.backgroundColor = randomColor;
 }
 - (void)recruitBtnClicked
 {
-    PlatformRecruitController *recruit = [[PlatformRecruitController alloc] init];
+    RecruitChildController *recruit = [[RecruitChildController alloc] init];
     [self.navigationController pushViewController:recruit animated:YES];
 }
 - (void)capitalBtnClicked

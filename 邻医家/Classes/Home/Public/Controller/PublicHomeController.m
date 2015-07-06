@@ -7,7 +7,6 @@
 //
 #import "Account.h"
 #import "LoginHosController.h"
-#import "ChatViewController.h"
 #import "IWNavigationController.h"
 #import "MBProgressHUD+MJ.h"
 #import "AccountTool.h"
@@ -87,7 +86,7 @@
     UISegmentedControl *seg = [UISegmentedControl appearance];
     [seg setTintColor:[UIColor grayColor]];
 }
-
+#pragma mark - 配置导航栏
 - (void)setNav
 {
     self.title = @"首页";
@@ -96,14 +95,7 @@
 //    if (acc == nil) {
         self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemwithImage:@"login_img" title:nil target:self action:@selector(loginBtnClicked)];
 //    }
-    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(chat) title:@"Chat"];
 }
-- (void)chat
-{
-    ChatViewController *chatVC = [[ChatViewController alloc] init];
-    [self.navigationController pushViewController:chatVC animated:YES];
-}
-
 - (void)loginBtnClicked
 {
     LoginViewController *login = [[LoginViewController alloc] init];
