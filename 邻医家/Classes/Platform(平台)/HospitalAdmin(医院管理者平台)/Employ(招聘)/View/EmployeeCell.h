@@ -12,3 +12,4 @@
 @property (nonatomic,strong) Employee *emp;
 + (instancetype)cellWithTableView:(UITableView *)tableView;
 @end
+

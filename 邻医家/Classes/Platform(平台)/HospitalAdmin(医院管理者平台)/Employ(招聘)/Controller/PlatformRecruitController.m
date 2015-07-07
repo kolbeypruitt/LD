@@ -49,6 +49,26 @@
     _fulltimeDatas = fulltimeDatas;
     [self.fullTimeView reloadData];
 }
+- (void)setParttimeDatas:(NSArray *)parttimeDatas
+{
+    _parttimeDatas = parttimeDatas;
+    [self.partTimeView reloadData];
+}
+- (void)setStudyDatas:(NSArray *)studyDatas
+{
+    _studyDatas = studyDatas;
+    [self.studyView reloadData];
+}
+- (void)setDoctorDatas:(NSArray *)doctorDatas
+{
+    _doctorDatas = doctorDatas;
+    [self.doctorView reloadData];
+}
+- (void)setPracticeDatas:(NSArray *)practiceDatas
+{
+    _practiceDatas = practiceDatas;
+    [self.praticeView reloadData];
+}
 - (void)setup
 {
     self.title = @"招聘信息发布";

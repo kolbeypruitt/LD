@@ -22,6 +22,19 @@
     }
     return cell;
 }
+- (void)setFrame:(CGRect)frame
+{
+    frame.origin.x += 8;
+    frame.size.width -= 16;
+    frame.origin.y += 8;
+    frame.size.height -= 8;
+    [super setFrame:frame];
+}
+- (void)awakeFromNib
+{
+    self.backgroundView = [[UIView alloc] init];
+//    self.backgroundColor = [UIColor clearColor];
+}
 - (void)setEmp:(Employee *)emp
 {
     _emp = emp;

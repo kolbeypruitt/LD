@@ -446,6 +446,14 @@
 		65EAE0511B3D3CC20040C4C2 /* LoginDepartmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65EAE0501B3D3CC20040C4C2 /* LoginDepartmentCell.m */; };
 		65EAE0551B3D4B310040C4C2 /* DepartmentDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65EAE0531B3D4B310040C4C2 /* DepartmentDetailController.m */; };
 		65EAE0561B3D4B310040C4C2 /* DepartmentDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65EAE0541B3D4B310040C4C2 /* DepartmentDetailController.xib */; };
+		65F46D0B1B4B9F0D006EC9DC /* AppendRecruitController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F46D0A1B4B9F0D006EC9DC /* AppendRecruitController.m */; };
+		65F46D0E1B4BA129006EC9DC /* AppendRecruitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F46D0D1B4BA129006EC9DC /* AppendRecruitView.m */; };
+		65F46D111B4BAAED006EC9DC /* JobTypeDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F46D101B4BAAED006EC9DC /* JobTypeDelegate.m */; };
+		65F46D141B4BAD26006EC9DC /* FirstDepartmentDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F46D131B4BAD26006EC9DC /* FirstDepartmentDelegate.m */; };
+		65F46D171B4BB36E006EC9DC /* DegreeDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F46D161B4BB36E006EC9DC /* DegreeDelegate.m */; };
+		65F46D1B1B4BB531006EC9DC /* EnglishDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F46D1A1B4BB531006EC9DC /* EnglishDelegate.m */; };
+		65F46D1E1B4BB775006EC9DC /* AppendRecruitParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F46D1D1B4BB775006EC9DC /* AppendRecruitParam.m */; };
+		65F46D211B4BC36E006EC9DC /* AppendRecruitTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F46D201B4BC36E006EC9DC /* AppendRecruitTool.m */; };
 		B05194B71B478BB10033CA7E /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B05194B61B478BB10033CA7E /* ChatViewController.m */; };
 		B05194B91B478CEA0033CA7E /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05194B81B478CEA0033CA7E /* SenTestingKit.framework */; };
 		B05194BB1B478CF20033CA7E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05194BA1B478CF20033CA7E /* UIKit.framework */; };
@@ -1359,6 +1367,22 @@
 		65EAE0521B3D4B310040C4C2 /* DepartmentDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DepartmentDetailController.h; sourceTree = "<group>"; };
 		65EAE0531B3D4B310040C4C2 /* DepartmentDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DepartmentDetailController.m; sourceTree = "<group>"; };
 		65EAE0541B3D4B310040C4C2 /* DepartmentDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DepartmentDetailController.xib; sourceTree = "<group>"; };
+		65F46D091B4B9F0D006EC9DC /* AppendRecruitController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppendRecruitController.h; sourceTree = "<group>"; };
+		65F46D0A1B4B9F0D006EC9DC /* AppendRecruitController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppendRecruitController.m; sourceTree = "<group>"; };
+		65F46D0C1B4BA129006EC9DC /* AppendRecruitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppendRecruitView.h; sourceTree = "<group>"; };
+		65F46D0D1B4BA129006EC9DC /* AppendRecruitView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppendRecruitView.m; sourceTree = "<group>"; };
+		65F46D0F1B4BAAED006EC9DC /* JobTypeDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobTypeDelegate.h; sourceTree = "<group>"; };
+		65F46D101B4BAAED006EC9DC /* JobTypeDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobTypeDelegate.m; sourceTree = "<group>"; };
+		65F46D121B4BAD26006EC9DC /* FirstDepartmentDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstDepartmentDelegate.h; sourceTree = "<group>"; };
+		65F46D131B4BAD26006EC9DC /* FirstDepartmentDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstDepartmentDelegate.m; sourceTree = "<group>"; };
+		65F46D151B4BB36E006EC9DC /* DegreeDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DegreeDelegate.h; sourceTree = "<group>"; };
+		65F46D161B4BB36E006EC9DC /* DegreeDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DegreeDelegate.m; sourceTree = "<group>"; };
+		65F46D191B4BB531006EC9DC /* EnglishDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnglishDelegate.h; sourceTree = "<group>"; };
+		65F46D1A1B4BB531006EC9DC /* EnglishDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnglishDelegate.m; sourceTree = "<group>"; };
+		65F46D1C1B4BB775006EC9DC /* AppendRecruitParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppendRecruitParam.h; sourceTree = "<group>"; };
+		65F46D1D1B4BB775006EC9DC /* AppendRecruitParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppendRecruitParam.m; sourceTree = "<group>"; };
+		65F46D1F1B4BC36E006EC9DC /* AppendRecruitTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppendRecruitTool.h; sourceTree = "<group>"; };
+		65F46D201B4BC36E006EC9DC /* AppendRecruitTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppendRecruitTool.m; sourceTree = "<group>"; };
 		B05194B51B478BB10033CA7E /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		B05194B61B478BB10033CA7E /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		B05194B81B478CEA0033CA7E /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -3304,6 +3328,7 @@
 		65D526C31B2A95D600CF4FC4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				65F46D181B4BB50D006EC9DC /* Delegate */,
 				65D526C41B2A95D600CF4FC4 /* ConfirmedResumeController.h */,
 				65D526C51B2A95D600CF4FC4 /* ConfirmedResumeController.m */,
 				65D526C61B2A95D600CF4FC4 /* DoctorResumeController.h */,
@@ -3315,6 +3340,8 @@
 				65D526D81B2A95D600CF4FC4 /* RecruitDetailController.xib */,
 				65CBA9231B4A74040024DABA /* RecruitChildController.h */,
 				65CBA9241B4A74040024DABA /* RecruitChildController.m */,
+				65F46D091B4B9F0D006EC9DC /* AppendRecruitController.h */,
+				65F46D0A1B4B9F0D006EC9DC /* AppendRecruitController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3358,6 +3385,8 @@
 				65D526EB1B2A95D600CF4FC4 /* GetAcceptedResult.m */,
 				65D526EC1B2A95D600CF4FC4 /* GetEmployeeResult.h */,
 				65D526ED1B2A95D600CF4FC4 /* GetEmployeeResult.m */,
+				65F46D1C1B4BB775006EC9DC /* AppendRecruitParam.h */,
+				65F46D1D1B4BB775006EC9DC /* AppendRecruitParam.m */,
 			);
 			path = param;
 			sourceTree = "<group>";
@@ -3379,6 +3408,8 @@
 				65D526FA1B2A95D600CF4FC4 /* InviteDoctorTool.m */,
 				65C888701B2BEDEC009056D3 /* WithDrawTool.h */,
 				65C888711B2BEDEC009056D3 /* WithDrawTool.m */,
+				65F46D1F1B4BC36E006EC9DC /* AppendRecruitTool.h */,
+				65F46D201B4BC36E006EC9DC /* AppendRecruitTool.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -3394,6 +3425,8 @@
 				65D527011B2A95D600CF4FC4 /* ResumeCell.h */,
 				65D527021B2A95D600CF4FC4 /* ResumeCell.m */,
 				65D527031B2A95D600CF4FC4 /* ResumeCell.xib */,
+				65F46D0C1B4BA129006EC9DC /* AppendRecruitView.h */,
+				65F46D0D1B4BA129006EC9DC /* AppendRecruitView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3565,6 +3598,21 @@
 				650E60741B33E3CE00CFF569 /* ConsutlDetailResult.m */,
 			);
 			path = Result;
+			sourceTree = "<group>";
+		};
+		65F46D181B4BB50D006EC9DC /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				65F46D0F1B4BAAED006EC9DC /* JobTypeDelegate.h */,
+				65F46D101B4BAAED006EC9DC /* JobTypeDelegate.m */,
+				65F46D121B4BAD26006EC9DC /* FirstDepartmentDelegate.h */,
+				65F46D131B4BAD26006EC9DC /* FirstDepartmentDelegate.m */,
+				65F46D151B4BB36E006EC9DC /* DegreeDelegate.h */,
+				65F46D161B4BB36E006EC9DC /* DegreeDelegate.m */,
+				65F46D191B4BB531006EC9DC /* EnglishDelegate.h */,
+				65F46D1A1B4BB531006EC9DC /* EnglishDelegate.m */,
+			);
+			name = Delegate;
 			sourceTree = "<group>";
 		};
 		B05194B11B4784BE0033CA7E /* Chat */ = {
@@ -3903,6 +3951,7 @@
 				65D812521B3A6D3A00A1E0EC /* DoctorDetailResult.m in Sources */,
 				65C6B2561B0432A5000BAFC6 /* RecommendDocController.m in Sources */,
 				6554540D1AFCA59D00C4BFFA /* HosRankParam.m in Sources */,
+				65F46D0B1B4B9F0D006EC9DC /* AppendRecruitController.m in Sources */,
 				65D812701B3AA12900A1E0EC /* CaseDetailTool.m in Sources */,
 				65C58C361B329F0B00D3A013 /* AppendRewardController.m in Sources */,
 				65D8125E1B3A882000A1E0EC /* HospitalResult.m in Sources */,
@@ -3912,6 +3961,7 @@
 				65CFC7BB1B185F8F007F7062 /* AFHTTPRequestOperationManager.m in Sources */,
 				65CFC7BC1B185F8F007F7062 /* AFHTTPSessionManager.m in Sources */,
 				655454191AFCA59D00C4BFFA /* DiseaseCell.m in Sources */,
+				65F46D171B4BB36E006EC9DC /* DegreeDelegate.m in Sources */,
 				650295B51B009284002249C0 /* PostDoctorController.m in Sources */,
 				65E1DF611B1FF7ED006A09E9 /* PatientEnterTool.m in Sources */,
 				65C6B25C1B0432D1000BAFC6 /* CommonCaseController.m in Sources */,
@@ -3939,6 +3989,7 @@
 				65CAB2E21B241317005DAED4 /* WelcomePatientController.m in Sources */,
 				654A30CD1B00896C0043821B /* UIScrollView+MJRefresh.m in Sources */,
 				65CDDE351B2E64EA00628862 /* PatientPlatformController.m in Sources */,
+				65F46D211B4BC36E006EC9DC /* AppendRecruitTool.m in Sources */,
 				6540B8581B2D90660053DB2A /* InviteDetailView.m in Sources */,
 				B05195021B479B590033CA7E /* NSObject+SBJSON.m in Sources */,
 				65D812731B3AA29C00A1E0EC /* CaseDetailController.m in Sources */,
@@ -3960,6 +4011,7 @@
 				6558CD771B2ABDBF005E7685 /* PostHospitalController.m in Sources */,
 				65D5271F1B2A95D600CF4FC4 /* EmployeeCell.m in Sources */,
 				65CAB2DB1B241317005DAED4 /* Disease.m in Sources */,
+				65F46D1B1B4BB531006EC9DC /* EnglishDelegate.m in Sources */,
 				656A08C41B3BC4E90056588A /* DoctorStationDetailController.m in Sources */,
 				655454531AFCA59D00C4BFFA /* SDWebImagePrefetcher.m in Sources */,
 				655454551AFCA59D00C4BFFA /* UIImage+GIF.m in Sources */,
@@ -4063,6 +4115,7 @@
 				652077C81B33AA330032EC06 /* DepartmentPlatformController.m in Sources */,
 				654A30C71B00896C0043821B /* MJRefreshGifFooter.m in Sources */,
 				6540B81D1B2D4C6C0053DB2A /* DocGetInfoTool.m in Sources */,
+				65F46D0E1B4BA129006EC9DC /* AppendRecruitView.m in Sources */,
 				65D527181B2A95D600CF4FC4 /* DoctorResumeTool.m in Sources */,
 				65CC3F601B0F0A410099A3F3 /* CheckInForgetController.m in Sources */,
 				655454101AFCA59D00C4BFFA /* RecommendHosParam.m in Sources */,
@@ -4128,6 +4181,7 @@
 				6540B8141B2D4C6B0053DB2A /* PostedSurgeryController.m in Sources */,
 				65EAE04E1B3D26630040C4C2 /* LoginHosResult.m in Sources */,
 				6554543B1AFCA59D00C4BFFA /* NSObject+MJCoding.m in Sources */,
+				65F46D111B4BAAED006EC9DC /* JobTypeDelegate.m in Sources */,
 				6540B85E1B2D90EB0053DB2A /* FreeDetailMsgController.m in Sources */,
 				65C888721B2BEDEC009056D3 /* WithDrawTool.m in Sources */,
 				65C50C371B0D9DF80027455E /* UIBarButtonItem+ENTER.m in Sources */,
@@ -4155,6 +4209,7 @@
 				655454151AFCA59D00C4BFFA /* MultiJobResult.m in Sources */,
 				656A08BA1B3BC1430056588A /* StationDetailTool.m in Sources */,
 				655454201AFCA59D00C4BFFA /* LDHomeFooterView.m in Sources */,
+				65F46D141B4BAD26006EC9DC /* FirstDepartmentDelegate.m in Sources */,
 				6599E7971B0C7E46007396E8 /* SignUpTool.m in Sources */,
 				65CFC7BE1B185F8F007F7062 /* AFSecurityPolicy.m in Sources */,
 				6558CD6C1B2ABD60005E7685 /* MessageTypeController.m in Sources */,
@@ -4172,6 +4227,7 @@
 				655454391AFCA59D00C4BFFA /* MJType.m in Sources */,
 				6554540E1AFCA59D00C4BFFA /* MultiJobParam.m in Sources */,
 				655454591AFCA59D00C4BFFA /* main.m in Sources */,
+				65F46D1E1B4BB775006EC9DC /* AppendRecruitParam.m in Sources */,
 				65D5271C1B2A95D600CF4FC4 /* GetEmployTool.m in Sources */,
 				65D527211B2A95D600CF4FC4 /* ResumeCell.m in Sources */,
 				B0C32E1E1B3AFBAA008E057C /* MultiJobCell.m in Sources */,
@@ -4281,11 +4337,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				New_Setting = "";
 				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -4319,12 +4376,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				New_Setting = "";
 				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Release;
 		};
@@ -4338,7 +4396,7 @@
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = "邻医家/Classes/SupportingFiles/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4362,7 +4420,7 @@
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = "邻医家/Classes/SupportingFiles/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

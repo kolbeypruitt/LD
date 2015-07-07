@@ -10,6 +10,7 @@
 #import "GetEmployTool.h"
 #import "LDBaseParam.h"
 #import "GetEmployeeResult.h"
+#import "AppendRecruitController.h"
 @interface RecruitChildController ()
 
 @end
@@ -55,6 +56,8 @@
 #pragma mark - 添加招聘信息
 - (void)appendRecruit
 {
+    AppendRecruitController *appendVC = [[AppendRecruitController alloc]  init];
+    [self.navigationController pushViewController:appendVC animated:YES];
 }
 
 
