@@ -13,4 +13,5 @@
 #define MORECITYCHOOSEDNOTIFICATION @"morecitychoosednotification"
 #define CITYCHOOSEDNOTIFICATION @"citychoosednotification"
 #define DEPARTMENTCHOOSEDNOTIFICATION @"departmentchoosednotificaion"
+#define MANAGERLISTREFRESHNOTIFICATION @"managerrefresh"
 #endif

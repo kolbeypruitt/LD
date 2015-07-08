@@ -56,11 +56,17 @@
         [MBProgressHUD showError:@"请输入医院简介"];
         return;
     }
-    HospitalInfoParam *param = [HospitalInfoParam paramWithName:self.webTextField.text website:self.hospitalProfileView.text];
+    HospitalInfoParam *param = [[HospitalInfoParam alloc] init];
+    param.website = self.webTextField.text;
+    param.introduction = self.hospitalProfileView.text;
     [PostHosInfoTool sendHosInfoWithParam:param success:^(BaseResult *result) {
         if ([result.status isEqualToString:@"S"]) {
             [self.navigationController popViewControllerAnimated:YES];
+        }else
+        {
+            [MBProgressHUD  showError:@"提交失败!"];
         }
+        
     } failure:^(NSError *error) {
         
     }];

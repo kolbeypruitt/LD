@@ -19,6 +19,7 @@
         placeholderLabel.font = [UIFont systemFontOfSize:13];
         placeholderLabel.textColor = [UIColor lightGrayColor];
         placeholderLabel.backgroundColor = [UIColor clearColor];
+        self.font = [UIFont systemFontOfSize:16];
         self.placeholderLabel = placeholderLabel;
         [self addSubview:placeholderLabel];
     }

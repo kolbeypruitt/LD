@@ -5,6 +5,7 @@
 //  Created by Daniel on 15/6/12.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "ChatViewController.h"
 #import "BaseResult.h"
 #import "DoctorResumeView.h"
 #import "DoctorResumeController.h"
@@ -46,6 +47,7 @@
     [self.view addSubview:resumeView];
     self.resumeView = resumeView;
 }
+#pragma resumeView delegate
 - (void)DoctorResumeView:(DoctorResumeView *)doctorView inviteBtnClicked:(UIButton *)inviteBtn
 {
     EmployDetailParam *param = [EmployDetailParam paramWithId:self.resume.id];
@@ -60,4 +62,32 @@
     }];
     
 }
+- (void)doctorResumeView:(DoctorResumeView *)doctorView chatBtnClicked:(UIButton *)chatBtn
+{
+    ChatViewController *chatVc = [[ChatViewController alloc] init];
+    chatVc.resume = self.resume;
+    [self.navigationController pushViewController:chatVc animated:YES];
+}
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

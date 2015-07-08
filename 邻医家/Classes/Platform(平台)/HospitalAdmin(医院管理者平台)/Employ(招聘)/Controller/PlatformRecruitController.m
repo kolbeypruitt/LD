@@ -5,6 +5,7 @@
 //  Created by Daniel on 15/6/1.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "RecruitDetailController.h"
 #import "EmployeeCell.h"
 #import "PlatformRecruitController.h"
 #import "UIBarButtonItem+ENTER.h"
@@ -282,17 +283,36 @@
     cell.emp = em;
     return cell;
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    Employee  *em = nil;
+    if ([tableView isEqual:self.fullTimeView]) {
+        em = self.fulltimeDatas[indexPath.row];
+    }else if([tableView isEqual:self.partTimeView])
+    {
+        em = self.parttimeDatas[indexPath.row];
+    }else if([tableView isEqual:self.praticeView])
+    {
+        em = self.practiceDatas[indexPath.row];
+    }else if([tableView isEqual:self.studyView])
+    {
+        em = self.studyDatas[indexPath.row];
+    }else if([tableView isEqual:self.doctorView])
+    {
+        em = self.doctorDatas[indexPath.row];
+    }
+    
+    RecruitDetailController *detatiController = [[RecruitDetailController alloc] init];
+    detatiController.empl = em;
+    [self.navigationController pushViewController:detatiController animated:YES];
+}
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
     return 64;
     
 }
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-   
-}
-
 
 #pragma mark - 添加招聘信息
 - (void)appendRecruit

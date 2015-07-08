@@ -18,7 +18,10 @@
 //
 //说明：type   招聘类型 1-多点执业邀请2-专家邀请3- 实习 4-进修 5-博士后
 #define BGCOLOR IWColor(226, 226, 226)
+#define DISMISSMANAGERURL @"http://192.168.1.4:8080/assfinance/hospital/deleteDepartment"
 #define APPENDRECRUITURL @"http://192.168.1.4:8080/assfinance/hospital/releaseEmployInfo"
+#define DEPARTMENTLISTURL @"http://192.168.1.4:8080/assfinance/hospital/getPersonInCharge"
+#define MANAGERDETAILURL @"http://192.168.1.4:8080/assfinance/hospital/getMyDepartmentInfoById"
 #define HOTHOSURL @"http://116.228.153.157:8888/assfinance/public/hotHospitals"
 #define SEARCHCASEURL @"http://116.228.153.157:8888/assfinance/public/searchCases"
 #define COREEXPERTURL @"http://116.228.153.157:8888/assfinance/public/getImpartantDoctors"
@@ -60,9 +63,9 @@
 #define GETACCEPTEDURL @"http://116.228.153.157:8888/assfinance/hospital/getAcceptedResumeById"
 #define GETALLRESUMEURL @"http://116.228.153.157:8888/assfinance/hospital/getAllResumeById"
 #define GETDOCTORRESUMEURL @"http://116.228.153.157:8888/assfinance/hospital/getResumeByResumeId"
-#define ENROLLDOCTORURL @"http://116.228.153.157:8888/assfinance/hospital/acceptResume"
-#define SETCHARGEURL @"http://116.228.153.157:8888/assfinance/hospital/setPersonInCharge"
-#define SENDHOSPITALINFOURL @"http://116.228.153.157:8888/assfinance/hospital/changeHospitalIntroduction"
+#define ENROLLDOCTORURL @"http://192.168.1.4:8080/assfinance/hospital/acceptResume"
+#define SETCHARGEURL @"http://192.168.1.4:8080/assfinance/hospital/setPersonInCharge"
+#define SENDHOSPITALINFOURL @"http://192.168.1.4:8080/assfinance/hospital/changeHospitalIntroduction"
 #define SENDDOCARRANGEMENTURL @"http://116.228.153.157:8888/assfinance/hospital/releaseDoctorArrangement"
 #define WITHDRAWNURL @"http://116.228.153.157:8888/assfinance/hospital/deleteEmployInfo"
 #define ReleaseTypicalCaseRul @"http://116.228.153.157:8888/assfinance/hospital/releaseTypicalCase"
@@ -79,6 +82,7 @@
 #define DELETEEMPLOYURL @"http://116.228.153.157:8888/assfinance/patient/deleteSDById"
 #define APPENDINVITEURL @"http://116.228.153.157:8888/assfinance/patient/releaseSeekDoctor"
 #define DEPARTMENTWITHDRAWURL @"http://116.228.153.157:8888/assfinance/hospital/deleteGCById"
+#define POSTEDCASELISTURL @"http://192.168.1.4:8080/assfinance/hospital/getMyTypicalCase"
 #define SUCCESSSTATUS @"S"
 #define FAILURESTATUS @"F"
 #define TABLEMARGIN 5

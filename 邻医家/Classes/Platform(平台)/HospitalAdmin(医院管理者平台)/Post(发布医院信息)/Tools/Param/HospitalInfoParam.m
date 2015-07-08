@@ -9,11 +9,5 @@
 #import "HospitalInfoParam.h"
 
 @implementation HospitalInfoParam
-+ (instancetype)paramWithName:(NSString *)name website:(NSString *)website
-{
-    HospitalInfoParam *param =[[HospitalInfoParam alloc]  init];
-    param.name = name;
-    param.website = website;
-    return param;
-}
+
 @end

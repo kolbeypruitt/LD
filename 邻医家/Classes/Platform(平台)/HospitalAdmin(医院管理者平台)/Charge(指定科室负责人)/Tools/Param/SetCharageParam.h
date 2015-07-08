@@ -9,10 +9,9 @@
 #import "LDBaseParam.h"
 
 @interface SetCharageParam : LDBaseParam
-/**
- *  科室ID
- */
-@property (nonatomic,assign) int id;
 @property (nonatomic,copy) NSString *telnum;
 @property (nonatomic,copy) NSString *name;
+@property (nonatomic,copy) NSString *phone;
+@property (nonatomic,copy) NSString *mailbox;
+@property (nonatomic,copy) NSString *introduction;
 @end

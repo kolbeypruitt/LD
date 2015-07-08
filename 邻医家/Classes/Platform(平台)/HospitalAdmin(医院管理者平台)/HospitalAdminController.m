@@ -7,7 +7,7 @@
 //
 #import "Common.h"
 #import "HospitalAdminController.h"
-#import "AssignDepartmentController.h"
+#import "DepartmentListController.h"
 #import "IWCommon.h"
 #import "RecruitChildController.h"
 #import "UILabel+LD.h"
@@ -111,8 +111,8 @@
 }
 - (void)capitalBtnClicked
 {
-    AssignDepartmentController *assignVC = [[AssignDepartmentController alloc] init];
-    [self.navigationController pushViewController:assignVC animated:YES];
+    DepartmentListController *depVC = [[DepartmentListController alloc] init];
+    [self.navigationController pushViewController:depVC animated:YES];
 }
 - (void)postMessageBtnClicked
 {

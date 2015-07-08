@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PostCaseViewController : UIViewController
+@interface PostCaseViewController : UITableViewController
 
 @end

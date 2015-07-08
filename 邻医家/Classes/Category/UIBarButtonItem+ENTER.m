@@ -16,6 +16,7 @@
     [button setTitle:title forState:UIControlStateNormal];
     button.titleLabel.font = [UIFont systemFontOfSize:14];
     button.titleLabel.textColor = [UIColor blackColor];
+    button.titleLabel.textAlignment = NSTextAlignmentRight;
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     button.titleLabel.backgroundColor = [UIColor clearColor];
     [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];

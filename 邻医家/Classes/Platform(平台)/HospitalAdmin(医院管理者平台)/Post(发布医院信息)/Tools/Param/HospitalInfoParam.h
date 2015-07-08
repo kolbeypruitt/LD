@@ -9,7 +9,6 @@
 #import "LDBaseParam.h"
 
 @interface HospitalInfoParam : LDBaseParam
-@property (nonatomic,copy) NSString *name;
+@property (nonatomic,copy) NSString *introduction;
 @property (nonatomic,copy) NSString *website;
-+ (instancetype)paramWithName:(NSString *)name website:(NSString *)website;
 @end
