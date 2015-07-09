@@ -40,7 +40,14 @@
         [self getCheckIn];
     }else
     {
-        [MBProgressHUD showError:@"请输入正确手机号"];
+//        [MBProgressHUD showError:@"请输入正确手机号"];
+        CGFloat x = self.telnumTextField.layer.position.x;
+        CAKeyframeAnimation *animation = [CAKeyframeAnimation animation];
+        animation.keyPath = @"position.x";
+        animation.values = @[@(x - 5),@(x),@(x + 5),@(x - 5),@(x),@(x + 5)];
+        animation.duration = 0.5;
+        animation.additive = NO;
+        [self.telnumTextField.layer addAnimation:animation forKey:@"shake"];
     }
     
 }

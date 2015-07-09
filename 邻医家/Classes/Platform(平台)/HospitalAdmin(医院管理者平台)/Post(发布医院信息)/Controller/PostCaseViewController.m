@@ -5,6 +5,7 @@
 //  Created by Daniel on 15/6/5.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "LDNotification.h"
 #import "AppendCaseController.h"
 #import "UIBarButtonItem+ENTER.h"
 #import "CaseDetailController.h"
@@ -44,8 +45,17 @@
 - (void)setup
 {
     self.view.backgroundColor = BGCOLOR;
+    [DefaultCenter addObserver:self selector:@selector(refreshData) name:RELEASECASESUCCESSNOTIFICATION object:nil];
     self.title = @"已发布病例";
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(appendCase) title:@"添加"];
+}
+- (void)dealloc
+{
+    [DefaultCenter removeObserver:self];
+}
+- (void)refreshData
+{
+    [self.tableView.header beginRefreshing];
 }
 - (void)appendCase
 {

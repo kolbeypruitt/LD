@@ -14,4 +14,6 @@
 #define CITYCHOOSEDNOTIFICATION @"citychoosednotification"
 #define DEPARTMENTCHOOSEDNOTIFICATION @"departmentchoosednotificaion"
 #define MANAGERLISTREFRESHNOTIFICATION @"managerrefresh"
+#define RELEASECASESUCCESSNOTIFICATION @"realeasesuccess"
+#define RELEASEARRANGESUCCESSNOTIFICATION @"arrangesuccess"
 #endif

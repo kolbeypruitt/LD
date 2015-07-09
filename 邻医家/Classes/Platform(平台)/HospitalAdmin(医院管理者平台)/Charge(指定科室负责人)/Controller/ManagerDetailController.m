@@ -74,6 +74,7 @@
     self.departmentLabel.text = managerDetail.department;
     self.introducelabel.text = managerDetail.introduction;
 }
+
 @end
 
 

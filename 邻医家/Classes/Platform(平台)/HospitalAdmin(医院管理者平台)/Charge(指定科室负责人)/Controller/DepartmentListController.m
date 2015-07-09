@@ -61,6 +61,7 @@
 - (void)setup
 {
     self.title = @"科室主任列表";
+    self.view.backgroundColor = BGCOLOR;
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(appendDepartment) title:@"添加"];
     [DefaultCenter addObserver:self selector:@selector(refreshData) name:MANAGERLISTREFRESHNOTIFICATION object:nil];
 }
@@ -93,7 +94,7 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 64;
+    return 74;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

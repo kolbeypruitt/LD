@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PostExpertViewController : UIViewController
+@interface PostExpertViewController : UITableViewController
 
 @end

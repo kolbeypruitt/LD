@@ -30,4 +30,12 @@
     self.departmentLabel.text = manager.department;
     self.nameLabel.text = manager.name;
 }
+- (void)setFrame:(CGRect)frame
+{
+    frame.origin.x += 10;
+    frame.size.width -= 20;
+    frame.origin.y += 10;
+    frame.size.height -= 10;
+    [super setFrame:frame];
+}
 @end
