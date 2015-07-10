@@ -10,5 +10,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ChatViewController : ChatBaseViewController
-@property (nonatomic,strong) DoctorResume *resume;
+@property (nonatomic,copy) NSString *clientToChat;
 @end

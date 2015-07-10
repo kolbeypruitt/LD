@@ -10,6 +10,7 @@
 
 @interface DocForwordModel : NSObject
 @property (nonatomic,copy) NSString *addressToGo;
+@property (nonatomic,copy) NSString *clientNumber;
 @property (nonatomic,copy) NSString *department;
 @property (nonatomic,assign) int gsstatus;
 @property (nonatomic,copy) NSString *idcardNo;

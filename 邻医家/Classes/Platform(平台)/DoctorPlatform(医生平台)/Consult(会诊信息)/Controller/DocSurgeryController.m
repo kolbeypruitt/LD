@@ -5,6 +5,7 @@
 //  Created by Daniel on 15/6/13.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "ChatViewController.h"
 #import "DocConsultDetailTool.h"
 #import "UIBarButtonItem+ENTER.h"
 #import "DocConsultDetailParam.h"
@@ -37,7 +38,7 @@
 }
 - (void)setup
 {
-    self.navigationItem.title = @"会诊详情";
+    self.navigationItem.title = @"开刀详情";
 }
 - (void)loadData
 {
@@ -72,6 +73,11 @@
     self.hospitalLabel.text= self.model.hospital;
     self.jobTypeLabel.text = self.model.jobType;
     self.ishospitalLabel.text = self.model.ishospital;
+}
+- (IBAction)contact {
+    ChatViewController *chatVC = [[ChatViewController alloc] init];
+    chatVC.clientToChat = self.model.clientNumber;
+    [self.navigationController pushViewController:chatVC animated:YES];
 }
 @end
 

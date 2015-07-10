@@ -8,6 +8,7 @@
 #import "Common.h"
 #import "HospitalAdminController.h"
 #import "DepartmentListController.h"
+#import "EnrolledRecruitController.h"
 #import "IWCommon.h"
 #import "RecruitChildController.h"
 #import "UILabel+LD.h"
@@ -54,7 +55,7 @@
     self.recruitBtn = recruitBtn;
     UIButton *adminBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     adminBtn.backgroundColor = IWColor(10, 100, 100);
-    [self setupBtn:adminBtn WithTitle:@"应聘管理" target:self action:nil];
+    [self setupBtn:adminBtn WithTitle:@"应聘管理" target:self action:@selector(adminBtnClicked)];
     [self.view addSubview:adminBtn];
     self.adminBtn = adminBtn;
     
@@ -119,11 +120,14 @@
     MessageTypeController *messageVC = [[MessageTypeController alloc] init];
     [self.navigationController pushViewController:messageVC animated:YES];
 }
-
+- (void)adminBtnClicked
+{
+    EnrolledRecruitController *enVC = [[EnrolledRecruitController alloc] init];
+    [self.navigationController pushViewController:enVC animated:YES];
+}
 
 
 @end
-
 
 
 

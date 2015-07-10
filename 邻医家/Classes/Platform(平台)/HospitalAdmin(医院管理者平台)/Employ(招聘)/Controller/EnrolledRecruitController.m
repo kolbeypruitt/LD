@@ -1,33 +1,34 @@
 //
-//  RecruitChildController.m
+//  EnrolledRecruitController.m
 //  邻医家
 //
-//  Created by Daniel on 15/7/6.
+//  Created by Daniel on 15/7/10.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
 #import "List.h"
-#import "RecruitChildController.h"
+#import "Common.h"
+#import "EnrolledRecruitController.h"
 #import "GetEmployTool.h"
 #import "LDBaseParam.h"
 #import "GetEmployeeResult.h"
-#import "Common.h"
-#import "AppendRecruitController.h"
-@interface RecruitChildController ()
-
-@end
-
-@implementation RecruitChildController
+@implementation EnrolledRecruitController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadData];
+    [self setupChild];
+}
+- (void)setupChild
+{
+    self.title = @"已录取招聘列表";
+    self.navigationItem.rightBarButtonItem = nil;
 }
 #pragma mark - 加载数据
 - (void)loadData
 {
     LDBaseParam *param = [LDBaseParam param];
-    [GetEmployTool getEmployWithParam:param url:GETEMPLOYURL success:^(GetEmployeeResult *result) {
-        for (List *list in result.employs) {
+    [GetEmployTool getEmployWithParam:param url:GETSUCCESSEDEMPLOYURL success:^(GetEmployeeResult *result) {
+        for (List *list in result.employs){
             switch (list.type) {
                 case 1://全职
                     self.fulltimeDatas = list.list;
@@ -54,12 +55,4 @@
     }];
     
 }
-#pragma mark - 添加招聘信息
-- (void)appendRecruit
-{
-    AppendRecruitController *appendVC = [[AppendRecruitController alloc]  init];
-    [self.navigationController pushViewController:appendVC animated:YES];
-}
-
-
 @end

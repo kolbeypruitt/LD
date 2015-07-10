@@ -65,7 +65,7 @@
 - (void)doctorResumeView:(DoctorResumeView *)doctorView chatBtnClicked:(UIButton *)chatBtn
 {
     ChatViewController *chatVc = [[ChatViewController alloc] init];
-    chatVc.resume = self.resume;
+    chatVc.clientToChat = self.resume.clientNumber;
     [self.navigationController pushViewController:chatVc animated:YES];
 }
 @end

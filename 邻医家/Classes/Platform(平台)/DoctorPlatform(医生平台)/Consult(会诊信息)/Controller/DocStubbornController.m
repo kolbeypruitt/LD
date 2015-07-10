@@ -7,6 +7,7 @@
 //
 
 #import "UIBarButtonItem+ENTER.h"
+#import "ChatViewController.h"
 #import "DocStubbornController.h"
 #import "Common.h"
 #import "MJExtension.h"
@@ -73,6 +74,11 @@
     self.timeLabel.text = self.model.time;
 }
 
+- (IBAction)contact {
+    ChatViewController *chatVC = [[ChatViewController alloc] init];
+    chatVC.clientToChat = self.model.clientNumber;
+    [self.navigationController pushViewController:chatVC animated:YES];
+}
 
 
 @end

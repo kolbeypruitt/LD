@@ -10,6 +10,7 @@
 
 @interface DocStubbornModel : NSObject
 @property (nonatomic,copy) NSString *address;
+@property (nonatomic,copy) NSString *clientNumber;
 @property (nonatomic,copy) NSString *caseAbstract;
 @property (nonatomic,copy) NSString *department;
 @property (nonatomic,assign) int gsstatus;

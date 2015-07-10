@@ -1,5 +1,5 @@
 //
-//  DoctorPlatformController.h
+//  MyConsultController.h
 //  邻医家
 //
 //  Created by Daniel on 15/7/10.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DoctorPlatformController : UIViewController
+@interface MyConsultController : UITableViewController
 
 @end

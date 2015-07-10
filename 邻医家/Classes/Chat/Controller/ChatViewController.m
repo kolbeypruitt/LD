@@ -37,10 +37,10 @@
 {
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:nil action:nil title:@""];
 }
-- (void)setResume:(DoctorResume *)resume
+- (void)setClientToChat:(NSString *)clientToChat
 {
-    _resume = resume;
-    self.title = resume.name;
+    _clientToChat = clientToChat;
+    self.title = clientToChat;
 }
 - (void)setupUCService
 {
@@ -64,7 +64,7 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     
-    [self.uscService sendUcsMessage:self.resume.clientNumber andText:textField.text andFilePath:nil andExpandData:1];
+    [self.uscService sendUcsMessage:self.clientToChat andText:textField.text andFilePath:nil andExpandData:1];
     [textField resignFirstResponder];
     textField.text = nil;
     return YES;

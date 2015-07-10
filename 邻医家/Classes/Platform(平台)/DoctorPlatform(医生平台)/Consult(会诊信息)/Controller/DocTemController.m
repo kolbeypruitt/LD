@@ -5,6 +5,7 @@
 //  Created by Daniel on 15/6/13.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "ChatViewController.h"
 #import "UIBarButtonItem+ENTER.h"
 #import "DocTemModel.h"
 #import "DocTemController.h"
@@ -35,7 +36,7 @@
 }
 - (void)setup
 {
-    self.navigationItem.title = @"会诊详情";
+    self.navigationItem.title = @"临时会诊详情";
     self.view.backgroundColor = IWColor(226, 226, 226);
 }
 - (void)loadData
@@ -49,10 +50,7 @@
     }];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 - (void)updateUI
 {
      NSString *condition = nil;
@@ -72,5 +70,10 @@
     self.hospitalLabel.text = self.model.hospital;
     self.jobtypeLabel.text = self.model.jobType;
     self.ishospitalLabel.text = self.model.ishospital;
+}
+- (IBAction)contact:(id)sender {
+    ChatViewController *chatVc = [[ChatViewController alloc] init];
+    chatVc.clientToChat = self.model.clientNumber;
+    [self.navigationController pushViewController:chatVc animated:YES];
 }
 @end

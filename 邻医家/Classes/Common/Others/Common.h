@@ -28,7 +28,7 @@
 #define SEARCHHOSURL @"http://192.168.1.4:8080/assfinance/public/searchHospitals"
 #define HOTDEPARTMENTURL @"http://192.168.1.4:8080/assfinance/public/hotDepartments/"
 #define TOKENHOSINFOURL @"http://192.168.1.4:8080/assfinance/hospital/getHospitalInfoById"
-#define TOKENDOCTORINFOURL @"http://192.168.1.4:8080/assfinance/doctor/getDoctorInfoById"
+#define TOKENDOCTORINFOURL @"http://192.168.1.4:8080/assfinance/doctor/getMyDoctorInfo"
 #define RECRUITURL @"http://192.168.1.4:8080/assfinance/public/getEmployInfoList"
 #define RECRUITDETAILURL @"http://192.168.1.4:8080/assfinance/public/getEmployInfoById"
 #define IMAGEPREF @"http://192.168.1.4:8080/assfinance/welcome/image"
@@ -59,6 +59,7 @@
 #define QUERYCONSULTURL @"http://192.168.1.4:8080/assfinance/hospital/getMyGroupConsultation"
 #define CONSULTDETAILURL @"http://192.168.1.4:8080/assfinance/hospital/getMyGroupConsultationById"
 #define GETEMPLOYURL @"http://192.168.1.4:8080/assfinance/hospital/getMyEmployInfo"
+#define GETSUCCESSEDEMPLOYURL @"http://192.168.1.4:8080/assfinance/hospital/getMySucceedEmployInfo"
 #define GETEMPLOYDETAILURL @"http://192.168.1.4:8080/assfinance/hospital/getMyEmployInfoById"
 #define GETACCEPTEDURL @"http://192.168.1.4:8080/assfinance/hospital/getAcceptedResumeById"
 #define GETALLRESUMEURL @"http://192.168.1.4:8080/assfinance/hospital/getAllResumeById"
@@ -86,6 +87,14 @@
 #define DOCARRANGEMENTLISTURL @"http://192.168.1.4:8080/assfinance/hospital/getMyDoctorArrangement"
 #define RELEASEDOCARRANGEMENTURL @"http://192.168.1.4:8080/assfinance/hospital/releaseDoctorArrangement"
 #define DOCARRANGEMENTDETAILURL @"http://192.168.1.4:8080/assfinance/hospital/getMyDoctorArrangementById"
+
+// 获取我的会诊信息
+#define MYCONSULTURL @"http://192.168.1.4:8080/assfinance/doctor/getMyGCInfoList"
+// 医生获取自己的请医信息列表
+#define MYINVITEURL @"http://192.168.1.4:8080/assfinance/doctor/getMySDInfoList"
+//医生查看自己应聘的招聘信息
+#define MYAPPLIANTURL @"http://192.168.1.4:8080/assfinance/doctor/getListIApplyFor"
+
 #define SUCCESSSTATUS @"S"
 #define FAILURESTATUS @"F"
 #define TABLEMARGIN 5

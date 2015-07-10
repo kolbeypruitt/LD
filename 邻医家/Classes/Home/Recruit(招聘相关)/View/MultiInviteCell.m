@@ -30,6 +30,6 @@
     _employInfo = employInfo;
     self.nameLabel.text = employInfo.name;
     self.timeLabel.text = employInfo.startdate;
-    self.techLabel.text = employInfo.techtitle;
+//    self.techLabel.text = employInfo.techtitle;
 }
 @end

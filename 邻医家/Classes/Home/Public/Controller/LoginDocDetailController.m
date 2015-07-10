@@ -73,7 +73,7 @@
     [LoginDocDetailTool loginDocdetailWithParam:param success:^(LoginDocDetailResult *result) {
         if ([result.status isEqualToString:@"S"]) {
             self.introduction = result.intorduction;
-            
+            self.navigationItem.title = result.intorduction.name;
             self.diseases = result.cases;
             [self.caseView reloadData];
             
@@ -96,7 +96,6 @@
 - (void)setup
 {
     self.view.backgroundColor = IWColor(226, 226, 226);
-    self.navigationItem.title = self.doctor.name;
     self.navigationItem.rightBarButtonItem = nil;
     [self addCustomeViews];
     [self layoutCustomeViews];

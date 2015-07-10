@@ -13,9 +13,9 @@
 #import "GetEmployeeResult.h"
 #import "Common.h"
 @implementation GetEmployTool
-+ (void)getEmployWithParam:(LDBaseParam *)param success:(void (^)(GetEmployeeResult *))success failure:(void (^)(NSError *))failure
++ (void)getEmployWithParam:(LDBaseParam *)param url:(NSString *)url success:(void (^)(GetEmployeeResult *))success failure:(void (^)(NSError *))failure
 {
-    [LDHttpTool getWithURL:GETEMPLOYURL params:param.keyValues success:^(id json) {
+    [LDHttpTool getWithURL:url params:param.keyValues success:^(id json) {
         if (success) {
             GetEmployeeResult *result = [GetEmployeeResult objectWithKeyValues:json];
             success(result);

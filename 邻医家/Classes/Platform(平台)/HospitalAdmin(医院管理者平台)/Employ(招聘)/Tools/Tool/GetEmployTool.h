@@ -10,6 +10,7 @@
 
 @interface GetEmployTool : NSObject
 + (void)getEmployWithParam:(LDBaseParam *)param
+                       url:(NSString *)url
                    success:(void (^)(GetEmployeeResult *result))success
                    failure:(void (^)(NSError *error))failure;
 @end

@@ -15,4 +15,5 @@
 @property (nonatomic,strong) NSArray *practiceDatas;
 @property (nonatomic,strong) NSArray *studyDatas;
 @property (nonatomic,strong) NSArray *doctorDatas;
+- (void)setup;
 @end
