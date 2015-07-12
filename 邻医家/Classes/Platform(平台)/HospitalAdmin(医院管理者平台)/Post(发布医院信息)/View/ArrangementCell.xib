@@ -14,28 +14,24 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="light_blue_point" translatesAutoresizingMaskIntoConstraints="NO" id="KvW-RR-HI8">
-                        <rect key="frame" x="18" y="23" width="18" height="18"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cut_7" translatesAutoresizingMaskIntoConstraints="NO" id="KvW-RR-HI8">
+                        <rect key="frame" x="18" y="14" width="35" height="35"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="18" id="Mfm-UE-viE"/>
-                            <constraint firstAttribute="height" constant="18" id="s7a-oL-Xjx"/>
+                            <constraint firstAttribute="height" constant="35" id="3T3-b3-5D0"/>
+                            <constraint firstAttribute="width" constant="35" id="iv0-J0-jet"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TW5-dP-6g4">
-                        <rect key="frame" x="46" y="8" width="256" height="21"/>
+                        <rect key="frame" x="63" y="8" width="239" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="21" id="GnQ-Ty-xvx"/>
+                            <constraint firstAttribute="height" constant="20" id="kaf-GN-QXt"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1If-Jh-hlr">
-                        <rect key="frame" x="46" y="34" width="256" height="21"/>
-                        <constraints>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="Cke-2t-4vw"/>
-                            <constraint firstAttribute="height" constant="21" id="Inm-p8-S5d"/>
-                        </constraints>
+                        <rect key="frame" x="63" y="35" width="239" height="20"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -43,14 +39,15 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstAttribute="trailingMargin" secondItem="1If-Jh-hlr" secondAttribute="trailing" constant="10" id="73J-Um-kfM"/>
-                    <constraint firstAttribute="centerY" secondItem="KvW-RR-HI8" secondAttribute="centerY" id="LCG-7L-gLt"/>
-                    <constraint firstItem="1If-Jh-hlr" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="TzU-1O-rb8"/>
-                    <constraint firstItem="KvW-RR-HI8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="btX-pA-o7u"/>
-                    <constraint firstItem="TW5-dP-6g4" firstAttribute="leading" secondItem="KvW-RR-HI8" secondAttribute="trailing" constant="10" id="cuj-EH-rXz"/>
-                    <constraint firstItem="TW5-dP-6g4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="d6d-th-SjC"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="TW5-dP-6g4" secondAttribute="trailing" constant="10" id="g12-iL-D2Y"/>
-                    <constraint firstItem="1If-Jh-hlr" firstAttribute="leading" secondItem="KvW-RR-HI8" secondAttribute="trailing" constant="10" id="kh9-YY-zES"/>
+                    <constraint firstItem="TW5-dP-6g4" firstAttribute="width" secondItem="1If-Jh-hlr" secondAttribute="width" id="1vc-GC-jGQ"/>
+                    <constraint firstItem="1If-Jh-hlr" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="2aY-zk-ZVO"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="TW5-dP-6g4" secondAttribute="trailing" constant="10" id="Bvk-99-BzM"/>
+                    <constraint firstItem="TW5-dP-6g4" firstAttribute="leading" secondItem="KvW-RR-HI8" secondAttribute="trailing" constant="10" id="S4q-OK-zjC"/>
+                    <constraint firstItem="TW5-dP-6g4" firstAttribute="height" secondItem="1If-Jh-hlr" secondAttribute="height" id="S8l-GL-8fp"/>
+                    <constraint firstItem="KvW-RR-HI8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="eN9-z1-S46"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="1If-Jh-hlr" secondAttribute="trailing" constant="10" id="heo-qc-tQQ"/>
+                    <constraint firstAttribute="centerY" secondItem="KvW-RR-HI8" secondAttribute="centerY" id="l1C-e9-fbe"/>
+                    <constraint firstItem="TW5-dP-6g4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="lUv-2W-Mo7"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -62,6 +59,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="light_blue_point" width="16" height="16"/>
+        <image name="Cut_7" width="70" height="70"/>
     </resources>
 </document>

@@ -5,6 +5,7 @@
 //  Created by Daniel on 15/7/10.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "UIImage+MJ.h"
 #import "MyAppliantController.h"
 #import "MyConsultController.h"
 #import "MyInviteController.h"
@@ -23,7 +24,9 @@
 #import "LDBaseParam.h"
 #import "Account.h"
 #import "AccountTool.h"
+#import "DoctorPlatformButton.h"
 @interface DoctorPlatformController ()<UIActionSheetDelegate>
+@property (weak, nonatomic) IBOutlet DoctorPlatformButton *individual;
 @property (weak, nonatomic) IBOutlet UIButton *consultBtn;
 @property (weak, nonatomic) IBOutlet UIButton *inviteBtn;
 @property (nonatomic,weak) UIActionSheet *applySheet;
@@ -71,6 +74,9 @@
 - (void)setup
 {
     self.navigationItem.title = @"医生平台";
+    
+    [self.individual setImage:[UIImage imageWithName:@"nav5"] forState:UIControlStateNormal];
+    [self.individual setBackgroundColor:IWColor(88, 202, 203)];
 }
 #pragma mark - UIActionSheet Delegate
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex

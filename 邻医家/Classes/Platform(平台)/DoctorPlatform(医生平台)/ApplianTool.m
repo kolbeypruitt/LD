@@ -12,13 +12,15 @@
 #import "QueryConsultResult.h"
 #import "ApplianTool.h"
 #import "LDHttpTool.h"
+#import "InfoListResult.h"
 @implementation ApplianTool
-+ (void)myInviteSuccess:(void (^)(id))success failure:(void (^)(NSError *))failure
++ (void)myInviteSuccess:(void (^)(InfoListResult *))success failure:(void (^)(NSError *))failure
 {
     LDBaseParam *param = [LDBaseParam param];
     [LDHttpTool getWithURL:MYINVITEURL params:param.keyValues success:^(id json) {
         if (success) {
-            success(json);
+            InfoListResult *result = [InfoListResult objectWithKeyValues:json];
+            success(result);
         }
     } failure:^(NSError *error) {
         if (failure) {
@@ -57,4 +59,53 @@
         }
     }];
 }
++ (void)myAppliantWithParam:(LDBaseParam *)param success:(void (^)(AppliantDetailResult *))success failure:(void (^)(NSError *))failure
+{
+    [LDHttpTool getWithURL:MYAPPLIANTDETAILURL params:param.keyValues success:^(id json) {
+        if (success) {
+            AppliantDetailResult *result = [AppliantDetailResult objectWithKeyValues:json];
+            success(result);
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
+
++ (void)myInviteDetailWithParam:(LDBaseParam *)param success:(void (^)(id))success failure:(void (^)(NSError *))failure
+{
+    [LDHttpTool getWithURL:MYINVITETDETAILURL params:param.keyValues success:^(id json) {
+        if (success) {
+            success(json);
+        }
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure(error);
+        }
+    }];
+}
+
+
+
 @end
+
+@implementation AppliantDetailResult
+
+
+@end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

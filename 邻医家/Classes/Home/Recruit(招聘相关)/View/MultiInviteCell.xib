@@ -37,7 +37,7 @@
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H32-PW-5Z3">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H32-PW-5Z3">
                         <rect key="frame" x="267" y="30" width="100" height="20"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -72,12 +72,12 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="locationLabel" destination="u9l-88-NOR" id="Osx-Pv-zKF"/>
+                <outlet property="locationLabel" destination="H32-PW-5Z3" id="HE1-V4-LU4"/>
                 <outlet property="nameLabel" destination="7Zv-iA-Y2m" id="lZb-ma-kSR"/>
                 <outlet property="techLabel" destination="2gp-Jt-Us3" id="auO-ih-gp5"/>
-                <outlet property="timeLabel" destination="H32-PW-5Z3" id="SmP-bC-vGh"/>
+                <outlet property="timeLabel" destination="2gp-Jt-Us3" id="3ab-GY-fI6"/>
             </connections>
-            <point key="canvasLocation" x="-629.5" y="-7.5"/>
+            <point key="canvasLocation" x="-709.5" y="-5.5"/>
         </tableViewCell>
     </objects>
     <resources>

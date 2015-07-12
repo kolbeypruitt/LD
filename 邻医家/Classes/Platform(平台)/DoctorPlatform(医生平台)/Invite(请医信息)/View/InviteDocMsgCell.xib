@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -13,32 +14,50 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="light_blue_point" translatesAutoresizingMaskIntoConstraints="NO" id="B9k-Qw-Ijj">
-                        <rect key="frame" x="10" y="26" width="16" height="16"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cut_7" translatesAutoresizingMaskIntoConstraints="NO" id="B9k-Qw-Ijj">
+                        <rect key="frame" x="18" y="14" width="35" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="35" id="dOf-GJ-YAK"/>
+                            <constraint firstAttribute="height" constant="35" id="zXW-ed-gyT"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WfM-7U-HXT">
-                        <rect key="frame" x="34" y="8" width="333" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WfM-7U-HXT">
+                        <rect key="frame" x="63" y="8" width="304" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="XEc-Cb-HFv"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uoq-eL-8As">
-                        <rect key="frame" x="34" y="34" width="333" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uoq-eL-8As">
+                        <rect key="frame" x="63" y="35" width="304" height="20"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.31577493690000003" green="0.1241717752" blue="0.104436211" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="WfM-7U-HXT" firstAttribute="top" secondItem="eRW-Xn-qka" secondAttribute="topMargin" id="Adv-9N-dZt"/>
+                    <constraint firstItem="B9k-Qw-Ijj" firstAttribute="leading" secondItem="eRW-Xn-qka" secondAttribute="leadingMargin" constant="10" id="Hiz-9j-30x"/>
+                    <constraint firstItem="uoq-eL-8As" firstAttribute="trailing" secondItem="eRW-Xn-qka" secondAttribute="trailingMargin" id="LiD-hM-ZfY"/>
+                    <constraint firstItem="WfM-7U-HXT" firstAttribute="trailing" secondItem="eRW-Xn-qka" secondAttribute="trailingMargin" id="NUF-Hu-A3s"/>
+                    <constraint firstItem="uoq-eL-8As" firstAttribute="bottom" secondItem="eRW-Xn-qka" secondAttribute="bottomMargin" id="PrN-Kj-S1x"/>
+                    <constraint firstAttribute="centerY" secondItem="B9k-Qw-Ijj" secondAttribute="centerY" id="Z0L-Bj-2Mj"/>
+                    <constraint firstItem="WfM-7U-HXT" firstAttribute="leading" secondItem="B9k-Qw-Ijj" secondAttribute="trailing" constant="10" id="fLu-Xz-aad"/>
+                    <constraint firstItem="uoq-eL-8As" firstAttribute="width" secondItem="WfM-7U-HXT" secondAttribute="width" id="x5u-89-TFh"/>
+                    <constraint firstItem="uoq-eL-8As" firstAttribute="height" secondItem="WfM-7U-HXT" secondAttribute="height" id="xso-Nq-Bgh"/>
+                </constraints>
             </tableViewCellContentView>
             <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
                 <outlet property="timeLabel" destination="uoq-eL-8As" id="m0T-Wx-HPg"/>
                 <outlet property="titleLabel" destination="WfM-7U-HXT" id="keN-us-nWY"/>
             </connections>
-            <point key="canvasLocation" x="833.5" y="17"/>
+            <point key="canvasLocation" x="807.5" y="-23"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="light_blue_point" width="16" height="16"/>
+        <image name="Cut_7" width="70" height="70"/>
     </resources>
 </document>

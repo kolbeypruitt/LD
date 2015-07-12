@@ -25,7 +25,7 @@
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
-        self.backgroundColor = [UIColor grayColor];
+        self.backgroundColor = [UIColor whiteColor];
         [self addTwoLabel];
         [self layoutTwoLabel];
     }
@@ -35,6 +35,7 @@
 {
     UILabel *firstLabel = [[UILabel alloc] init];
     firstLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    firstLabel.numberOfLines = 1;
     [self addSubview:firstLabel];
     firstLabel.textAlignment = NSTextAlignmentRight;
     firstLabel.backgroundColor = [UIColor clearColor];
@@ -46,7 +47,7 @@
     secondLabel.font = [UIFont systemFontOfSize:15];
     secondLabel.backgroundColor = [UIColor clearColor];
     secondLabel.textColor = [UIColor blackColor];
-    secondLabel.numberOfLines = 0;
+    secondLabel.numberOfLines = 1;
     secondLabel.translatesAutoresizingMaskIntoConstraints = NO;
     [self addSubview:secondLabel];
     self.secondLabel = secondLabel;
@@ -59,11 +60,11 @@
                                                              options:0
                                                              metrics:nil
                                                                views:views];
-    NSArray *conts2 = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[firstLabel(25)]"
+    NSArray *conts2 = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[firstLabel]"
                                                               options:0
                                                               metrics:nil
                                                                 views:views];
-    NSArray *conts3  = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[secondLabel(25)]" options:0 metrics:nil views:views];
+    NSArray *conts3  = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[secondLabel]" options:0 metrics:nil views:views];
     [self addConstraints:conts];
     [self addConstraints:conts2];
     [self addConstraints:conts3];
@@ -89,6 +90,11 @@
     _singleLine = singleLine;
     if (singleLine) {
         self.secondLabel.numberOfLines = 1;
+        self.firstLabel.numberOfLines = 1;
+    }else
+    {
+        self.secondLabel.numberOfLines = 0;
+        self.firstLabel.numberOfLines = 0;
     }
 }
 @end

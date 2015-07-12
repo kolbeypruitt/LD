@@ -11,6 +11,7 @@
 @interface InviteDocDetail : NSObject
 @property (nonatomic,copy) NSString *address;
 @property (nonatomic,copy) NSString *gender;
+@property (nonatomic,copy) NSString *clientNumber;
 @property (nonatomic,assign) int id;
 @property (nonatomic,copy) NSString *idcardNo;
 @property (nonatomic,copy) NSString *isVIP;

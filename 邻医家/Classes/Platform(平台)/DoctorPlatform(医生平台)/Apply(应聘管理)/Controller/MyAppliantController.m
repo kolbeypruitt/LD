@@ -11,6 +11,7 @@
 #import "RecruitResult.h"
 #import "MultiInviteCell.h"
 #import "EmployInfo.h"
+#import "MyAppliatDetailController.h"
 @interface MyAppliantController ()
 @property (nonatomic,strong) NSMutableArray *employInfos;
 @end
@@ -66,8 +67,8 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    MultiInviteDetailController *detaiVC = [[MultiInviteDetailController alloc] init];
-    detaiVC.employInfo = self.employInfos[indexPath.row];
+    MyAppliatDetailController *detaiVC = [[MyAppliatDetailController alloc] init];
+    detaiVC.empinfo = self.employInfos[indexPath.row];
     [self.navigationController pushViewController:detaiVC animated:YES];
 }
 @end

@@ -12,6 +12,7 @@
 @property (nonatomic,assign) int accept;
 @property (nonatomic,assign) int age;
 @property (nonatomic,assign) int all;
+@property (nonatomic,copy) NSString *clientNumber;
 @property (nonatomic,copy) NSString *location;
 @property (nonatomic,copy) NSString *department;
 @property (nonatomic,copy) NSString *education;
