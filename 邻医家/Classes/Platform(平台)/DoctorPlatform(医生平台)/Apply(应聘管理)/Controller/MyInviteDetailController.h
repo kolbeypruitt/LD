@@ -10,4 +10,5 @@
 
 @interface MyInviteDetailController : UITableViewController
 @property (nonatomic,strong) InviteDocMessage *inviteDocMessage;
+@property (nonatomic,strong) NSArray *messages;
 @end

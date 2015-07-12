@@ -18,7 +18,6 @@
 #import "MJExtension.h"
 @interface MyInviteDetailController ()
 @property (nonatomic,weak) UIButton  *contactBtn;
-@property (nonatomic,strong) NSArray *messages;
 @property (nonatomic,strong) InviteDocDetail *doctorDetail;
 @end
 

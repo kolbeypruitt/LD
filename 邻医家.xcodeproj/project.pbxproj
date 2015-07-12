@@ -536,6 +536,7 @@
 		B05195121B47D5590033CA7E /* ChatBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B05195111B47D5590033CA7E /* ChatBaseViewController.m */; };
 		B05195151B47E6D00033CA7E /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B05195141B47E6D00033CA7E /* MessageCell.m */; };
 		B05195181B47EB000033CA7E /* MessageFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = B05195171B47EB000033CA7E /* MessageFrame.m */; };
+		B08824871B52A549002F9A7D /* LDMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B08824861B52A549002F9A7D /* LDMessageViewController.m */; };
 		B0B661651B47EE89003FB8BB /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B661641B47EE89003FB8BB /* NSString+Extension.m */; };
 		B0C32E1E1B3AFBAA008E057C /* MultiJobCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C32E1C1B3AFBAA008E057C /* MultiJobCell.m */; };
 		B0C32E1F1B3AFBAA008E057C /* MultiJobCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0C32E1D1B3AFBAA008E057C /* MultiJobCell.xib */; };
@@ -1558,6 +1559,8 @@
 		B05195141B47E6D00033CA7E /* MessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = "<group>"; };
 		B05195161B47EB000033CA7E /* MessageFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageFrame.h; sourceTree = "<group>"; };
 		B05195171B47EB000033CA7E /* MessageFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageFrame.m; sourceTree = "<group>"; };
+		B08824851B52A549002F9A7D /* LDMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDMessageViewController.h; sourceTree = "<group>"; };
+		B08824861B52A549002F9A7D /* LDMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDMessageViewController.m; sourceTree = "<group>"; };
 		B0B661631B47EE89003FB8BB /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
 		B0B661641B47EE89003FB8BB /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
 		B0C32E1B1B3AFBAA008E057C /* MultiJobCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiJobCell.h; sourceTree = "<group>"; };
@@ -2788,6 +2791,8 @@
 		65A9D6FA1B4FA7F20014F27B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B08824851B52A549002F9A7D /* LDMessageViewController.h */,
+				B08824861B52A549002F9A7D /* LDMessageViewController.m */,
 				65A9D6FE1B4FA85C0014F27B /* MyAppliantController.h */,
 				65A9D6FF1B4FA85C0014F27B /* MyAppliantController.m */,
 				65CFC6A91B522F2F00A881B6 /* MyAppliatDetailController.h */,
@@ -4213,6 +4218,7 @@
 				B05195181B47EB000033CA7E /* MessageFrame.m in Sources */,
 				65CDDE321B2E64EA00628862 /* AppendInviteViewController.m in Sources */,
 				655453F81AFCA59D00C4BFFA /* Doctor.m in Sources */,
+				B08824871B52A549002F9A7D /* LDMessageViewController.m in Sources */,
 				656C4EDD1B2854FC005D7B0D /* NiyaoDelegate.m in Sources */,
 				65CDDE451B2E6B5900628862 /* PatientInviteListTool.m in Sources */,
 				B0B661651B47EE89003FB8BB /* NSString+Extension.m in Sources */,
