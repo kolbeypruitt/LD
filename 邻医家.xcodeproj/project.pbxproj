@@ -529,6 +529,7 @@
 		B05195121B47D5590033CA7E /* ChatBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B05195111B47D5590033CA7E /* ChatBaseViewController.m */; };
 		B05195151B47E6D00033CA7E /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B05195141B47E6D00033CA7E /* MessageCell.m */; };
 		B05195181B47EB000033CA7E /* MessageFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = B05195171B47EB000033CA7E /* MessageFrame.m */; };
+		B08824811B520B6B002F9A7D /* LDMessageLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B08824801B520B6B002F9A7D /* LDMessageLabel.m */; };
 		B0B661651B47EE89003FB8BB /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B661641B47EE89003FB8BB /* NSString+Extension.m */; };
 		B0C32E1E1B3AFBAA008E057C /* MultiJobCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C32E1C1B3AFBAA008E057C /* MultiJobCell.m */; };
 		B0C32E1F1B3AFBAA008E057C /* MultiJobCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0C32E1D1B3AFBAA008E057C /* MultiJobCell.xib */; };
@@ -1538,6 +1539,8 @@
 		B05195141B47E6D00033CA7E /* MessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = "<group>"; };
 		B05195161B47EB000033CA7E /* MessageFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageFrame.h; sourceTree = "<group>"; };
 		B05195171B47EB000033CA7E /* MessageFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageFrame.m; sourceTree = "<group>"; };
+		B088247F1B520B6B002F9A7D /* LDMessageLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDMessageLabel.h; sourceTree = "<group>"; };
+		B08824801B520B6B002F9A7D /* LDMessageLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDMessageLabel.m; sourceTree = "<group>"; };
 		B0B661631B47EE89003FB8BB /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
 		B0B661641B47EE89003FB8BB /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
 		B0C32E1B1B3AFBAA008E057C /* MultiJobCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiJobCell.h; sourceTree = "<group>"; };
@@ -3036,6 +3039,8 @@
 		65CAB25F1B241130005DAED4 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				B088247F1B520B6B002F9A7D /* LDMessageLabel.h */,
+				B08824801B520B6B002F9A7D /* LDMessageLabel.m */,
 				6540B82A1B2D4E640053DB2A /* RecruitMessage.h */,
 				6540B82B1B2D4E640053DB2A /* RecruitMessage.m */,
 			);
@@ -4196,6 +4201,7 @@
 				65AE9D5D1B4CEE9A00627EFA /* ManagerDetailController.m in Sources */,
 				6558CD7E1B2AC1CF005E7685 /* PostHosInfoTool.m in Sources */,
 				65E254661B42579C009B0525 /* HotHosTool.m in Sources */,
+				B08824811B520B6B002F9A7D /* LDMessageLabel.m in Sources */,
 				65CAB2881B241130005DAED4 /* FreeForwardController.m in Sources */,
 				656A08D81B3BD9620056588A /* MultiInviteCell.m in Sources */,
 				654861891B4E52B4001B25CA /* ArrangeListResult.m in Sources */,
