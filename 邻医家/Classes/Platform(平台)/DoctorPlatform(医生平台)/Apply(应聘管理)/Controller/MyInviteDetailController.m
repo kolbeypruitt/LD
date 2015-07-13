@@ -17,19 +17,11 @@
 #import "InviteDocDetail.h"
 #import "MJExtension.h"
 @interface MyInviteDetailController ()
-@property (nonatomic,weak) UIButton  *contactBtn;
-@property (nonatomic,strong) NSArray *messages;
 @property (nonatomic,strong) InviteDocDetail *doctorDetail;
 @end
 
 @implementation MyInviteDetailController
-- (NSArray *)messages
-{
-    if (_messages == nil) {
-        _messages = [[NSArray alloc] init];
-    }
-    return _messages;
-}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadData];
@@ -61,57 +53,17 @@
     LDMessage *message8 = [LDMessage messageWithFirstTitle:@"邀请医生的职位" secondTitle:doctorDetail.job];
     LDMessage *message9 = [LDMessage messageWithFirstTitle:@"请医目的" secondTitle:doctorDetail.purpose];
     LDMessage *message10 = [LDMessage messageWithFirstTitle:@"VIP" secondTitle:doctorDetail.isVIP];
-    LDMessage *message11 = [LDMessage messageWithFirstTitle:@"备注" secondTitle:doctorDetail.remark];
+    LDMessage *message11 = [LDMessage messageWithFirstTitle:@"备注" secondTitle:doctorDetail.ramark];
     self.messages = @[message0,message1,message2,message3,message4,message5,message6,message7,message8,message9,message10,message11];
-    [self.tableView reloadData];
+    self.clientToChat = doctorDetail.clientNumber;
+    self.singleLine = NO;
 }
 - (void)setup
 {
-    self.view.backgroundColor = BGCOLOR;
     self.title = @"自由请医详情";
     
 }
-- (void)contactBtnClicked
-{
-    ChatViewController *chatVc = [[ChatViewController alloc] init];
-    chatVc.clientToChat = self.doctorDetail.clientNumber;
-    [self.navigationController pushViewController:chatVc animated:YES];
-}
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return self.messages.count;
-}
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-    LDMessageCell *cell = [LDMessageCell cellWithTableView:tableView];
-    cell.message = self.messages[indexPath.row];
-    
-    return cell;
-}
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 60;
-}
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    UIButton *contactBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 40)];
-    contactBtn.backgroundColor = [UIColor whiteColor];
-    contactBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
-    contactBtn.titleLabel.font = [UIFont systemFontOfSize:15];
-    [contactBtn setTitle:@"联系发布人" forState:UIControlStateNormal];
-    [contactBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    [contactBtn addTarget:self action:@selector(contactBtnClicked) forControlEvents:UIControlEventTouchUpInside];
-    return contactBtn;
-}
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return   40;
-}
-- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return NO;
-}
+
 @end
 

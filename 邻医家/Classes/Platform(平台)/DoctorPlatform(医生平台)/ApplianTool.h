@@ -5,7 +5,7 @@
 //  Created by Daniel on 15/7/10.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
-@class RecruitResult,QueryConsultResult,LDBaseParam,EmployDetail,AppliantDetailResult,InfoListResult;
+@class RecruitResult,QueryConsultResult,LDBaseParam,EmployDetail,AppliantDetailResult,InfoListResult,ConsultDetailMessage;
 #import <Foundation/Foundation.h>
 @interface ApplianTool : NSObject
 + (void)myInviteSuccess:(void (^)(InfoListResult *result))success
@@ -17,6 +17,9 @@
 + (void)myConsultSuccess:(void (^)(QueryConsultResult *result))success
                  failure:(void (^)(NSError *error))failure;
 
++ (void)myconsultDetailWithParam:(LDBaseParam *)param
+                         success:(void (^)(ConsultDetailMessage *detail))success
+                         failure:(void (^)(NSError *error))failure;
 
 
 

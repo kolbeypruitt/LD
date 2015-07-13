@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
 #import "DonConsultCell.h"
-#import "DocSurgeryController.h"
+#import "MyConsultViewController.h"
 #import "DocGetInfoTool.h"
 #import "PostedSurgeryController.h"
 #import "MJRefresh.h"
@@ -73,9 +73,9 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ConsultMessage *message = [self.consults objectAtIndex:indexPath.row];
-    DocSurgeryController *conVC = [[DocSurgeryController alloc] init];
-    conVC.message = message;
-    [self.navigationController pushViewController:conVC animated:YES];
+    MyConsultViewController *consultVC = [[MyConsultViewController alloc] init];
+    consultVC.consultMsg = self.consults[indexPath.row];
+    [self.navigationController pushViewController:consultVC animated:YES];
+    
 }
 @end

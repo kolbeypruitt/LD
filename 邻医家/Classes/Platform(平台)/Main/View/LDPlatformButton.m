@@ -8,16 +8,15 @@
 #define IMAGERATIO 0.4
 #define IMAGEWH 40
 #import "IWCommon.h"
-#import "DoctorPlatformButton.h"
+#import "LDPlatformButton.h"
 #import "UIImage+MJ.h"
-@implementation DoctorPlatformButton
+@implementation LDPlatformButton
 + (instancetype)doctorPlatformBtnWithImage:(NSString *)image title:(NSString *)title target:(id)target action:(SEL)action
 {
-    DoctorPlatformButton *button = [[DoctorPlatformButton alloc] init];
+    LDPlatformButton *button = [[LDPlatformButton alloc] init];
     button.imageView.contentMode = UIViewContentModeCenter;
     [button setTitle:title forState:UIControlStateNormal];
     [button setImage:[UIImage imageWithName:image] forState:UIControlStateNormal];
-    [button setBackgroundColor:IWColor(88, 202, 203)];
     [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     
     return button;
@@ -34,10 +33,10 @@
 }
 - (CGRect)imageRectForContentRect:(CGRect)contentRect
 {
-    CGFloat imageX = 0;
-    CGFloat imageY = 0;
-    CGFloat imageW = 50;
-    CGFloat imageH = 50;
+    CGFloat imageW = 40;
+    CGFloat imageH = 40;
+    CGFloat imageX = (contentRect.size.width * IMAGERATIO)/2 - imageW/2;
+    CGFloat imageY = contentRect.size.height/2 - imageH/2;
     return CGRectMake(imageX, imageY, imageW, imageH);
 }
 - (CGRect)titleRectForContentRect:(CGRect)contentRect

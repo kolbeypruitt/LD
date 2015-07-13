@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DoctorPlatformButton : UIButton
+@interface LDPlatformButton : UIButton
 + (instancetype)doctorPlatformBtnWithImage:(NSString *)image
                                      title:(NSString *)title
                                     target:(id)target

@@ -23,7 +23,7 @@
 @property (nonatomic,copy) NSString *name;
 @property (nonatomic,copy) NSString *profession;
 @property (nonatomic,copy) NSString *purpose;
-@property (nonatomic,copy) NSString *remark;
+@property (nonatomic,copy) NSString *ramark;
 /**
  *  1.已申请，2，已录取
  */

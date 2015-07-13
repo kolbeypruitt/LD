@@ -13,19 +13,5 @@
             stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x90bb;&#x533b;&#x5bb6;/Classes/Platform(&#x5e73;&#x53f0;)/HospitalAdmin(&#x533b;&#x9662;&#x7ba1;&#x7406;&#x8005;&#x5e73;&#x53f0;)/Employ(&#x62db;&#x8058;)/Controller/AcceptedRecruitController.m"
-            timestampString = "458125966.654863"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36">
-         </BreakpointContent>
-      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

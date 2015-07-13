@@ -9,11 +9,12 @@
 #import "RewardInviteController.h"
 #import "PatientPlatformController.h"
 #import "FreeInviteController.h"
+#import "LDPlatformButton.h"
 #import "Common.h"
 @interface PatientPlatformController ()
-@property (nonatomic,weak) UIButton *inviteBtn;
-@property (nonatomic,weak) UIButton *cureBtn;
-@property (nonatomic,weak) UIButton *groupBtn;
+@property (nonatomic,weak) LDPlatformButton *inviteBtn;
+@property (nonatomic,weak) LDPlatformButton *cureBtn;
+@property (nonatomic,weak) LDPlatformButton *groupBtn;
 @end
 
 @implementation PatientPlatformController
@@ -31,11 +32,19 @@
 }
 - (void)addCustomviews
 {
-    self.inviteBtn = [self createBtnWithTitle:@"自由请医" target:self action:@selector(buttonPressed:)];
-    self.cureBtn = [self createBtnWithTitle:@"悬赏就医" target:self action:@selector(buttonPressed:)];
-    self.groupBtn = [self createBtnWithTitle:@"团请医生" target:self action:@selector(buttonPressed:)];
+    self.inviteBtn = [self createBtnWithTitle:@"自由请医服务" target:self action:@selector(buttonPressed:)];
+    [self.inviteBtn setImage:[UIImage imageNamed:@"freeinvite"] forState:UIControlStateNormal];
+    [self.inviteBtn setBackgroundColor:IWColor(88, 202, 203)];
+    
+    self.cureBtn = [self createBtnWithTitle:@"悬赏就医服务" target:self action:@selector(buttonPressed:)];
+    [self.cureBtn setImage:[UIImage imageNamed:@"rewardinvite"] forState:UIControlStateNormal];
+    [self.cureBtn setBackgroundColor:IWColor( 64,  197, 88 )];
+    
+    self.groupBtn = [self createBtnWithTitle:@"团请医生服务" target:self action:@selector(buttonPressed:)];
+    [self.groupBtn setImage:[UIImage imageNamed:@"groupinvite"] forState:UIControlStateNormal];
+    [self.groupBtn setBackgroundColor:IWColor( 245,  96, 115)];
 }
-- (void)buttonPressed:(UIButton *)senderBtn
+- (void)buttonPressed:(LDPlatformButton *)senderBtn
 {
     if ([senderBtn isEqual:self.inviteBtn]) {
         FreeInviteController *freeInvite = [[FreeInviteController alloc] init];
@@ -56,19 +65,16 @@
     CGFloat btnX = 10;
     CGFloat btnY = 84;
     CGFloat btnW = (SCREENWIDTH - 30) / 2 ;
-    CGFloat btnH = 50;
+    CGFloat btnH = 100;
     self.inviteBtn.frame = CGRectMake(btnX, btnY, btnW, btnH);
-    self.inviteBtn.backgroundColor = IWColor(56, 56, 56);
     
     self.cureBtn.frame = CGRectMake(btnW+20, btnY, btnW, btnH);
-    self.cureBtn.backgroundColor = IWColor(80, 80, 90);
     
     self.groupBtn.frame = CGRectMake(btnX, CGRectGetMaxY(self.inviteBtn.frame) + btnX, SCREENWIDTH - 2 * btnX, btnH);
-    self.groupBtn.backgroundColor = IWColor(80, 80, 80);
 }
-- (UIButton *)createBtnWithTitle:(NSString *)title target:(id)target action:(SEL)action
+- (LDPlatformButton *)createBtnWithTitle:(NSString *)title target:(id)target action:(SEL)action
 {
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    LDPlatformButton *button = [LDPlatformButton buttonWithType:UIButtonTypeCustom];
     [button setTitle:title forState:UIControlStateNormal];
     [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];

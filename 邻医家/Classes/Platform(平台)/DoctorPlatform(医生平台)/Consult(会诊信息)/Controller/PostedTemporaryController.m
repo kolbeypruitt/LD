@@ -5,7 +5,7 @@
 //  Created by Daniel on 15/6/7.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
-#import "DocTemController.h"
+#import "MyConsultViewController.h"
 #import "DocGetInfoTool.h"
 #import "DonConsultCell.h"
 #import "ConsultMessage.h"
@@ -79,9 +79,9 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ConsultMessage *message = [self.consults objectAtIndex:indexPath.row];
-    DocTemController *conVC = [[DocTemController alloc] init];
-    conVC.message = message;
-    [self.navigationController pushViewController:conVC animated:YES];
+    MyConsultViewController *consultVC = [[MyConsultViewController alloc] init];
+    consultVC.consultMsg = self.consults[indexPath.row];
+    [self.navigationController pushViewController:consultVC animated:YES];
+    
 }
 @end

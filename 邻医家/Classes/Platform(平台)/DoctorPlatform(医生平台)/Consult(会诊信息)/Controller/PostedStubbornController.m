@@ -11,8 +11,7 @@
 #import "QueryConsultResult.h"
 #import "PostedStubbornController.h"
 #import "MJRefresh.h"
-#import "DocStubbornController.h"
-
+#import "MyConsultViewController.h"
 @interface PostedStubbornController ()
 @property (nonatomic,strong) NSMutableArray *consults;
 @end
@@ -79,9 +78,9 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ConsultMessage *message = [self.consults objectAtIndex:indexPath.row];
-    DocStubbornController *conVC = [[DocStubbornController alloc] init];
-    conVC.message = message;
-    [self.navigationController pushViewController:conVC animated:YES];
+    MyConsultViewController *consultVC = [[MyConsultViewController alloc] init];
+    consultVC.consultMsg = self.consults[indexPath.row];
+    [self.navigationController pushViewController:consultVC animated:YES];
+
 }
 @end

@@ -5,7 +5,9 @@
 //  Created by Daniel on 15/6/8.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "LDMessage.h"
 #import "AllInviteParam.h"
+#import "FreeInviteHeaderView.h"
 #import "BaseResult.h"
 #import "MBProgressHUD+MJ.h"
 #import "WithDrawDocTool.h"
@@ -16,19 +18,18 @@
 #import "FreeDetailMsgParam.h"
 #import "InviteDetailController.h"
 #import "PatientInviteDetailTool.h"
-#import "InviteDoctorView.h"
 #import "Common.h"
 #import "UIBarButtonItem+ENTER.h"
-#import "IWCommon.h"
-#import "UIButton+LD.h"
 #import "PatienInviteDetail.h"
-@interface InviteDetailController ()<UIScrollViewDelegate>
-@property (nonatomic,weak) UIButton  *receiveBtn;
-@property (nonatomic,weak) UIButton *confirmBtn;
-@property (nonatomic,weak) InviteDoctorView *scrollView;
+@interface InviteDetailController ()
 @property (nonatomic,strong) PatienInviteDetail *detailMsg;
+@property (nonatomic,weak) FreeInviteHeaderView *headView;
 @end
 @implementation InviteDetailController
+- (instancetype)initWithStyle:(UITableViewStyle)style
+{
+    return [super initWithStyle:UITableViewStyleGrouped];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setup];
@@ -47,12 +48,21 @@
 - (void)setDetailMsg:(PatienInviteDetail *)detailMsg
 {
     _detailMsg = detailMsg;
-    NSString *title = [NSString stringWithFormat:@"共收到%d封医生简历",self.detailMsg.all];
-    [self.receiveBtn setTitle:title forState:UIControlStateNormal];
+    self.headView.detailMsg = detailMsg;
+    LDMessage *message0 = [LDMessage messageWithFirstTitle:@"姓名" secondTitle:detailMsg.name ];
+    LDMessage *message1 = [LDMessage messageWithFirstTitle:@"身份证号" secondTitle:detailMsg.idcardNo ];
+    LDMessage *message2 = [LDMessage messageWithFirstTitle:@"性别" secondTitle:detailMsg.gender ];
+    LDMessage *message3 = [LDMessage messageWithFirstTitle:@"最后一次就医医院" secondTitle:detailMsg.lastHospital ];
+    LDMessage *message4 = [LDMessage messageWithFirstTitle:@"最后一次就医科室" secondTitle:detailMsg.lastDepartment ];
+    LDMessage *message5 = [LDMessage messageWithFirstTitle:@"最后一次诊断" secondTitle:detailMsg.lastDiagnose ];
+    LDMessage *message6 = [LDMessage messageWithFirstTitle:@"地址" secondTitle:detailMsg.address ];
+    LDMessage *message7 = [LDMessage messageWithFirstTitle:@"邀请医生的专业" secondTitle:detailMsg.profession ];
+    LDMessage *message8 = [LDMessage messageWithFirstTitle:@"邀请医生的职位" secondTitle:detailMsg.job ];
+    LDMessage *message9 = [LDMessage messageWithFirstTitle:@"请医目的" secondTitle:detailMsg.purpose ];
+    LDMessage *message10 = [LDMessage messageWithFirstTitle:@"VIP" secondTitle:detailMsg.isVIP ];
+    LDMessage *message11 = [LDMessage messageWithFirstTitle:@"备注" secondTitle:detailMsg.ramark ];
+    self.messages = @[message0,message1,message2,message3,message4,message5,message6,message7,message8,message9,message10,message11];
     
-    NSString *contitle = [NSString stringWithFormat:@"已录取%d封医生简历",self.detailMsg.accept];
-    [self.confirmBtn setTitle:contitle forState:UIControlStateNormal];
-    self.scrollView.message = detailMsg;
 }
 
 - (void)setup
@@ -60,35 +70,8 @@
     self.title = @"自由请医详情";
     self.view.backgroundColor = IWColor(226, 226, 226);
     [self setNav];
-    [self addCustomViews];
-    [self layoutCustomViews];
 }
-- (void)addCustomViews
-{
-    UIButton *receiveBtn = [UIButton buttonWithTitle:nil
-                                                font:14
-                                          titleColor:[UIColor whiteColor]
-                                              target:self
-                                              action:@selector(receiveBtnClicked)];
-    [self.view addSubview:receiveBtn];
-    self.receiveBtn = receiveBtn;
-    self.receiveBtn.backgroundColor = [UIColor purpleColor];
-    
-    UIButton *confirmedBtn = [UIButton buttonWithTitle:nil
-                                                  font:14
-                                            titleColor:[UIColor whiteColor]
-                                                target:self
-                                                action:@selector(confirmBtnClicked:)];
-    self.confirmBtn = confirmedBtn;
-    [self.view addSubview:confirmedBtn];
-    self.confirmBtn.backgroundColor = [UIColor orangeColor];
-    
-    InviteDoctorView *scrollView = [[InviteDoctorView alloc] init];
-    scrollView.contentSize = CGSizeMake(SCREENWIDTH, SCREENHEIGHT);
-    scrollView.contentInset = UIEdgeInsetsMake(0, 0, 60, 0);
-    self.scrollView = scrollView;
-    [self.view addSubview:scrollView];
-}
+
 - (void)confirmBtnClicked:(UIButton *)button
 {
     AcceptedDocController *accept = [[AcceptedDocController alloc] init];
@@ -101,27 +84,7 @@
     allVC.detailMsg = self.detailMsg;
     [self.navigationController pushViewController:allVC animated:YES];
 }
-- (void)layoutCustomViews
-{
-    CGFloat confX = 0;
-    CGFloat confY = 64;
-    CGFloat confW = SCREENWIDTH;
-    CGFloat confH = 50;
-    self.confirmBtn.frame = CGRectMake(confX, confY, confW, confH);
-    
-    CGFloat btnX = 0;
-    CGFloat btnY = CGRectGetMaxY(self.confirmBtn.frame);
-    CGFloat btnW = SCREENWIDTH;
-    CGFloat btnH = 60;
-    self.receiveBtn.frame = CGRectMake(btnX, btnY, btnW, btnH);
-    
-    CGFloat scrollX = 0;
-    CGFloat scrollY = CGRectGetMaxY(self.receiveBtn.frame);
-    CGFloat scrollW = SCREENWIDTH;
-    CGFloat scrollH = self.view.bounds.size.height - scrollY - 50;
-    self.scrollView.frame = CGRectMake(scrollX, scrollY, scrollW, scrollH);
-    
-}
+
 - (void)setNav
 {
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self
@@ -147,4 +110,50 @@
 {
     [DefaultCenter postNotificationName:FREEINVITENEEDREFRESHNOTIFICATION object:self];
 }
+#pragma mark - tabelview delegate
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    if (self.message.succeed == 1) {//已录取
+        return nil;
+    }else
+    {//未录取
+        FreeInviteHeaderView *inviteHeader = [[FreeInviteHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width,80)];
+        [inviteHeader.acceptedBtn addTarget:self action:@selector(confirmBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [inviteHeader.allBtn addTarget:self action:@selector(receiveBtnClicked) forControlEvents:UIControlEventTouchUpInside];
+        self.headView = inviteHeader;
+        return inviteHeader;    
+    }
+    
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (self.message.succeed == 1) {
+        return 0;
+    }else
+    {
+        return 80;
+    }
+}
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

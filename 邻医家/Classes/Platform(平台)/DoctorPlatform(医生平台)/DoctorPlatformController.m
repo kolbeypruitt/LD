@@ -24,9 +24,9 @@
 #import "LDBaseParam.h"
 #import "Account.h"
 #import "AccountTool.h"
-#import "DoctorPlatformButton.h"
+#import "LDPlatformButton.h"
 @interface DoctorPlatformController ()<UIActionSheetDelegate>
-@property (weak, nonatomic) IBOutlet DoctorPlatformButton *individual;
+@property (weak, nonatomic) IBOutlet LDPlatformButton *individual;
 @property (weak, nonatomic) IBOutlet UIButton *consultBtn;
 @property (weak, nonatomic) IBOutlet UIButton *inviteBtn;
 @property (nonatomic,weak) UIActionSheet *applySheet;

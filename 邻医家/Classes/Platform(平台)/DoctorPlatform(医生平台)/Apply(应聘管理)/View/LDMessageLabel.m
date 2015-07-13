@@ -7,6 +7,7 @@
 //
 
 #import "LDMessageLabel.h"
+#import "IWCommon.h"
 @interface LDMessageLabel ()
 @end
 @implementation LDMessageLabel
@@ -39,7 +40,7 @@
     [self addSubview:firstLabel];
     firstLabel.textAlignment = NSTextAlignmentRight;
     firstLabel.backgroundColor = [UIColor clearColor];
-    firstLabel.textColor = [UIColor blueColor];
+    firstLabel.textColor = IWColor(88, 202, 203);
     firstLabel.font = [UIFont systemFontOfSize:15];
     self.firstLabel = firstLabel;
     
@@ -68,9 +69,6 @@
     [self addConstraints:conts];
     [self addConstraints:conts2];
     [self addConstraints:conts3];
-    CGSize parentSize = self.bounds.size;
-    CGSize secondSize = self.secondLabel.bounds.size;
-    NSLog(@"%@,%@",NSStringFromCGSize(parentSize),NSStringFromCGSize(secondSize));
 }
 - (void)layoutSubviews
 {

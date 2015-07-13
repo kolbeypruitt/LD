@@ -10,5 +10,6 @@
 
 @interface LDMessageCell : UITableViewCell
 @property (nonatomic,strong) LDMessage *message;
+@property (nonatomic,assign) BOOL singleLine;
 + (instancetype)cellWithTableView:(UITableView *)tableView;
 @end

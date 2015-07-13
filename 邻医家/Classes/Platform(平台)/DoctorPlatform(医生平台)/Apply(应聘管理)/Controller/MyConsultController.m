@@ -5,7 +5,7 @@
 //  Created by Daniel on 15/7/10.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
-
+#import "MyConsultViewController.h"
 #import "MyConsultController.h"
 #import "ApplianTool.h"
 #import "DonConsultCell.h"
@@ -65,5 +65,11 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 66;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    MyConsultViewController *myVC = [[MyConsultViewController alloc] init];
+    myVC.consultMsg = self.messages[indexPath.row];
+    [self.navigationController pushViewController:myVC animated:YES];
 }
 @end

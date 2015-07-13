@@ -5,8 +5,8 @@
 //  Created by Daniel on 15/7/10.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
-#import "MyInviteDetailController.h"
 #import "MyInviteController.h"
+#import "FreeDetailMsgController.h"
 #import "ApplianTool.h"
 #import "InfoListResult.h"
 #import "InviteDocMessage.h"
@@ -50,8 +50,6 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
     return self.inviteList.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -66,8 +64,8 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    MyInviteDetailController *detailVC = [[MyInviteDetailController alloc] init];
-    detailVC.inviteDocMessage = self.inviteList[indexPath.row];
+    FreeDetailMsgController *detailVC = [[FreeDetailMsgController alloc] init];
+    detailVC.message = self.inviteList[indexPath.row];
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 @end

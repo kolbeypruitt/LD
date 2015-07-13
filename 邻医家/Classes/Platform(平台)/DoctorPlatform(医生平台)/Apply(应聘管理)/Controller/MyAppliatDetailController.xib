@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyAppliatDetailController">
             <connections>
                 <outlet property="age" destination="4mt-mC-J5Y" id="wQS-6r-wzz"/>
+                <outlet property="contactBtn" destination="Ycv-Mp-cYD" id="wiX-YD-kr4"/>
                 <outlet property="department" destination="DFf-ew-o6a" id="3JI-Hq-Jni"/>
                 <outlet property="education" destination="Utz-S5-XyT" id="b3G-TH-ClS"/>
                 <outlet property="employNum" destination="h12-xS-9Ch" id="jjQ-Mt-7aY"/>
