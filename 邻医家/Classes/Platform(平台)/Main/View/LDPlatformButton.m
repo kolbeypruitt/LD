@@ -11,30 +11,23 @@
 #import "LDPlatformButton.h"
 #import "UIImage+MJ.h"
 @implementation LDPlatformButton
-+ (instancetype)doctorPlatformBtnWithImage:(NSString *)image title:(NSString *)title target:(id)target action:(SEL)action
++ (instancetype)platformBtnWithImage:(NSString *)image title:(NSString *)title target:(id)target action:(SEL)action
 {
     LDPlatformButton *button = [[LDPlatformButton alloc] init];
-    button.imageView.contentMode = UIViewContentModeCenter;
+    button.layer.cornerRadius = 10;
+    button.clipsToBounds = YES;
+    button.imageView.contentMode = UIViewContentModeScaleAspectFit;
     [button setTitle:title forState:UIControlStateNormal];
     [button setImage:[UIImage imageWithName:image] forState:UIControlStateNormal];
     [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     
     return button;
 }
-- (instancetype)initWithCoder:(NSCoder *)aDecoder
-{
-    if (self = [super initWithCoder:aDecoder]) {
-        self.layer.cornerRadius = 10;
-        self.clipsToBounds = YES;
-        self.imageView.contentMode = UIViewContentModeCenter;
-        [self setBackgroundColor:IWColor(88, 202, 203)];
-    }
-    return self;
-}
+
 - (CGRect)imageRectForContentRect:(CGRect)contentRect
 {
-    CGFloat imageW = 40;
-    CGFloat imageH = 40;
+    CGFloat imageW = IMAGEWH;
+    CGFloat imageH = IMAGEWH;
     CGFloat imageX = (contentRect.size.width * IMAGERATIO)/2 - imageW/2;
     CGFloat imageY = contentRect.size.height/2 - imageH/2;
     return CGRectMake(imageX, imageY, imageW, imageH);

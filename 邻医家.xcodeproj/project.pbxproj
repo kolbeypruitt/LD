@@ -414,7 +414,6 @@
 		65D0E1611B4A543B00283275 /* GroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D0E1601B4A543B00283275 /* GroupViewController.m */; };
 		65D38DCC1B4F5644006CE3AD /* EnrolledRecruitController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D38DCB1B4F5644006CE3AD /* EnrolledRecruitController.m */; };
 		65D38DD91B4F66B6006CE3AD /* DoctorPlatformController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D38DD71B4F66B6006CE3AD /* DoctorPlatformController.m */; };
-		65D38DDA1B4F66B6006CE3AD /* DoctorPlatformController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D38DD81B4F66B6006CE3AD /* DoctorPlatformController.xib */; };
 		65D527041B2A95D600CF4FC4 /* ConfirmedResumeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D526C51B2A95D600CF4FC4 /* ConfirmedResumeController.m */; };
 		65D527051B2A95D600CF4FC4 /* DoctorResumeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D526C71B2A95D600CF4FC4 /* DoctorResumeController.m */; };
 		65D527081B2A95D600CF4FC4 /* PlatformRecruitController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D526CD1B2A95D600CF4FC4 /* PlatformRecruitController.m */; };
@@ -1345,7 +1344,6 @@
 		65D38DCB1B4F5644006CE3AD /* EnrolledRecruitController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnrolledRecruitController.m; sourceTree = "<group>"; };
 		65D38DD61B4F66B6006CE3AD /* DoctorPlatformController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorPlatformController.h; sourceTree = "<group>"; };
 		65D38DD71B4F66B6006CE3AD /* DoctorPlatformController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorPlatformController.m; sourceTree = "<group>"; };
-		65D38DD81B4F66B6006CE3AD /* DoctorPlatformController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DoctorPlatformController.xib; sourceTree = "<group>"; };
 		65D526C41B2A95D600CF4FC4 /* ConfirmedResumeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmedResumeController.h; sourceTree = "<group>"; };
 		65D526C51B2A95D600CF4FC4 /* ConfirmedResumeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmedResumeController.m; sourceTree = "<group>"; };
 		65D526C61B2A95D600CF4FC4 /* DoctorResumeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorResumeController.h; sourceTree = "<group>"; };
@@ -2805,7 +2803,6 @@
 				65B44DC11B3164C000371EBB /* DoctorTabbarController.m */,
 				65D38DD61B4F66B6006CE3AD /* DoctorPlatformController.h */,
 				65D38DD71B4F66B6006CE3AD /* DoctorPlatformController.m */,
-				65D38DD81B4F66B6006CE3AD /* DoctorPlatformController.xib */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -4054,7 +4051,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				654861961B4E5C35001B25CA /* ArrangementDetailController.xib in Resources */,
-				65D38DDA1B4F66B6006CE3AD /* DoctorPlatformController.xib in Resources */,
 				6554543F1AFCA59D00C4BFFA /* MJPhotoBrowser.bundle in Resources */,
 				65018D5C1B3BDF7E00A07615 /* MultiInviteDetailController.xib in Resources */,
 				6553FD071B33AFE3009ABD4D /* DepartmentCell.xib in Resources */,

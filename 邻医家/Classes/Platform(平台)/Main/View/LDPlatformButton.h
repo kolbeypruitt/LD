@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface LDPlatformButton : UIButton
-+ (instancetype)doctorPlatformBtnWithImage:(NSString *)image
++ (instancetype)platformBtnWithImage:(NSString *)image
                                      title:(NSString *)title
                                     target:(id)target
                                     action:(SEL)action;
