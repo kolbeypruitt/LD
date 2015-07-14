@@ -6,9 +6,8 @@
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
 @class InviteDocMessage;
-#import <UIKit/UIKit.h>
-
-@interface MyInviteDetailController : UITableViewController
+#import "LDMessageController.h"
+@interface MyInviteDetailController : LDMessageController
 @property (nonatomic,strong) InviteDocMessage *inviteDocMessage;
 @property (nonatomic,strong) NSArray *messages;
 @end

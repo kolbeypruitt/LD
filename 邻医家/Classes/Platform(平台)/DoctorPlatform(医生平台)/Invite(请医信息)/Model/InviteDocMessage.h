@@ -10,6 +10,7 @@
 
 @interface InviteDocMessage : NSObject
 @property (nonatomic,assign) int id;
+@property (nonatomic,assign) int succeed;
 @property (nonatomic,copy) NSString *time;
 @property (nonatomic,copy) NSString *title;
 @property (nonatomic,assign) int type;

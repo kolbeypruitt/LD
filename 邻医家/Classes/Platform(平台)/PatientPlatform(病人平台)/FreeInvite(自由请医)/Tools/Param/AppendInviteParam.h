@@ -9,6 +9,8 @@
 #import "LDBaseParam.h"
 @interface AppendInviteParam : LDBaseParam
 @property (nonatomic,copy) NSString *name;
+@property (nonatomic,assign) int location;
+@property (nonatomic,assign) int doctorLocation;
 @property (nonatomic,copy) NSString *idcardNo;
 @property (nonatomic,assign) int gender;
 @property (nonatomic,copy) NSString *lastHospital;

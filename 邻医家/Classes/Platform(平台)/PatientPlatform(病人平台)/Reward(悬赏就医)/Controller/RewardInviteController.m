@@ -61,7 +61,7 @@
 - (void)setup
 {
     self.title = @"悬赏请医";
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(appendReward) title:@"添加"];
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(appendReward) title:@"病情描述"];
     [DefaultCenter addObserver:self selector:@selector(refreshData) name:FREEINVITENEEDREFRESHNOTIFICATION object:nil];
 }
 - (void)dealloc

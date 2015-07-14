@@ -31,9 +31,13 @@
 - (void)setupCustomViews
 {
     LDMessageLabel *messageLabel = [[LDMessageLabel alloc] init];
-    messageLabel.singleLine = NO;
     [self.contentView addSubview:messageLabel];
     self.messageLabel = messageLabel;
+}
+- (void)setSingleLine:(BOOL)singleLine
+{
+    _singleLine = singleLine;
+    self.messageLabel.singleLine = singleLine;
 }
 - (void)layoutSubviews
 {

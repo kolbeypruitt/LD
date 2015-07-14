@@ -5,6 +5,7 @@
 //  Created by Daniel on 15/7/10.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "ConsultDetailMessage.h"
 #import "MJExtension.h"
 #import "RecruitResult.h"
 #import "LDBaseParam.h"
@@ -44,6 +45,20 @@
       }
     }];
 }
++ (void)myconsultDetailWithParam:(LDBaseParam *)param success:(void (^)(ConsultDetailMessage *))success failure:(void (^)(NSError *))failure
+{
+    [LDHttpTool getWithURL:MYCONSULTDETAILURL params:param.keyValues success:^(id json) {
+        if (success) {
+            ConsultDetailMessage *detail = [ConsultDetailMessage objectWithKeyValues:json];
+            success(detail);
+        }
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure(error);
+        }
+    }];
+}
+
 
 + (void)myAppliantSuccess:(void (^)(RecruitResult *))success failure:(void (^)(NSError *))failure
 {

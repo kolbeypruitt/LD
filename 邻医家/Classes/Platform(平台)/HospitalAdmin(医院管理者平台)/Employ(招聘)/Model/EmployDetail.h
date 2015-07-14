@@ -23,6 +23,7 @@
 @property (nonatomic,copy) NSString *language;
 @property (nonatomic,copy) NSString *profession;
 @property (nonatomic,copy) NSString *title;
+@property (nonatomic,assign) int status;
 @end
 //{
 //    accept = 0;

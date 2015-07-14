@@ -5,8 +5,8 @@
 //  Created by Daniel on 15/6/7.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
-#import "DocForwardController.h"
 #import "DonConsultCell.h"
+#import "MyConsultViewController.h"
 #import "DocGetInfoTool.h"
 #import "ConsultMessage.h"
 #import "QueryConsultResult.h"
@@ -74,9 +74,8 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ConsultMessage *message = [self.consults objectAtIndex:indexPath.row];
-    DocForwardController *conVC = [[DocForwardController alloc] init];
-    conVC.message = message;
-    [self.navigationController pushViewController:conVC animated:YES];
+    MyConsultViewController *consultVC = [[MyConsultViewController alloc] init];
+    consultVC.consultMsg = self.consults[indexPath.row];
+    [self.navigationController pushViewController:consultVC animated:YES];
 }
 @end

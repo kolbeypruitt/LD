@@ -13,23 +13,24 @@
 #import "RecruitChildController.h"
 #import "UILabel+LD.h"
 #import "MessageTypeController.h"
+#import "LDPlatformButton.h"
 @interface HospitalAdminController ()
 /**
  *    招聘信息发布
  */
-@property (nonatomic,weak) UIButton *recruitBtn;
+@property (nonatomic,weak) LDPlatformButton *recruitBtn;
 /**
  *  应聘管理
  */
-@property (nonatomic,weak) UIButton *adminBtn;
+@property (nonatomic,weak) LDPlatformButton *adminBtn;
 /**
  *  指定科室负责人
  */
-@property (nonatomic,weak) UIButton *capitalBtn;
+@property (nonatomic,weak) LDPlatformButton *capitalBtn;
 /**
  *   发布医院信息
  */
-@property (nonatomic,weak) UIButton *postMessageBtn;
+@property (nonatomic,weak) LDPlatformButton *postMessageBtn;
 @end
 
 @implementation HospitalAdminController
@@ -48,63 +49,54 @@
 }
 - (void)addCustomViews
 {
-    UIButton *recruitBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    recruitBtn.backgroundColor = IWColor(156, 56, 56);
-    [self setupBtn:recruitBtn WithTitle:@"招聘信息发布" target:self action:@selector(recruitBtnClicked)];
+    LDPlatformButton *recruitBtn = [LDPlatformButton platformBtnWithImage:@"adminpost" title:@"招聘信息发布" target:self action:@selector(recruitBtnClicked)];
+    recruitBtn.backgroundColor = IWColor(88, 202, 203);
     [self.view addSubview:recruitBtn];
     self.recruitBtn = recruitBtn;
-    UIButton *adminBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    adminBtn.backgroundColor = IWColor(10, 100, 100);
-    [self setupBtn:adminBtn WithTitle:@"应聘管理" target:self action:@selector(adminBtnClicked)];
+    
+    LDPlatformButton *adminBtn = [LDPlatformButton platformBtnWithImage:@"adminappliant" title:@"应聘管理" target:self action:@selector(adminBtnClicked)];
+    adminBtn.backgroundColor = IWColor(175, 203, 115);
     [self.view addSubview:adminBtn];
     self.adminBtn = adminBtn;
     
-    UIButton *capitalBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    capitalBtn.backgroundColor = IWColor(60, 160, 60);
-    [self setupBtn:capitalBtn WithTitle:@"科室权限分配" target:self action:@selector(capitalBtnClicked)];
+    LDPlatformButton *capitalBtn = [LDPlatformButton platformBtnWithImage:@"admindispatch" title:@"科室权限分配" target:self action:@selector(capitalBtnClicked)];
+    capitalBtn.backgroundColor = IWColor(245, 96, 115);
     [self.view addSubview:capitalBtn];
     self.capitalBtn = capitalBtn;
     
-    UIButton *postMessageBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    postMessageBtn.backgroundColor = IWColor(44, 55, 155);
-    [self setupBtn:postMessageBtn WithTitle:@"发布医院信息" target:self action:@selector(postMessageBtnClicked)];
+    LDPlatformButton *postMessageBtn = [LDPlatformButton platformBtnWithImage:@"adminposthos" title:@"发布医院信息" target:self action:@selector(postMessageBtnClicked)];
+    postMessageBtn.backgroundColor = IWColor(248, 160, 54);
     [self.view addSubview:postMessageBtn];
     self.postMessageBtn = postMessageBtn;
 }
 - (void)layoutCustomViews
 {
-    CGFloat recruitBtnX = 0;
-    CGFloat recruitBtnY = 64;
-    CGFloat recruitBtnW = SCREENWIDTH/2;
-    CGFloat recruitBtnH = 84;
+    CGFloat padding = 10;
+    CGFloat recruitBtnX = 10;
+    CGFloat recruitBtnY = 74;
+    CGFloat recruitBtnW = (SCREENWIDTH - 3 * padding)/2;
+    CGFloat recruitBtnH = 130;
     self.recruitBtn.frame = CGRectMake(recruitBtnX, recruitBtnY, recruitBtnW, recruitBtnH);
     
-    CGFloat adminX = CGRectGetMaxX(self.recruitBtn.frame);
+    CGFloat adminX = CGRectGetMaxX(self.recruitBtn.frame) + padding;
     CGFloat adminY = recruitBtnY;
     CGFloat adminW = recruitBtnW;
     CGFloat adminH = recruitBtnH;
     self.adminBtn.frame = CGRectMake(adminX, adminY, adminW, adminH);
     
     CGFloat capitalBtnX = recruitBtnX;
-    CGFloat capitalBtnY = CGRectGetMaxY(self.recruitBtn.frame);
+    CGFloat capitalBtnY = CGRectGetMaxY(self.recruitBtn.frame) + padding;
     CGFloat capitalBtnW = recruitBtnW;
     CGFloat capitalBtnH = recruitBtnH;
     self.capitalBtn.frame = CGRectMake(capitalBtnX, capitalBtnY, capitalBtnW, capitalBtnH);
     
-    CGFloat postBtnX = CGRectGetMaxX(self.capitalBtn.frame);
+    CGFloat postBtnX = CGRectGetMaxX(self.capitalBtn.frame) + padding;
     CGFloat postBtnY = capitalBtnY;
     CGFloat postBtnW = capitalBtnW;
     CGFloat postBtnH = capitalBtnH;
     self.postMessageBtn.frame = CGRectMake(postBtnX, postBtnY, postBtnW, postBtnH);
 }
-- (void)setupBtn:(UIButton *)button WithTitle:(NSString *)title target:(id)target action:(SEL)action
-{
-    [button setTitle:title forState:UIControlStateNormal];
-    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    button.titleLabel.font = [UIFont systemFontOfSize:16];
-    button.titleLabel.backgroundColor = [UIColor clearColor];
-    [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
-}
+
 - (void)recruitBtnClicked
 {
     RecruitChildController *recruit = [[RecruitChildController alloc] init];

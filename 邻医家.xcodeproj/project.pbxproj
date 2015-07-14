@@ -63,13 +63,6 @@
 		653B85001B3BA46900331252 /* DoctorStationListTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 653B84FF1B3BA46900331252 /* DoctorStationListTool.m */; };
 		653B85031B3BA4A200331252 /* DoctorStation.m in Sources */ = {isa = PBXBuildFile; fileRef = 653B85021B3BA4A200331252 /* DoctorStation.m */; };
 		653B85081B3BA4F400331252 /* StationListResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 653B85071B3BA4F400331252 /* StationListResult.m */; };
-		6540B80A1B2D4C6B0053DB2A /* DocForwardController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6540B7DC1B2D4C6B0053DB2A /* DocForwardController.m */; };
-		6540B80B1B2D4C6B0053DB2A /* DocStubbornController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6540B7DE1B2D4C6B0053DB2A /* DocStubbornController.m */; };
-		6540B80C1B2D4C6B0053DB2A /* DocStubbornController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6540B7DF1B2D4C6B0053DB2A /* DocStubbornController.xib */; };
-		6540B80D1B2D4C6B0053DB2A /* DocSurgeryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6540B7E11B2D4C6B0053DB2A /* DocSurgeryController.m */; };
-		6540B80E1B2D4C6B0053DB2A /* DocSurgeryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6540B7E21B2D4C6B0053DB2A /* DocSurgeryController.xib */; };
-		6540B80F1B2D4C6B0053DB2A /* DocTemController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6540B7E41B2D4C6B0053DB2A /* DocTemController.m */; };
-		6540B8101B2D4C6B0053DB2A /* DocTemController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6540B7E51B2D4C6B0053DB2A /* DocTemController.xib */; };
 		6540B8121B2D4C6B0053DB2A /* PostedFreeFController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6540B7E91B2D4C6B0053DB2A /* PostedFreeFController.m */; };
 		6540B8131B2D4C6B0053DB2A /* PostedStubbornController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6540B7EB1B2D4C6B0053DB2A /* PostedStubbornController.m */; };
 		6540B8141B2D4C6B0053DB2A /* PostedSurgeryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6540B7ED1B2D4C6B0053DB2A /* PostedSurgeryController.m */; };
@@ -95,7 +88,6 @@
 		6540B84C1B2D5CE00053DB2A /* FreeMsgResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 6540B84B1B2D5CE00053DB2A /* FreeMsgResult.m */; };
 		6540B84F1B2D5F560053DB2A /* InviteDocDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 6540B84E1B2D5F560053DB2A /* InviteDocDetail.m */; };
 		6540B8551B2D7E560053DB2A /* ReplyInviteTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6540B8541B2D7E560053DB2A /* ReplyInviteTool.m */; };
-		6540B8581B2D90660053DB2A /* InviteDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6540B8571B2D90660053DB2A /* InviteDetailView.m */; };
 		6540B85E1B2D90EB0053DB2A /* FreeDetailMsgController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6540B85B1B2D90EB0053DB2A /* FreeDetailMsgController.m */; };
 		6540B85F1B2D90EB0053DB2A /* FreeMessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6540B85D1B2D90EB0053DB2A /* FreeMessageController.m */; };
 		654861801B4E4CB4001B25CA /* ReleaseArrangeParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 6548617F1B4E4CB4001B25CA /* ReleaseArrangeParam.m */; };
@@ -243,6 +235,11 @@
 		6558CD781B2ABDBF005E7685 /* PostLectureController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6558CD741B2ABDBF005E7685 /* PostLectureController.m */; };
 		6558CD7B1B2AC199005E7685 /* HospitalInfoParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 6558CD7A1B2AC199005E7685 /* HospitalInfoParam.m */; };
 		6558CD7E1B2AC1CF005E7685 /* PostHosInfoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6558CD7D1B2AC1CF005E7685 /* PostHosInfoTool.m */; };
+		656438C71B54A27200436EAF /* LDInputMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 656438C61B54A27200436EAF /* LDInputMessage.m */; };
+		656438CD1B54A8FD00436EAF /* LDInputController.m in Sources */ = {isa = PBXBuildFile; fileRef = 656438CC1B54A8FD00436EAF /* LDInputController.m */; };
+		656438D01B54A9C600436EAF /* AppendInviteController.m in Sources */ = {isa = PBXBuildFile; fileRef = 656438CF1B54A9C600436EAF /* AppendInviteController.m */; };
+		656438D31B54D34000436EAF /* LDInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 656438D21B54D34000436EAF /* LDInputView.m */; };
+		656438D61B54E1B700436EAF /* CommitMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 656438D51B54E1B700436EAF /* CommitMessage.m */; };
 		6569A0901B05C85E00716CA0 /* PostDocResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 6569A08F1B05C85E00716CA0 /* PostDocResult.m */; };
 		6569A0931B05C87D00716CA0 /* PostDocListResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 6569A0921B05C87D00716CA0 /* PostDocListResult.m */; };
 		656A08B11B3BA8EB0056588A /* DoctorStationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 656A08B01B3BA8EB0056588A /* DoctorStationCell.m */; };
@@ -282,7 +279,6 @@
 		659842F91B39529400499A68 /* HotAreaResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 659842F81B39529400499A68 /* HotAreaResult.m */; };
 		6599E6741B032721001C1582 /* UIButton+LD.m in Sources */ = {isa = PBXBuildFile; fileRef = 6599E6731B032721001C1582 /* UIButton+LD.m */; };
 		6599E7971B0C7E46007396E8 /* SignUpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6599E7961B0C7E46007396E8 /* SignUpTool.m */; };
-		65A9D6F61B4F91F70014F27B /* DocForwardController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65A9D6F51B4F91F70014F27B /* DocForwardController.xib */; };
 		65A9D7001B4FA85C0014F27B /* MyAppliantController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65A9D6FF1B4FA85C0014F27B /* MyAppliantController.m */; };
 		65A9D7031B4FA87D0014F27B /* MyInviteController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65A9D7021B4FA87D0014F27B /* MyInviteController.m */; };
 		65A9D7061B4FA89E0014F27B /* MyConsultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65A9D7051B4FA89E0014F27B /* MyConsultController.m */; };
@@ -338,7 +334,6 @@
 		65C58C2A1B32637C00D3A013 /* AppendInviteTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C58C291B32637C00D3A013 /* AppendInviteTool.m */; };
 		65C58C2D1B328E2C00D3A013 /* AppendInviteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C58C2C1B328E2C00D3A013 /* AppendInviteView.m */; };
 		65C58C361B329F0B00D3A013 /* AppendRewardController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C58C351B329F0B00D3A013 /* AppendRewardController.m */; };
-		65C58C391B32A2BB00D3A013 /* AppendRewardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C58C381B32A2BB00D3A013 /* AppendRewardView.m */; };
 		65C621251B3101CC003936EA /* HospitalEnterParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C621241B3101CC003936EA /* HospitalEnterParam.m */; };
 		65C621281B310576003936EA /* WithDrawDocTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C621271B310576003936EA /* WithDrawDocTool.m */; };
 		65C6212E1B3147AC003936EA /* RewardInviteController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C6212D1B3147AC003936EA /* RewardInviteController.m */; };
@@ -391,11 +386,13 @@
 		65CC3F5C1B0F05310099A3F3 /* ForgetPassController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65CC3F5A1B0F05310099A3F3 /* ForgetPassController.xib */; };
 		65CC3F601B0F0A410099A3F3 /* CheckInForgetController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CC3F5E1B0F0A410099A3F3 /* CheckInForgetController.m */; };
 		65CC3F611B0F0A410099A3F3 /* CheckInForgetController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65CC3F5F1B0F0A410099A3F3 /* CheckInForgetController.xib */; };
-		65CDDE321B2E64EA00628862 /* AppendInviteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CDDE1F1B2E64EA00628862 /* AppendInviteViewController.m */; };
+		65CC8A261B5355DF00ED584F /* LDMessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CC8A251B5355DF00ED584F /* LDMessageController.m */; };
+		65CC8A291B535D4E00ED584F /* MyConsultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CC8A281B535D4E00ED584F /* MyConsultViewController.m */; };
+		65CC8A2C1B5396F700ED584F /* FreeInviteHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CC8A2B1B5396F700ED584F /* FreeInviteHeaderView.m */; };
+		65CC8A2E1B53970600ED584F /* FreeInviteHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65CC8A2D1B53970600ED584F /* FreeInviteHeaderView.xib */; };
 		65CDDE331B2E64EA00628862 /* FreeInviteController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CDDE211B2E64EA00628862 /* FreeInviteController.m */; };
 		65CDDE341B2E64EA00628862 /* InviteDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CDDE231B2E64EA00628862 /* InviteDetailController.m */; };
 		65CDDE351B2E64EA00628862 /* PatientPlatformController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CDDE251B2E64EA00628862 /* PatientPlatformController.m */; };
-		65CDDE381B2E64EA00628862 /* InviteDoctorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CDDE311B2E64EA00628862 /* InviteDoctorView.m */; };
 		65CDDE451B2E6B5900628862 /* PatientInviteListTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CDDE441B2E6B5900628862 /* PatientInviteListTool.m */; };
 		65CFC6AC1B522F2F00A881B6 /* MyAppliatDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CFC6AA1B522F2F00A881B6 /* MyAppliatDetailController.m */; };
 		65CFC6AD1B522F2F00A881B6 /* MyAppliatDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65CFC6AB1B522F2F00A881B6 /* MyAppliatDetailController.xib */; };
@@ -403,7 +400,6 @@
 		65CFC6C71B52567800A881B6 /* LDMessageLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CFC6C61B52567800A881B6 /* LDMessageLabel.m */; };
 		65CFC6CA1B52569800A881B6 /* LDMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CFC6C91B52569800A881B6 /* LDMessageCell.m */; };
 		65CFC6CD1B52586A00A881B6 /* MyInviteDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CFC6CC1B52586A00A881B6 /* MyInviteDetailController.m */; };
-		65CFC6D11B526DF200A881B6 /* DoctorPlatformButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CFC6D01B526DF200A881B6 /* DoctorPlatformButton.m */; };
 		65CFC7BA1B185F8F007F7062 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CFC7A81B185F8F007F7062 /* AFHTTPRequestOperation.m */; };
 		65CFC7BB1B185F8F007F7062 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CFC7AA1B185F8F007F7062 /* AFHTTPRequestOperationManager.m */; };
 		65CFC7BC1B185F8F007F7062 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CFC7AC1B185F8F007F7062 /* AFHTTPSessionManager.m */; };
@@ -418,7 +414,6 @@
 		65D0E1611B4A543B00283275 /* GroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D0E1601B4A543B00283275 /* GroupViewController.m */; };
 		65D38DCC1B4F5644006CE3AD /* EnrolledRecruitController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D38DCB1B4F5644006CE3AD /* EnrolledRecruitController.m */; };
 		65D38DD91B4F66B6006CE3AD /* DoctorPlatformController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D38DD71B4F66B6006CE3AD /* DoctorPlatformController.m */; };
-		65D38DDA1B4F66B6006CE3AD /* DoctorPlatformController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D38DD81B4F66B6006CE3AD /* DoctorPlatformController.xib */; };
 		65D527041B2A95D600CF4FC4 /* ConfirmedResumeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D526C51B2A95D600CF4FC4 /* ConfirmedResumeController.m */; };
 		65D527051B2A95D600CF4FC4 /* DoctorResumeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D526C71B2A95D600CF4FC4 /* DoctorResumeController.m */; };
 		65D527081B2A95D600CF4FC4 /* PlatformRecruitController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D526CD1B2A95D600CF4FC4 /* PlatformRecruitController.m */; };
@@ -497,6 +492,7 @@
 		65F46D1B1B4BB531006EC9DC /* EnglishDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F46D1A1B4BB531006EC9DC /* EnglishDelegate.m */; };
 		65F46D1E1B4BB775006EC9DC /* AppendRecruitParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F46D1D1B4BB775006EC9DC /* AppendRecruitParam.m */; };
 		65F46D211B4BC36E006EC9DC /* AppendRecruitTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F46D201B4BC36E006EC9DC /* AppendRecruitTool.m */; };
+		65FAA33B1B53B2FA00FFE897 /* LDPlatformButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FAA33A1B53B2FA00FFE897 /* LDPlatformButton.m */; };
 		B05194B71B478BB10033CA7E /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B05194B61B478BB10033CA7E /* ChatViewController.m */; };
 		B05194B91B478CEA0033CA7E /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05194B81B478CEA0033CA7E /* SenTestingKit.framework */; };
 		B05194BB1B478CF20033CA7E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05194BA1B478CF20033CA7E /* UIKit.framework */; };
@@ -661,17 +657,6 @@
 		653B85021B3BA4A200331252 /* DoctorStation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorStation.m; sourceTree = "<group>"; };
 		653B85061B3BA4F400331252 /* StationListResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationListResult.h; sourceTree = "<group>"; };
 		653B85071B3BA4F400331252 /* StationListResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationListResult.m; sourceTree = "<group>"; };
-		6540B7DB1B2D4C6B0053DB2A /* DocForwardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocForwardController.h; sourceTree = "<group>"; };
-		6540B7DC1B2D4C6B0053DB2A /* DocForwardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocForwardController.m; sourceTree = "<group>"; };
-		6540B7DD1B2D4C6B0053DB2A /* DocStubbornController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocStubbornController.h; sourceTree = "<group>"; };
-		6540B7DE1B2D4C6B0053DB2A /* DocStubbornController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocStubbornController.m; sourceTree = "<group>"; };
-		6540B7DF1B2D4C6B0053DB2A /* DocStubbornController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DocStubbornController.xib; sourceTree = "<group>"; };
-		6540B7E01B2D4C6B0053DB2A /* DocSurgeryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocSurgeryController.h; sourceTree = "<group>"; };
-		6540B7E11B2D4C6B0053DB2A /* DocSurgeryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocSurgeryController.m; sourceTree = "<group>"; };
-		6540B7E21B2D4C6B0053DB2A /* DocSurgeryController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DocSurgeryController.xib; sourceTree = "<group>"; };
-		6540B7E31B2D4C6B0053DB2A /* DocTemController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocTemController.h; sourceTree = "<group>"; };
-		6540B7E41B2D4C6B0053DB2A /* DocTemController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocTemController.m; sourceTree = "<group>"; };
-		6540B7E51B2D4C6B0053DB2A /* DocTemController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DocTemController.xib; sourceTree = "<group>"; };
 		6540B7E81B2D4C6B0053DB2A /* PostedFreeFController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostedFreeFController.h; sourceTree = "<group>"; };
 		6540B7E91B2D4C6B0053DB2A /* PostedFreeFController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostedFreeFController.m; sourceTree = "<group>"; };
 		6540B7EA1B2D4C6B0053DB2A /* PostedStubbornController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostedStubbornController.h; sourceTree = "<group>"; };
@@ -720,8 +705,6 @@
 		6540B84E1B2D5F560053DB2A /* InviteDocDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteDocDetail.m; sourceTree = "<group>"; };
 		6540B8531B2D7E560053DB2A /* ReplyInviteTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReplyInviteTool.h; sourceTree = "<group>"; };
 		6540B8541B2D7E560053DB2A /* ReplyInviteTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReplyInviteTool.m; sourceTree = "<group>"; };
-		6540B8561B2D90660053DB2A /* InviteDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteDetailView.h; sourceTree = "<group>"; };
-		6540B8571B2D90660053DB2A /* InviteDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteDetailView.m; sourceTree = "<group>"; };
 		6540B85A1B2D90EB0053DB2A /* FreeDetailMsgController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeDetailMsgController.h; sourceTree = "<group>"; };
 		6540B85B1B2D90EB0053DB2A /* FreeDetailMsgController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeDetailMsgController.m; sourceTree = "<group>"; };
 		6540B85C1B2D90EB0053DB2A /* FreeMessageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeMessageController.h; sourceTree = "<group>"; };
@@ -1017,6 +1000,16 @@
 		6558CD7A1B2AC199005E7685 /* HospitalInfoParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HospitalInfoParam.m; sourceTree = "<group>"; };
 		6558CD7C1B2AC1CF005E7685 /* PostHosInfoTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostHosInfoTool.h; sourceTree = "<group>"; };
 		6558CD7D1B2AC1CF005E7685 /* PostHosInfoTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostHosInfoTool.m; sourceTree = "<group>"; };
+		656438C51B54A27200436EAF /* LDInputMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDInputMessage.h; sourceTree = "<group>"; };
+		656438C61B54A27200436EAF /* LDInputMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDInputMessage.m; sourceTree = "<group>"; };
+		656438CB1B54A8FD00436EAF /* LDInputController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDInputController.h; sourceTree = "<group>"; };
+		656438CC1B54A8FD00436EAF /* LDInputController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDInputController.m; sourceTree = "<group>"; };
+		656438CE1B54A9C600436EAF /* AppendInviteController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppendInviteController.h; sourceTree = "<group>"; };
+		656438CF1B54A9C600436EAF /* AppendInviteController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppendInviteController.m; sourceTree = "<group>"; };
+		656438D11B54D34000436EAF /* LDInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDInputView.h; sourceTree = "<group>"; };
+		656438D21B54D34000436EAF /* LDInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDInputView.m; sourceTree = "<group>"; };
+		656438D41B54E1B700436EAF /* CommitMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommitMessage.h; sourceTree = "<group>"; };
+		656438D51B54E1B700436EAF /* CommitMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommitMessage.m; sourceTree = "<group>"; };
 		6569A08E1B05C85E00716CA0 /* PostDocResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostDocResult.h; sourceTree = "<group>"; };
 		6569A08F1B05C85E00716CA0 /* PostDocResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostDocResult.m; sourceTree = "<group>"; };
 		6569A0911B05C87D00716CA0 /* PostDocListResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostDocListResult.h; sourceTree = "<group>"; };
@@ -1093,7 +1086,6 @@
 		6599E6731B032721001C1582 /* UIButton+LD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+LD.m"; sourceTree = "<group>"; };
 		6599E7951B0C7E46007396E8 /* SignUpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpTool.h; sourceTree = "<group>"; };
 		6599E7961B0C7E46007396E8 /* SignUpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpTool.m; sourceTree = "<group>"; };
-		65A9D6F51B4F91F70014F27B /* DocForwardController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DocForwardController.xib; sourceTree = "<group>"; };
 		65A9D6FE1B4FA85C0014F27B /* MyAppliantController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAppliantController.h; sourceTree = "<group>"; };
 		65A9D6FF1B4FA85C0014F27B /* MyAppliantController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAppliantController.m; sourceTree = "<group>"; };
 		65A9D7011B4FA87D0014F27B /* MyInviteController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyInviteController.h; sourceTree = "<group>"; };
@@ -1196,8 +1188,6 @@
 		65C58C2C1B328E2C00D3A013 /* AppendInviteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppendInviteView.m; sourceTree = "<group>"; };
 		65C58C341B329F0B00D3A013 /* AppendRewardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppendRewardController.h; sourceTree = "<group>"; };
 		65C58C351B329F0B00D3A013 /* AppendRewardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppendRewardController.m; sourceTree = "<group>"; };
-		65C58C371B32A2BB00D3A013 /* AppendRewardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppendRewardView.h; sourceTree = "<group>"; };
-		65C58C381B32A2BB00D3A013 /* AppendRewardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppendRewardView.m; sourceTree = "<group>"; };
 		65C621231B3101CC003936EA /* HospitalEnterParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HospitalEnterParam.h; sourceTree = "<group>"; };
 		65C621241B3101CC003936EA /* HospitalEnterParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HospitalEnterParam.m; sourceTree = "<group>"; };
 		65C621261B310576003936EA /* WithDrawDocTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WithDrawDocTool.h; sourceTree = "<group>"; };
@@ -1301,16 +1291,19 @@
 		65CC3F5D1B0F0A410099A3F3 /* CheckInForgetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckInForgetController.h; sourceTree = "<group>"; };
 		65CC3F5E1B0F0A410099A3F3 /* CheckInForgetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckInForgetController.m; sourceTree = "<group>"; };
 		65CC3F5F1B0F0A410099A3F3 /* CheckInForgetController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckInForgetController.xib; sourceTree = "<group>"; };
-		65CDDE1E1B2E64EA00628862 /* AppendInviteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppendInviteViewController.h; sourceTree = "<group>"; };
-		65CDDE1F1B2E64EA00628862 /* AppendInviteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppendInviteViewController.m; sourceTree = "<group>"; };
+		65CC8A241B5355DF00ED584F /* LDMessageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDMessageController.h; sourceTree = "<group>"; };
+		65CC8A251B5355DF00ED584F /* LDMessageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDMessageController.m; sourceTree = "<group>"; };
+		65CC8A271B535D4E00ED584F /* MyConsultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyConsultViewController.h; sourceTree = "<group>"; };
+		65CC8A281B535D4E00ED584F /* MyConsultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyConsultViewController.m; sourceTree = "<group>"; };
+		65CC8A2A1B5396F700ED584F /* FreeInviteHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeInviteHeaderView.h; sourceTree = "<group>"; };
+		65CC8A2B1B5396F700ED584F /* FreeInviteHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeInviteHeaderView.m; sourceTree = "<group>"; };
+		65CC8A2D1B53970600ED584F /* FreeInviteHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FreeInviteHeaderView.xib; sourceTree = "<group>"; };
 		65CDDE201B2E64EA00628862 /* FreeInviteController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeInviteController.h; sourceTree = "<group>"; };
 		65CDDE211B2E64EA00628862 /* FreeInviteController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeInviteController.m; sourceTree = "<group>"; };
 		65CDDE221B2E64EA00628862 /* InviteDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteDetailController.h; sourceTree = "<group>"; };
 		65CDDE231B2E64EA00628862 /* InviteDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteDetailController.m; sourceTree = "<group>"; };
 		65CDDE241B2E64EA00628862 /* PatientPlatformController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PatientPlatformController.h; path = "FreeInvite(自由请医)/Controller/PatientPlatformController.h"; sourceTree = "<group>"; };
 		65CDDE251B2E64EA00628862 /* PatientPlatformController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PatientPlatformController.m; path = "FreeInvite(自由请医)/Controller/PatientPlatformController.m"; sourceTree = "<group>"; };
-		65CDDE301B2E64EA00628862 /* InviteDoctorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteDoctorView.h; sourceTree = "<group>"; };
-		65CDDE311B2E64EA00628862 /* InviteDoctorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteDoctorView.m; sourceTree = "<group>"; };
 		65CDDE431B2E6B5900628862 /* PatientInviteListTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientInviteListTool.h; sourceTree = "<group>"; };
 		65CDDE441B2E6B5900628862 /* PatientInviteListTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientInviteListTool.m; sourceTree = "<group>"; };
 		65CFC6A91B522F2F00A881B6 /* MyAppliatDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAppliatDetailController.h; sourceTree = "<group>"; };
@@ -1324,8 +1317,6 @@
 		65CFC6C91B52569800A881B6 /* LDMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDMessageCell.m; sourceTree = "<group>"; };
 		65CFC6CB1B52586A00A881B6 /* MyInviteDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyInviteDetailController.h; sourceTree = "<group>"; };
 		65CFC6CC1B52586A00A881B6 /* MyInviteDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyInviteDetailController.m; sourceTree = "<group>"; };
-		65CFC6CF1B526DF200A881B6 /* DoctorPlatformButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorPlatformButton.h; sourceTree = "<group>"; };
-		65CFC6D01B526DF200A881B6 /* DoctorPlatformButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorPlatformButton.m; sourceTree = "<group>"; };
 		65CFC7A71B185F8F007F7062 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		65CFC7A81B185F8F007F7062 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		65CFC7A91B185F8F007F7062 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -1354,7 +1345,6 @@
 		65D38DCB1B4F5644006CE3AD /* EnrolledRecruitController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnrolledRecruitController.m; sourceTree = "<group>"; };
 		65D38DD61B4F66B6006CE3AD /* DoctorPlatformController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorPlatformController.h; sourceTree = "<group>"; };
 		65D38DD71B4F66B6006CE3AD /* DoctorPlatformController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorPlatformController.m; sourceTree = "<group>"; };
-		65D38DD81B4F66B6006CE3AD /* DoctorPlatformController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DoctorPlatformController.xib; sourceTree = "<group>"; };
 		65D526C41B2A95D600CF4FC4 /* ConfirmedResumeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmedResumeController.h; sourceTree = "<group>"; };
 		65D526C51B2A95D600CF4FC4 /* ConfirmedResumeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmedResumeController.m; sourceTree = "<group>"; };
 		65D526C61B2A95D600CF4FC4 /* DoctorResumeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorResumeController.h; sourceTree = "<group>"; };
@@ -1504,6 +1494,8 @@
 		65F46D1D1B4BB775006EC9DC /* AppendRecruitParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppendRecruitParam.m; sourceTree = "<group>"; };
 		65F46D1F1B4BC36E006EC9DC /* AppendRecruitTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppendRecruitTool.h; sourceTree = "<group>"; };
 		65F46D201B4BC36E006EC9DC /* AppendRecruitTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppendRecruitTool.m; sourceTree = "<group>"; };
+		65FAA3391B53B2FA00FFE897 /* LDPlatformButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDPlatformButton.h; sourceTree = "<group>"; };
+		65FAA33A1B53B2FA00FFE897 /* LDPlatformButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDPlatformButton.m; sourceTree = "<group>"; };
 		B05194B51B478BB10033CA7E /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		B05194B61B478BB10033CA7E /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		B05194B81B478CEA0033CA7E /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -1790,18 +1782,6 @@
 		6540B7D81B2D4C6B0053DB2A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				6540B7DB1B2D4C6B0053DB2A /* DocForwardController.h */,
-				6540B7DC1B2D4C6B0053DB2A /* DocForwardController.m */,
-				65A9D6F51B4F91F70014F27B /* DocForwardController.xib */,
-				6540B7DD1B2D4C6B0053DB2A /* DocStubbornController.h */,
-				6540B7DE1B2D4C6B0053DB2A /* DocStubbornController.m */,
-				6540B7DF1B2D4C6B0053DB2A /* DocStubbornController.xib */,
-				6540B7E01B2D4C6B0053DB2A /* DocSurgeryController.h */,
-				6540B7E11B2D4C6B0053DB2A /* DocSurgeryController.m */,
-				6540B7E21B2D4C6B0053DB2A /* DocSurgeryController.xib */,
-				6540B7E31B2D4C6B0053DB2A /* DocTemController.h */,
-				6540B7E41B2D4C6B0053DB2A /* DocTemController.m */,
-				6540B7E51B2D4C6B0053DB2A /* DocTemController.xib */,
 				6540B7E81B2D4C6B0053DB2A /* PostedFreeFController.h */,
 				6540B7E91B2D4C6B0053DB2A /* PostedFreeFController.m */,
 				6540B7EA1B2D4C6B0053DB2A /* PostedStubbornController.h */,
@@ -1941,8 +1921,6 @@
 				6540B83C1B2D570D0053DB2A /* InviteDocMsgCell.h */,
 				6540B83D1B2D570D0053DB2A /* InviteDocMsgCell.m */,
 				6540B83E1B2D570D0053DB2A /* InviteDocMsgCell.xib */,
-				6540B8561B2D90660053DB2A /* InviteDetailView.h */,
-				6540B8571B2D90660053DB2A /* InviteDetailView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2804,6 +2782,10 @@
 				65CFC6CC1B52586A00A881B6 /* MyInviteDetailController.m */,
 				65A9D7041B4FA89E0014F27B /* MyConsultController.h */,
 				65A9D7051B4FA89E0014F27B /* MyConsultController.m */,
+				65CC8A271B535D4E00ED584F /* MyConsultViewController.h */,
+				65CC8A281B535D4E00ED584F /* MyConsultViewController.m */,
+				65CC8A241B5355DF00ED584F /* LDMessageController.h */,
+				65CC8A251B5355DF00ED584F /* LDMessageController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2826,7 +2808,6 @@
 				65B44DC11B3164C000371EBB /* DoctorTabbarController.m */,
 				65D38DD61B4F66B6006CE3AD /* DoctorPlatformController.h */,
 				65D38DD71B4F66B6006CE3AD /* DoctorPlatformController.m */,
-				65D38DD81B4F66B6006CE3AD /* DoctorPlatformController.xib */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -3062,6 +3043,7 @@
 		65CAB25F1B241130005DAED4 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				65FAA3351B53B2C100FFE897 /* View */,
 				6540B82A1B2D4E640053DB2A /* RecruitMessage.h */,
 				6540B82B1B2D4E640053DB2A /* RecruitMessage.m */,
 			);
@@ -3257,8 +3239,6 @@
 		65CDDE1D1B2E64EA00628862 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				65CDDE1E1B2E64EA00628862 /* AppendInviteViewController.h */,
-				65CDDE1F1B2E64EA00628862 /* AppendInviteViewController.m */,
 				65CDDE201B2E64EA00628862 /* FreeInviteController.h */,
 				65CDDE211B2E64EA00628862 /* FreeInviteController.m */,
 				65CDDE221B2E64EA00628862 /* InviteDetailController.h */,
@@ -3275,6 +3255,10 @@
 				65C58C201B325E5E00D3A013 /* SexDelegate.m */,
 				65C58C221B32607E00D3A013 /* InvitePurposeDelegate.h */,
 				65C58C231B32607E00D3A013 /* InvitePurposeDelegate.m */,
+				656438CB1B54A8FD00436EAF /* LDInputController.h */,
+				656438CC1B54A8FD00436EAF /* LDInputController.m */,
+				656438CE1B54A9C600436EAF /* AppendInviteController.h */,
+				656438CF1B54A9C600436EAF /* AppendInviteController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3284,6 +3268,10 @@
 			children = (
 				6536D6131B2E79DA00539F47 /* PatienInviteDetail.h */,
 				6536D6141B2E79DA00539F47 /* PatienInviteDetail.m */,
+				656438C51B54A27200436EAF /* LDInputMessage.h */,
+				656438C61B54A27200436EAF /* LDInputMessage.m */,
+				656438D41B54E1B700436EAF /* CommitMessage.h */,
+				656438D51B54E1B700436EAF /* CommitMessage.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3329,10 +3317,13 @@
 		65CDDE2F1B2E64EA00628862 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				65CDDE301B2E64EA00628862 /* InviteDoctorView.h */,
-				65CDDE311B2E64EA00628862 /* InviteDoctorView.m */,
 				65C58C2B1B328E2C00D3A013 /* AppendInviteView.h */,
 				65C58C2C1B328E2C00D3A013 /* AppendInviteView.m */,
+				65CC8A2A1B5396F700ED584F /* FreeInviteHeaderView.h */,
+				65CC8A2B1B5396F700ED584F /* FreeInviteHeaderView.m */,
+				65CC8A2D1B53970600ED584F /* FreeInviteHeaderView.xib */,
+				656438D11B54D34000436EAF /* LDInputView.h */,
+				656438D21B54D34000436EAF /* LDInputView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3394,8 +3385,6 @@
 		65CDDE3F1B2E657400628862 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				65C58C371B32A2BB00D3A013 /* AppendRewardView.h */,
-				65C58C381B32A2BB00D3A013 /* AppendRewardView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3414,8 +3403,6 @@
 		65CFC6CE1B526DB800A881B6 /* VIew */ = {
 			isa = PBXGroup;
 			children = (
-				65CFC6CF1B526DF200A881B6 /* DoctorPlatformButton.h */,
-				65CFC6D01B526DF200A881B6 /* DoctorPlatformButton.m */,
 			);
 			name = VIew;
 			sourceTree = "<group>";
@@ -3873,6 +3860,15 @@
 			name = Delegate;
 			sourceTree = "<group>";
 		};
+		65FAA3351B53B2C100FFE897 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				65FAA3391B53B2FA00FFE897 /* LDPlatformButton.h */,
+				65FAA33A1B53B2FA00FFE897 /* LDPlatformButton.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		B05194B11B4784BE0033CA7E /* Chat */ = {
 			isa = PBXGroup;
 			children = (
@@ -4060,7 +4056,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				654861961B4E5C35001B25CA /* ArrangementDetailController.xib in Resources */,
-				65D38DDA1B4F66B6006CE3AD /* DoctorPlatformController.xib in Resources */,
 				6554543F1AFCA59D00C4BFFA /* MJPhotoBrowser.bundle in Resources */,
 				65018D5C1B3BDF7E00A07615 /* MultiInviteDetailController.xib in Resources */,
 				6553FD071B33AFE3009ABD4D /* DepartmentCell.xib in Resources */,
@@ -4077,7 +4072,6 @@
 				65D5270E1B2A95D600CF4FC4 /* RecruitDetailController.xib in Resources */,
 				65E254631B423B4C009B0525 /* hotdepartment.plist in Resources */,
 				65AE9D781B4D186000627EFA /* AppendCaseController.xib in Resources */,
-				6540B80E1B2D4C6B0053DB2A /* DocSurgeryController.xib in Resources */,
 				654A30C31B00896C0043821B /* MJRefresh.bundle in Resources */,
 				B051950F1B47D1110033CA7E /* ChatToolView.xib in Resources */,
 				65CAB2D71B241317005DAED4 /* ReviewController.xib in Resources */,
@@ -4087,12 +4081,10 @@
 				65D527221B2A95D600CF4FC4 /* ResumeCell.xib in Resources */,
 				65C5638C1B1EB4E4007FC968 /* property.json in Resources */,
 				65D527201B2A95D600CF4FC4 /* EmployeeCell.xib in Resources */,
-				6540B8101B2D4C6B0053DB2A /* DocTemController.xib in Resources */,
+				65CC8A2E1B53970600ED584F /* FreeInviteHeaderView.xib in Resources */,
 				65E254611B4231EB009B0525 /* hotarea.plist in Resources */,
-				65A9D6F61B4F91F70014F27B /* DocForwardController.xib in Resources */,
 				6516A6951B12F807006B9BBB /* department.json in Resources */,
 				65CFC6AD1B522F2F00A881B6 /* MyAppliatDetailController.xib in Resources */,
-				6540B80C1B2D4C6B0053DB2A /* DocStubbornController.xib in Resources */,
 				65CC3F611B0F0A410099A3F3 /* CheckInForgetController.xib in Resources */,
 				B0C32E1F1B3AFBAA008E057C /* MultiJobCell.xib in Resources */,
 				655454731AFCA59D00C4BFFA /* Info.plist in Resources */,
@@ -4147,6 +4139,7 @@
 				65CFC7BF1B185F8F007F7062 /* AFURLConnectionOperation.m in Sources */,
 				6558CD761B2ABDBF005E7685 /* PostExpertViewController.m in Sources */,
 				655454451AFCA59D00C4BFFA /* SDWebImageManager+MJ.m in Sources */,
+				65FAA33B1B53B2FA00FFE897 /* LDPlatformButton.m in Sources */,
 				6554544F1AFCA59D00C4BFFA /* SDWebImageDecoder.m in Sources */,
 				65BE8EE11B2578AB006B9E89 /* UITextField+LD.m in Sources */,
 				65AE9D541B4CE50B00627EFA /* DepartmentManager.m in Sources */,
@@ -4175,6 +4168,7 @@
 				65C6B24E1B043174000BAFC6 /* ARSegmentPageController.m in Sources */,
 				655454321AFCA59D00C4BFFA /* MBProgressHUD+MJ.m in Sources */,
 				650E60811B33FF3B00CFF569 /* ForwardView.m in Sources */,
+				656438CD1B54A8FD00436EAF /* LDInputController.m in Sources */,
 				655454341AFCA59D00C4BFFA /* MBProgressHUD.m in Sources */,
 				6540B82C1B2D4E640053DB2A /* RecruitMessage.m in Sources */,
 				65CAB2D91B241317005DAED4 /* ZonePickerDelegate.m in Sources */,
@@ -4216,11 +4210,11 @@
 				655454381AFCA59D00C4BFFA /* MJMethod.m in Sources */,
 				6558CD691B2AB96A005E7685 /* SetChargeTool.m in Sources */,
 				B05195181B47EB000033CA7E /* MessageFrame.m in Sources */,
-				65CDDE321B2E64EA00628862 /* AppendInviteViewController.m in Sources */,
 				655453F81AFCA59D00C4BFFA /* Doctor.m in Sources */,
 				B08824871B52A549002F9A7D /* LDMessageViewController.m in Sources */,
 				656C4EDD1B2854FC005D7B0D /* NiyaoDelegate.m in Sources */,
 				65CDDE451B2E6B5900628862 /* PatientInviteListTool.m in Sources */,
+				65CC8A261B5355DF00ED584F /* LDMessageController.m in Sources */,
 				B0B661651B47EE89003FB8BB /* NSString+Extension.m in Sources */,
 				654861831B4E4F1A001B25CA /* ReleaseArrangeTool.m in Sources */,
 				655454581AFCA59D00C4BFFA /* UIImageView+WebCache.m in Sources */,
@@ -4263,6 +4257,7 @@
 				6554543E1AFCA59D00C4BFFA /* MJPhoto.m in Sources */,
 				6536D6151B2E79DA00539F47 /* PatienInviteDetail.m in Sources */,
 				651106C31B4118BC00F759DE /* SearchHosTool.m in Sources */,
+				65CC8A291B535D4E00ED584F /* MyConsultViewController.m in Sources */,
 				655420581B2EBE5200D70A08 /* ResponsedDoctorController.m in Sources */,
 				659842EA1B39369600499A68 /* HotAreaView.m in Sources */,
 				655454431AFCA59D00C4BFFA /* MJPhotoToolbar.m in Sources */,
@@ -4271,7 +4266,6 @@
 				654A30CD1B00896C0043821B /* UIScrollView+MJRefresh.m in Sources */,
 				65CDDE351B2E64EA00628862 /* PatientPlatformController.m in Sources */,
 				65F46D211B4BC36E006EC9DC /* AppendRecruitTool.m in Sources */,
-				6540B8581B2D90660053DB2A /* InviteDetailView.m in Sources */,
 				65AE9D641B4CF4D800627EFA /* ManagerDetail.m in Sources */,
 				B05195021B479B590033CA7E /* NSObject+SBJSON.m in Sources */,
 				65D812731B3AA29C00A1E0EC /* CaseDetailController.m in Sources */,
@@ -4279,13 +4273,13 @@
 				65C50C311B0D99010027455E /* LoginTool.m in Sources */,
 				65CAB2DA1B241317005DAED4 /* Department.m in Sources */,
 				65CFC7C21B185F8F007F7062 /* AFURLSessionManager.m in Sources */,
-				6540B80A1B2D4C6B0053DB2A /* DocForwardController.m in Sources */,
 				656A08D41B3BD40E0056588A /* EmployInfo.m in Sources */,
 				65E254691B426769009B0525 /* SearchCaseController.m in Sources */,
 				65D8125B1B3A87A600A1E0EC /* HospitalDetail.m in Sources */,
 				6554545E1AFCA59D00C4BFFA /* ActionSheetLocalePicker.m in Sources */,
 				655454421AFCA59D00C4BFFA /* MJPhotoProgressView.m in Sources */,
 				650E607E1B33FF2E00CFF569 /* TemporaryView.m in Sources */,
+				656438C71B54A27200436EAF /* LDInputMessage.m in Sources */,
 				65C6B2981B046EB8000BAFC6 /* PublicHomeController.m in Sources */,
 				652356B91B40E0B700BBEF16 /* HotDepartmentResult.m in Sources */,
 				655454231AFCA59D00C4BFFA /* IWNavigationController.m in Sources */,
@@ -4316,6 +4310,7 @@
 				6536D62A1B2EA3E500539F47 /* PatienAllDocController.m in Sources */,
 				6549963F1B02EA8D00FA33DC /* RecommendResult.m in Sources */,
 				65C888AA1B2C024D009056D3 /* ConsultDetailMessage.m in Sources */,
+				656438D61B54E1B700436EAF /* CommitMessage.m in Sources */,
 				65CAB2D61B241317005DAED4 /* ReviewController.m in Sources */,
 				65D812671B3A9A6600A1E0EC /* CaseDetail.m in Sources */,
 				65D8124F1B3A6CD000A1E0EC /* DoctorDetailParam.m in Sources */,
@@ -4324,7 +4319,6 @@
 				6558CD781B2ABDBF005E7685 /* PostLectureController.m in Sources */,
 				651106BD1B41186700F759DE /* SearchHosParam.m in Sources */,
 				6540B8151B2D4C6C0053DB2A /* PostedTemporaryController.m in Sources */,
-				65CFC6D11B526DF200A881B6 /* DoctorPlatformButton.m in Sources */,
 				6554546B1AFCA59D00C4BFFA /* IWSettingLabelItem.m in Sources */,
 				655454361AFCA59D00C4BFFA /* MJIvar.m in Sources */,
 				65CFC7C01B185F8F007F7062 /* AFURLRequestSerialization.m in Sources */,
@@ -4348,6 +4342,8 @@
 				B05195121B47D5590033CA7E /* ChatBaseViewController.m in Sources */,
 				656D17091B29321100C28FFA /* AchieveMentCell.m in Sources */,
 				B05195051B479B590033CA7E /* SBJsonBase.m in Sources */,
+				656438D01B54A9C600436EAF /* AppendInviteController.m in Sources */,
+				656438D31B54D34000436EAF /* LDInputView.m in Sources */,
 				65CAB2D11B241317005DAED4 /* WelcomeHosController.m in Sources */,
 				65CAB2DC1B241317005DAED4 /* LDEnterData.m in Sources */,
 				655453E51AFCA59D00C4BFFA /* NSDate+MJ.m in Sources */,
@@ -4384,7 +4380,6 @@
 				6516A6A41B1305B2006B9BBB /* HospitalLevel.m in Sources */,
 				65D527141B2A95D600CF4FC4 /* EmployDetailParam.m in Sources */,
 				655453F41AFCA59D00C4BFFA /* MultiJobController.m in Sources */,
-				6540B80F1B2D4C6B0053DB2A /* DocTemController.m in Sources */,
 				6548618C1B4E542D001B25CA /* Arrangement.m in Sources */,
 				65D527191B2A95D600CF4FC4 /* GetAcceptedResumeTool.m in Sources */,
 				6553FD0C1B33BD2F009ABD4D /* SurgeryModel.m in Sources */,
@@ -4441,7 +4436,6 @@
 				65C3D1C21B1BF3B20050F540 /* HospitalEnterTool.m in Sources */,
 				6554544C1AFCA59D00C4BFFA /* NSData+ImageContentType.m in Sources */,
 				6558CD7B1B2AC199005E7685 /* HospitalInfoParam.m in Sources */,
-				65C58C391B32A2BB00D3A013 /* AppendRewardView.m in Sources */,
 				655454241AFCA59D00C4BFFA /* IWTabBarViewController.m in Sources */,
 				655453EA1AFCA59D00C4BFFA /* CommonCell.m in Sources */,
 				65C563951B1ECC54007FC968 /* BaseResult.m in Sources */,
@@ -4453,7 +4447,6 @@
 				B051950D1B47D0F20033CA7E /* ChatToolView.m in Sources */,
 				6540B84F1B2D5F560053DB2A /* InviteDocDetail.m in Sources */,
 				654A30CE1B00896C0043821B /* UIView+MJExtension.m in Sources */,
-				65CDDE381B2E64EA00628862 /* InviteDoctorView.m in Sources */,
 				655454131AFCA59D00C4BFFA /* DocSearchResult.m in Sources */,
 				65D527051B2A95D600CF4FC4 /* DoctorResumeController.m in Sources */,
 				6554205E1B2ECCE100D70A08 /* PatientAcceptTool.m in Sources */,
@@ -4501,7 +4494,6 @@
 				650295E31B009575002249C0 /* MoreGroup.m in Sources */,
 				6554544D1AFCA59D00C4BFFA /* SDImageCache.m in Sources */,
 				6540B8171B2D4C6C0053DB2A /* DocStubbornModel.m in Sources */,
-				6540B80D1B2D4C6B0053DB2A /* DocSurgeryController.m in Sources */,
 				655453E61AFCA59D00C4BFFA /* UIBarButtonItem+MJ.m in Sources */,
 				655454151AFCA59D00C4BFFA /* MultiJobResult.m in Sources */,
 				65C25AA71B4E392D0099EB49 /* AppendArrangementController.m in Sources */,
@@ -4512,9 +4504,9 @@
 				65CFC7BE1B185F8F007F7062 /* AFSecurityPolicy.m in Sources */,
 				6558CD6C1B2ABD60005E7685 /* MessageTypeController.m in Sources */,
 				655454271AFCA59D00C4BFFA /* IWTabBarButton.m in Sources */,
-				6540B80B1B2D4C6B0053DB2A /* DocStubbornController.m in Sources */,
 				65CAB28A1B241130005DAED4 /* SurgeryViewController.m in Sources */,
 				65D5273E1B2AB8AA00CF4FC4 /* SetCharageParam.m in Sources */,
+				65CC8A2C1B5396F700ED584F /* FreeInviteHeaderView.m in Sources */,
 				653B84F01B3B97F100331252 /* PolicyDetailResult.m in Sources */,
 				6554541E1AFCA59D00C4BFFA /* HospitalCell.m in Sources */,
 				654A30CB1B00896C0043821B /* MJRefreshLegendHeader.m in Sources */,

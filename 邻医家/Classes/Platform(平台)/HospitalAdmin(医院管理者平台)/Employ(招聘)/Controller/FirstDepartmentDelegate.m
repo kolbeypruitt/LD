@@ -48,6 +48,11 @@
         HospitalEnterTextField *textfield = (HospitalEnterTextField *)origin;
         textfield.text = [self.selectedDepartment name];
         textfield.enterData.department = [self.selectedDepartment id];
+    }else if([origin isKindOfClass:[UITextField class]])
+    {
+        UITextField *textfield = (UITextField *)origin;
+        textfield.text = [self.selectedDepartment name];
+        textfield.tag = [self.selectedDepartment id];
     }
 }
 @end

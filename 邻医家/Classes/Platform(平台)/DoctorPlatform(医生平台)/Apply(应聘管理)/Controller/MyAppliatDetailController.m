@@ -5,7 +5,7 @@
 //  Created by Daniel on 15/7/12.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
-
+#import "UIBarButtonItem+ENTER.h"
 #import "MyAppliatDetailController.h"
 #import "ApplianTool.h"
 #import "LDMessageLabel.h"
@@ -26,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet LDMessageLabel *age;
 @property (weak, nonatomic) IBOutlet LDMessageLabel *profession;
 @property (weak, nonatomic) IBOutlet LDMessageLabel *qualification;
+@property (weak, nonatomic) IBOutlet UIButton *contactBtn;
 @property (nonatomic,strong) EmployDetail *employDetail;
 @end
 
@@ -62,11 +63,22 @@
     self.age.secondLabel.text =[NSString stringWithFormat:@"%d", employDetail.age];
     self.profession.secondLabel.text = employDetail.profession;
     self.qualification.secondLabel.text = employDetail.introduction;
+    
+    NSString *title = nil;
+    if (employDetail.status == 1) {
+        title = @"未录取";
+    }else if (employDetail.status == 2)
+    {
+        title = @"已录取";
+    }
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:nil action:nil title:title];
+    
 }
 - (void)setup
 {
     self.title = @"招聘详情";
     self.view.backgroundColor = BGCOLOR;
+    [self.contactBtn setTitleColor:IWColor(88, 202, 203) forState:UIControlStateNormal];
     
     self.titleMes.firstLabel.text = @"标题";
     self.jobtype.firstLabel.text = @"职位性质";

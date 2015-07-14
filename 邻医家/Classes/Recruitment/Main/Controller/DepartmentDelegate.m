@@ -90,7 +90,10 @@
 }
 - (void)actionSheetPickerDidSucceed:(AbstractActionSheetPicker *)actionSheetPicker origin:(id)origin
 {
-    if ([origin isKindOfClass:[UIButton class]]) {
+    if ([origin isKindOfClass:[UITextField class]]) {
+        UITextField *textfield = (UITextField *)origin;
+        textfield.text = [NSString stringWithFormat:@"%@ %@",self.firstContent,self.secondContent];
+        textfield.tag = self.choosedId;
     }else if([origin isKindOfClass:[HospitalEnterTextField class]])
     {
         HospitalEnterTextField *textfield = (HospitalEnterTextField *)origin;

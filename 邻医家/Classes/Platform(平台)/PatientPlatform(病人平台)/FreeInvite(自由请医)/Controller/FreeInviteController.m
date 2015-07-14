@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
 #import "MBProgressHUD+MJ.h"
+#import "AppendInviteController.h"
 #import "InviteDocMessage.h"
 #import "InviteDocMsgCell.h"
-#import "AppendInviteViewController.h"
 #import "FreeInviteController.h"
 #import "InviteDetailController.h"
 #import "Common.h"
@@ -93,11 +93,12 @@
 {
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self
                                                                       action:@selector(addInviteMessage)
-                                                                       title:@"添加"];
+                                                                       title:@"病情描述"];
 }
 - (void)addInviteMessage
 {
-    AppendInviteViewController *append = [[AppendInviteViewController alloc] init];
+//    AppendInviteViewController *append = [[AppendInviteViewController alloc] init];
+    AppendInviteController *append = [[AppendInviteController alloc] init];
     [self.navigationController pushViewController:append animated:YES];
 }
 #pragma mark - Table Datasource and Delegate
