@@ -125,6 +125,11 @@
             textfield.placeholder = [NSString stringWithFormat:@"%d",self.choosedCity.id];
             textfield.enterData.hospitalLocation = self.choosedCity.id;
         }
+    }else if([origin isKindOfClass:[UITextField class]])
+    {
+        UITextField *textfield = (UITextField *)origin;
+        textfield.text = [NSString stringWithFormat:@"%@ %@",self.selectedProvince,self.selectedCity];
+        textfield.tag = self.choosedCity.id;
     }
 }
 @end

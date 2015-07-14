@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 @protocol ApppendInviteViewDelegate <NSObject>
 @optional
-- (void)appendView:(AppendInviteView *)appendView commitedData:(AppendInviteParam *)dataParam;
+- (void)appendView:(AppendInviteView *)appendView commitedData:(NSDictionary *)dataParam;
 
 @end
 

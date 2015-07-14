@@ -48,6 +48,11 @@
         textfield.enterData.isvip = self.selectedChoice.type;
         textfield.enterData.ishospital = self.selectedChoice.type;
         textfield.enterData.gender = self.selectedChoice.type;
+    }else if([origin isKindOfClass:[UITextField class]])
+    {
+        UITextField *textField = (UITextField *)origin;
+        textField.text = self.selectedChoice.name;
+        textField.tag = self.selectedChoice.type;
     }
 }
 @end

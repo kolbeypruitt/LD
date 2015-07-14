@@ -13,9 +13,9 @@
 #import "AppendInviteTool.h"
 
 @implementation AppendInviteTool
-+ (void)appendInviteWithParam:(AppendInviteParam *)param success:(void (^)(BaseResult *))success failure:(void (^)(NSError *))failure
++ (void)appendInviteWithParam:(NSDictionary *)param success:(void (^)(BaseResult *))success failure:(void (^)(NSError *))failure
 {
-    [LDHttpTool getWithURL:APPENDINVITEURL params:param.keyValues success:^(id json) {
+    [LDHttpTool getWithURL:APPENDINVITEURL params:param success:^(id json) {
         if (success) {
             BaseResult *result = [BaseResult objectWithKeyValues:json];
             success(result);

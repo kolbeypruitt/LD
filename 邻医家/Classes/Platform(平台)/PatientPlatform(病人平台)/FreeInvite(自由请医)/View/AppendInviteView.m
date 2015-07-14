@@ -17,6 +17,7 @@
 #import "LDEnterData.h"
 #import "Common.h"
 #import "AppendInviteView.h"
+#import "MJExtension.h"
 @interface AppendInviteView () <UITextFieldDelegate,UIScrollViewDelegate>
 @property (nonatomic,weak) UIScrollView *scrollView;
 @property (nonatomic,strong) NSMutableArray *textFields;
@@ -114,14 +115,14 @@
 {
     if([self messageCompleted])
     {
-        AppendInviteParam *param = [self fillParam];
+        NSDictionary *param = [self fillParam];
         if ([self.delegate respondsToSelector:@selector(appendView:commitedData:)]) {
             [self.delegate appendView:self commitedData:param];
         }
         
     }
 }
-- (AppendInviteParam *)fillParam
+- (NSDictionary *)fillParam
 {
     AppendInviteParam *param = [[AppendInviteParam alloc] init];
     NSString *name = [[self.textFields objectAtIndex:0] text];
@@ -149,7 +150,9 @@
     param.purpose = purpose;
     param.isvip = isvip;
     param.remark = remark;
-    return param;
+    NSMutableDictionary *dictparam = [param.keyValues mutableCopy];
+    [dictparam setObject:@"ssss" forKey:@"description"];
+    return dictparam;
 }
 - (BOOL)messageCompleted
 {
