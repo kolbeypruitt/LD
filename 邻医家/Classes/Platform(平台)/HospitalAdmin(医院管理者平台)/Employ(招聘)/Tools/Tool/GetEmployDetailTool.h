@@ -5,11 +5,11 @@
 //  Created by Daniel on 15/6/11.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
-@class EmployDetailParam,EmployDetailResult;
+@class EmployDetailParam,EmployDetail;
 #import <Foundation/Foundation.h>
 
 @interface GetEmployDetailTool : NSObject
 + (void)getEmployDetailWithParam:(EmployDetailParam *)param
-                         success:(void (^)(EmployDetailResult *result))success
+                         success:(void (^)(EmployDetail *result))success
                          failure:(void (^)(NSError *error))failure;
 @end

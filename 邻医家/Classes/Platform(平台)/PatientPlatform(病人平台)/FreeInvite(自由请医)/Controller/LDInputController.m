@@ -35,7 +35,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setup];
+    [self setupLD];
 }
 - (void)addCustomViews
 {
@@ -91,7 +91,7 @@
         self.commitBtn.frame = CGRectMake(btnX, btnY, btnW, btnH);
     }
 }
-- (void)setup
+- (void)setupLD
 {
     self.view.backgroundColor = BGCOLOR;
 }

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -13,32 +14,50 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="light_blue_point" translatesAutoresizingMaskIntoConstraints="NO" id="r2p-pK-My7">
-                        <rect key="frame" x="10" y="26" width="16" height="16"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cut_7" translatesAutoresizingMaskIntoConstraints="NO" id="r2p-pK-My7">
+                        <rect key="frame" x="16" y="14" width="35" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="bu1-o6-Jjn"/>
+                            <constraint firstAttribute="width" constant="35" id="vof-gD-xjh"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ULk-3G-hmw">
-                        <rect key="frame" x="34" y="8" width="333" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ULk-3G-hmw">
+                        <rect key="frame" x="61" y="10" width="316" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="oId-YV-fdl"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fzo-pF-yXL">
-                        <rect key="frame" x="34" y="34" width="333" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fzo-pF-yXL">
+                        <rect key="frame" x="61" y="37" width="316" height="20"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.31577493690000003" green="0.1241717752" blue="0.104436211" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="fzo-pF-yXL" firstAttribute="leading" secondItem="ULk-3G-hmw" secondAttribute="leading" id="8wX-iV-0rQ"/>
+                    <constraint firstItem="fzo-pF-yXL" firstAttribute="bottom" secondItem="wBs-ni-3Zt" secondAttribute="bottomMargin" constant="2" id="Bja-4h-Bwe"/>
+                    <constraint firstItem="ULk-3G-hmw" firstAttribute="trailing" secondItem="wBs-ni-3Zt" secondAttribute="trailingMargin" constant="10" id="Ie2-Zw-A0Q"/>
+                    <constraint firstItem="fzo-pF-yXL" firstAttribute="width" secondItem="ULk-3G-hmw" secondAttribute="width" id="Jme-fG-aFu"/>
+                    <constraint firstAttribute="centerY" secondItem="r2p-pK-My7" secondAttribute="centerY" id="V43-wp-tts"/>
+                    <constraint firstItem="fzo-pF-yXL" firstAttribute="height" secondItem="ULk-3G-hmw" secondAttribute="height" id="XQB-Qs-pvK"/>
+                    <constraint firstItem="ULk-3G-hmw" firstAttribute="top" secondItem="wBs-ni-3Zt" secondAttribute="topMargin" constant="2" id="hN1-iB-Fud"/>
+                    <constraint firstItem="r2p-pK-My7" firstAttribute="leading" secondItem="wBs-ni-3Zt" secondAttribute="leadingMargin" constant="8" id="trv-9g-EIq"/>
+                    <constraint firstItem="ULk-3G-hmw" firstAttribute="leading" secondItem="r2p-pK-My7" secondAttribute="trailing" constant="10" id="vff-f9-QyM"/>
+                </constraints>
             </tableViewCellContentView>
             <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
                 <outlet property="timeLabel" destination="fzo-pF-yXL" id="cJF-KD-FCM"/>
                 <outlet property="titleLabel" destination="ULk-3G-hmw" id="iVA-xQ-GfA"/>
             </connections>
-            <point key="canvasLocation" x="344.5" y="125"/>
+            <point key="canvasLocation" x="209.5" y="125"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="light_blue_point" width="16" height="16"/>
+        <image name="Cut_7" width="70" height="70"/>
     </resources>
 </document>

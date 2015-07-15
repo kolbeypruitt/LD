@@ -7,16 +7,16 @@
 //
 #import "LDHttpTool.h"
 #import "EmployDetailParam.h"
-#import "EmployDetailResult.h"
+#import "EmployDetail.h"
 #import "GetEmployDetailTool.h"
 #import "MJExtension.h"
 #import "Common.h"
 @implementation GetEmployDetailTool
-+ (void)getEmployDetailWithParam:(EmployDetailParam *)param success:(void (^)(EmployDetailResult *))success failure:(void (^)(NSError *))failure
++ (void)getEmployDetailWithParam:(EmployDetailParam *)param success:(void (^)(EmployDetail *))success failure:(void (^)(NSError *))failure
 {
     [LDHttpTool getWithURL:GETEMPLOYDETAILURL params:param.keyValues success:^(id json) {
         if (success) {
-            EmployDetailResult *result = [EmployDetailResult objectWithKeyValues:json];
+            EmployDetail *result = [EmployDetail objectWithKeyValues:json];
             success(result);
         }
     } failure:^(NSError *error) {

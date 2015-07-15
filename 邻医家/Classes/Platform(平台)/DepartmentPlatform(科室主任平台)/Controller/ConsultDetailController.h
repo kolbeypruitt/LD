@@ -6,8 +6,7 @@
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
 @class ConsultMessage;
-#import <UIKit/UIKit.h>
-
-@interface ConsultDetailController : UIViewController
+#import "LDMessageController.h"
+@interface ConsultDetailController : LDMessageController
 @property (nonatomic,strong) ConsultMessage *message;
 @end

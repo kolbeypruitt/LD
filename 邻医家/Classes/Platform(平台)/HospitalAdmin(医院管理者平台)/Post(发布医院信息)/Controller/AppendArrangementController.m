@@ -20,11 +20,10 @@
 #import "LDNotification.h"
 #import "MBProgressHUD+MJ.h"
 #import "BaseResult.h"
+#import "CommitMessage.h"
+#import "TimeDeletage.h"
+#import "LDInputMessage.h"
 @interface AppendArrangementController ()<UITextFieldDelegate>
-@property (weak, nonatomic) IBOutlet UITextField *nameField;
-@property (weak, nonatomic) IBOutlet HospitalEnterTextField *arrangeField;
-@property (weak, nonatomic) IBOutlet HospitalEnterTextField *departmentField;
-@property (weak, nonatomic) IBOutlet UITextField *timeField;
 
 @end
 
@@ -38,13 +37,21 @@
 {
     self.title = @"发布专家坐诊信息";
     self.view.backgroundColor = BGCOLOR;
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(commit) title:@"提交"];
+    [self addMessages];
 }
-- (void)commit
+- (void)addMessages
 {
-    if ([self messageIsComplete]) {
-        ReleaseArrangeParam *param = [self fillParam];
-        [ReleaseArrangeTool releaseArrangeWithParam:param success:^(BaseResult *result) {
+    
+    LDInputMessage *message0 = [LDInputMessage messageWithFirstTitle:@"专家姓名" placeHolder:@"请输入专家姓名" optionDelegate:nil];
+    LDInputMessage *message1 = [LDInputMessage messageWithFirstTitle:@"坐诊时间" placeHolder:@"请选择坐诊时间" optionDelegate:[[TimeDeletage alloc] init]];
+    LDInputMessage *message2 = [LDInputMessage messageWithFirstTitle:@"科室" placeHolder:@"请选择科室" optionDelegate:[[DepartmentDelegate alloc] init]];
+    LDInputMessage *message3 = [LDInputMessage messageWithFirstTitle:@"临床职称" placeHolder:@"请选择临床职称" optionDelegate:[[CareerDelegate alloc] init]];
+    self.inputMessages = @[message0,message1,message2,message3];
+}
+- (void)commitBtnClicked
+{
+    if ([self messageComplete]) {
+        [ReleaseArrangeTool releaseArrangeWithParam:[self fillParam] success:^(BaseResult *result) {
             if ([result.status isEqualToString:SUCCESSSTATUS]) {
                 [DefaultCenter postNotificationName:RELEASEARRANGESUCCESSNOTIFICATION object:self];
                 [self.navigationController popViewControllerAnimated:YES];
@@ -54,33 +61,14 @@
         }];
     }
 }
-- (BOOL)messageIsComplete
-{
-    if (self.nameField.text.length == 0) {
-        [MBProgressHUD showError:@"请输入姓名"];
-        return NO;
-    }
-    if (self.timeField.text.length == 0) {
-        [MBProgressHUD showError:@"请输入坐诊时间"];
-        return NO;
-    }
-    if (self.departmentField.text.length == 0) {
-        [MBProgressHUD showError:@"请输入科室"];
-        return NO;
-    }
-    if (self.arrangeField.text.length == 0) {
-        [MBProgressHUD showError:@"请输入临床职称"];
-        return NO;
-    }
-    return YES;
-}
+
 - (ReleaseArrangeParam *)fillParam
 {
     ReleaseArrangeParam *param = [[ReleaseArrangeParam alloc] init];
-    param.name = self.nameField.text;
-    param.timePeriod = self.timeField.text;
-    param.department = self.departmentField.enterData.department;
-    param.techtitle = self.arrangeField.enterData.techtile;
+    param.name =  [self.commitMessages[0] stringMsg];
+    param.timePeriod =  [self.commitMessages[1] stringMsg];
+    param.department = [self.commitMessages[2] intMsg];
+    param.techtitle = [self.commitMessages[3] intMsg];
     return param;
 }
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField

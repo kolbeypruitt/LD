@@ -9,6 +9,5 @@
 #import "LDBaseParam.h"
 
 @interface EmployDetailParam : LDBaseParam
-@property (nonatomic,assign) int id;
 + (instancetype)paramWithId:(int)ID;
 @end

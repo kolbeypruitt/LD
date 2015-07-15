@@ -5,6 +5,7 @@
 //  Created by Daniel on 15/6/19.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "LDMessage.h"
 #import "WithDrawConsultTool.h"
 #import "UIBarButtonItem+ENTER.h"
 #import "ConsultDetailController.h"
@@ -12,17 +13,12 @@
 #import "ConsultDetailTool.h"
 #import "ConsultDetailParam.h"
 #import "ConsutlDetailResult.h"
-#import "MJExtension.h"
 #import "SurgeryModel.h"
 #import "Common.h"
 #import "StubbornModel.h"
 #import "TemporaryModel.h"
 #import "ForwardModel.h"
-#import "SurgeryView.h"
-#import "StubbornView.h"
 #import "BaseResult.h"
-#import "ForwardView.h"
-#import "TemporaryView.h"
 #import "LDNotification.h"
 @interface ConsultDetailController ()
 @property (nonatomic,strong) SurgeryModel *surgeryModel;
@@ -31,10 +27,6 @@
 @property (nonatomic,strong) ForwardModel *forModel;
 @property (nonatomic,strong) ConsutlDetailResult *result;
 
-@property (nonatomic,weak) SurgeryView *surView;
-@property (nonatomic,weak) StubbornView *stubbView;
-@property (nonatomic,weak) TemporaryView *tempView;
-@property (nonatomic,weak) ForwardView *forView;
 @end
 
 @implementation ConsultDetailController
@@ -42,7 +34,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setup];
-    [self addCustomViews];
     [self loadData];
 }
 - (void)setup
@@ -63,28 +54,7 @@
         
     }];
 }
-- (void)addCustomViews
-{
-    SurgeryView *surView = [[SurgeryView alloc] initWithFrame:self.view.bounds];
-    surView.hidden = YES;
-    self.surView = surView;
-    [self.view addSubview:surView];
-    
-    StubbornView *stubbView = [[StubbornView alloc] initWithFrame:self.view.bounds];
-    stubbView.hidden = YES;
-    self.stubbView = stubbView;
-    [self.view addSubview:stubbView];
-    
-    TemporaryView *temView = [[TemporaryView alloc] initWithFrame:self.view.bounds];
-    temView.hidden = YES;
-    self.tempView = temView;
-    [self.view addSubview:temView];
-    
-    ForwardView *forView = [[ForwardView alloc] initWithFrame:self.view.bounds];
-    forView.hidden = YES;
-    self.forView = forView;
-    [self.view addSubview:forView];
-}
+
 - (void)loadData
 {
     ConsultDetailParam *param = [ConsultDetailParam paramWithId:self.message.id];
@@ -97,27 +67,80 @@
 - (void)setResult:(ConsutlDetailResult *)result
 {
     _result = result;
+    self.singleLine = NO;
+    
     if (result.type == 1)
     {//开刀
         self.surgeryModel = (SurgeryModel *)result;
-        self.surView.model = self.surgeryModel;
-        self.surView.hidden = NO;
     }else if(result.type == 2)
     {//疑难杂症
         self.stubbornModel = (StubbornModel *)result;
-        self.stubbView.hidden = NO;
-        self.stubbView.model = self.stubbornModel;
     }else if(result.type == 3)
     {//临时会诊
         self.temModel = (TemporaryModel *)result;
-        self.tempView.hidden = NO;
-        self.tempView.model = self.temModel;
     }else if(result.type == 4)
     {//转诊
         self.forModel = (ForwardModel *)result;
-        self.forView.hidden = NO;
-        self.forView.model = self.forModel;
     }
+}
+- (void)setSurgeryModel:(SurgeryModel *)surgeryModel
+{
+    _surgeryModel = surgeryModel;
+    LDMessage *message0 = [LDMessage messageWithFirstTitle:@"科室" secondTitle:surgeryModel.department];
+    LDMessage *message1 = [LDMessage messageWithFirstTitle:@"疾病名称" secondTitle:surgeryModel.illness];
+    LDMessage *message2 = [LDMessage messageWithFirstTitle:@"手术名称" secondTitle:surgeryModel.opreationName];
+    LDMessage *message3 = [LDMessage messageWithFirstTitle:@"手术台数" secondTitle:[NSString stringWithFormat:@"%d",surgeryModel.operationNum]];
+    LDMessage *message4 = [LDMessage messageWithFirstTitle:@"手术约定时间" secondTitle:surgeryModel.time];
+    LDMessage *message5 = [LDMessage messageWithFirstTitle:@"手术约定地址" secondTitle:surgeryModel.location];
+    LDMessage *message6 = [LDMessage messageWithFirstTitle:@"详细地址" secondTitle:surgeryModel.address];
+    LDMessage *message7 = [LDMessage messageWithFirstTitle:@"医院名称" secondTitle:surgeryModel.hospital];
+    LDMessage *message8 = [LDMessage messageWithFirstTitle:@"拟邀医生技术职位" secondTitle:surgeryModel.jobType];
+    LDMessage *message9 = [LDMessage messageWithFirstTitle:@"是否住院" secondTitle:surgeryModel.ishospital];
+    self.messages = @[message0,message1,message2,message3,message4,message5,message6,message7,message8,message9];
+}
+- (void)setStubbornModel:(StubbornModel *)stubbornModel
+{
+    _stubbornModel = stubbornModel;
+    LDMessage *message0 = [LDMessage messageWithFirstTitle:@"科室" secondTitle:stubbornModel.department];
+    LDMessage *message1 = [LDMessage messageWithFirstTitle:@"待查疾病名称" secondTitle:stubbornModel.illness];
+    LDMessage *message2 = [LDMessage messageWithFirstTitle:@"患者病例摘要" secondTitle:stubbornModel.caseAbstract];
+    LDMessage *message3 = [LDMessage messageWithFirstTitle:@"会诊约定时间" secondTitle:stubbornModel.time];
+    LDMessage *message4 = [LDMessage messageWithFirstTitle:@"会诊约定地址" secondTitle:stubbornModel.location];
+    LDMessage *message5 = [LDMessage messageWithFirstTitle:@"详细地址" secondTitle:stubbornModel.address];
+    LDMessage *message6 = [LDMessage messageWithFirstTitle:@"医院名称" secondTitle:stubbornModel.hospital];
+    LDMessage *message7 = [LDMessage messageWithFirstTitle:@"拟邀医生技术职位" secondTitle:stubbornModel.jobType];
+    LDMessage *message8 = [LDMessage messageWithFirstTitle:@"是否住院" secondTitle:stubbornModel.ishospital];
+    self.messages = @[message0,message1,message2,message3,message4,message5,message6,message7,message8];
+}
+- (void)setTemModel:(TemporaryModel *)temModel
+{
+    _temModel = temModel;
+    LDMessage *message0 = [LDMessage messageWithFirstTitle:@"科室" secondTitle:temModel.department];
+    LDMessage *message1 = [LDMessage messageWithFirstTitle:@"临时会诊时间" secondTitle:temModel.time];
+    LDMessage *message2 = [LDMessage messageWithFirstTitle:@"临时坐诊地址" secondTitle:temModel.location];
+    LDMessage *message3 = [LDMessage messageWithFirstTitle:@"详细地址" secondTitle:temModel.address];
+    LDMessage *message4 = [LDMessage messageWithFirstTitle:@"医院名称" secondTitle:temModel.hospital];
+    LDMessage *message5 = [LDMessage messageWithFirstTitle:@"拟邀医生技术职位" secondTitle:temModel.jobType];
+    LDMessage *message6 = [LDMessage messageWithFirstTitle:@"是否住院" secondTitle:temModel.ishospital];
+    self.messages = @[message0,message1,message2,message3,message4,message5,message6];
+}
+- (void)setForModel:(ForwardModel *)forModel
+{
+    _forModel = forModel;
+    LDMessage *message0 = [LDMessage messageWithFirstTitle:@"科室" secondTitle:forModel.department];
+    LDMessage *message1 = [LDMessage messageWithFirstTitle:@"病人姓名" secondTitle:forModel.patientName];
+    LDMessage *message2 = [LDMessage messageWithFirstTitle:@"身份证号" secondTitle:forModel.idcardNo];
+    LDMessage *message3 = [LDMessage messageWithFirstTitle:@"最后一次就医医院" secondTitle:forModel.lastHospitalDepartment];
+    LDMessage *message4 = [LDMessage messageWithFirstTitle:@"最后一次疾病诊断" secondTitle:forModel.lastDiagnose];
+    LDMessage *message5 = [LDMessage messageWithFirstTitle:@"拟转诊就医地址" secondTitle:forModel.locationToGo];
+    LDMessage *message6 = [LDMessage messageWithFirstTitle:@"详细地址" secondTitle:forModel.addressToGo];
+    LDMessage *message7 = [LDMessage messageWithFirstTitle:@"接诊医师的专业" secondTitle:forModel.profession];
+    LDMessage *message8 = [LDMessage messageWithFirstTitle:@"接诊医师的职务" secondTitle:forModel.jobType];
+    LDMessage *message9 = [LDMessage messageWithFirstTitle:@"是否住院" secondTitle:forModel.ishospital];
+    LDMessage *message10 = [LDMessage messageWithFirstTitle:@"转诊的目的" secondTitle:forModel.purpose];
+    LDMessage *message11 = [LDMessage messageWithFirstTitle:@"是否需要VIP" secondTitle:forModel.isVIP];
+    LDMessage *message12 = [LDMessage messageWithFirstTitle:@"是否需要抢救" secondTitle:forModel.idfirstaid];
+    self.messages =  @[message0,message1,message2,message3,message4,message5,message6,message7,message8,message9,message10,message11,message12];
 }
 
 @end

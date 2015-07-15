@@ -5,6 +5,8 @@
 //  Created by Daniel on 15/6/12.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "LDInputMessage.h"
+#import "CommitMessage.h"
 #import "BaseResult.h"
 #import "ActionSheetCustomPicker+LD.h"
 #import "SetChargeTool.h"
@@ -17,13 +19,6 @@
 #import "LDNotification.h"
 #import "SetCharageParam.h"
 @interface AssignDepartmentController () <UITextFieldDelegate>
-@property (weak, nonatomic) IBOutlet UIButton *commitBtn;
-@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
-@property (weak, nonatomic) IBOutlet UITextField *telnumTextField;
-@property (weak, nonatomic) IBOutlet HospitalEnterTextField *chooseTextField;
-@property (weak, nonatomic) IBOutlet UITextField *phoneTextfield;
-@property (weak, nonatomic) IBOutlet UITextField *introductionTextfield;
-@property (weak, nonatomic) IBOutlet UITextField *mailTextfield;
 
 @end
 
@@ -35,27 +30,27 @@
 }
 - (void)setup
 {
-    self.title = @"指定科室负责人";
+    self.title = @"科室权限分配";
     self.view.backgroundColor = IWColor(226, 226, 226);
     self.navigationItem.rightBarButtonItem = nil;
-    [self setupButton];
-    [self setupTextField];
+    [self addMessages];
 }
-- (void)setupTextField
+
+- (void)addMessages
 {
-    self.chooseTextField.delegate = self;
+    
+    LDInputMessage *message0 = [LDInputMessage messageWithFirstTitle:@"姓名" placeHolder:@"请输入姓名" optionDelegate:nil];
+    LDInputMessage *message1 = [LDInputMessage messageWithFirstTitle:@"手机号" placeHolder:@"请输入手机号" optionDelegate:nil];
+    LDInputMessage *message2 = [LDInputMessage messageWithFirstTitle:@"座机号" placeHolder:@"请输入座机号" optionDelegate:nil];
+    LDInputMessage *message3 = [LDInputMessage messageWithFirstTitle:@"邮箱" placeHolder:@"请输入邮箱" optionDelegate:nil];
+    LDInputMessage *message4 = [LDInputMessage messageWithFirstTitle:@"科室" placeHolder:@"请选择科室" optionDelegate:[[FirstDepartmentDelegate alloc] init]];
+    LDInputMessage *message5 = [LDInputMessage messageWithFirstTitle:@"科室简介" placeHolder:@"请输入科室简介" optionDelegate:nil];
+    self.inputMessages = @[message0,message1,message2,message3,message4,message5];
 }
-- (void)setupButton
+- (void)commitBtnClicked
 {
-    [self.commitBtn addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
-}
-- (void)buttonClicked:(UIButton *)button
-{
-    if ([self isCompleteMessage]) {
-        
-        SetCharageParam *param = [self fillParam];
-        
-        [SetChargeTool setChargeWithParam:param success:^(BaseResult *result) {
+    if ([self messageComplete]) {
+            [SetChargeTool setChargeWithParam:[self fillParam] success:^(BaseResult *result) {
             if ([result.status isEqualToString:@"S"]) {
                 [DefaultCenter postNotificationName:MANAGERLISTREFRESHNOTIFICATION object:self];
                 [self.navigationController popViewControllerAnimated:YES];
@@ -67,65 +62,26 @@
             
         }];
     }
-    
-    
+
 }
 - (SetCharageParam *)fillParam
 {
     SetCharageParam *param = [[SetCharageParam alloc] init];
-    param.name = self.nameTextField.text;
-    param.telnum = self.telnumTextField.text;
-    param.phone = self.phoneTextfield.text;
-    param.mailbox = self.mailTextfield.text;
-    param.id = self.chooseTextField.enterData.department;
-    param.introduction = self.introductionTextfield.text;
+    param.name = [self.commitMessages[0] stringMsg];
+    param.telnum = [self.commitMessages[1] stringMsg];
+    param.phone = [self.commitMessages[2] stringMsg];
+    param.mailbox = [self.commitMessages[3] stringMsg];
+    param.department = [self.commitMessages[4] intMsg];
+    param.introduction = [self.commitMessages[5] stringMsg];
     return param;
 }
-- (BOOL)isCompleteMessage
-{
-    if (self.nameTextField.text.length == 0) {
-        [MBProgressHUD showError:self.nameTextField.placeholder];
-        return NO;
-    }
-    if (self.telnumTextField.text.length == 0) {
-        [MBProgressHUD showError:self.telnumTextField.placeholder];
-        return NO;
-    }
-    if (self.phoneTextfield.text.length == 0) {
-        [MBProgressHUD showError:self.phoneTextfield.placeholder];
-        return NO;
-    }
-    if (self.mailTextfield.text.length == 0) {
-        [MBProgressHUD showError:self.mailTextfield.placeholder];
-        return NO;
-    }
-    if (self.chooseTextField.text.length == 0) {
-        [MBProgressHUD showError:self.chooseTextField.placeholder];
-        return NO;
-    }
-    if (self.introductionTextfield.text.length == 0) {
-        [MBProgressHUD showError:self.introductionTextfield.placeholder];
-        return NO;
-    }
-    return YES;
-}
+
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [self.view endEditing:YES];
 }
 
-#pragma mark - UITextField Delegate Method
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
-{
-    if ([textField isEqual:self.chooseTextField]) {
-        ActionSheetCustomPicker *customPicker = [ActionSheetCustomPicker customPickerWithTitle:@"选择科室"
-                                                                                              delegate:[[FirstDepartmentDelegate alloc] init]
-                                                                                                origin:textField];
-                [customPicker showActionSheetPicker];
-        return NO;
-    }
-    return YES;
-}
+
 @end
 
 
