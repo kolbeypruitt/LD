@@ -1,37 +1,52 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="multijob" id="KGk-i7-Jjw" customClass="MultiJobCell">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="multijob" rowHeight="44" id="KGk-i7-Jjw" customClass="MultiJobCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="policy_point" translatesAutoresizingMaskIntoConstraints="NO" id="aC6-9Z-9ol">
-                        <rect key="frame" x="20" y="13" width="18" height="18"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cut_7" translatesAutoresizingMaskIntoConstraints="NO" id="aC6-9Z-9ol">
+                        <rect key="frame" x="18" y="4" width="35" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="5K4-OT-sLj"/>
+                            <constraint firstAttribute="width" constant="35" id="bHA-b7-oAq"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H83-m0-kCJ">
-                        <rect key="frame" x="46" y="11" width="266" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H83-m0-kCJ">
+                        <rect key="frame" x="63" y="12" width="259" height="20"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="3we-lJ-sER"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="centerY" secondItem="aC6-9Z-9ol" secondAttribute="centerY" id="L5A-4k-OfC"/>
+                    <constraint firstItem="H83-m0-kCJ" firstAttribute="centerY" secondItem="aC6-9Z-9ol" secondAttribute="centerY" id="OJR-Q6-XKg"/>
+                    <constraint firstItem="aC6-9Z-9ol" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="SBT-Ij-ozm"/>
+                    <constraint firstItem="H83-m0-kCJ" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="10" id="ZO2-NJ-rrz"/>
+                    <constraint firstItem="H83-m0-kCJ" firstAttribute="leading" secondItem="aC6-9Z-9ol" secondAttribute="trailing" constant="10" id="jdt-sx-VNk"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="spotView" destination="aC6-9Z-9ol" id="CrD-dU-TCP"/>
                 <outlet property="titleLabel" destination="H83-m0-kCJ" id="Ooz-lo-OLf"/>
             </connections>
-            <point key="canvasLocation" x="247" y="141"/>
+            <point key="canvasLocation" x="2" y="98"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="policy_point" width="18" height="18"/>
+        <image name="Cut_7" width="70" height="70"/>
     </resources>
 </document>

@@ -6,20 +6,22 @@
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
 #define BUTTONRADIUS 8
+#import "IWCommon.h"
+#import "LDPlatformButton.h"
 #import "RecruitMessageController.h"
 #import "PostDocRecruitController.h"
 #import "MultiInviteController.h"
 @interface RecruitMessageController ()
-@property (weak, nonatomic) IBOutlet UIButton *multiJobBtn;
-@property (weak, nonatomic) IBOutlet UIButton *inviteExpertBtn;
-@property (weak, nonatomic) IBOutlet UIButton *studyBtn;
-@property (weak, nonatomic) IBOutlet UIButton *postDocBtn;
-@property (weak, nonatomic) IBOutlet UIButton *practiceBtn;
-- (IBAction)mutiJobBtnClicked:(UIButton *)sender;
-- (IBAction)inviteExpertBtnClicked:(UIButton *)sender;
-- (IBAction)studyBtnClicked:(UIButton *)sender;
-- (IBAction)postDocBtnClicked:(UIButton *)sender;
-- (IBAction)practiceBtnClicked:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet LDPlatformButton *multiJobBtn;
+@property (weak, nonatomic) IBOutlet LDPlatformButton *inviteExpertBtn;
+@property (weak, nonatomic) IBOutlet LDPlatformButton *studyBtn;
+@property (weak, nonatomic) IBOutlet LDPlatformButton *postDocBtn;
+@property (weak, nonatomic) IBOutlet LDPlatformButton *practiceBtn;
+- (IBAction)mutiJobBtnClicked:(LDPlatformButton *)sender;
+- (IBAction)inviteExpertBtnClicked:(LDPlatformButton *)sender;
+- (IBAction)studyBtnClicked:(LDPlatformButton *)sender;
+- (IBAction)postDocBtnClicked:(LDPlatformButton *)sender;
+- (IBAction)practiceBtnClicked:(LDPlatformButton *)sender;
 
 @end
 
@@ -33,10 +35,25 @@
 - (void)setupBtn
 {
     self.multiJobBtn.layer.cornerRadius = BUTTONRADIUS;
+    [self setBtn:self.multiJobBtn bgColor:IWColor(135, 191, 221) image:@"nav4"];
     self.inviteExpertBtn.layer.cornerRadius = BUTTONRADIUS;
+    [self setBtn:self.inviteExpertBtn bgColor:IWColor(88, 202, 203) image:@"nav5"];
+    
     self.studyBtn.layer.cornerRadius = BUTTONRADIUS;
+    [self setBtn:self.studyBtn bgColor:IWColor(64, 197, 88) image:@"nav6"];
+    
     self.postDocBtn.layer.cornerRadius = BUTTONRADIUS;
+    [self setBtn:self.postDocBtn bgColor:IWColor(244, 96, 115) image:@"nav7"];
+    
     self.practiceBtn.layer.cornerRadius = BUTTONRADIUS;
+    [self setBtn:self.practiceBtn bgColor:IWColor(249, 161, 54) image:@"nav8"];
+}
+- (void)setBtn:(LDPlatformButton *)button bgColor:(UIColor *)color image:(NSString *)image
+{
+    [button setBackgroundColor:color];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    button.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [button setImage:[UIImage imageNamed:image] forState:UIControlStateNormal];
 }
 - (void)setup
 {
@@ -44,31 +61,31 @@
 }
 
 
-- (IBAction)mutiJobBtnClicked:(UIButton *)sender {
+- (IBAction)mutiJobBtnClicked:(LDPlatformButton *)sender {
     MultiInviteController *postVC = [[MultiInviteController alloc] init];
     postVC.title = sender.currentTitle;
     [self.navigationController pushViewController:postVC animated:YES];
 }
 
-- (IBAction)inviteExpertBtnClicked:(UIButton *)sender {
+- (IBAction)inviteExpertBtnClicked:(LDPlatformButton *)sender {
     PostDocRecruitController *postVC = [[PostDocRecruitController alloc] init];
     postVC.title = sender.currentTitle;
     [self.navigationController pushViewController:postVC animated:YES];
 }
 
-- (IBAction)studyBtnClicked:(UIButton *)sender {
+- (IBAction)studyBtnClicked:(LDPlatformButton *)sender {
     PostDocRecruitController *postVC = [[PostDocRecruitController alloc] init];
     postVC.title = sender.currentTitle;
     [self.navigationController pushViewController:postVC animated:YES];
 }
 
-- (IBAction)postDocBtnClicked:(UIButton *)sender {
+- (IBAction)postDocBtnClicked:(LDPlatformButton *)sender {
     PostDocRecruitController *postVC = [[PostDocRecruitController alloc] init];
     postVC.title = sender.currentTitle;
     [self.navigationController pushViewController:postVC animated:YES];
 }
 
-- (IBAction)practiceBtnClicked:(UIButton *)sender {
+- (IBAction)practiceBtnClicked:(LDPlatformButton *)sender {
     PostDocRecruitController *postVC = [[PostDocRecruitController alloc] init];
     postVC.title = sender.currentTitle;
     [self.navigationController pushViewController:postVC animated:YES];

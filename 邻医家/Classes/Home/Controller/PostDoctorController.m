@@ -9,7 +9,7 @@
 #import "PostDoctorController.h"
 #import "Common.h"
 #import "StationListResult.h"
-#import "DoctorStationCell.h"
+#import "MultiJobCell.h"
 #import "DoctorStationListTool.h"
 #import "DoctorStation.h"
 @interface PostDoctorController () <UISearchBarDelegate>
@@ -63,13 +63,13 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    DoctorStationCell *cell = [DoctorStationCell cellWithTableView:tableView];
+    MultiJobCell *cell = [MultiJobCell cellWithTableView:tableView];
     cell.doctorStation = self.stations[indexPath.row];
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 38;
+    return 44;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

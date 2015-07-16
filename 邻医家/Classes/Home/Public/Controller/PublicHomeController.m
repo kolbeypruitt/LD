@@ -15,7 +15,6 @@
 #import "CaseDetailController.h"
 #import "PostDoctorController.h"
 #import "RecruitMessageController.h"
-#import "LDHomeFooterView.h"
 #import "MoreDocController.h"
 #import "MoreHosController.h"
 #import "HosDetailController.h"
@@ -35,7 +34,7 @@
 #import "UIBarButtonItem+ENTER.h"
 #import "LoginDocDetailController.h"
 #import "MoreCaseController.h"
-@interface PublicHomeController () <UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource,LDHomeFooterViewDelegate,LDHomeHeaderViewDelegate>
+@interface PublicHomeController () <UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource,LDHomeHeaderViewDelegate>
 @property (nonatomic,weak) UIScrollView *scrollView;
 @property (nonatomic,weak) UISegmentedControl *segmentControl;
 @property (nonatomic,weak) UITableView *doctorView;
@@ -44,9 +43,9 @@
 @property (nonatomic,strong) NSMutableArray *doctors;
 @property (nonatomic,strong) NSMutableArray *hospitals;
 @property (nonatomic,strong) NSMutableArray *diseases;
-@property (nonatomic,weak) LDHomeFooterView *doctorFooter;
-@property (nonatomic,weak) LDHomeFooterView *hospitalFooter;
-@property (nonatomic,weak) LDHomeFooterView *diseaseFooter;
+@property (nonatomic,weak) UIButton *doctorFooter;
+@property (nonatomic,weak) UIButton *hospitalFooter;
+@property (nonatomic,weak) UIButton *diseaseFooter;
 @property (nonatomic,weak) LDHomeHeadView *homeHeader;
 
 @end
@@ -197,7 +196,7 @@
     CGFloat headerX = 0;
     CGFloat headerY = 0;
     CGFloat headerW = self.view.frame.size.width;
-    CGFloat headerH = 200;
+    CGFloat headerH = 240;
     self.homeHeader.frame = CGRectMake(headerX , headerY , headerW, headerH);
     //选项卡
     CGFloat segmentX = headerX;
@@ -288,26 +287,33 @@
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
     if ([tableView isEqual:self.doctorView]) {
-        LDHomeFooterView *view = [[LDHomeFooterView alloc] init];
-        [view setFooterTitle:@"更多医生"];
-        view.delegate = self;
-        self.doctorFooter = view;
-        return view;
+        UIButton *docFooter = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 30)];
+        [self footerBtn:docFooter withTitle:@"更多医生" target:self action:@selector(clickedBtn:)];
+        self.doctorFooter = docFooter;
+        return docFooter;
     }else if ([tableView isEqual:self.hospitalView])
     {
-        LDHomeFooterView *hosFooter = [[LDHomeFooterView alloc] init];
-        [hosFooter setFooterTitle:@"更多医院"];
-        hosFooter.delegate = self;
-        self.hospitalFooter = hosFooter;
-        return hosFooter;
+        UIButton *hospitalFooter = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 30)];
+        [self footerBtn:hospitalFooter withTitle:@"更多医院" target:self action:@selector(clickedBtn:)];
+        self.hospitalFooter = hospitalFooter;
+        return hospitalFooter;
     }else
     {
-        LDHomeFooterView *disFooter = [[LDHomeFooterView alloc] init];
-        [disFooter setFooterTitle:@"更多病例"];
-        disFooter.delegate = self;
-        self.diseaseFooter = disFooter;
-        return disFooter;
+        UIButton *diseaseFooter = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 30)];
+        [self footerBtn:diseaseFooter withTitle:@"更多病例" target:self action:@selector(clickedBtn:)];
+        self.diseaseFooter = diseaseFooter;
+        return diseaseFooter;
     }
+}
+- (void)footerBtn:(UIButton *)button withTitle:(NSString *)title target:(id)target action:(SEL)action
+{
+    [button setTitle:title forState:UIControlStateNormal];
+    button.titleLabel.textAlignment = NSTextAlignmentCenter;
+    button.titleLabel.font = [UIFont systemFontOfSize:15];
+    button.titleLabel.backgroundColor = [UIColor clearColor];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [button setBackgroundColor:IWColor(88, 202, 203)];
+    [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -346,12 +352,12 @@
     }
 }
 #pragma mark - footer delegate method
-- (void)footerView:(LDHomeFooterView *)footerView clickedBtn:(UIButton *)button
+- (void)clickedBtn:(UIButton *)button
 {
-    if ([footerView isEqual:self.doctorFooter]) {
+    if ([button isEqual:self.doctorFooter]) {
         MoreDocController *moreDoc = [[MoreDocController alloc] init];
         [self.navigationController pushViewController:moreDoc animated:YES];
-    }else if([footerView isEqual:self.hospitalFooter])
+    }else if([button isEqual:self.hospitalFooter])
     {
         MoreHosController *moreHos = [[MoreHosController alloc] init];
         [self.navigationController pushViewController:moreHos animated:YES];
@@ -361,16 +367,7 @@
         [self.navigationController pushViewController:moreCase animated:YES];
     }
 }
-#pragma mark - scrollView delegate method
-//- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-//{
-//    CGFloat scrollW = scrollView.frame.size.width;
-//    int page = (scrollView.contentOffset.x + scrollW * 0.5) / scrollW;
-//    if (scrollView.contentOffset.y == 0) {
-//        return;
-//    }
-//    self.segmentControl.selectedSegmentIndex = page;
-//}
+
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     if ([scrollView isEqual:self.scrollView]) {

@@ -9,10 +9,12 @@
 #import <Foundation/Foundation.h>
 
 @interface DoctorStationDetail : NSObject
-@property (nonatomic,copy) NSString *department;
-@property (nonatomic,copy) NSString *hospital;
-@property (nonatomic,copy) NSString *introduction;
+@property (nonatomic,copy) NSString *address;
+@property (nonatomic,copy) NSString *agency;
+@property (nonatomic,copy) NSString *location;
 @property (nonatomic,copy) NSString *name;
+@property (nonatomic,copy) NSString *telnum;
+@property (nonatomic,copy) NSString *researchDirection ;
 @end
 //postdoctorStation =     {
 //    department = "\U547c\U5438\U5185\U79d1";

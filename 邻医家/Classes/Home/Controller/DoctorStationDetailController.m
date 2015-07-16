@@ -5,17 +5,14 @@
 //  Created by Daniel on 15/6/25.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
-
+#import "LDMessage.h"
 #import "DoctorStationDetailController.h"
 #import "DoctorStationDetail.h"
 #import "DoctorStation.h"
-#import "Common.h"
 #import "StationDetailTool.h"
 #import "StationDetailResult.h"
 #import "CaseDetailParam.h"
-#import "DocStationDetailView.h"
 @interface DoctorStationDetailController ()
-@property (nonatomic,weak) DocStationDetailView *detailView;
 @property (nonatomic,strong) DoctorStationDetail *stationDetail;
 @end
 
@@ -24,23 +21,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setup];
-    [self addCustomView];
     [self loadData];
     
 }
 - (void)setup
 {
-    self.navigationItem.rightBarButtonItem =  nil;
     self.navigationItem.title = @"博士后站点";
-    self.view.backgroundColor = IWColor(226, 226, 226);
+    self.tableView.contentInset = UIEdgeInsetsMake(-30, 0, 0, 0);
 }
-- (void)addCustomView
-{
-    DocStationDetailView *detailView = [[DocStationDetailView alloc] init];
-    detailView.frame = CGRectMake(0, 64, SCREENWIDTH, SCREENHEIGHT - 64);
-    [self.view addSubview:detailView];
-    self.detailView = detailView;
-}
+
 - (void)loadData
 {
     CaseDetailParam *param = [CaseDetailParam paramWithId:self.doctorStation.id];
@@ -53,6 +42,19 @@
 - (void)setStationDetail:(DoctorStationDetail *)stationDetail
 {
     _stationDetail = stationDetail;
-    self.detailView.stationDetail = stationDetail;
+    
+    self.singleLine = YES;
+    
+    LDMessage *message0 = [LDMessage messageWithFirstTitle:@"学科名称" secondTitle:stationDetail.name];
+    LDMessage *message1 = [LDMessage messageWithFirstTitle:@"联系方式" secondTitle:stationDetail.telnum];
+    LDMessage *message2 = [LDMessage messageWithFirstTitle:@"地区" secondTitle:stationDetail.location];
+    LDMessage *message3 = [LDMessage messageWithFirstTitle:@"详细地址" secondTitle:stationDetail.address];
+    LDMessage *message4 = [LDMessage messageWithFirstTitle:@"所在机构" secondTitle:stationDetail.agency];
+    self.messages = @[message0,message1,message2,message3,message4];
 }
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    return nil;
+}
+
 @end
