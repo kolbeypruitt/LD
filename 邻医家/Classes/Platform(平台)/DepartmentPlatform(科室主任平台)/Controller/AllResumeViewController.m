@@ -7,10 +7,10 @@
 //
 
 #import "AllResumeViewController.h"
-#import "ResponsedDoctorController.h"
 #import "Doctor.h"
 #import "IWCommon.h"
 #import "DoctorCell.h"
+#import "DoctorResumeController.h"
 @interface AllResumeViewController ()
 
 @end
@@ -23,19 +23,17 @@
 }
 - (void)setup
 {
-    self.title = @"所有简历";
     self.view.backgroundColor = IWColor(226, 226, 226);
 }
 #pragma mark - TableViewDatasource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 20;
+    return self.doctors.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Doctor *doc = [Doctor doctorWithName:@"张幼仪" icon:nil detail:@"颈椎病专家" hospital:@"华西医院" techtitil:@"主任医师"];
     DoctorCell *cell = [DoctorCell cellWithTableView:tableView];
-    cell.doctor = doc;
+    cell.employer = self.doctors[indexPath.row];
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -44,7 +42,8 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ResponsedDoctorController  *docVC = [[ResponsedDoctorController alloc] init];
+    DoctorResumeController  *docVC = [[DoctorResumeController alloc] init];
+    docVC.employer = self.doctors[indexPath.row];
     [self.navigationController pushViewController:docVC animated:YES];
 }
 @end

@@ -5,9 +5,8 @@
 //  Created by Daniel on 15/6/6.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "LDInputController.h"
 
-#import <UIKit/UIKit.h>
-
-@interface StubbornViewController : UIViewController
+@interface StubbornViewController : LDInputController
 
 @end

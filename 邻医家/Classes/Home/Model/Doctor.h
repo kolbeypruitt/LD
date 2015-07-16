@@ -16,6 +16,7 @@
 @property (nonatomic,copy) NSString *introduction;
 @property (nonatomic,copy) NSString *name;
 @property (nonatomic,copy) NSString *headurl;
+@property (nonatomic,assign) int status;
 + (instancetype)doctorWithName:(NSString *)name
                           icon:(NSString *)icon
                         detail:(NSString *)detail

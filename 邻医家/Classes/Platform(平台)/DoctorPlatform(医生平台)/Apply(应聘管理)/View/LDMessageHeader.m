@@ -5,6 +5,7 @@
 //  Created by Daniel on 15/7/15.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "ConsutlDetailResult.h"
 #import "EmployDetail.h"
 #import "Common.h"
 #import "PatienInviteDetail.h"
@@ -64,6 +65,12 @@
     _empDetail = empDetail;
     [self.acceptBtn setTitle:[NSString stringWithFormat:@"已录取%d封简历",self.empDetail.accept] forState:UIControlStateNormal];
     [self.allBtn setTitle:[NSString stringWithFormat:@"共收到%d封简历",self.empDetail.all] forState:UIControlStateNormal];
+}
+- (void)setConsultResult:(ConsutlDetailResult *)consultResult
+{
+    _consultResult = consultResult;
+    [self.acceptBtn setTitle:[NSString stringWithFormat:@"已录取%d封简历",consultResult.accept] forState:UIControlStateNormal];
+    [self.allBtn setTitle:[NSString stringWithFormat:@"共收到%d封简历",consultResult.all] forState:UIControlStateNormal];
 }
 @end
 

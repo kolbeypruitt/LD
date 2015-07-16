@@ -5,6 +5,10 @@
 //  Created by Daniel on 15/6/19.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "ListResult.h"
+#import "AllResumeViewController.h"
+#import "LDMessageHeader.h"
+#import "DepartmentListToll.h"
 #import "LDMessage.h"
 #import "WithDrawConsultTool.h"
 #import "UIBarButtonItem+ENTER.h"
@@ -26,7 +30,7 @@
 @property (nonatomic,strong) TemporaryModel *temModel;
 @property (nonatomic,strong) ForwardModel *forModel;
 @property (nonatomic,strong) ConsutlDetailResult *result;
-
+@property (nonatomic,weak) LDMessageHeader *headView;
 @end
 
 @implementation ConsultDetailController
@@ -68,6 +72,12 @@
 {
     _result = result;
     self.singleLine = NO;
+    LDMessageHeader *inviteHeader = [[LDMessageHeader alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width,80)];
+    [inviteHeader.allBtn addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [inviteHeader.acceptBtn addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    inviteHeader.consultResult = result;
+    self.headView = inviteHeader;
+    self.tableView.tableHeaderView = inviteHeader;
     
     if (result.type == 1)
     {//开刀
@@ -142,5 +152,46 @@
     LDMessage *message12 = [LDMessage messageWithFirstTitle:@"是否需要抢救" secondTitle:forModel.idfirstaid];
     self.messages =  @[message0,message1,message2,message3,message4,message5,message6,message7,message8,message9,message10,message11,message12];
 }
-
+#pragma mark - Button events
+- (void)buttonClicked:(UIButton *)button
+{
+    LDBaseParam *param = [LDBaseParam paramWithId:self.message.id];
+    if ([button isEqual:self.headView.allBtn]) {
+        [DepartmentListToll allListWithParam:param success:^(ListResult *result) {
+            if ([result.status isEqualToString:@"S"]) {
+                if (result.employers.count > 0) {
+                    AllResumeViewController *allVC = [[AllResumeViewController alloc] init];
+                    allVC.title = @"所有简历";
+                    allVC.doctors = result.employers;
+                    [self.navigationController pushViewController:allVC animated:YES];
+                }
+            }
+        } failure:^(NSError *error) {
+            
+        }];
+    }else
+    {
+        [DepartmentListToll acceptedWithParam:param success:^(ListResult *result) {
+            if ([result.status isEqualToString:@"S"]) {
+                if (result.employers.count > 0) {
+                    AllResumeViewController *allVC = [[AllResumeViewController alloc] init];
+                    allVC.title = @"录取简历";
+                    allVC.doctors = result.employers;
+                    [self.navigationController pushViewController:allVC animated:YES];
+                }
+            }
+        } failure:^(NSError *error) {
+            
+        }];
+    }
+}
+#pragma mark - tabelview delegate
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    return nil;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 0;
+}
 @end

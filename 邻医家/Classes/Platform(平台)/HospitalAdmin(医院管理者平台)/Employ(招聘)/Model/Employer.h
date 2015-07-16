@@ -9,6 +9,4 @@
 #import "Doctor.h"
 
 @interface Employer : Doctor
-@property (nonatomic,assign) int id;
-@property (nonatomic,assign) int status;
 @end
