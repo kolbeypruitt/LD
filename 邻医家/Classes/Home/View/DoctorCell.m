@@ -122,7 +122,7 @@
     }else if(employer.status == 2)
     {
         self.statusLabel.text = @"已录取";
-        self.statusLabel.textColor = [UIColor blueColor];
+        self.statusLabel.textColor = IWColor(88, 202, 203);
     }
 }
 - (void)layoutSubviews

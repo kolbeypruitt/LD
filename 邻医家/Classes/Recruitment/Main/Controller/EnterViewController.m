@@ -7,17 +7,20 @@
 //
 #import "DepartmentDelegate.h"
 #import "AccountTool.h"
-#define SCREENWIDTH  ([UIScreen mainScreen].bounds.size.width)
 #import "MJExtension.h"
 #import "Department.h"
 #import "UIImage+MJ.h"
 #import "EnterViewController.h"
 #import "AFNetworking.h"
-#import "IWCommon.h"
+#import "Common.h"
+#import "LDEnterCell.h"
 #import "WelcomeDosController.h"
 #import "WelcomeHosController.h"
 #import "WelcomePatientController.h"
 @interface EnterViewController () <UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate>
+@property (nonatomic,weak) UIButton *hosBtn;
+@property (nonatomic,weak) UIButton *docBtn;
+@property (nonatomic,weak) UIButton *patientBtn;
 /**
  *  顶部图片
  */
@@ -88,7 +91,8 @@
 {
     //顶部的imageview
     UIImageView *imageView = [[UIImageView alloc] init];
-    imageView.image = [UIImage imageWithName:@"test_2"];
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    imageView.image = [UIImage imageWithName:@"banner2"];
     [self.view addSubview:imageView];
     self.topImageView = imageView;
     
@@ -107,24 +111,49 @@
     self.scrollView = scrollView;
     [self.view addSubview:scrollView];
     
+    CGRect rect = CGRectMake(0, 0, self.view.frame.size.width, 40);
     //医院入驻tableview
     UITableView *hospitalEnter = [[UITableView alloc] init];
+    
+    UIButton *hosBtn = [[UIButton alloc] initWithFrame:rect];
+    [self setupBtn:hosBtn title:@"欢迎医院入住" target:self action:@selector(buttonClicked:)];
+    hospitalEnter.tableHeaderView = hosBtn;
+    self.hosBtn = hosBtn;
+    
     hospitalEnter.delegate = self;
     hospitalEnter.dataSource = self;
+    hospitalEnter.contentInset = UIEdgeInsetsMake(0, 0, 30, 0);
+    hospitalEnter.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.hospitalEnter = hospitalEnter;
     [self.scrollView addSubview:hospitalEnter];
     
     //医生入驻tableview
     UITableView *doctorEnter = [[UITableView alloc] init];
+    
+    UIButton *docBtn = [[UIButton alloc] initWithFrame:rect];
+    [self setupBtn:docBtn title:@"欢迎医生入住" target:self action:@selector(buttonClicked:)];
+    doctorEnter.tableHeaderView = docBtn;
+    self.docBtn = docBtn;
+    
     doctorEnter.dataSource = self;
     doctorEnter.delegate = self;
+    doctorEnter.contentInset = UIEdgeInsetsMake(0, 0, 30, 0);
+    doctorEnter.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.scrollView addSubview:doctorEnter];
     self.doctorEnter = doctorEnter;
     
     //病友入驻
     UITableView *patientEnter = [[UITableView alloc] init];
+    
+    UIButton *patientBtn = [[UIButton alloc] initWithFrame:rect];
+    [self setupBtn:patientBtn title:@"欢迎医友入住" target:self action:@selector(buttonClicked:)];
+    patientEnter.tableHeaderView = patientBtn;
+    self.patientBtn = patientBtn;
+    patientEnter.contentInset = UIEdgeInsetsMake(0, 0, 30, 0);
+    patientEnter.separatorStyle = UITableViewCellSeparatorStyleNone;
     patientEnter.delegate = self;
     patientEnter.dataSource =self;
+    
     [self.scrollView addSubview:patientEnter];
     self.patientEnter = patientEnter;
 }
@@ -137,13 +166,13 @@
     
     //顶部的imageview
     CGFloat imageX = 0;
-    CGFloat imageY = 0;
+    CGFloat imageY = 44;
     CGFloat imageW = self.view.frame.size.width;
     CGFloat imageH = 200;
     self.topImageView.frame = CGRectMake(imageX, imageY, imageW, imageH);
     //选项卡
     CGFloat segmentX = imageX;
-    CGFloat segmentY = CGRectGetMaxY(self.topImageView.frame);
+    CGFloat segmentY = CGRectGetMaxY(self.topImageView.frame) - 13;
     CGFloat segmentW = imageW;
     CGFloat segmentH = 30;
     self.segmentControl.frame = CGRectMake(segmentX, segmentY, segmentW, segmentH);
@@ -216,53 +245,74 @@
 #pragma mark - tableview delegate and datasource method
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if ([tableView isEqual:self.hospitalEnter]) {
-        
-    }else if([tableView isEqual:self.doctorEnter])
-    {
-        
-    }else if([tableView isEqual:self.patientEnter])
-    {
-        
-    }
-    return 20;
+    return 1;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    LDEnterCell *cell = [LDEnterCell cellWithTabelView:tableView];
+    
     if ([tableView isEqual:self.hospitalEnter]) {
-        
+            cell.imageName = @"hospital_enter";
     }else if([tableView isEqual:self.doctorEnter])
     {
+            cell.imageName = @"doctor_enter";
         
-    }else if([tableView isEqual:self.patientEnter])
+    }else
     {
-        
+            cell.imageName = @"patient_enter";
     }
-    static NSString *ID = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
-    }
-    cell.textLabel.text = [NSString stringWithFormat:@"欢迎入驻 - %d",(int)indexPath.row];
     return cell;
 }
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if ([tableView isEqual:self.hospitalEnter]) {
-        WelcomeHosController *hos = [[WelcomeHosController alloc] init];
-        [self.navigationController pushViewController:hos animated:YES];
+        return 790;
     }else if([tableView isEqual:self.doctorEnter])
     {
+        return 850;
+    }else
+    {
+        return 460;
+    }
+}
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return NO;
+}
+- (void)setupBtn:(UIButton *)button title:(NSString *)title target:(id)target action:(SEL)action
+{
+    [button setTitle:title forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [button setBackgroundColor:IWColor(88, 202, 203)];
+    button.titleLabel.font = [UIFont systemFontOfSize:15];
+    button.titleLabel.backgroundColor = [UIColor clearColor];
+    [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+}
+- (void)buttonClicked:(UIButton *)button
+{
+    if ([button isEqual:self.hosBtn]) {
+        
+        WelcomeHosController *hos = [[WelcomeHosController alloc] init];
+        [self.navigationController pushViewController:hos animated:YES];
+        
+    }else if([button isEqual:self.docBtn])
+    {
+        
         WelcomeDosController *doc = [[WelcomeDosController alloc] init];
         [self.navigationController pushViewController:doc animated:YES];
-    }else if([tableView isEqual:self.patientEnter])
+        
+    }else
     {
+        
         WelcomePatientController *patient = [[WelcomePatientController alloc] init];
         [self.navigationController pushViewController:patient animated:YES];
+        
     }
 }
 @end
+
+
+
 
 
 

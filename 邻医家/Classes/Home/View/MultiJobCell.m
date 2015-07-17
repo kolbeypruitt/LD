@@ -7,6 +7,7 @@
 //
 
 #import "MultiJobCell.h"
+#import "DoctorStation.h"
 #import "Policy.h"
 @interface MultiJobCell ()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -28,5 +29,11 @@
 {
     _policy = policy;
     self.titleLabel.text = policy.name;
+}
+- (void)setDoctorStation:(DoctorStation *)doctorStation
+{
+    _doctorStation = doctorStation;
+    self.titleLabel.text = doctorStation.name;
+    
 }
 @end

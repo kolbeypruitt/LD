@@ -29,7 +29,7 @@
     [self.window makeKeyAndVisible];
     if ([AccountTool isLogin]) {
         Account *userAccount = [AccountTool account];
-        if (userAccount.type == 0)
+        if (userAccount.type == 0 || userAccount.type == 5)
         {//注册用户
             IWTabBarViewController *iwVC = [[IWTabBarViewController alloc] init];
             self.window.rootViewController = iwVC;

@@ -9,6 +9,7 @@
 #import "LDHomeFooterView.h"
 #import "HomeGroup.h"
 #import "FooterBtn.h"
+#import "IWCommon.h"
 @interface LDHomeFooterView ()
 @property (nonatomic,weak) FooterBtn *moreBtn;
 @end
@@ -18,10 +19,9 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.userInteractionEnabled = YES;
-        self.backgroundColor = [UIColor clearColor];
-        
         FooterBtn *moreBtn = [[FooterBtn alloc] init];
         [moreBtn setImage:[UIImage imageNamed:@"common_icon_arrow"] forState:UIControlStateNormal];
+//        [moreBtn setBackgroundColor:IWColor(88, 202, 203)];
         moreBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 30, 0, 0);
         [moreBtn addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:moreBtn];
@@ -42,11 +42,7 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    CGFloat moreX = 0;
-    CGFloat moreY = 0;
-    CGFloat moreW = self.frame.size.width;
-    CGFloat moreH = self.frame.size.height;
-    self.moreBtn.frame = CGRectMake(moreX, moreY, moreW, moreH);
+    self.moreBtn.frame = self.bounds;
 }
 
 - (void)setGroup:(HomeGroup *)group

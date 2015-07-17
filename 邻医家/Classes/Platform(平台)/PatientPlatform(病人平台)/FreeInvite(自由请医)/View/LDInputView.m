@@ -9,7 +9,8 @@
 #import "LDInputMessage.h"
 #import "LDInputView.h"
 #import "ActionSheetCustomPicker+LD.h"
-#import "ActionSheetDatePicker.h"
+#import "ActionSheetDatePicker+LD.h"
+#import "TimeDeletage.h"
 @interface LDInputView ()<UITextFieldDelegate>
 @property (nonatomic,weak) UILabel *firstTitleLabel;
 @end
@@ -73,11 +74,28 @@
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
     if (self.inputMessage.optionDelegate) {
-        ActionSheetCustomPicker *picker = [ActionSheetCustomPicker customPickerWithTitle:self.inputMessage.placeHolder
-                                                                                delegate:self.inputMessage.optionDelegate
-                                                                                  origin:textField];
-        [picker showActionSheetPicker];
-        return NO;
+        
+        if ([self.inputMessage.optionDelegate isKindOfClass:[TimeDeletage class]]) {
+            
+            ActionSheetDatePicker *datePicker = [ActionSheetDatePicker dataPickerWithTitle:@"选择时间" datePickerMode:UIDatePickerModeDateAndTime doneBlocke:^(ActionSheetDatePicker *picker, id selectedDate, id origin) {
+                NSDateFormatter *dateFormater = [[NSDateFormatter alloc] init];
+                dateFormater.dateFormat = @"yyyy-MM-dd-HH:mm";
+                NSString *dateStr = [dateFormater stringFromDate:selectedDate];
+                textField.text = dateStr;
+            } cancelBlock:^(ActionSheetDatePicker *picker) {
+                
+            } origin:textField];
+            [datePicker showActionSheetPicker];
+            return NO;
+        }else
+        {
+            ActionSheetCustomPicker *picker = [ActionSheetCustomPicker customPickerWithTitle:self.inputMessage.placeHolder
+                                                                                    delegate:self.inputMessage.optionDelegate
+                                                                                      origin:textField];
+            [picker showActionSheetPicker];
+            return NO;    
+        }
+        
     }else
     {
         return YES;

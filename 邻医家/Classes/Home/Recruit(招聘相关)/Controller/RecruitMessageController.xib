@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RecruitMessageController">
@@ -19,73 +20,91 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y4X-rX-psZ">
-                    <rect key="frame" x="8" y="88" width="359" height="73"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y4X-rX-psZ" customClass="LDPlatformButton">
+                    <rect key="frame" x="10" y="74" width="355" height="140"/>
                     <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="140" id="k7J-yw-zNi"/>
+                    </constraints>
                     <state key="normal" title="多点执业邀请">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="mutiJobBtnClicked:" destination="-1" eventType="touchUpInside" id="TTn-zh-mxO"/>
+                        <action selector="buttonClicked:" destination="-1" eventType="touchUpInside" id="wwO-e6-bw8"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pz8-NA-24C">
-                    <rect key="frame" x="8" y="183" width="174" height="73"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pz8-NA-24C" customClass="LDPlatformButton">
+                    <rect key="frame" x="10" y="224" width="173" height="80"/>
                     <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="TY8-jS-unQ"/>
+                    </constraints>
                     <state key="normal" title="专家邀请">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="inviteExpertBtnClicked:" destination="-1" eventType="touchUpInside" id="JP3-9m-pUG"/>
+                        <action selector="buttonClicked:" destination="-1" eventType="touchUpInside" id="8VN-l4-Ma7"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akb-9R-cuV">
-                    <rect key="frame" x="8" y="282" width="174" height="73"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akb-9R-cuV" customClass="LDPlatformButton">
+                    <rect key="frame" x="10" y="314" width="173" height="80"/>
                     <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="进修">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="studyBtnClicked:" destination="-1" eventType="touchUpInside" id="eQN-nu-edg"/>
+                        <action selector="buttonClicked:" destination="-1" eventType="touchUpInside" id="Xu0-1f-pxc"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MWi-Xq-1AK">
-                    <rect key="frame" x="190" y="183" width="177" height="73"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MWi-Xq-1AK" customClass="LDPlatformButton">
+                    <rect key="frame" x="192" y="224" width="173" height="80"/>
                     <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="实习">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="practiceBtnClicked:" destination="-1" eventType="touchUpInside" id="gky-rE-HIc"/>
+                        <action selector="buttonClicked:" destination="-1" eventType="touchUpInside" id="qLp-96-Pdf"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="igV-PR-j3t">
-                    <rect key="frame" x="190" y="282" width="174" height="73"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="igV-PR-j3t" customClass="LDPlatformButton">
+                    <rect key="frame" x="192" y="314" width="173" height="80"/>
                     <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="博士后">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="postDocBtnClicked:" destination="-1" eventType="touchUpInside" id="AhC-YE-oZT"/>
+                        <action selector="buttonClicked:" destination="-1" eventType="touchUpInside" id="VZf-5W-Hhh"/>
                     </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="MWi-Xq-1AK" secondAttribute="trailing" constant="8" id="R7I-nS-Aa2"/>
-                <constraint firstItem="Y4X-rX-psZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="aG7-UG-87t"/>
-                <constraint firstAttribute="trailing" secondItem="igV-PR-j3t" secondAttribute="trailing" constant="11" id="dej-mW-YhO"/>
-                <constraint firstItem="akb-9R-cuV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="fvM-wz-dQI"/>
-                <constraint firstItem="pz8-NA-24C" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="qie-s2-yKU"/>
-                <constraint firstAttribute="trailing" secondItem="Y4X-rX-psZ" secondAttribute="trailing" constant="8" id="shb-NL-pCB"/>
+                <constraint firstItem="igV-PR-j3t" firstAttribute="top" secondItem="MWi-Xq-1AK" secondAttribute="bottom" constant="10" id="CUM-oM-715"/>
+                <constraint firstAttribute="trailing" secondItem="MWi-Xq-1AK" secondAttribute="trailing" constant="10" id="HWh-mF-Zuc"/>
+                <constraint firstItem="pz8-NA-24C" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="Hcd-cI-s4d"/>
+                <constraint firstItem="akb-9R-cuV" firstAttribute="leading" secondItem="pz8-NA-24C" secondAttribute="leading" id="HlD-cW-YSX"/>
+                <constraint firstAttribute="trailing" secondItem="Y4X-rX-psZ" secondAttribute="trailing" constant="10" id="Ova-GM-CZ2"/>
+                <constraint firstItem="akb-9R-cuV" firstAttribute="top" secondItem="pz8-NA-24C" secondAttribute="bottom" constant="10" id="SzO-lt-7XO"/>
+                <constraint firstItem="MWi-Xq-1AK" firstAttribute="width" secondItem="igV-PR-j3t" secondAttribute="width" id="XBb-UP-2Nc"/>
+                <constraint firstItem="igV-PR-j3t" firstAttribute="leading" secondItem="MWi-Xq-1AK" secondAttribute="leading" id="chH-fS-n2h"/>
+                <constraint firstAttribute="centerX" secondItem="pz8-NA-24C" secondAttribute="trailing" constant="5" id="d7f-ZX-5nz"/>
+                <constraint firstItem="MWi-Xq-1AK" firstAttribute="height" secondItem="akb-9R-cuV" secondAttribute="height" id="daz-gH-L92"/>
+                <constraint firstItem="MWi-Xq-1AK" firstAttribute="height" secondItem="pz8-NA-24C" secondAttribute="height" id="g4T-vQ-OUO"/>
+                <constraint firstItem="MWi-Xq-1AK" firstAttribute="centerY" secondItem="pz8-NA-24C" secondAttribute="centerY" id="hdJ-ua-LWw"/>
+                <constraint firstItem="Y4X-rX-psZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="hvy-YM-SC4"/>
+                <constraint firstItem="MWi-Xq-1AK" firstAttribute="width" secondItem="akb-9R-cuV" secondAttribute="width" id="jfD-cR-BFj"/>
+                <constraint firstItem="Y4X-rX-psZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="74" id="kMI-am-8LW"/>
+                <constraint firstItem="pz8-NA-24C" firstAttribute="top" secondItem="Y4X-rX-psZ" secondAttribute="bottom" constant="10" id="nP7-DX-aud"/>
+                <constraint firstItem="MWi-Xq-1AK" firstAttribute="width" secondItem="pz8-NA-24C" secondAttribute="width" id="unh-5w-phf"/>
+                <constraint firstItem="MWi-Xq-1AK" firstAttribute="height" secondItem="igV-PR-j3t" secondAttribute="height" id="vSY-tE-JLo"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-            <point key="canvasLocation" x="397.5" y="309.5"/>
+            <point key="canvasLocation" x="333.5" y="211.5"/>
         </view>
     </objects>
 </document>

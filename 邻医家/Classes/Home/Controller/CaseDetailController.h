@@ -6,10 +6,10 @@
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
 @class Case;
-#import <UIKit/UIKit.h>
+#import "LDMessageController.h"
 /**
  *   接受一个Case模型norcase
  */
-@interface CaseDetailController : UIViewController
+@interface CaseDetailController : LDMessageController
 @property (nonatomic,strong) Case *norcase;
 @end

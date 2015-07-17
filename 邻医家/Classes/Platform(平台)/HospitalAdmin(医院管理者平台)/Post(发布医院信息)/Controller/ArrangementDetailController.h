@@ -6,8 +6,7 @@
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
 @class Arrangement;
-#import <UIKit/UIKit.h>
-
-@interface ArrangementDetailController : UIViewController
+#import "LDMessageController.h"
+@interface ArrangementDetailController : LDMessageController
 @property (nonatomic,strong) Arrangement *arrangement;
 @end

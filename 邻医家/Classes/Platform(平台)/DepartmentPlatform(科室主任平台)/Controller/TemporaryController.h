@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "LDInputController.h"
 
-@interface TemporaryController : UIViewController
+@interface TemporaryController : LDInputController
 
 @end

@@ -5,7 +5,7 @@
 //  Created by Daniel on 15/7/8.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
-
+#import "LDMessage.h"
 #import "ManagerDetailController.h"
 #import "UIBarButtonItem+ENTER.h"
 #import "ManagerDetailTool.h"
@@ -19,11 +19,7 @@
 #import "Common.h"
 #import "LDNotification.h"
 @interface ManagerDetailController ()
-@property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
-@property (weak, nonatomic) IBOutlet UILabel *fixphoneLabel;
-@property (weak, nonatomic) IBOutlet UILabel *mailLabel;
-@property (weak, nonatomic) IBOutlet UILabel *departmentLabel;
-@property (weak, nonatomic) IBOutlet UILabel *introducelabel;
+
 @property (nonatomic,strong) ManagerDetail *managerDetail;
 @end
 
@@ -68,13 +64,23 @@
 {
     _managerDetail = managerDetail;
     self.title = managerDetail.name;
-    self.phoneLabel.text = managerDetail.telnum;
-    self.fixphoneLabel.text = managerDetail.phone;
-    self.mailLabel.text = managerDetail.mailbox;
-    self.departmentLabel.text = managerDetail.department;
-    self.introducelabel.text = managerDetail.introduction;
+    self.singleLine = YES;
+    
+    LDMessage *message0 = [LDMessage messageWithFirstTitle:@"手机号" secondTitle:managerDetail.telnum];
+    LDMessage *message1 = [LDMessage messageWithFirstTitle:@"座机号" secondTitle:managerDetail.phone];
+    LDMessage *message2 = [LDMessage messageWithFirstTitle:@"邮箱" secondTitle:managerDetail.mailbox];
+    LDMessage *message3 = [LDMessage messageWithFirstTitle:@"科室" secondTitle:managerDetail.department];
+    LDMessage *message4 = [LDMessage messageWithFirstTitle:@"科室简介" secondTitle:managerDetail.introduction];
+    self.messages = @[message0,message1,message2,message3,message4];
 }
-
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    return nil;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 0;
+}
 @end
 
 

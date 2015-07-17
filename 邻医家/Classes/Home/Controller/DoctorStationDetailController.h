@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
 @class DoctorStation;
-#import <UIKit/UIKit.h>
+#import "LDMessageController.h"
 
-@interface DoctorStationDetailController : UIViewController
+@interface DoctorStationDetailController : LDMessageController
 @property (nonatomic,strong) DoctorStation *doctorStation;
 @end

@@ -6,8 +6,7 @@
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
-@interface AppendArrangementController : UIViewController
+#import "LDInputController.h"
+@interface AppendArrangementController : LDInputController
 
 @end

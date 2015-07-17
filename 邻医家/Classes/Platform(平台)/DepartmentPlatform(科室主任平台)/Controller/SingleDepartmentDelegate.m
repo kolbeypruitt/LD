@@ -84,6 +84,11 @@
         }
         textfield.text = [NSString stringWithFormat:@"%@",self.secondDepartment];
         textfield.enterData.department = self.secondDepartmentId;
+    }else if([origin isKindOfClass:[UITextField class]])
+    {
+        UITextField *textfield = (UITextField *)origin;
+        textfield.text = [NSString stringWithFormat:@"%@",self.secondDepartment];
+        textfield.tag = self.secondDepartmentId;
     }
 }
 @end

@@ -6,8 +6,7 @@
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
 @class DepartmentManager;
-#import <UIKit/UIKit.h>
-
-@interface ManagerDetailController : UIViewController
+#import "LDMessageController.h"
+@interface ManagerDetailController : LDMessageController
 @property (nonatomic,strong) DepartmentManager *manager;
 @end

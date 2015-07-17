@@ -25,7 +25,7 @@
 /**
 *  约定时间
 */
-@property (nonatomic,copy) NSString *gctime;
+@property (nonatomic,copy) NSString *time;
 /**
 *  约定医院所在地区
 */

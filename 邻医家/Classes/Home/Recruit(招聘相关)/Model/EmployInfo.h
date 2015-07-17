@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface EmployInfo : NSObject
+@property (nonatomic,copy) NSString *city;
 @property (nonatomic,assign) int id;
 @property (nonatomic,copy) NSString *name;
 @property (nonatomic,copy) NSString *startdate;
-@property (nonatomic,copy) NSString *techtitle;
 @end
 //{
 //    employInfos =     (

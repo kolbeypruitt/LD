@@ -6,8 +6,7 @@
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
 @class Employee;
-#import <UIKit/UIKit.h>
-
-@interface RecruitDetailController : UIViewController
+#import "LDMessageController.h"
+@interface RecruitDetailController : LDMessageController
 @property (nonatomic,strong) Employee *empl;
 @end

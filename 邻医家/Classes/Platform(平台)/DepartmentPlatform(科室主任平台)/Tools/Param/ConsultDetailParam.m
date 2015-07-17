@@ -8,7 +8,6 @@
 
 #import "ConsultDetailParam.h"
 @interface ConsultDetailParam ()
-@property (nonatomic,assign) int id;
 @end
 @implementation ConsultDetailParam
 + (instancetype)paramWithId:(int)Id

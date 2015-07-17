@@ -5,9 +5,11 @@
 //  Created by Daniel on 15/6/6.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "DocArrangeCell.h"
 #import "LDPaperDetailController.h"
 #import "CaseDetailController.h"
 #import "DiseaseCell.h"
+#import "ArrangementCell.h"
 #import "AchieveMentCell.h"
 #import "Doctor.h"
 #import "LDPaper.h"
@@ -45,6 +47,7 @@
 @property (nonatomic,strong) Doctor *introduction;
 @property (nonatomic,strong) NSArray *papers;
 @property (nonatomic,strong) NSArray *diseases;
+@property (nonatomic,strong) NSArray *arrangements;
 @end
 
 @implementation LoginDocDetailController
@@ -61,6 +64,13 @@
         _diseases = [NSArray array];
     }
     return _diseases;
+}
+- (NSArray *)arrangements
+{
+    if (_arrangements == nil) {
+        _arrangements = [NSArray array];
+    }
+    return _arrangements;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -79,6 +89,9 @@
             
             self.papers = result.papers;
             [self.achievementView reloadData];
+            
+            self.arrangements = result.arrangements;
+            [self.assignmentView reloadData];
         }
     } failure:^(NSError *errror) {
         
@@ -248,11 +261,12 @@
         return self.diseases.count;
     }else
     {
-        return 0;
+        return self.arrangements.count;
     }
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     if ([tableView isEqual:self.achievementView]) {
         AchieveMentCell *cell = [AchieveMentCell cellWithTabelView:tableView];
         cell.paper = self.papers[indexPath.row];
@@ -262,13 +276,13 @@
         DiseaseCell *cell = [DiseaseCell cellWithTableView:tableView];
         cell.commonCase = self.diseases[indexPath.row];
         return cell;
+    }else
+    {
+        DocArrangeCell *cell = [DocArrangeCell cellWithTabelView:tableView];
+        cell.arrangement = self.arrangements[indexPath.row];
+        return cell;
     }
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-    }
-    cell.textLabel.text = [NSString stringWithFormat:@"cell %d",(int)indexPath.row];
-    return cell;
+    
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -282,6 +296,9 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     if ([tableView isEqual:self.caseView]) {
         CaseDetailController *caseVC = [[CaseDetailController alloc] init];
         caseVC.norcase = self.diseases[indexPath.row];

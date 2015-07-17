@@ -196,9 +196,6 @@ static const int textViewCount = 8;
     }
 }
 #pragma scrollView delegate
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-}
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
     [self.scrollView endEditing:YES];

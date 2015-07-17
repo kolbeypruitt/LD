@@ -28,7 +28,7 @@
 {
     CGFloat imageW = IMAGEWH;
     CGFloat imageH = IMAGEWH;
-    CGFloat imageX = (contentRect.size.width * IMAGERATIO)/2 - imageW/2;
+    CGFloat imageX =(contentRect.size.width * IMAGERATIO) - (IMAGEWH + 10);
     CGFloat imageY = contentRect.size.height/2 - imageH/2;
     return CGRectMake(imageX, imageY, imageW, imageH);
 }

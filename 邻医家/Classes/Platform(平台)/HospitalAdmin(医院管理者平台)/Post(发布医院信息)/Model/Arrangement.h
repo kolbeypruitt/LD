@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface Arrangement : NSObject
+@property (nonatomic,copy) NSString *address;
 @property (nonatomic,assign) int id;
 @property (nonatomic,copy) NSString *name;
 @property (nonatomic,copy) NSString *time;

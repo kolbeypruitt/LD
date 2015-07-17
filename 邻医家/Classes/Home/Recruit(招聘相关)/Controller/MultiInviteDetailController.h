@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
 @class EmployInfo;
-#import <UIKit/UIKit.h>
+#import "LDMessageController.h"
 
-@interface MultiInviteDetailController : UIViewController
+@interface MultiInviteDetailController : LDMessageController
 @property (nonatomic,strong) EmployInfo *employInfo;
 @end

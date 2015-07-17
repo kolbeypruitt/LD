@@ -11,7 +11,6 @@
 @interface MultiInviteCell ()
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *techLabel;
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 
 @end
@@ -30,6 +29,6 @@
     _employInfo = employInfo;
     self.nameLabel.text = employInfo.name;
     self.timeLabel.text = employInfo.startdate;
-//    self.techLabel.text = employInfo.techtitle;
+    self.locationLabel.text = employInfo.city;
 }
 @end

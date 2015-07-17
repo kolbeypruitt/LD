@@ -100,21 +100,8 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ConsultMessage *consult = self.datas[indexPath.row];
-    if (consult.type == 1) {//开刀
-        
-    }else if (consult.type == 2)
-    {//疑难杂症
-        
-    }else if (consult.type == 3)
-    {//临时坐诊
-        
-    }else if (consult.type == 4)
-    {//转诊
-        
-    }
     ConsultDetailController *consultVC = [[ConsultDetailController alloc] init];
-    consultVC.message = consult;
+    consultVC.message = self.datas[indexPath.row];
     [self.navigationController pushViewController:consultVC animated:YES];
     
 }

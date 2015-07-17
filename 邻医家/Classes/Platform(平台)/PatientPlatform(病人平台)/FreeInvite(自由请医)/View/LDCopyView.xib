@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LDCopyView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上传身份证复印件" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tma-UC-a49">
+                    <rect key="frame" x="10" y="29" width="178" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="f37-ry-zW7"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.098039217293262482" green="0.098039217293262482" blue="0.098039217293262482" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pai-Pr-dxF">
+                    <rect key="frame" x="285" y="10" width="80" height="61"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="61" id="ERM-bv-AEi"/>
+                        <constraint firstAttribute="width" constant="80" id="Tob-x6-K4B"/>
+                    </constraints>
+                    <state key="normal" title="Button" image="upload_icon">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Tma-UC-a49" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="6kR-0v-TRu"/>
+                <constraint firstAttribute="centerX" secondItem="Tma-UC-a49" secondAttribute="trailing" id="6ri-A9-VEQ"/>
+                <constraint firstAttribute="centerY" secondItem="Pai-Pr-dxF" secondAttribute="centerY" id="Udn-e0-UQg"/>
+                <constraint firstAttribute="centerY" secondItem="Tma-UC-a49" secondAttribute="centerY" id="why-8J-fLe"/>
+                <constraint firstAttribute="trailing" secondItem="Pai-Pr-dxF" secondAttribute="trailing" constant="10" id="yqR-3i-39h"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="imageBtn" destination="Pai-Pr-dxF" id="soj-5p-vMx"/>
+            </connections>
+            <point key="canvasLocation" x="507.5" y="62"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="upload_icon" width="137" height="105"/>
+    </resources>
+</document>

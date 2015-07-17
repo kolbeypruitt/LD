@@ -62,6 +62,16 @@
         }
         textfield.enterData.techtile = self.choosedID;
         textfield.text = self.resultString;
+    }else if ([origin isKindOfClass:[UITextField class]])
+    {
+        UITextField *textfield = (UITextField *)origin;
+        if (self.resultString == nil) {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:@"请选择临床职称" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alertView show];
+            return;
+        }
+        textfield.tag = self.choosedID;
+        textfield.text = self.resultString;
     }
 }
 @end

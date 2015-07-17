@@ -7,6 +7,7 @@
 //
 
 #import "ArrangementDetailController.h"
+#import "LDMessage.h"
 #import "Common.h"
 #import "LDBaseParam.h"
 #import "ArrangementDetailTool.h"
@@ -14,9 +15,6 @@
 #import "Arrangement.h"
 #import "ArrangementDetailResult.h"
 @interface ArrangementDetailController ()
-@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *departmentLabel;
-@property (weak, nonatomic) IBOutlet UILabel *techLabel;
 @property (nonatomic,strong) ArrangementDetail *detail;
 @end
 
@@ -47,8 +45,16 @@
 {
     _detail = detail;
     self.title = detail.name;
-    self.timeLabel.text = detail.time;
-    self.departmentLabel.text = detail.department;
-    self.techLabel.text = detail.techtitle;
+    self.singleLine = YES;
+
+    LDMessage *message0 = [LDMessage messageWithFirstTitle:@"坐诊时间" secondTitle:detail.time];
+    LDMessage *message1 = [LDMessage messageWithFirstTitle:@"科室" secondTitle:detail.department];
+    LDMessage *message2 = [LDMessage messageWithFirstTitle:@"医师" secondTitle:detail.techtitle];
+    self.messages = @[message0,message1,message2];
+ 
+}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    return nil;
 }
 @end

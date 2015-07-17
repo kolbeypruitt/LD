@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
 @class Employer;
-#import <UIKit/UIKit.h>
-@interface DoctorResumeController : UIViewController
+#import "LDMessageController.h"
+@interface DoctorResumeController : LDMessageController
 @property (nonatomic,strong) Employer *employer;
 @end

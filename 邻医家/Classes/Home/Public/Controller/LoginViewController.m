@@ -7,12 +7,11 @@
 //
 #import "HospitalPlatformController.h"
 #import "DepartmentPlatformController.h"
-#import "IWNavigationController.h"
+#import "IWTabBarViewController.h"
 #import "PublicHomeController.h"
 #import "DoctorTabbarController.h"
 #import "PatientTabbarController.h"
 #import "ForgetPassController.h"
-#import "IWTabBarViewController.h"
 #import "UIImage+MJ.h"
 #import "Account.h"
 #import "AccountTool.h"
@@ -93,7 +92,7 @@
                     [self chooseRootController];
                 }else
                 {
-                    [MBProgressHUD showError:@"用户名或密码错误"];
+                    [MBProgressHUD showError:result.errorMsg];
                 }
             } failure:^(NSError *error) {
                 
@@ -110,11 +109,10 @@
 - (void)chooseRootController
 {
     Account *userAccount = [AccountTool account];
-    if (userAccount.type == 0)
+    if (userAccount.type == 0 || userAccount.type == 5)
     {//注册用户
-        PublicHomeController *publicHome = [[PublicHomeController alloc] init];
-        IWNavigationController *nav = [[IWNavigationController alloc] initWithRootViewController:publicHome];
-        self.view.window.rootViewController = nav;
+        IWTabBarViewController *publicHome = [[IWTabBarViewController alloc] init];
+        self.view.window.rootViewController = publicHome;
     }else if(userAccount.type == 1)
     {//医院管理者
         HospitalPlatformController *hosplat = [[HospitalPlatformController alloc] init];

@@ -15,7 +15,10 @@
 @end
 
 @implementation LDMessageController
-
+- (instancetype)initWithStyle:(UITableViewStyle)style
+{
+    return [super initWithStyle:UITableViewStyleGrouped];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = BGCOLOR;

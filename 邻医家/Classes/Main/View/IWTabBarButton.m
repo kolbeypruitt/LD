@@ -30,7 +30,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // 图标居中
-        self.imageView.contentMode = UIViewContentModeCenter;
+        self.imageView.contentMode = UIViewContentModeScaleAspectFit;
         // 文字居中
         self.titleLabel.textAlignment = NSTextAlignmentCenter;
         // 字体大小
@@ -56,13 +56,13 @@
 {
     CGFloat imageW = contentRect.size.width;
     CGFloat imageH = contentRect.size.height * IWTabBarButtonImageRatio;
-    return CGRectMake(0, 0, imageW, imageH);
+    return CGRectMake(0, 5, imageW, imageH);
 }
 
 // 内部文字的frame
 - (CGRect)titleRectForContentRect:(CGRect)contentRect
 {
-    CGFloat titleY = contentRect.size.height * IWTabBarButtonImageRatio;
+    CGFloat titleY = contentRect.size.height * IWTabBarButtonImageRatio + 5;
     CGFloat titleW = contentRect.size.width;
     CGFloat titleH = contentRect.size.height - titleY;
     return CGRectMake(0, titleY, titleW, titleH);

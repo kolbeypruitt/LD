@@ -5,6 +5,8 @@
 //  Created by Daniel on 15/6/6.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "CommitMessage.h"
+#import "TimeDeletage.h"
 #import "MBProgressHUD+MJ.h"
 #import "LDNotification.h"
 #import "IshospitalDelegate.h"
@@ -19,36 +21,14 @@
 #import "PostConsultTool.h"
 #import "SurgeryViewController.h"
 #import "Common.h"
-#import "UIBarButtonItem+ENTER.h"
 #import "HospitalEnterTextField.h"
-@interface SurgeryViewController ()<UITextFieldDelegate>
-@property (nonatomic,strong) NSMutableArray *labels;
-@property (nonatomic,strong) NSMutableArray *textfields;
-@property (nonatomic,strong) NSMutableArray *lines;
+#import "LDInputMessage.h"
+@interface SurgeryViewController ()
+
 @end
 
 @implementation SurgeryViewController
-- (NSMutableArray *)lines
-{
-    if (_lines == nil) {
-        _lines = [NSMutableArray array];
-    }
-    return _lines;
-}
-- (NSMutableArray *)labels
-{
-    if (_labels == nil) {
-        _labels = [NSMutableArray array];
-    }
-    return _labels;
-}
-- (NSMutableArray *)textfields
-{
-    if (_textfields == nil) {
-        _textfields = [NSMutableArray array];
-    }
-    return _textfields;
-}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -57,175 +37,68 @@
 - (void)setup
 {
     self.title = @"开刀";
-    [self addCustomViews];
-    [self layoutCustomViews];
     [self setNav];
+    [self addMessages];
+}
+- (void)addMessages
+{
+    LDInputMessage *message0 = [LDInputMessage messageWithFirstTitle:@"科室" placeHolder:@"选择科室" optionDelegate:[[SingleDepartmentDelegate alloc] init]];
+    LDInputMessage *message1 = [LDInputMessage messageWithFirstTitle:@"疾病名称" placeHolder:@"请输入疾病名称" optionDelegate:nil ];
+    LDInputMessage *message2 = [LDInputMessage messageWithFirstTitle:@"手术名称" placeHolder:@"请输入手术名称" optionDelegate:nil ];
+    LDInputMessage *message3 = [LDInputMessage messageWithFirstTitle:@"手术台数" placeHolder:@"请输入手术台数" optionDelegate:nil ];
+    LDInputMessage *message4 = [LDInputMessage messageWithFirstTitle:@"手术约定时间" placeHolder:@"请选择时间" optionDelegate:[[TimeDeletage alloc] init]];
+    LDInputMessage *message5 = [LDInputMessage messageWithFirstTitle:@"手术约定地址" placeHolder:@"请选择地址" optionDelegate:[[ZonePickerDelegate alloc] init]];
+    LDInputMessage *message6 = [LDInputMessage messageWithFirstTitle:@"详细地址" placeHolder:@"请输入详细地址" optionDelegate:nil ];
+    LDInputMessage *message7 = [LDInputMessage messageWithFirstTitle:@"医院名称" placeHolder:@"请输入医院名称" optionDelegate:nil ];
+    LDInputMessage *message8 = [LDInputMessage messageWithFirstTitle:@"拟邀医生技术职位" placeHolder:@"请选择医生职位" optionDelegate:[[NiyaoDelegate alloc] init] ];
+    LDInputMessage *message9 = [LDInputMessage messageWithFirstTitle:@"是否住院" placeHolder:@"请选择" optionDelegate:[[IshospitalDelegate alloc] init]];
+    self.inputMessages = @[message0,message1,message2,message3,message4,message5,message6,message7,message8,message9];
 }
 - (void)setNav
 {
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(post) title:@"发布"];
+   
     self.view.backgroundColor = IWColor(226, 226, 226);
+}
+- (void)commitBtnClicked
+{
+    if ([self messageComplete]) {
+        [self post];
+    }
 }
 - (void)post
 {
     PostConsultParam *param = [[PostConsultParam alloc] init];
+    
     param.consultationType = 1;
-    param.department = [[[self.textfields firstObject] enterData] department];
-    param.illness = [[self.textfields objectAtIndex:1] text];
-    param.operationName = [[self.textfields objectAtIndex:2] text];;
-    param.operationNum = [[[self.textfields objectAtIndex:3] text] intValue];
-    param.gctime = [[self.textfields objectAtIndex:4] text];
-    param.location = [[[self.textfields objectAtIndex:5] enterData] hospitalLocation];
-    param.address = [[self.textfields objectAtIndex:6] text];
-    param.appointHospital = [[self.textfields objectAtIndex:7] text];
-    param.doctorJob = [[self.textfields objectAtIndex:8] text];
-    param.isHospital = [[[self.textfields lastObject] enterData] ishospital];
+    param.department = [self.commitMessages[0] intMsg];
+    param.illness = [self.commitMessages[1] stringMsg];
+    param.operationName = [self.commitMessages[2] stringMsg];
+    param.operationNum = [[self.commitMessages[3] stringMsg] intValue];
+    param.time = [self.commitMessages[4] stringMsg];
+    param.location = [self.commitMessages[5] intMsg];
+    param.address = [self.commitMessages[6] stringMsg];
+    param.appointHospital = [self.commitMessages[7] stringMsg];
+    param.doctorJob = [self.commitMessages[8] stringMsg];
+    param.isHospital = [self.commitMessages[9] intMsg];
+    
     [PostConsultTool postConsulWithParam:param success:^(BaseResult *result) {
         if ([result.status isEqualToString:SUCCESSSTATUS]) {
             [DefaultCenter postNotificationName:DEPARTMENTMSGREFRESHNOTIFICATION object:self];
             [self.navigationController popViewControllerAnimated:YES];
         }else
         {
-            [MBProgressHUD showError:@"信息不完整,发布失败!"];
+            [MBProgressHUD showError:result.errorMsg];
         }
     } failure:^(NSError *error) {
         [MBProgressHUD showError:@"请求网络失败!"];
     }];
 }
-- (void)addCustomViews
-{
-    NSArray *labelArray = @[@"选择科室",@"疾病名称",@"手术名称",@"手术台数",@"手术约定时间",@"手术约定地址",@"详细地址",@"医院名称",@"拟邀医生职位",@"是否住院"];
-    NSArray *placeholderArray = @[@"请点击选择",@"请输入疾病名称",@"请输入手术名称",@"请输入手术台数",@"请点击选择",@"请点击选择",@"请输入详细地址",@"请输入医院名称",@"请点击选择",@"请点击选择"];
-    const int count = 10;
-    for (int i = 0 ; i < count; i++) {
-        UILabel *label = [[UILabel alloc] init];
-        
-        label.text = [labelArray objectAtIndex:i];
-        label.font = [UIFont systemFontOfSize:14];
-        label.textColor = [UIColor blackColor];
-        label.backgroundColor = [UIColor clearColor];
-        
-        [self.view addSubview:label];
-        [self.labels addObject:label];
-        
-        HospitalEnterTextField *textfield = [[HospitalEnterTextField alloc] init];
-        textfield.placeholder = [placeholderArray objectAtIndex:i];
-        textfield.borderStyle = UITextBorderStyleNone;
-        textfield.tag = i;
-        textfield.font = [UIFont systemFontOfSize:14];
-        textfield.clearButtonMode = UITextFieldViewModeWhileEditing;
-        textfield.textAlignment = NSTextAlignmentRight;
-        textfield.textColor = [UIColor blackColor];
-        textfield.delegate = self;
-        [textfield setValue:[UIFont systemFontOfSize:14] forKeyPath:@"_placeholderLabel.font"];
-        [self.view addSubview:textfield];
-        [self.textfields addObject:textfield];
-        
-        [self.lines addObject:[self addLine]];
-    }
-}
-- (void)layoutCustomViews
-{
-    CGFloat padding = 10;
-    CGFloat labelX = padding;
-    CGFloat labelY = 0;
-    CGFloat labelW = 90;
-    CGFloat labelH = 40;
-    
-    CGFloat lineX = padding;
-    CGFloat lineY = 0;
-    CGFloat lineW = SCREENWIDTH - 2 * padding;
-    CGFloat lineH = 1;
-    
-    CGFloat textfX = 0;
-    CGFloat textfY = 0;
-    CGFloat textfW = 0;
-    CGFloat textfH = 30;
-    
-    for (int i = 0 ; i < self.lines.count; i++ ) {
-        UILabel *label = [self.labels objectAtIndex:i];
-        labelY = 84 + i * (labelH + padding)+ 1;
-        label.frame = CGRectMake(labelX, labelY, labelW, labelH);
-        
-        UIView *line = [self.lines objectAtIndex:i];
-        lineY = CGRectGetMaxY(label.frame) + padding/2;
-        line.frame = CGRectMake(lineX, lineY, lineW, lineH);
-        
-        HospitalEnterTextField *textfield = [self.textfields objectAtIndex:i];
-        textfX = CGRectGetMaxX(label.frame);
-        textfY = labelY + 7;
-        textfW = SCREENWIDTH - textfX - padding;
-        textfield.frame = CGRectMake(textfX, textfY, textfW, textfH);
-        
-    }
-}
-- (UIView *)addLine
-{
-    UIView *line = [[UIView alloc] init];
-    line.backgroundColor = [UIColor lightGrayColor];
-    [self.view addSubview:line];
-    return line;
-}
+
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [self.view endEditing:YES];
 }
-#pragma mark - UITextfield delegate
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
-{
-    switch (textField.tag) {
-        case 0:
-        {
-            ActionSheetCustomPicker *customPicker = [ActionSheetCustomPicker customPickerWithTitle:@"选择科室"
-                                                                                              delegate:[[SingleDepartmentDelegate alloc] init]
-                                                                                                origin:textField];
-                [customPicker showActionSheetPicker];
-            return NO;
-        }
-        case 4:
-        {
-            ActionSheetDatePicker *datePicker = [ActionSheetDatePicker dataPickerWithTitle:@"选择时间"
-                                                                            datePickerMode:UIDatePickerModeDate
-                                                                                doneBlocke:^(ActionSheetDatePicker *picker, id selectedDate, id origin) {
-                NSDateFormatter *dateFormater = [[NSDateFormatter alloc] init];
-                dateFormater.dateFormat = @"yyyy-MM-dd";
-                NSString *dateStr = [dateFormater stringFromDate:selectedDate];
-                textField.text = dateStr;
-            }
-                                                                               cancelBlock:^(ActionSheetDatePicker *picker) {
-                
-            }
-                                                                                    origin:textField];
-            [datePicker showActionSheetPicker];
-            return NO;
-        }case 5:
-        {
-             ActionSheetCustomPicker *customPicker = [ActionSheetCustomPicker customPickerWithTitle:@"选择地区"
-                                                                                              delegate:[[ZonePickerDelegate alloc] init]
-                                                                                                origin:textField];
-                [customPicker showActionSheetPicker];
-            return NO;
-        }case 8:
-        {
-            ActionSheetCustomPicker *customPicker = [ActionSheetCustomPicker customPickerWithTitle:@"请选择"
-                                                                                              delegate:[[NiyaoDelegate alloc] init]
-                                                                                                origin:textField];
-                [customPicker showActionSheetPicker];
-            
-            return NO;
-        }
-        case 9:
-        {
-            ActionSheetCustomPicker *customPicker = [ActionSheetCustomPicker customPickerWithTitle:@"请选择"
-                                                                                              delegate:[[IshospitalDelegate alloc] init]
-                                                                                                origin:textField];
-                [customPicker showActionSheetPicker];
-            return NO;
-        }
-        default:
-            return YES;
-    }
-}
+
 
 
 

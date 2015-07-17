@@ -7,7 +7,6 @@
 //
 #import "LDMessage.h"
 #import "AllInviteParam.h"
-#import "FreeInviteHeaderView.h"
 #import "BaseResult.h"
 #import "MBProgressHUD+MJ.h"
 #import "WithDrawDocTool.h"
@@ -21,15 +20,12 @@
 #import "Common.h"
 #import "UIBarButtonItem+ENTER.h"
 #import "PatienInviteDetail.h"
+#import "LDMessageHeader.h"
 @interface InviteDetailController ()
 @property (nonatomic,strong) PatienInviteDetail *detailMsg;
-@property (nonatomic,weak) FreeInviteHeaderView *headView;
 @end
 @implementation InviteDetailController
-- (instancetype)initWithStyle:(UITableViewStyle)style
-{
-    return [super initWithStyle:UITableViewStyleGrouped];
-}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setup];
@@ -48,7 +44,6 @@
 - (void)setDetailMsg:(PatienInviteDetail *)detailMsg
 {
     _detailMsg = detailMsg;
-    self.headView.detailMsg = detailMsg;
     LDMessage *message0 = [LDMessage messageWithFirstTitle:@"姓名" secondTitle:detailMsg.name ];
     LDMessage *message1 = [LDMessage messageWithFirstTitle:@"身份证号" secondTitle:detailMsg.idcardNo ];
     LDMessage *message2 = [LDMessage messageWithFirstTitle:@"性别" secondTitle:detailMsg.gender ];
@@ -63,11 +58,19 @@
     LDMessage *message11 = [LDMessage messageWithFirstTitle:@"备注" secondTitle:detailMsg.ramark ];
     self.messages = @[message0,message1,message2,message3,message4,message5,message6,message7,message8,message9,message10,message11];
     
+    if (self.message.succeed == 0) {//未录取
+        LDMessageHeader *inviteHeader = [[LDMessageHeader alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width,80)];
+        [inviteHeader.acceptBtn addTarget:self action:@selector(confirmBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [inviteHeader.allBtn addTarget:self action:@selector(receiveBtnClicked) forControlEvents:UIControlEventTouchUpInside];
+        inviteHeader.inviteDetail = detailMsg;
+        self.tableView.tableHeaderView = inviteHeader;
+    }
 }
 
 - (void)setup
 {
     self.title = @"自由请医详情";
+   
     self.view.backgroundColor = IWColor(226, 226, 226);
     [self setNav];
 }
@@ -113,26 +116,11 @@
 #pragma mark - tabelview delegate
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    if (self.message.succeed == 1) {//已录取
-        return nil;
-    }else
-    {//未录取
-        FreeInviteHeaderView *inviteHeader = [[FreeInviteHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width,80)];
-        [inviteHeader.acceptedBtn addTarget:self action:@selector(confirmBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-        [inviteHeader.allBtn addTarget:self action:@selector(receiveBtnClicked) forControlEvents:UIControlEventTouchUpInside];
-        self.headView = inviteHeader;
-        return inviteHeader;    
-    }
-    
+    return nil;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if (self.message.succeed == 1) {
-        return 0;
-    }else
-    {
-        return 80;
-    }
+    return 0;
 }
 @end
 

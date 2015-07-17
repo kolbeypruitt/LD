@@ -5,7 +5,6 @@
 //  Created by Daniel on 15/6/17.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
-#import "FreeInviteHeaderView.h"
 #import "WithDrawDocTool.h"
 #import "AllInviteParam.h"
 #import "BaseResult.h"
@@ -24,10 +23,10 @@
 #import "UIButton+LD.h"
 #import "PatienInviteDetail.h"
 #import "RewardDetailController.h"
-
+#import "LDMessageHeader.h"
 @interface RewardDetailController ()
 @property (nonatomic,strong) PatienInviteDetail *detailMsg;
-@property (nonatomic,weak) FreeInviteHeaderView *headView;
+@property (nonatomic,weak) LDMessageHeader *headView;
 @end
 
 @implementation RewardDetailController
@@ -110,28 +109,22 @@
     LDMessage *message10 = [LDMessage messageWithFirstTitle:@"VIP" secondTitle:detailMsg.isVIP];
     LDMessage *message11 = [LDMessage messageWithFirstTitle:@"备注" secondTitle:detailMsg.ramark];
     self.messages = @[message0,message1,message2,message3,message4,message5,message6,message7,message8,message9,message10,message11];
+    
+    if (self.message.succeed == 0) {//未录取
+        LDMessageHeader *inviteHeader = [[LDMessageHeader alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width,80)];
+        [inviteHeader.acceptBtn addTarget:self action:@selector(confirmBtnClicked) forControlEvents:UIControlEventTouchUpInside];
+        [inviteHeader.allBtn addTarget:self action:@selector(receiveBtnClicked) forControlEvents:UIControlEventTouchUpInside];
+        inviteHeader.inviteDetail = detailMsg;
+        self.tableView.tableHeaderView = inviteHeader;
+    }
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    if (self.message.succeed == 1) {
         return nil;
-    }else{
-        FreeInviteHeaderView *inviteHeader = [[FreeInviteHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width,80)];
-        [inviteHeader.acceptedBtn addTarget:self action:@selector(confirmBtnClicked) forControlEvents:UIControlEventTouchUpInside];
-        [inviteHeader.allBtn addTarget:self action:@selector(receiveBtnClicked) forControlEvents:UIControlEventTouchUpInside];
-        self.headView = inviteHeader;
-        return inviteHeader;
-    }
-    
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if (self.message.succeed == 1) {
         return 0;
-    }else
-    {
-        return 80;
-    }
 }
 
 @end

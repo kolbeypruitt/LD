@@ -7,6 +7,7 @@
 //
 #import "CommitMessage.h"
 #import "MBProgressHUD+MJ.h"
+#import "LDCopyView.h"
 #import "LDInputController.h"
 #import "LDInputMessage.h"
 #import "Common.h"
@@ -18,6 +19,13 @@
 @end
 
 @implementation LDInputController
+- (instancetype)init
+{
+    if (self = [super init]) {
+        _showUpView = NO;
+    }
+    return self;
+}
 - (NSMutableArray *)commitMessages
 {
     if (_commitMessages == nil) {
@@ -35,7 +43,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setup];
+    [self setupLD];
 }
 - (void)addCustomViews
 {
@@ -53,7 +61,15 @@
         [self.scrollView addSubview:inputView];
         [self.inputViews addObject:inputView];
     }
+    [self addUploadView];
     [self addCommitBtn];
+}
+- (void)addUploadView
+{
+    LDCopyView *uploadView = [[LDCopyView alloc] init];
+    uploadView.hidden = YES;
+    [self.scrollView addSubview:uploadView];
+    self.uploadView = uploadView;
 }
 - (void)addCommitBtn
 {
@@ -81,17 +97,30 @@
         inputY = i * (inputH + padding) + padding;
         inputView.frame = CGRectMake(inputX, inputY, inputW, inputH);
     }
-    
-    if (self.commitBtn) {
+    if (self.showUpView) {
+        self.uploadView.hidden = NO;
         LDInputView *lastView = [self.inputViews lastObject];
         CGFloat btnX = 0;
         CGFloat btnY = CGRectGetMaxY(lastView.frame) + padding;
+        CGFloat btnW = lastView.frame.size.width;
+        CGFloat btnH = 80;
+        self.uploadView.frame = CGRectMake(btnX, btnY, btnW, btnH);
+    }
+    if (self.commitBtn) {
+        LDInputView *lastView = [self.inputViews lastObject];
+        CGFloat btnX = 0;
+        CGFloat btnY = 0;
+        if (self.showUpView) {
+            btnY = CGRectGetMaxY(self.uploadView.frame) + padding;
+        }else{
+            btnY = CGRectGetMaxY(lastView.frame) + padding;
+        }
         CGFloat btnW = lastView.frame.size.width;
         CGFloat btnH = lastView.frame.size.height;
         self.commitBtn.frame = CGRectMake(btnX, btnY, btnW, btnH);
     }
 }
-- (void)setup
+- (void)setupLD
 {
     self.view.backgroundColor = BGCOLOR;
 }
