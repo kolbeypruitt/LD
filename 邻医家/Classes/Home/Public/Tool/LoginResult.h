@@ -10,4 +10,5 @@
 
 @interface LoginResult : Account
 @property (nonatomic,copy) NSString *status;
+@property (nonatomic,copy) NSString *errorMsg;
 @end

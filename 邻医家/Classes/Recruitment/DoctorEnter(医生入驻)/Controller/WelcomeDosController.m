@@ -347,10 +347,10 @@
 {
     [ActionSheetCustomPicker showPickerWithTitle:title delegate:delegate showCancelButton:YES origin:sender];
 }
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    [self.view endEditing:YES];
-}
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+//{
+//    [self.view endEditing:YES];
+//}
 #pragma mark - textview delegate method
 - (void)textViewDidBeginEditing:(LDTextView *)textView
 {

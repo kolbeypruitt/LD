@@ -5,6 +5,8 @@
 //  Created by Daniel on 15/5/20.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "LDCopyView.h"
+#import "CommitMessage.h"
 #import "PatientEnterTool.h"
 #import "BaseResult.h"
 #import "LDInputMessage.h"
@@ -22,7 +24,6 @@
 #import "PatientEnterParam.h"
 @interface WelcomePatientController () <UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (nonatomic,weak) UIButton *auditBtn;
-@property (nonatomic,weak) UIButton *uploadBtn;
 
 @end
 
@@ -35,36 +36,45 @@
     [self setup];
 }
 
-- (void)auditBtnClicked
+- (void)commit
 {
-    PatientTabbarController *newrootVC = [[PatientTabbarController alloc] init];
-    self.view.window.rootViewController = newrootVC;
     
-//    PatientEnterParam *param = [self getparam];
-    NSData *data = UIImageJPEGRepresentation([self.uploadBtn currentImage], 1.0);
+    
+    PatientEnterParam *param = [self getparam];
+    NSData *data = UIImageJPEGRepresentation([self.uploadView.imageBtn currentImage], 1.0);
     LDFormData *formData = [LDFormData formDataWithData:data name:@"file" filename:@"" mimiType:@"image/jpeg"];
     NSArray *formDataArray = @[formData];
-    [PatientEnterTool uploadPatientDataWithParam:nil formDataArray:formDataArray success:^(BaseResult *result) {
+    [PatientEnterTool uploadPatientDataWithParam:param formDataArray:formDataArray success:^(BaseResult *result) {
         if ([result.status isEqualToString:@"S"]) {
-            NSLog(@"You are amazing!!!");
+            PatientTabbarController *newrootVC = [[PatientTabbarController alloc] init];
+            self.view.window.rootViewController = newrootVC;
+        }else
+        {
+            [MBProgressHUD showError:result.errorMsg];
         }
     } failure:^(NSError *error) {
         [MBProgressHUD showError:@"上传数据失败"];
     }];
     
 }
-//- (PatientEnterParam *)getparam
-//{
-//    NSString *name = [[self.textFields firstObject] text];
-//    NSString *idcardNo = [[self.textFields objectAtIndex:1] text];
-//    int location = [[[self.textFields objectAtIndex:2] enterData] hospitalLocation];
-//    NSString *address = [[self.textFields objectAtIndex:3] text];
-//    PatientEnterParam *param = [PatientEnterParam paramWithName:name
-//                                                       idcardNo:idcardNo
-//                                                       location:location
-//                                                        address:address];
-//    return param;
-//}
+- (void)commitBtnClicked
+{
+    if ([self messageComplete]) {
+        [self commit];
+    }
+}
+- (PatientEnterParam *)getparam
+{
+    NSString *name = [self.commitMessages[0] stringMsg];
+    NSString *idcardNo = [self.commitMessages[1] stringMsg];
+    int location = [self.commitMessages[2] intMsg];
+    NSString *address = [self.commitMessages[3] stringMsg];
+    PatientEnterParam *param = [PatientEnterParam paramWithName:name
+                                                       idcardNo:idcardNo
+                                                       location:location
+                                                        address:address];
+    return param;
+}
 - (void)upload
 {
     UIActionSheet *actionsheet = [[UIActionSheet alloc] initWithTitle:@""
@@ -111,12 +121,17 @@
 }
 - (void)addMessages
 {
+    self.showUpView =  YES;
+    
     LDInputMessage *message0 = [LDInputMessage messageWithFirstTitle:@"真实姓名" placeHolder:@"请输入真实姓名" optionDelegate:nil];
     LDInputMessage *message1 = [LDInputMessage messageWithFirstTitle:@"身份证号" placeHolder:@"请输入身份证号" optionDelegate:nil];
     LDInputMessage *message2 = [LDInputMessage messageWithFirstTitle:@"地区" placeHolder:@"请选择地区" optionDelegate:[[ZonePickerDelegate alloc] init]];
     LDInputMessage *message3 = [LDInputMessage messageWithFirstTitle:@"详细地址" placeHolder:@"请输入详细地址" optionDelegate:nil];
     self.inputMessages = @[message0,message1,message2,message3];
+    
+    [self.uploadView.imageBtn addTarget:self action:@selector(upload) forControlEvents:UIControlEventTouchUpInside];
 }
+
 - (void)viewTaped:(UITapGestureRecognizer *)recognizer
 {
     [self.view endEditing:YES];
@@ -127,7 +142,7 @@
 {
     [picker dismissViewControllerAnimated:YES completion:nil];
     UIImage *image = info[UIImagePickerControllerOriginalImage];
-    [self.uploadBtn setImage:image forState:UIControlStateNormal];
+    [self.uploadView.imageBtn setImage:image forState:UIControlStateNormal];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event

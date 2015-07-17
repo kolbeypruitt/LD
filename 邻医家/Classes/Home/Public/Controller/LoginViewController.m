@@ -92,7 +92,7 @@
                     [self chooseRootController];
                 }else
                 {
-                    [MBProgressHUD showError:@"用户名或密码错误"];
+                    [MBProgressHUD showError:result.errorMsg];
                 }
             } failure:^(NSError *error) {
                 
@@ -109,7 +109,7 @@
 - (void)chooseRootController
 {
     Account *userAccount = [AccountTool account];
-    if (userAccount.type == 0)
+    if (userAccount.type == 0 || userAccount.type == 5)
     {//注册用户
         IWTabBarViewController *publicHome = [[IWTabBarViewController alloc] init];
         self.view.window.rootViewController = publicHome;

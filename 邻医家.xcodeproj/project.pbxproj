@@ -413,6 +413,8 @@
 		65D3F2E81B58A98100BB1A8B /* DocArrangeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D3F2E61B58A98100BB1A8B /* DocArrangeCell.m */; };
 		65D3F2E91B58A98100BB1A8B /* DocArrangeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D3F2E71B58A98100BB1A8B /* DocArrangeCell.xib */; };
 		65D3F2EC1B58CFD200BB1A8B /* LDEnterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D3F2EB1B58CFD200BB1A8B /* LDEnterCell.m */; };
+		65D3F2F21B58E4FF00BB1A8B /* LDCopyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D3F2F11B58E4FF00BB1A8B /* LDCopyView.m */; };
+		65D3F2F41B58E50B00BB1A8B /* LDCopyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D3F2F31B58E50B00BB1A8B /* LDCopyView.xib */; };
 		65D527041B2A95D600CF4FC4 /* ConfirmedResumeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D526C51B2A95D600CF4FC4 /* ConfirmedResumeController.m */; };
 		65D527051B2A95D600CF4FC4 /* DoctorResumeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D526C71B2A95D600CF4FC4 /* DoctorResumeController.m */; };
 		65D527081B2A95D600CF4FC4 /* PlatformRecruitController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D526CD1B2A95D600CF4FC4 /* PlatformRecruitController.m */; };
@@ -1342,6 +1344,9 @@
 		65D3F2E71B58A98100BB1A8B /* DocArrangeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DocArrangeCell.xib; sourceTree = "<group>"; };
 		65D3F2EA1B58CFD200BB1A8B /* LDEnterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDEnterCell.h; sourceTree = "<group>"; };
 		65D3F2EB1B58CFD200BB1A8B /* LDEnterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDEnterCell.m; sourceTree = "<group>"; };
+		65D3F2F01B58E4FF00BB1A8B /* LDCopyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDCopyView.h; sourceTree = "<group>"; };
+		65D3F2F11B58E4FF00BB1A8B /* LDCopyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDCopyView.m; sourceTree = "<group>"; };
+		65D3F2F31B58E50B00BB1A8B /* LDCopyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LDCopyView.xib; sourceTree = "<group>"; };
 		65D526C41B2A95D600CF4FC4 /* ConfirmedResumeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmedResumeController.h; sourceTree = "<group>"; };
 		65D526C51B2A95D600CF4FC4 /* ConfirmedResumeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmedResumeController.m; sourceTree = "<group>"; };
 		65D526C61B2A95D600CF4FC4 /* DoctorResumeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorResumeController.h; sourceTree = "<group>"; };
@@ -3309,6 +3314,9 @@
 				65C58C2C1B328E2C00D3A013 /* AppendInviteView.m */,
 				656438D11B54D34000436EAF /* LDInputView.h */,
 				656438D21B54D34000436EAF /* LDInputView.m */,
+				65D3F2F01B58E4FF00BB1A8B /* LDCopyView.h */,
+				65D3F2F11B58E4FF00BB1A8B /* LDCopyView.m */,
+				65D3F2F31B58E50B00BB1A8B /* LDCopyView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -4055,6 +4063,7 @@
 				65C563871B1E9AE6007FC968 /* city.json in Resources */,
 				65E254631B423B4C009B0525 /* hotdepartment.plist in Resources */,
 				65AE9D781B4D186000627EFA /* AppendCaseController.xib in Resources */,
+				65D3F2F41B58E50B00BB1A8B /* LDCopyView.xib in Resources */,
 				654A30C31B00896C0043821B /* MJRefresh.bundle in Resources */,
 				B051950F1B47D1110033CA7E /* ChatToolView.xib in Resources */,
 				65CAB2D71B241317005DAED4 /* ReviewController.xib in Resources */,
@@ -4180,6 +4189,7 @@
 				6554545A1AFCA59D00C4BFFA /* AbstractActionSheetPicker.m in Sources */,
 				655454351AFCA59D00C4BFFA /* MJArgument.m in Sources */,
 				6540B81E1B2D4C6C0053DB2A /* DonConsultCell.m in Sources */,
+				65D3F2F21B58E4FF00BB1A8B /* LDCopyView.m in Sources */,
 				65D812551B3A836400A1E0EC /* HosdetailParam.m in Sources */,
 				65D5270F1B2A95D600CF4FC4 /* DoctorResume.m in Sources */,
 				654A30C51B00896C0043821B /* MJRefreshConst.m in Sources */,

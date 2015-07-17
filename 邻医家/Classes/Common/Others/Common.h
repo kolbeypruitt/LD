@@ -88,6 +88,7 @@
 #define DOCARRANGEMENTLISTURL @"http://192.168.1.4:8080/assfinance/hospital/getMyDoctorArrangement"
 #define RELEASEDOCARRANGEMENTURL @"http://192.168.1.4:8080/assfinance/hospital/releaseDoctorArrangement"
 #define DOCARRANGEMENTDETAILURL @"http://192.168.1.4:8080/assfinance/hospital/getMyDoctorArrangementById"
+#define USEINFOURL @"http://192.168.1.4:8080/assfinance/user/getAccountInfo"
 
 // 获取我的会诊信息
 #define MYCONSULTURL @"http://192.168.1.4:8080/assfinance/doctor/getMyGCInfoList"
