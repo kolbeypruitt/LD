@@ -15,7 +15,6 @@
 #define DISID @"disease"
 #define CELLBORDER 10
 //http://localhost:8080/assfinance/public/getEmployInfoList
-//
 //说明：type   招聘类型 1-多点执业邀请2-专家邀请3- 实习 4-进修 5-博士后
 #define BGCOLOR IWColor(226, 226, 226)
 #define DEPMENTALLURL @"http://192.168.1.4:8080/assfinance/hospital/getAllByGCId"

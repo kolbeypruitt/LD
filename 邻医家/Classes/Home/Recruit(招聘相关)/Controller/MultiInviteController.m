@@ -27,16 +27,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setup];
-    [self loadData];
 }
-- (void)setup
+- (void)setType:(int)type
 {
-    self.navigationItem.title = @"多点执业邀请";
-    self.navigationItem.rightBarButtonItem = nil;
-}
-- (void)loadData
-{
-    RecruitParam *param = [RecruitParam paramWithType:1];
+    _type = type;
+    
+    RecruitParam *param = [RecruitParam paramWithType:type];
     [RecruitTool recruitWithParam:param success:^(RecruitResult *result) {
         if ([result.status isEqualToString:@"S"]) {
             [self.employInfos addObjectsFromArray:result.employInfos];
@@ -46,6 +42,12 @@
         
     }];
 }
+- (void)setup
+{
+ 
+    self.navigationItem.rightBarButtonItem = nil;
+}
+
 #pragma mark - tableview delegate and datasource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -64,6 +66,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MultiInviteDetailController *detaiVC = [[MultiInviteDetailController alloc] init];
+    detaiVC.title = self.title;
     detaiVC.employInfo = self.employInfos[indexPath.row];
     [self.navigationController pushViewController:detaiVC animated:YES];
 }

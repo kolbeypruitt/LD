@@ -7,12 +7,11 @@
 //
 #import "HospitalPlatformController.h"
 #import "DepartmentPlatformController.h"
-#import "IWNavigationController.h"
+#import "IWTabBarViewController.h"
 #import "PublicHomeController.h"
 #import "DoctorTabbarController.h"
 #import "PatientTabbarController.h"
 #import "ForgetPassController.h"
-#import "IWTabBarViewController.h"
 #import "UIImage+MJ.h"
 #import "Account.h"
 #import "AccountTool.h"
@@ -112,9 +111,8 @@
     Account *userAccount = [AccountTool account];
     if (userAccount.type == 0)
     {//注册用户
-        PublicHomeController *publicHome = [[PublicHomeController alloc] init];
-        IWNavigationController *nav = [[IWNavigationController alloc] initWithRootViewController:publicHome];
-        self.view.window.rootViewController = nav;
+        IWTabBarViewController *publicHome = [[IWTabBarViewController alloc] init];
+        self.view.window.rootViewController = publicHome;
     }else if(userAccount.type == 1)
     {//医院管理者
         HospitalPlatformController *hosplat = [[HospitalPlatformController alloc] init];

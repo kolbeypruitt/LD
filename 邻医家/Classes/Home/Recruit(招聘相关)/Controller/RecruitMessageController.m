@@ -9,7 +9,6 @@
 #import "IWCommon.h"
 #import "LDPlatformButton.h"
 #import "RecruitMessageController.h"
-#import "PostDocRecruitController.h"
 #import "MultiInviteController.h"
 @interface RecruitMessageController ()
 @property (weak, nonatomic) IBOutlet LDPlatformButton *multiJobBtn;
@@ -17,11 +16,7 @@
 @property (weak, nonatomic) IBOutlet LDPlatformButton *studyBtn;
 @property (weak, nonatomic) IBOutlet LDPlatformButton *postDocBtn;
 @property (weak, nonatomic) IBOutlet LDPlatformButton *practiceBtn;
-- (IBAction)mutiJobBtnClicked:(LDPlatformButton *)sender;
-- (IBAction)inviteExpertBtnClicked:(LDPlatformButton *)sender;
-- (IBAction)studyBtnClicked:(LDPlatformButton *)sender;
-- (IBAction)postDocBtnClicked:(LDPlatformButton *)sender;
-- (IBAction)practiceBtnClicked:(LDPlatformButton *)sender;
+
 
 @end
 
@@ -61,35 +56,30 @@
 }
 
 
-- (IBAction)mutiJobBtnClicked:(LDPlatformButton *)sender {
-    MultiInviteController *postVC = [[MultiInviteController alloc] init];
-    postVC.title = sender.currentTitle;
-    [self.navigationController pushViewController:postVC animated:YES];
+- (IBAction)buttonClicked:(LDPlatformButton *)sender {
+    MultiInviteController *inviteVC = [[MultiInviteController alloc] init];
+    inviteVC.title = sender.currentTitle;
+    
+    if ([sender isEqual:self.multiJobBtn]) {
+        inviteVC.type = 1;
+    }else if([sender isEqual:self.inviteExpertBtn])
+    {
+        inviteVC.type = 2;
+    }else if([self isEqual:self.practiceBtn])
+    {
+        inviteVC.type = 3;
+    }else if([self isEqual:self.studyBtn])
+    {
+        inviteVC.type = 4;
+    }else
+    {
+        inviteVC.type = 5;
+    }
+    [self.navigationController pushViewController:inviteVC animated:YES];
 }
 
-- (IBAction)inviteExpertBtnClicked:(LDPlatformButton *)sender {
-    PostDocRecruitController *postVC = [[PostDocRecruitController alloc] init];
-    postVC.title = sender.currentTitle;
-    [self.navigationController pushViewController:postVC animated:YES];
-}
 
-- (IBAction)studyBtnClicked:(LDPlatformButton *)sender {
-    PostDocRecruitController *postVC = [[PostDocRecruitController alloc] init];
-    postVC.title = sender.currentTitle;
-    [self.navigationController pushViewController:postVC animated:YES];
-}
 
-- (IBAction)postDocBtnClicked:(LDPlatformButton *)sender {
-    PostDocRecruitController *postVC = [[PostDocRecruitController alloc] init];
-    postVC.title = sender.currentTitle;
-    [self.navigationController pushViewController:postVC animated:YES];
-}
-
-- (IBAction)practiceBtnClicked:(LDPlatformButton *)sender {
-    PostDocRecruitController *postVC = [[PostDocRecruitController alloc] init];
-    postVC.title = sender.currentTitle;
-    [self.navigationController pushViewController:postVC animated:YES];
-}
 @end
 
 

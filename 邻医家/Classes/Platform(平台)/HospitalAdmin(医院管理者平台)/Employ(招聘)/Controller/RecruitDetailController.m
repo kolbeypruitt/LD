@@ -35,6 +35,7 @@
 {
     self.title = @"招聘详情";
     self.singleLine = YES;
+    self.tableView.sectionHeaderHeight = 0;
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(withDraw) title:@"撤销"];
 }
 - (void)withDraw

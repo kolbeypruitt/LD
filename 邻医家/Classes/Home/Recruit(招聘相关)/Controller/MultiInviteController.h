@@ -5,9 +5,7 @@
 //  Created by Daniel on 15/6/25.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
-
-#import "PostDocRecruitController.h"
-
-@interface MultiInviteController : PostDocRecruitController
-
+#import <UIKit/UIKit.h>
+@interface MultiInviteController : UITableViewController
+@property (nonatomic,assign) int type;
 @end

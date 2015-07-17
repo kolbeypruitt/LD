@@ -10,7 +10,7 @@
 
 @interface CaseDetail : NSObject
 @property (nonatomic,copy) NSString *gender;
-@property (nonatomic,assign) long age;
+@property (nonatomic,assign) int age;
 @property (nonatomic,copy) NSString *chiefComplaint;
 @property (nonatomic,copy) NSString *illNow;
 @property (nonatomic,copy) NSString *illBefore;

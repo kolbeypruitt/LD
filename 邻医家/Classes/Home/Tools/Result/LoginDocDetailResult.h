@@ -13,4 +13,5 @@
 @property (nonatomic,strong)  Doctor *intorduction;
 @property (nonatomic,strong) NSArray *papers;
 @property (nonatomic,copy) NSString *status;
+@property (nonatomic,strong) NSArray *arrangements;
 @end

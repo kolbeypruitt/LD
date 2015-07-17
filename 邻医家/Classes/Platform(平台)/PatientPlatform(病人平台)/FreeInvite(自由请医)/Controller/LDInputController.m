@@ -15,6 +15,7 @@
 @property (nonatomic,weak) UIScrollView *scrollView;
 @property (nonatomic,weak) UIButton *commitBtn;
 @property (nonatomic,strong) NSMutableArray *inputViews;
+@property (nonatomic,weak) UIView *extraView;
 @end
 
 @implementation LDInputController

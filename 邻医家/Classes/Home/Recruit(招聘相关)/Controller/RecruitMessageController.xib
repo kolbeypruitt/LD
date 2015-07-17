@@ -31,7 +31,7 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="mutiJobBtnClicked:" destination="-1" eventType="touchUpInside" id="TTn-zh-mxO"/>
+                        <action selector="buttonClicked:" destination="-1" eventType="touchUpInside" id="wwO-e6-bw8"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pz8-NA-24C" customClass="LDPlatformButton">
@@ -45,7 +45,7 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="inviteExpertBtnClicked:" destination="-1" eventType="touchUpInside" id="JP3-9m-pUG"/>
+                        <action selector="buttonClicked:" destination="-1" eventType="touchUpInside" id="8VN-l4-Ma7"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akb-9R-cuV" customClass="LDPlatformButton">
@@ -56,7 +56,7 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="studyBtnClicked:" destination="-1" eventType="touchUpInside" id="eQN-nu-edg"/>
+                        <action selector="buttonClicked:" destination="-1" eventType="touchUpInside" id="Xu0-1f-pxc"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MWi-Xq-1AK" customClass="LDPlatformButton">
@@ -67,7 +67,7 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="practiceBtnClicked:" destination="-1" eventType="touchUpInside" id="gky-rE-HIc"/>
+                        <action selector="buttonClicked:" destination="-1" eventType="touchUpInside" id="qLp-96-Pdf"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="igV-PR-j3t" customClass="LDPlatformButton">
@@ -78,7 +78,7 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="postDocBtnClicked:" destination="-1" eventType="touchUpInside" id="AhC-YE-oZT"/>
+                        <action selector="buttonClicked:" destination="-1" eventType="touchUpInside" id="VZf-5W-Hhh"/>
                     </connections>
                 </button>
             </subviews>

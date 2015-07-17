@@ -11,20 +11,11 @@
 #import "CaseDetailParam.h"
 #import "RecruitDetailResult.h"
 #import "RecruitDetailTool.h"
+#import "LDMessage.h"
 #import "EmployDetailInfo.h"
 #import "EmployInfo.h"
 @interface MultiInviteDetailController ()
-@property (weak, nonatomic) IBOutlet UILabel *languageLabel;
-@property (weak, nonatomic) IBOutlet UILabel *educationLabel;
-@property (weak, nonatomic) IBOutlet UILabel *employNumLabel;
-@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
-@property (weak, nonatomic) IBOutlet UILabel *jobnameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *ageLabel;
-@property (weak, nonatomic) IBOutlet UILabel *professionLabel;
-@property (weak, nonatomic) IBOutlet UILabel *monthlyLabel;
-@property (weak, nonatomic) IBOutlet UILabel *jobTypeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *workAgeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *techTitleLabel;
+
 @property (nonatomic,strong) EmployDetailInfo *detailInfo;
 @end
 
@@ -37,9 +28,7 @@
 }
 - (void)setup
 {
-    self.navigationItem.title = @"多点执业邀请";
-    self.navigationItem.rightBarButtonItem = nil;
-    self.view.backgroundColor = IWColor(226, 226, 226);
+    self.tableView.contentInset = UIEdgeInsetsMake(-30, 0, 0, 0);
 }
 - (void)loadData
 {
@@ -53,19 +42,24 @@
 - (void)setDetailInfo:(EmployDetailInfo *)detailInfo
 {
     _detailInfo = detailInfo;
-    self.jobnameLabel.text = detailInfo.jobname;
-    self.addressLabel.text = detailInfo.address;
-    self.employNumLabel.text = [NSString stringWithFormat:@"%d",detailInfo.employNum];
-    self.educationLabel.text = detailInfo.education;
-    self.languageLabel.text = detailInfo.language;
-    self.ageLabel.text = [NSString stringWithFormat:@"%d",detailInfo.age];
-    self.professionLabel.text = detailInfo.profession;
-    self.monthlyLabel.text = detailInfo.monthly;
-    self.workAgeLabel.text =[NSString stringWithFormat:@"%d", detailInfo.workage];
-    self.jobTypeLabel.text = detailInfo.jobtype;
-    self.techTitleLabel.text = detailInfo.techtitle;
-}
+    
+    self.singleLine = YES;
+    LDMessage *message0 = [LDMessage messageWithFirstTitle:@"岗位" secondTitle:detailInfo.jobname ];
+    LDMessage *message1 = [LDMessage messageWithFirstTitle:@"地点" secondTitle:detailInfo.address ];
+    LDMessage *message2 = [LDMessage messageWithFirstTitle:@"人数" secondTitle:[NSString stringWithFormat:@"%d",detailInfo.employNum] ];
+    LDMessage *message3 = [LDMessage messageWithFirstTitle:@"学历" secondTitle:detailInfo.education ];
+    LDMessage *message4 = [LDMessage messageWithFirstTitle:@"外语" secondTitle:detailInfo.language ];
+    LDMessage *message5 = [LDMessage messageWithFirstTitle:@"年龄" secondTitle:[NSString stringWithFormat:@"%d",detailInfo.age] ];
+    LDMessage *message6 = [LDMessage messageWithFirstTitle:@"专业" secondTitle:detailInfo.profession ];
+    LDMessage *message7 = [LDMessage messageWithFirstTitle:@"职位要求" secondTitle:detailInfo.introduction ];
+    LDMessage *message8 = [LDMessage messageWithFirstTitle:@"职位性质" secondTitle:detailInfo.jobtype];
+    self.messages = @[message0,message1,message2,message3,message4,message5,message6,message7,message8];
 
+}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    return nil;
+}
 
 
 @end

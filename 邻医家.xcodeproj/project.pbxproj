@@ -10,7 +10,6 @@
 		187054F71AFDF4E800287E71 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 187054F61AFDF4E800287E71 /* Images.xcassets */; };
 		18FAD4D01AFF5E0B003B7F4C /* FooterBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FAD4CF1AFF5E0B003B7F4C /* FooterBtn.m */; };
 		65018D5B1B3BDF7E00A07615 /* MultiInviteDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65018D591B3BDF7E00A07615 /* MultiInviteDetailController.m */; };
-		65018D5C1B3BDF7E00A07615 /* MultiInviteDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65018D5A1B3BDF7E00A07615 /* MultiInviteDetailController.xib */; };
 		65018D5F1B3BE54700A07615 /* RecruitDetailResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 65018D5E1B3BE54700A07615 /* RecruitDetailResult.m */; };
 		65018D621B3BE59300A07615 /* EmployDetailInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 65018D611B3BE59300A07615 /* EmployDetailInfo.m */; };
 		65018D651B3BE5EC00A07615 /* RecruitDetailTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 65018D641B3BE5EC00A07615 /* RecruitDetailTool.m */; };
@@ -25,7 +24,6 @@
 		650295E51B009575002249C0 /* Province.m in Sources */ = {isa = PBXBuildFile; fileRef = 650295D91B009575002249C0 /* Province.m */; };
 		650295E61B009575002249C0 /* MoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 650295DC1B009575002249C0 /* MoreCell.m */; };
 		650295E71B009575002249C0 /* MoreHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 650295DE1B009575002249C0 /* MoreHeader.m */; };
-		650295EA1B009957002249C0 /* PostDocRecruitController.m in Sources */ = {isa = PBXBuildFile; fileRef = 650295E91B009957002249C0 /* PostDocRecruitController.m */; };
 		650E60721B33DED700CFF569 /* ConsultDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 650E60711B33DED700CFF569 /* ConsultDetailController.m */; };
 		650E60751B33E3CE00CFF569 /* ConsutlDetailResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 650E60741B33E3CE00CFF569 /* ConsutlDetailResult.m */; };
 		650E60781B33EAA500CFF569 /* SurgeryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 650E60771B33EAA500CFF569 /* SurgeryView.m */; };
@@ -412,6 +410,9 @@
 		65D0E1611B4A543B00283275 /* GroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D0E1601B4A543B00283275 /* GroupViewController.m */; };
 		65D38DCC1B4F5644006CE3AD /* EnrolledRecruitController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D38DCB1B4F5644006CE3AD /* EnrolledRecruitController.m */; };
 		65D38DD91B4F66B6006CE3AD /* DoctorPlatformController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D38DD71B4F66B6006CE3AD /* DoctorPlatformController.m */; };
+		65D3F2E81B58A98100BB1A8B /* DocArrangeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D3F2E61B58A98100BB1A8B /* DocArrangeCell.m */; };
+		65D3F2E91B58A98100BB1A8B /* DocArrangeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D3F2E71B58A98100BB1A8B /* DocArrangeCell.xib */; };
+		65D3F2EC1B58CFD200BB1A8B /* LDEnterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D3F2EB1B58CFD200BB1A8B /* LDEnterCell.m */; };
 		65D527041B2A95D600CF4FC4 /* ConfirmedResumeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D526C51B2A95D600CF4FC4 /* ConfirmedResumeController.m */; };
 		65D527051B2A95D600CF4FC4 /* DoctorResumeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D526C71B2A95D600CF4FC4 /* DoctorResumeController.m */; };
 		65D527081B2A95D600CF4FC4 /* PlatformRecruitController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D526CD1B2A95D600CF4FC4 /* PlatformRecruitController.m */; };
@@ -548,7 +549,6 @@
 		18FAD4CF1AFF5E0B003B7F4C /* FooterBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FooterBtn.m; sourceTree = "<group>"; };
 		65018D581B3BDF7E00A07615 /* MultiInviteDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiInviteDetailController.h; sourceTree = "<group>"; };
 		65018D591B3BDF7E00A07615 /* MultiInviteDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiInviteDetailController.m; sourceTree = "<group>"; };
-		65018D5A1B3BDF7E00A07615 /* MultiInviteDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MultiInviteDetailController.xib; sourceTree = "<group>"; };
 		65018D5D1B3BE54700A07615 /* RecruitDetailResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecruitDetailResult.h; sourceTree = "<group>"; };
 		65018D5E1B3BE54700A07615 /* RecruitDetailResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecruitDetailResult.m; sourceTree = "<group>"; };
 		65018D601B3BE59300A07615 /* EmployDetailInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmployDetailInfo.h; sourceTree = "<group>"; };
@@ -576,8 +576,6 @@
 		650295DC1B009575002249C0 /* MoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreCell.m; sourceTree = "<group>"; };
 		650295DD1B009575002249C0 /* MoreHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreHeader.h; sourceTree = "<group>"; };
 		650295DE1B009575002249C0 /* MoreHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreHeader.m; sourceTree = "<group>"; };
-		650295E81B009957002249C0 /* PostDocRecruitController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostDocRecruitController.h; sourceTree = "<group>"; };
-		650295E91B009957002249C0 /* PostDocRecruitController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostDocRecruitController.m; sourceTree = "<group>"; };
 		650E60701B33DED700CFF569 /* ConsultDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsultDetailController.h; sourceTree = "<group>"; };
 		650E60711B33DED700CFF569 /* ConsultDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsultDetailController.m; sourceTree = "<group>"; };
 		650E60731B33E3CE00CFF569 /* ConsutlDetailResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsutlDetailResult.h; sourceTree = "<group>"; };
@@ -1339,6 +1337,11 @@
 		65D38DCB1B4F5644006CE3AD /* EnrolledRecruitController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnrolledRecruitController.m; sourceTree = "<group>"; };
 		65D38DD61B4F66B6006CE3AD /* DoctorPlatformController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorPlatformController.h; sourceTree = "<group>"; };
 		65D38DD71B4F66B6006CE3AD /* DoctorPlatformController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorPlatformController.m; sourceTree = "<group>"; };
+		65D3F2E51B58A98100BB1A8B /* DocArrangeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocArrangeCell.h; sourceTree = "<group>"; };
+		65D3F2E61B58A98100BB1A8B /* DocArrangeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocArrangeCell.m; sourceTree = "<group>"; };
+		65D3F2E71B58A98100BB1A8B /* DocArrangeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DocArrangeCell.xib; sourceTree = "<group>"; };
+		65D3F2EA1B58CFD200BB1A8B /* LDEnterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDEnterCell.h; sourceTree = "<group>"; };
+		65D3F2EB1B58CFD200BB1A8B /* LDEnterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDEnterCell.m; sourceTree = "<group>"; };
 		65D526C41B2A95D600CF4FC4 /* ConfirmedResumeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmedResumeController.h; sourceTree = "<group>"; };
 		65D526C51B2A95D600CF4FC4 /* ConfirmedResumeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmedResumeController.m; sourceTree = "<group>"; };
 		65D526C61B2A95D600CF4FC4 /* DoctorResumeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorResumeController.h; sourceTree = "<group>"; };
@@ -1610,8 +1613,6 @@
 				650295C21B00952E002249C0 /* RecruitMessageController.h */,
 				650295C31B00952E002249C0 /* RecruitMessageController.m */,
 				650295C41B00952E002249C0 /* RecruitMessageController.xib */,
-				650295E81B009957002249C0 /* PostDocRecruitController.h */,
-				650295E91B009957002249C0 /* PostDocRecruitController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2693,7 +2694,6 @@
 				656A08C71B3BCF390056588A /* MultiInviteController.m */,
 				65018D581B3BDF7E00A07615 /* MultiInviteDetailController.h */,
 				65018D591B3BDF7E00A07615 /* MultiInviteDetailController.m */,
-				65018D5A1B3BDF7E00A07615 /* MultiInviteDetailController.xib */,
 			);
 			name = "多点执业邀请";
 			sourceTree = "<group>";
@@ -3174,6 +3174,8 @@
 				65CAB2C71B241317005DAED4 /* LDTextView.m */,
 				65CAB2C81B241317005DAED4 /* RecruitHeader.h */,
 				65CAB2C91B241317005DAED4 /* RecruitHeader.m */,
+				65D3F2EA1B58CFD200BB1A8B /* LDEnterCell.h */,
+				65D3F2EB1B58CFD200BB1A8B /* LDEnterCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3388,6 +3390,9 @@
 		65CFC6CE1B526DB800A881B6 /* VIew */ = {
 			isa = PBXGroup;
 			children = (
+				65D3F2E51B58A98100BB1A8B /* DocArrangeCell.h */,
+				65D3F2E61B58A98100BB1A8B /* DocArrangeCell.m */,
+				65D3F2E71B58A98100BB1A8B /* DocArrangeCell.xib */,
 			);
 			name = VIew;
 			sourceTree = "<group>";
@@ -4038,7 +4043,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6554543F1AFCA59D00C4BFFA /* MJPhotoBrowser.bundle in Resources */,
-				65018D5C1B3BDF7E00A07615 /* MultiInviteDetailController.xib in Resources */,
 				6553FD071B33AFE3009ABD4D /* DepartmentCell.xib in Resources */,
 				6540B81F1B2D4C6C0053DB2A /* DonConsultCell.xib in Resources */,
 				654861911B4E5666001B25CA /* ArrangementCell.xib in Resources */,
@@ -4063,6 +4067,7 @@
 				6516A6951B12F807006B9BBB /* department.json in Resources */,
 				65CFC6AD1B522F2F00A881B6 /* MyAppliatDetailController.xib in Resources */,
 				65CC3F611B0F0A410099A3F3 /* CheckInForgetController.xib in Resources */,
+				65D3F2E91B58A98100BB1A8B /* DocArrangeCell.xib in Resources */,
 				B0C32E1F1B3AFBAA008E057C /* MultiJobCell.xib in Resources */,
 				655454731AFCA59D00C4BFFA /* Info.plist in Resources */,
 				656D16FC1B292BCB00C28FFA /* IntroductionView.xib in Resources */,
@@ -4187,6 +4192,7 @@
 				B05195181B47EB000033CA7E /* MessageFrame.m in Sources */,
 				655453F81AFCA59D00C4BFFA /* Doctor.m in Sources */,
 				656C4EDD1B2854FC005D7B0D /* NiyaoDelegate.m in Sources */,
+				65D3F2E81B58A98100BB1A8B /* DocArrangeCell.m in Sources */,
 				65CDDE451B2E6B5900628862 /* PatientInviteListTool.m in Sources */,
 				65CC8A261B5355DF00ED584F /* LDMessageController.m in Sources */,
 				B0B661651B47EE89003FB8BB /* NSString+Extension.m in Sources */,
@@ -4341,7 +4347,6 @@
 				656A08B71B3BC0320056588A /* DoctorStationDetail.m in Sources */,
 				65EAE0451B3D15B30040C4C2 /* LDPaperDetailController.m in Sources */,
 				65018D621B3BE59300A07615 /* EmployDetailInfo.m in Sources */,
-				650295EA1B009957002249C0 /* PostDocRecruitController.m in Sources */,
 				65C3EE351B0C1B71007E3DEE /* PostDocStationResult.m in Sources */,
 				655453E71AFCA59D00C4BFFA /* UIImage+MJ.m in Sources */,
 				6540B8381B2D53C20053DB2A /* InfoListResult.m in Sources */,
@@ -4524,6 +4529,7 @@
 				654861951B4E5C35001B25CA /* ArrangementDetailController.m in Sources */,
 				653B84E71B3B960B00331252 /* MultijobDetailController.m in Sources */,
 				656A08CB1B3BD1AF0056588A /* RecruitParam.m in Sources */,
+				65D3F2EC1B58CFD200BB1A8B /* LDEnterCell.m in Sources */,
 				651106C01B41188F00F759DE /* SearchHosResult.m in Sources */,
 				651106B71B40EEB400F759DE /* CoreExpertTool.m in Sources */,
 				6554546E1AFCA59D00C4BFFA /* IWSettingCell.m in Sources */,

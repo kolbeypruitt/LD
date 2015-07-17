@@ -11,6 +11,7 @@
 @interface EmployDetailInfo : NSObject
 @property (nonatomic,copy) NSString *address;
 @property (nonatomic,assign) int age;
+@property (nonatomic,copy) NSString *city;
 @property (nonatomic,copy) NSString *department;
 @property (nonatomic,copy) NSString *education;
 @property (nonatomic,assign) int employNum;
@@ -20,12 +21,9 @@
 @property (nonatomic,copy) NSString *jobname;
 @property (nonatomic,copy) NSString *jobtype;
 @property (nonatomic,copy) NSString *language;
-@property (nonatomic,copy) NSString *monthly;
 @property (nonatomic,copy) NSString *name;
 @property (nonatomic,copy) NSString *profession;
 @property (nonatomic,copy) NSString *startdate;
-@property (nonatomic,copy) NSString *techtitle;
-@property (nonatomic,assign) int workage;
 @end
 //employInfo =     {
 //    address = 1;
