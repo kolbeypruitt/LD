@@ -26,14 +26,14 @@
  *  @param failure 请求失败后的回调
  */
 + (void)recommendHosDataWithParam:(RecommendHosParam *)param success:( void (^)(RecommendHosResult *result) )success failure:( void (^)(NSError *error))failure;
-/**
- *  加载推荐医生数据
- *
- *  @param param   请求参数
- *  @param success 请求成功后的回调
- *  @param failure 请求失败后的回调
- */
-+ (void)recommendDocDataWithParam:(RecommendDocParam *)param success:(void (^)(RecommendDocResult *result))success failure:(void (^)(NSError *error))failure;
+///**
+// *  加载推荐医生数据
+// *
+// *  @param param   请求参数
+// *  @param success 请求成功后的回调
+// *  @param failure 请求失败后的回调
+// */
+//+ (void)recommendDocDataWithParam:(RecommendDocParam *)param success:(void (^)(RecommendDocResult *result))success failure:(void (^)(NSError *error))failure;
 /**
  *  加载常见病例数据
  *
@@ -66,14 +66,6 @@
  *  @param failure 请求失败后的回调
  */
 + (void)coreExpertDataWithParam:(CoreExpertParam *)param success:(void (^)(CoreExpertResult *result))success failure:(void (^)(NSError *error))failure;
-/**
- *  加载医院搜索数据
- *
- *  @param param   请求参数
- *  @param success 请求成功后的回调
- *  @param failure 请求失败后的回调
- */
-+ (void)docSearchResultWithParam:(DocSearchParam *)param success:(void (^)(DocSearchResult *result))success failure:(void (^)(NSError *error))failure;
 /**
  *  加载推荐医院等级数据
  *

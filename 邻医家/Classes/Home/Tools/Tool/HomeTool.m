@@ -6,7 +6,6 @@
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
 #import "RecommendDocParam.h"
-#import "RecommendDocResult.h"
 #import "HospitalLevel.h"
 #import "RecommendHosParam.h"
 #import "RecommendHosResult.h"
@@ -41,19 +40,19 @@
         
     }];
 }
-+ (void)recommendDocDataWithParam:(RecommendDocParam *)param success:(void (^)(RecommendDocResult *))success failure:(void (^)(NSError *))failure
-{
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    
-    [manager GET:RECOMMENDDOCURL parameters:param.keyValues success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        RecommendDocResult *result = [RecommendDocResult objectWithKeyValues:responseObject];
-        if (success) {
-            success(result);
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-    }];
-}
+//+ (void)recommendDocDataWithParam:(RecommendDocParam *)param success:(void (^)(RecommendDocResult *))success failure:(void (^)(NSError *))failure
+//{
+//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+//    
+//    [manager GET:RECOMMENDDOCURL parameters:param.keyValues success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        RecommendDocResult *result = [RecommendDocResult objectWithKeyValues:responseObject];
+//        if (success) {
+//            success(result);
+//        }
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        
+//    }];
+//}
 + (void)recommendHosDataWithParam:(RecommendHosParam *)param success:(void (^)(RecommendHosResult *))success failure:(void (^)(NSError *))failure
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];

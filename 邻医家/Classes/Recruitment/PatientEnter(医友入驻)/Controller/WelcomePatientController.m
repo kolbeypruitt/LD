@@ -10,7 +10,6 @@
 #import "PatientEnterTool.h"
 #import "BaseResult.h"
 #import "LDInputMessage.h"
-#import "IWCommon.h"
 #import "Common.h"
 #import "LDFormData.h"
 #import "WelcomePatientController.h"
@@ -23,7 +22,6 @@
 #import "ActionSheetCustomPicker+LD.h"
 #import "PatientEnterParam.h"
 @interface WelcomePatientController () <UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
-@property (nonatomic,weak) UIButton *auditBtn;
 
 @end
 

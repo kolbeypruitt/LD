@@ -54,6 +54,7 @@
  *  职业证号
  */
 @property (nonatomic,copy) NSString *doctorNo;
+@property (nonatomic,copy) NSString *telnum;
 
 + (instancetype)paramWithDocname:(NSString *)name
                         idcardNo:(NSString *)idcardNo

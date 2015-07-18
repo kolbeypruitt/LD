@@ -72,6 +72,20 @@
         HospitalEnterTextField *textField = (HospitalEnterTextField *)origin;
         textField.text = self.seletedZone;
         textField.enterData.hospitalLevel = self.choosedHospitalId;
+    }else
+    {
+        UITextField *textField = (UITextField *)origin;
+        textField.text = self.seletedZone;
+        textField.tag = self.choosedHospitalId;
     }
 }
 @end
+
+
+
+
+
+
+
+
+

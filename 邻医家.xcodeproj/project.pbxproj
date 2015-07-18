@@ -155,7 +155,6 @@
 		655454131AFCA59D00C4BFFA /* DocSearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 6554530B1AFCA59C00C4BFFA /* DocSearchResult.m */; };
 		655454141AFCA59D00C4BFFA /* HosRankResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 6554530D1AFCA59C00C4BFFA /* HosRankResult.m */; };
 		655454151AFCA59D00C4BFFA /* MultiJobResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 6554530F1AFCA59C00C4BFFA /* MultiJobResult.m */; };
-		655454161AFCA59D00C4BFFA /* RecommendDocResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 655453111AFCA59C00C4BFFA /* RecommendDocResult.m */; };
 		655454171AFCA59D00C4BFFA /* RecommendHosResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 655453131AFCA59C00C4BFFA /* RecommendHosResult.m */; };
 		655454181AFCA59D00C4BFFA /* HomeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 655453161AFCA59C00C4BFFA /* HomeTool.m */; };
 		655454191AFCA59D00C4BFFA /* DiseaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 655453191AFCA59C00C4BFFA /* DiseaseCell.m */; };
@@ -530,6 +529,8 @@
 		B05195121B47D5590033CA7E /* ChatBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B05195111B47D5590033CA7E /* ChatBaseViewController.m */; };
 		B05195151B47E6D00033CA7E /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B05195141B47E6D00033CA7E /* MessageCell.m */; };
 		B05195181B47EB000033CA7E /* MessageFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = B05195171B47EB000033CA7E /* MessageFrame.m */; };
+		B06655571B5A1BE500877489 /* LDIntroductionView.m in Sources */ = {isa = PBXBuildFile; fileRef = B06655561B5A1BE500877489 /* LDIntroductionView.m */; };
+		B06655591B5A1C0400877489 /* LDIntroductionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B06655581B5A1C0400877489 /* LDIntroductionView.xib */; };
 		B08824871B52A549002F9A7D /* LDMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B08824861B52A549002F9A7D /* LDMessageViewController.m */; };
 		B0B661651B47EE89003FB8BB /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B661641B47EE89003FB8BB /* NSString+Extension.m */; };
 		B0C32E1E1B3AFBAA008E057C /* MultiJobCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C32E1C1B3AFBAA008E057C /* MultiJobCell.m */; };
@@ -839,8 +840,6 @@
 		6554530D1AFCA59C00C4BFFA /* HosRankResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HosRankResult.m; sourceTree = "<group>"; };
 		6554530E1AFCA59C00C4BFFA /* MultiJobResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiJobResult.h; sourceTree = "<group>"; };
 		6554530F1AFCA59C00C4BFFA /* MultiJobResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiJobResult.m; sourceTree = "<group>"; };
-		655453101AFCA59C00C4BFFA /* RecommendDocResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendDocResult.h; sourceTree = "<group>"; };
-		655453111AFCA59C00C4BFFA /* RecommendDocResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendDocResult.m; sourceTree = "<group>"; };
 		655453121AFCA59C00C4BFFA /* RecommendHosResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendHosResult.h; sourceTree = "<group>"; };
 		655453131AFCA59C00C4BFFA /* RecommendHosResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendHosResult.m; sourceTree = "<group>"; };
 		655453151AFCA59C00C4BFFA /* HomeTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTool.h; sourceTree = "<group>"; };
@@ -1550,6 +1549,9 @@
 		B05195141B47E6D00033CA7E /* MessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = "<group>"; };
 		B05195161B47EB000033CA7E /* MessageFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageFrame.h; sourceTree = "<group>"; };
 		B05195171B47EB000033CA7E /* MessageFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageFrame.m; sourceTree = "<group>"; };
+		B06655551B5A1BE500877489 /* LDIntroductionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDIntroductionView.h; sourceTree = "<group>"; };
+		B06655561B5A1BE500877489 /* LDIntroductionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDIntroductionView.m; sourceTree = "<group>"; };
+		B06655581B5A1C0400877489 /* LDIntroductionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LDIntroductionView.xib; sourceTree = "<group>"; };
 		B08824851B52A549002F9A7D /* LDMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDMessageViewController.h; sourceTree = "<group>"; };
 		B08824861B52A549002F9A7D /* LDMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDMessageViewController.m; sourceTree = "<group>"; };
 		B0B661631B47EE89003FB8BB /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
@@ -2245,8 +2247,6 @@
 				6554530D1AFCA59C00C4BFFA /* HosRankResult.m */,
 				6554530E1AFCA59C00C4BFFA /* MultiJobResult.h */,
 				6554530F1AFCA59C00C4BFFA /* MultiJobResult.m */,
-				655453101AFCA59C00C4BFFA /* RecommendDocResult.h */,
-				655453111AFCA59C00C4BFFA /* RecommendDocResult.m */,
 				655453121AFCA59C00C4BFFA /* RecommendHosResult.h */,
 				655453131AFCA59C00C4BFFA /* RecommendHosResult.m */,
 				6549963D1B02EA8D00FA33DC /* RecommendResult.h */,
@@ -3063,9 +3063,9 @@
 		65CAB29B1B241317005DAED4 /* DoctorEnter(医生入驻) */ = {
 			isa = PBXGroup;
 			children = (
+				B06655531B5A1BCA00877489 /* Model */,
+				B06655541B5A1BCA00877489 /* View */,
 				65CAB29C1B241317005DAED4 /* Controller */,
-				65CAB29F1B241317005DAED4 /* Model */,
-				65CAB2A01B241317005DAED4 /* View */,
 			);
 			path = "DoctorEnter(医生入驻)";
 			sourceTree = "<group>";
@@ -3077,20 +3077,6 @@
 				65CAB29E1B241317005DAED4 /* WelcomeDosController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		65CAB29F1B241317005DAED4 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		65CAB2A01B241317005DAED4 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		65CAB2A11B241317005DAED4 /* HospitalEnter(医院入驻) */ = {
@@ -3975,6 +3961,23 @@
 			path = Json;
 			sourceTree = "<group>";
 		};
+		B06655531B5A1BCA00877489 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B06655541B5A1BCA00877489 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B06655551B5A1BE500877489 /* LDIntroductionView.h */,
+				B06655561B5A1BE500877489 /* LDIntroductionView.m */,
+				B06655581B5A1C0400877489 /* LDIntroductionView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -4073,6 +4076,7 @@
 				B051950F1B47D1110033CA7E /* ChatToolView.xib in Resources */,
 				65CAB2D71B241317005DAED4 /* ReviewController.xib in Resources */,
 				650295C81B00952E002249C0 /* RecruitMessageController.xib in Resources */,
+				B06655591B5A1C0400877489 /* LDIntroductionView.xib in Resources */,
 				65C412381B05B60300A8B75F /* SignUpViewController.xib in Resources */,
 				65D527221B2A95D600CF4FC4 /* ResumeCell.xib in Resources */,
 				65C5638C1B1EB4E4007FC968 /* property.json in Resources */,
@@ -4555,6 +4559,7 @@
 				650E607B1B33FB6500CFF569 /* StubbornView.m in Sources */,
 				655454171AFCA59D00C4BFFA /* RecommendHosResult.m in Sources */,
 				654A30C61B00896C0043821B /* MJRefreshFooter.m in Sources */,
+				B06655571B5A1BE500877489 /* LDIntroductionView.m in Sources */,
 				65CAB2D81B241317005DAED4 /* WelcomeController.m in Sources */,
 				650295C71B00952E002249C0 /* RecruitMessageController.m in Sources */,
 				655453FA1AFCA59D00C4BFFA /* HomeItem.m in Sources */,
@@ -4562,7 +4567,6 @@
 				653B84F91B3BA3D500331252 /* SignUpParam.m in Sources */,
 				650295E51B009575002249C0 /* Province.m in Sources */,
 				656D16FF1B292C0800C28FFA /* IntroductionView.m in Sources */,
-				655454161AFCA59D00C4BFFA /* RecommendDocResult.m in Sources */,
 				6554205B1B2ECB4900D70A08 /* PatientDocResumeController.m in Sources */,
 				655453FD1AFCA59D00C4BFFA /* HotHospital.m in Sources */,
 				6554541F1AFCA59D00C4BFFA /* LDHomeCell.m in Sources */,
@@ -4692,7 +4696,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/daniel/Desktop/IOS_SDKV1.2.3.1/静态库",
+					"/Users/SXQ/Desktop/IOS_SDKV1.2.3.1/静态库",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -4715,7 +4719,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/daniel/Desktop/IOS_SDKV1.2.3.1/静态库",
+					"/Users/SXQ/Desktop/IOS_SDKV1.2.3.1/静态库",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
