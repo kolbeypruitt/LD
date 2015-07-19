@@ -69,23 +69,7 @@
                         [self.navigationController popToRootViewControllerAnimated:YES];
                     }else
                     {
-                        switch (result.errorCode) {
-                            case 1:
-                                [MBProgressHUD showError:@"请求超时"];
-                                break;
-                                
-                            case 2:
-                                [MBProgressHUD showError:@"此手机已注册"];
-                                break;
-                            case 3:
-                                [MBProgressHUD showError:@"请输入字母和数字的密码"];
-                                break;
-                            case 4:
-                                [MBProgressHUD showError:@"验证码错误"];
-                                break;
-                            default:
-                                break;
-                        }
+                        [MBProgressHUD showError:result.errorMsg];
                     }
                 } failure:^(NSError *error) {
                     NSLog(@"error");

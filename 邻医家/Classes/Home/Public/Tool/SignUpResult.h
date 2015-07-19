@@ -11,4 +11,5 @@
 @interface SignUpResult : NSObject
 @property (nonatomic,copy) NSString *status;
 @property (nonatomic,assign) int errorCode;
+@property (nonatomic,copy) NSString *errorMsg;
 @end
