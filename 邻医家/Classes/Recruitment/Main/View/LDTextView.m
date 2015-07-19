@@ -11,19 +11,30 @@
 @property (nonatomic,weak) UILabel *placeholderLabel;
 @end
 @implementation LDTextView
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super initWithCoder:aDecoder]) {
+        [self setup];
+    }
+    return self;
+}
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
-        UILabel *placeholderLabel = [[UILabel alloc] init];
-        placeholderLabel.userInteractionEnabled = NO;
-        placeholderLabel.font = [UIFont systemFontOfSize:13];
-        placeholderLabel.textColor = [UIColor lightGrayColor];
-        placeholderLabel.backgroundColor = [UIColor clearColor];
-        self.font = [UIFont systemFontOfSize:16];
-        self.placeholderLabel = placeholderLabel;
-        [self addSubview:placeholderLabel];
+        [self setup];
     }
     return self;
+}
+- (void)setup
+{
+    UILabel *placeholderLabel = [[UILabel alloc] init];
+    placeholderLabel.userInteractionEnabled = NO;
+    placeholderLabel.font = [UIFont systemFontOfSize:13];
+    placeholderLabel.textColor = [UIColor lightGrayColor];
+    placeholderLabel.backgroundColor = [UIColor clearColor];
+    self.font = [UIFont systemFontOfSize:16];
+    self.placeholderLabel = placeholderLabel;
+    [self addSubview:placeholderLabel];
 }
 - (void)setPlaceholder:(NSString *)placeholder
 {

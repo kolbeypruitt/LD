@@ -5,6 +5,7 @@
 //  Created by Daniel on 15/5/20.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+
 #import "DoctorTabbarController.h"
 #import "LDFormData.h"
 #import "BaseResult.h"
@@ -29,7 +30,10 @@
 #import "LDInputMessage.h"
 #import "LDCopyView.h"
 #import "CommitMessage.h"
-@interface WelcomeDosController () <UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+#import "LDInputView.h"
+#import "LDIntroductionView.h"
+@interface WelcomeDosController () <UITextViewDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@property (nonatomic,weak) LDIntroductionView *introducitonView;
 @end
 
 @implementation WelcomeDosController
@@ -57,8 +61,7 @@
     LDInputMessage *message8 = [LDInputMessage messageWithFirstTitle:@"擅长疾病" placeHolder:@"请输入擅长疾病" optionDelegate:nil];
     LDInputMessage *message9 = [LDInputMessage messageWithFirstTitle:@"职业号" placeHolder:@"请输入职业号" optionDelegate:nil];
     LDInputMessage *message10 = [LDInputMessage messageWithFirstTitle:@"手机号" placeHolder:@"请输入手机号" optionDelegate:nil];
-    LDInputMessage *message11 = [LDInputMessage messageWithFirstTitle:@"个人简介" placeHolder:@"请输入个人简介" optionDelegate:nil];
-    self.inputMessages = @[message0,message1,message2,message3,message4,message5,message6,message7,message8,message9,message10,message11];
+    self.inputMessages = @[message0,message1,message2,message3,message4,message5,message6,message7,message8,message9,message10];
     
     [self.uploadView.imageBtn addTarget:self action:@selector(upload) forControlEvents:UIControlEventTouchUpInside];
 }
@@ -67,7 +70,12 @@
     if (![self messageComplete]) {
         return;
     }
-
+    if (self.introducitonView.textView.text.length == 0) {
+        [MBProgressHUD showError:@"请输入个人简介"];
+        return;
+    }
+    self.commitBtn.enabled = NO;
+    
     NSData *data = UIImageJPEGRepresentation([self.uploadView.imageBtn currentImage], 1.0);
     LDFormData *formData = [LDFormData formDataWithData:data name:@"file" filename:@"" mimiType:@"image/jpeg"];
     NSArray *formDataArray = @[formData];
@@ -85,7 +93,7 @@
     param.familiarIllness = [self.commitMessages[8] stringMsg];
     param.doctorNo = [self.commitMessages[9] stringMsg];
     param.telnum = [self.commitMessages[10] stringMsg];
-    param.introduction = [self.commitMessages[11] stringMsg];
+    param.introduction = self.introducitonView.textView.text;
     
         [DoctorEnterTool uploadDoctorDataWithParam:param formDataArray:formDataArray  success:^(BaseResult *result) {
             if ([result.status isEqualToString:@"S"]) {
@@ -94,9 +102,12 @@
             }else
             {
                 [MBProgressHUD showError:result.errorMsg];
+                self.commitBtn.enabled = YES;
             }
         } failure:^(NSError *error) {
             [MBProgressHUD showError:@"请求网络失败!"];
+            self.commitBtn.enabled = YES;
+            
         }];
    
     
@@ -146,8 +157,62 @@
     UIImage *image = info[UIImagePickerControllerOriginalImage];
     [self.uploadView.imageBtn setImage:image forState:UIControlStateNormal];
 }
-
-
+- (void)addMyTextView
+{
+    LDIntroductionView *introductionView = [[LDIntroductionView alloc] init];
+    introductionView.titleLabel.text = @"个人简介";
+    introductionView.textView.placeholder = @"请输入个人简介";
+    introductionView.textView.delegate = self;
+    [self.scrollView addSubview:introductionView];
+    self.introducitonView = introductionView;
+}
+- (void)layoutTextView
+{
+   //取出最后一个inputview
+    LDInputView *lastInputView = [self.inputViews lastObject];
+    //设置introductionview的frame
+    CGFloat introX = 0;
+    CGFloat introY = CGRectGetMaxY(lastInputView.frame) + 10;
+    CGFloat introW = lastInputView.frame.size.width;
+    CGFloat introH = 150;
+    self.introducitonView.frame = CGRectMake(introX, introY, introW, introH);
+    
+    //调整copyview的frame
+    CGRect uploadViewRect = self.uploadView.frame;
+    uploadViewRect.origin.y = CGRectGetMaxY(self.introducitonView.frame) + 10;
+    self.uploadView.frame = uploadViewRect;
+    
+    //调整commitbtn的frame
+    CGRect commitFrame = self.commitBtn.frame;
+    commitFrame.origin.y = CGRectGetMaxY(self.uploadView.frame) + 10;
+    self.commitBtn.frame = commitFrame;
+    
+    //调整scrollview的content size
+    self.scrollView.contentSize = CGSizeMake(0, CGRectGetMaxY(self.commitBtn.frame) + 40);
+}
+#pragma mark - rewrite method
+- (void)addCustomViews
+{
+    [super addCustomViews];
+    [self addMyTextView];
+}
+- (void)layoutCustomViews
+{
+    [super layoutCustomViews];
+    [self layoutTextView];
+}
+#pragma mark - textView delegate
+- (void)textViewDidBeginEditing:(LDTextView *)textView
+{
+    [textView showPlaceHolder:NO];
+}
+- (void)textViewDidEndEditing:(LDTextView *)textView
+{
+    if (textView.text.length) {
+        return;
+    }
+    [textView showPlaceHolder:YES];
+}
 @end
 
 

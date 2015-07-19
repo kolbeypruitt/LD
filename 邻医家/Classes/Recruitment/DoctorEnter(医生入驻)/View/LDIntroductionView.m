@@ -9,4 +9,11 @@
 #import "LDIntroductionView.h"
 
 @implementation LDIntroductionView
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    if (self = [super initWithFrame:frame]) {
+        self = [[[NSBundle mainBundle] loadNibNamed:@"LDIntroductionView" owner:nil options:nil] lastObject];
+    }
+    return self;
+}
 @end

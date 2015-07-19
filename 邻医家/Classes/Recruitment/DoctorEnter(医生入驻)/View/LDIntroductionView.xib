@@ -11,7 +11,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQL-xM-0tQ">
-                    <rect key="frame" x="15" y="10" width="80" height="21"/>
+                    <rect key="frame" x="10" y="10" width="80" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="6aa-jH-2Gb"/>
                         <constraint firstAttribute="height" constant="21" id="g4o-Ps-icy"/>
@@ -21,7 +21,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i2D-oG-3fi" customClass="LDTextView">
-                    <rect key="frame" x="105" y="10" width="260" height="130"/>
+                    <rect key="frame" x="90" y="5" width="275" height="135"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -30,18 +30,18 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="i2D-oG-3fi" secondAttribute="trailing" constant="10" id="MbF-Xi-g7B"/>
-                <constraint firstItem="OQL-xM-0tQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="Wm0-jH-cmP"/>
+                <constraint firstItem="OQL-xM-0tQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="Wm0-jH-cmP"/>
                 <constraint firstItem="OQL-xM-0tQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="ZDL-4k-M2u"/>
-                <constraint firstItem="i2D-oG-3fi" firstAttribute="leading" secondItem="OQL-xM-0tQ" secondAttribute="trailing" constant="10" id="aDA-lD-w65"/>
+                <constraint firstItem="i2D-oG-3fi" firstAttribute="leading" secondItem="OQL-xM-0tQ" secondAttribute="trailing" id="aDA-lD-w65"/>
                 <constraint firstAttribute="bottom" secondItem="i2D-oG-3fi" secondAttribute="bottom" constant="10" id="bkH-4V-81x"/>
-                <constraint firstItem="i2D-oG-3fi" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="wNn-m1-Lzx"/>
+                <constraint firstItem="i2D-oG-3fi" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="wNn-m1-Lzx"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="textView" destination="i2D-oG-3fi" id="iL3-nx-Of9"/>
                 <outlet property="titleLabel" destination="OQL-xM-0tQ" id="axg-X6-8zh"/>
             </connections>
-            <point key="canvasLocation" x="406.5" y="127"/>
+            <point key="canvasLocation" x="311.5" y="183"/>
         </view>
     </objects>
 </document>

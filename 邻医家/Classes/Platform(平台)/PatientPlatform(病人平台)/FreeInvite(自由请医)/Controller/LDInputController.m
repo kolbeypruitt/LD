@@ -13,9 +13,6 @@
 #import "Common.h"
 #import "LDInputView.h"
 @interface LDInputController ()<UIScrollViewDelegate>
-@property (nonatomic,weak) UIScrollView *scrollView;
-@property (nonatomic,weak) UIButton *commitBtn;
-@property (nonatomic,strong) NSMutableArray *inputViews;
 @end
 
 @implementation LDInputController
@@ -90,7 +87,6 @@
     CGFloat inputX = 0;
     CGFloat inputY = 0;
     self.scrollView.frame = self.view.bounds;
-    self.scrollView.contentSize = CGSizeMake(0, self.inputMessages.count * (inputH + padding) + 100);
    
     for (int i = 0; i < self.inputMessages.count; i++) {
         LDInputView *inputView = self.inputViews[i];
@@ -119,6 +115,7 @@
         CGFloat btnH = lastView.frame.size.height;
         self.commitBtn.frame = CGRectMake(btnX, btnY, btnW, btnH);
     }
+    self.scrollView.contentSize = CGSizeMake(0, CGRectGetMaxY(self.commitBtn.frame) + 100);
 }
 - (void)setupLD
 {

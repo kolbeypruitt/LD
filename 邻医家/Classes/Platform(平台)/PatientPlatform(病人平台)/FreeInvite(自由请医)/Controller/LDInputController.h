@@ -9,10 +9,15 @@
 #import <UIKit/UIKit.h>
 
 @interface LDInputController : UIViewController
+@property (nonatomic,weak) UIScrollView *scrollView;
+@property (nonatomic,weak) UIButton *commitBtn;
 @property (nonatomic,strong) NSArray *inputMessages;
 @property (nonatomic,strong) NSMutableArray *commitMessages;
 @property (nonatomic,weak) LDCopyView *uploadView;
 @property (nonatomic,assign) BOOL showUpView;
+@property (nonatomic,strong) NSMutableArray *inputViews;
 - (BOOL)messageComplete;
 - (void)commitBtnClicked;
+- (void)addCustomViews;
+- (void)layoutCustomViews;
 @end
