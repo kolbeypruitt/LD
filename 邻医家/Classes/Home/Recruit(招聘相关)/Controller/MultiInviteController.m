@@ -12,8 +12,10 @@
 #import "RecruitTool.h"
 #import "RecruitResult.h"
 #import "EmployInfo.h"
-@interface MultiInviteController ()
+#import "SearchDepartmentController.h"
+@interface MultiInviteController () <UISearchBarDelegate>
 @property (nonatomic,strong) NSMutableArray *employInfos;
+@property (nonatomic,weak) UISearchBar *searcherBar;
 @end
 
 @implementation MultiInviteController
@@ -46,6 +48,11 @@
 {
  
     self.navigationItem.rightBarButtonItem = nil;
+    
+    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 30)];
+    searchBar.delegate = self;
+    self.tableView.tableHeaderView = searchBar;
+    self.searcherBar = searchBar;
 }
 
 #pragma mark - tableview delegate and datasource
@@ -69,6 +76,13 @@
     detaiVC.title = self.title;
     detaiVC.employInfo = self.employInfos[indexPath.row];
     [self.navigationController pushViewController:detaiVC animated:YES];
+}
+#pragma mark - searchbar delegate
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
+{
+    SearchDepartmentController *searchVC = [[SearchDepartmentController alloc] init];
+    [self.navigationController pushViewController:searchVC animated:YES];
+    return NO;
 }
 @end
 

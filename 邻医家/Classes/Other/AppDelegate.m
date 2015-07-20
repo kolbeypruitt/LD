@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "AuditTabBarController.h"
 #import "DepartmentPlatformController.h"
 #import "HospitalPlatformController.h"
 #import "IWTabBarViewController.h"
@@ -29,26 +30,49 @@
     [self.window makeKeyAndVisible];
     if ([AccountTool isLogin]) {
         Account *userAccount = [AccountTool account];
-        if (userAccount.type == 0 || userAccount.type == 5)
-        {//注册用户
-            IWTabBarViewController *iwVC = [[IWTabBarViewController alloc] init];
-            self.window.rootViewController = iwVC;
-        }else if(userAccount.type == 1)
-        {//医院管理者
-            HospitalPlatformController *hosplat = [[HospitalPlatformController alloc] init];
-            self.window.rootViewController = hosplat;
-        }else if(userAccount.type == 2)
-        {//入驻医生
-            DoctorTabbarController *doc = [[DoctorTabbarController alloc] init];
-            self.window.rootViewController = doc;
-        } else if(userAccount.type == 3)
-        {//入驻医友
-            PatientTabbarController *patient = [[PatientTabbarController alloc] init];
-            self.window.rootViewController = patient;
-        }else if (userAccount.type == 4)
-        {//科室主任
-            DepartmentPlatformController *depart = [[DepartmentPlatformController alloc] init];
-            self.window.rootViewController = depart;
+        switch (userAccount.type) {
+            case 0:
+            {
+                //注册用户
+                IWTabBarViewController *iwVC = [[IWTabBarViewController alloc] init];
+                self.window.rootViewController = iwVC;
+                break;
+            }
+            case 1:
+            {
+                //医院管理者
+                HospitalPlatformController *hosplat = [[HospitalPlatformController alloc] init];
+                self.window.rootViewController = hosplat;
+                break;
+            }
+            case 2:
+            {
+                //入驻医生
+                DoctorTabbarController *doc = [[DoctorTabbarController alloc] init];
+                self.window.rootViewController = doc;
+                break;
+            }
+            case 3:
+            {
+                //入驻医友
+                PatientTabbarController *patient = [[PatientTabbarController alloc] init];
+                self.window.rootViewController = patient;
+                break;
+            }
+            case 4:
+            {
+                //科室主任
+                DepartmentPlatformController *depart = [[DepartmentPlatformController alloc] init];
+                self.window.rootViewController = depart;
+                break;
+            }
+            case 5:
+            {
+                //正在审核
+                AuditTabBarController *auditVC = [[AuditTabBarController alloc] init];
+                self.window.rootViewController = auditVC;
+                break;
+            }
         }
     }
     else

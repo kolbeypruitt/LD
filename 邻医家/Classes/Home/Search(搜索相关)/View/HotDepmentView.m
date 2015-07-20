@@ -38,6 +38,14 @@
     }
     return self;
 }
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super initWithCoder:aDecoder]) {
+        self.userInteractionEnabled = YES;
+        [self addDepartments];
+    }
+    return self;
+}
 - (void)addDepartments
 {
     for (int i = 0 ; i < self.departments.count; i++) {

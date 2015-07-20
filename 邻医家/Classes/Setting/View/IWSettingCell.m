@@ -80,7 +80,7 @@
         
         // 标题
         self.textLabel.backgroundColor = [UIColor clearColor];
-        self.textLabel.textColor = [UIColor blackColor];
+        self.textLabel.textColor = IWColor(88, 202, 203);
         self.textLabel.highlightedTextColor = self.textLabel.textColor;
         self.textLabel.font = [UIFont boldSystemFontOfSize:15];
         
@@ -108,12 +108,20 @@
 - (void)setItem:(IWSettingItem *)item
 {
     _item = item;
-    
+    [item addObserver:self forKeyPath:@"subtitle" options:0 context:nil];
     // 1.设置数据
     [self setupData];
     
     // 2.设置右边的控件
     [self setupRightView];
+}
+- (void)dealloc
+{
+    [self.item removeObserver:self forKeyPath:@"subtitle"];
+}
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    self.rightLabel.text = self.item.subtitle;
 }
 /**
  *  设置cell的背景图片
