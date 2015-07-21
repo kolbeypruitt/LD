@@ -88,7 +88,7 @@
 - (void)clickedBtn:(UIButton *)button
 {
     NSDictionary *dict = [self.departments objectAtIndex:button.tag];
-    NSDictionary *usrInfo = @{@"department" : dict[@"department"]};
+    NSDictionary *usrInfo = @{@"department" : dict[@"department"],@"depName" : dict[@"depName"]};
     [DefaultCenter postNotificationName:DEPARTMENTCHOOSEDNOTIFICATION object:self userInfo:usrInfo];
 }
 @end

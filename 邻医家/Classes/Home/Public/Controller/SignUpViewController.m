@@ -5,7 +5,9 @@
 //  Created by Daniel on 15/5/15.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
-#import "UIBarButtonItem+MJ.h"
+#import "BaseResult.h"
+#import "IWCommon.h"
+#import "UIBarButtonItem+ENTER.h"
 #import "SignUpViewController.h"
 #import "LDTextField.h"
 #import "UIButton+SignUp.h"
@@ -16,9 +18,11 @@
 #import "MBProgressHUD+MJ.h"
 @interface SignUpViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet LDTextField *telnumField;
+@property (weak, nonatomic) IBOutlet UIButton *codeBtn;
 @property (weak, nonatomic) IBOutlet LDTextField *firstpwdField;
 @property (weak, nonatomic) IBOutlet LDTextField *secondpwdField;
 @property (weak, nonatomic) IBOutlet LDTextField *checkinField;
+@property (weak, nonatomic) IBOutlet UIButton *signUpBtn;
 
 @end
 
@@ -35,23 +39,11 @@
 }
 - (void)setNav
 {
-    [self setupTitle];
-    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemwithTitle:@"返回" target:self action:@selector(leftBarBtnClicked)];
-    self.navigationItem.rightBarButtonItem = nil;
+    self.navigationItem.title = @"注册";
+    [self.signUpBtn setBackgroundColor:IWColor(88, 202, 204)];
 }
-- (void)leftBarBtnClicked
-{
-    [self.navigationController popViewControllerAnimated:YES];
-}
-- (void)setupTitle
-{
-    UILabel *centerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-    centerLabel.text = @"注册";
-    centerLabel.textColor = [UIColor whiteColor];
-    centerLabel.backgroundColor = [UIColor clearColor];
-    centerLabel.font = [UIFont boldSystemFontOfSize:15];
-    self.navigationItem.titleView = centerLabel; 
-}
+
+
 - (void)setupTextField
 {
     [self.telnumField setupTextFieldWithImage:@"login_img" selImage:@"login_img_focus" delegate:self];
@@ -60,63 +52,76 @@
     self.checkinField.delegate = self;
 }
 - (IBAction)signupClicked:(id)sender {
-    if (self.telnumField.text.length) {//手机号不为空
-        if ([self matchPassWord]) {//密码匹配
-            if (self.checkinField.text.length) {//验证码不为空
-                SignUpParam *param = [SignUpParam paramWithTel:self.telnumField.text code:self.checkinField.text passwd:self.firstpwdField.text];
-                [SignUpTool signUpWithParam:param success:^(SignUpResult *result) {
-                    if ([result.status isEqualToString:@"S"]) {
-                        [self.navigationController popToRootViewControllerAnimated:YES];
-                    }else
-                    {
-                        [MBProgressHUD showError:result.errorMsg];
-                    }
-                } failure:^(NSError *error) {
-                    NSLog(@"error");
-                }];
-            }else//验证码为空
-            {
-                [MBProgressHUD showError:@"请输入验证码"];
-            }
-            
-        }
-    }else//手机号为空
-    {
-        [MBProgressHUD showError:@"请输入手机号"];
-    }
-   
-}
-- (BOOL)matchPassWord
-{
-    if (self.firstpwdField.text.length >= 6) {
-        if (self.firstpwdField.text.length && self.secondpwdField.text.length) {
-            if ([self.firstpwdField.text isEqualToString:self.secondpwdField.text]) {
-                return YES;
+ 
+    if ([self messageComplete]) {
+        self.signUpBtn.enabled = NO;
+        
+        __weak typeof(self) weakSelf = self;
+        
+        SignUpParam *param = [SignUpParam paramWithTel:self.telnumField.text code:self.checkinField.text passwd:self.firstpwdField.text];
+        [SignUpTool signUpWithParam:param success:^(SignUpResult *result) {
+            if ([result.status isEqualToString:@"S"]) {
+                
+                const int count = self.navigationController.childViewControllers.count;
+                UIViewController *rootVC = self.navigationController.childViewControllers[count - 3];
+                [weakSelf.navigationController popToViewController:rootVC animated:YES];
+                
             }else
             {
-                [MBProgressHUD showError:@"两次密码不相同"];
-                return NO;
+                [MBProgressHUD showError:result.errorMsg];
+                weakSelf.codeBtn.enabled = YES;
+                weakSelf.signUpBtn.enabled = YES;
             }
-        }else
-        {
-            [MBProgressHUD showError:@"请确认密码"];
-            return NO;
-        }
-    }else
-    {
-        [MBProgressHUD showError:@"请输入6位以上密码"];
-        return NO;
+        } failure:^(NSError *error) {
+            weakSelf.signUpBtn.enabled = YES;
+            weakSelf.codeBtn.enabled = YES;
+        }];
     }
     
-    
+
 }
+- (BOOL)messageComplete
+{
+    if (self.telnumField.text.length == 0) {
+        [MBProgressHUD showError:@"请输入手机号"];
+        return NO;
+    }
+    if (self.firstpwdField.text.length < 6 || self.secondpwdField.text.length < 6) {
+        [MBProgressHUD showError:@"请输入6位以上密码"];
+        return NO;
+    }else
+    {
+        if (![self.firstpwdField.text isEqualToString:self.secondpwdField.text]) {
+            [MBProgressHUD showError:@"两次密码不匹配"];
+            return NO;
+        }
+        else
+        {
+            return YES;
+        }
+    }
+}
+
 - (IBAction)getCheckIn:(id)sender {
-    NSLog(@"come here");
+    UIButton *button = (UIButton *)sender;
+    
     if (self.telnumField.text.length) {
-        [SignUpTool getCheckInWithTelnum:self.telnumField.text
-                                 success:^{
-                                     NSLog(@"验证码发送成功");}
-                                 failure:^(NSError *error) {}];
+        
+        button.enabled = NO;
+        
+        [SignUpTool getCheckInWithTelnum:self.telnumField.text success:^(BaseResult *result) {
+            if ([result.status isEqualToString:@"S"]) {
+                
+            }else
+            {
+                [MBProgressHUD showError:@"验证码发送失败，请重试!"];
+                button.enabled = YES;
+            }
+            
+        } failure:^(NSError *error) {
+            [MBProgressHUD showError:@"请求网络失败!"];
+            button.enabled = YES;
+        }];
     }else
     {
         [MBProgressHUD showError:@"请输入手机号"];

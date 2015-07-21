@@ -10,5 +10,7 @@
 
 @interface RecruitParam : NSObject
 @property (nonatomic,assign) int type;
+@property (nonatomic,copy) NSString *departments;
 + (instancetype)paramWithType:(int)type;
++ (instancetype)paramWithType:(int)type andDepartments:(NSString *)departments;
 @end

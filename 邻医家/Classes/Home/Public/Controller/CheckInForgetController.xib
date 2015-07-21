@@ -6,6 +6,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CheckInForgetController">
             <connections>
+                <outlet property="checkField" destination="Zxn-UW-Sso" id="yhU-58-wbR"/>
+                <outlet property="confirmPwdField" destination="rmc-eE-EOM" id="FnN-6h-WEw"/>
+                <outlet property="firstPwdField" destination="yFR-tA-Get" id="ThE-bW-bVB"/>
+                <outlet property="nextBtn" destination="7w8-2s-UBf" id="V9y-hE-AGd"/>
                 <outlet property="telnumLabel" destination="DHn-UC-cfI" id="Buj-jv-lkd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -16,37 +20,35 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入验证码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zxn-UW-Sso">
-                    <rect key="frame" x="8" y="195" width="359" height="30"/>
+                    <rect key="frame" x="8" y="164" width="359" height="30"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="M8U-5Y-Jrt"/>
+                        <constraint firstAttribute="height" constant="30" id="t71-V3-rs3"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入至少6位密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yFR-tA-Get">
+                    <rect key="frame" x="8" y="209" width="359" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请再次输入密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rmc-eE-EOM">
+                    <rect key="frame" x="8" y="254" width="359" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我们已发送验证码到您的手机:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jg6-PO-OkM">
-                    <rect key="frame" x="8" y="74" width="359" height="34"/>
+                    <rect key="frame" x="8" y="74" width="359" height="30"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="34" id="UK9-NI-3WX"/>
+                        <constraint firstAttribute="height" constant="30" id="oN0-YP-xLt"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DHn-UC-cfI">
-                    <rect key="frame" x="8" y="116" width="359" height="34"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="34" id="NBg-bd-DcR"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7w8-2s-UBf">
-                    <rect key="frame" x="13" y="258" width="348" height="40"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="40" id="K7o-4z-05L"/>
-                    </constraints>
-                    <state key="normal" title="下一步" backgroundImage="reg_btn_bg_blue_big">
+                    <rect key="frame" x="8" y="299" width="359" height="30"/>
+                    <state key="normal" title="提交">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -54,27 +56,42 @@
                         <action selector="nextStep:" destination="-1" eventType="touchUpInside" id="s0T-iB-uLA"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DHn-UC-cfI">
+                    <rect key="frame" x="8" y="119" width="359" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="LtM-Zp-wX8"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="jg6-PO-OkM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="74" id="8II-gg-3jX"/>
-                <constraint firstItem="DHn-UC-cfI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="DjU-hl-i9F"/>
-                <constraint firstAttribute="trailing" secondItem="Zxn-UW-Sso" secondAttribute="trailing" constant="8" id="MDS-Dj-7LN"/>
-                <constraint firstItem="7w8-2s-UBf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="13" id="Y8v-To-FgV"/>
-                <constraint firstItem="Zxn-UW-Sso" firstAttribute="top" secondItem="DHn-UC-cfI" secondAttribute="bottom" constant="45" id="YeW-3G-PLU"/>
-                <constraint firstItem="DHn-UC-cfI" firstAttribute="top" secondItem="jg6-PO-OkM" secondAttribute="bottom" constant="8" id="Zs4-Yk-YaP"/>
-                <constraint firstAttribute="trailing" secondItem="DHn-UC-cfI" secondAttribute="trailing" constant="8" id="d0K-ug-LRc"/>
-                <constraint firstAttribute="trailing" secondItem="jg6-PO-OkM" secondAttribute="trailing" constant="8" id="eE0-IQ-d9P"/>
-                <constraint firstItem="7w8-2s-UBf" firstAttribute="top" secondItem="Zxn-UW-Sso" secondAttribute="bottom" constant="33" id="hIr-Qn-Tyi"/>
-                <constraint firstItem="Zxn-UW-Sso" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="khQ-Sn-9v6"/>
-                <constraint firstAttribute="trailing" secondItem="7w8-2s-UBf" secondAttribute="trailing" constant="14" id="oFZ-lv-9Yi"/>
-                <constraint firstItem="jg6-PO-OkM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="uG6-7B-Yfz"/>
+                <constraint firstItem="Zxn-UW-Sso" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="0z3-k9-9rF"/>
+                <constraint firstItem="Zxn-UW-Sso" firstAttribute="height" secondItem="7w8-2s-UBf" secondAttribute="height" id="97e-HN-pJ0"/>
+                <constraint firstAttribute="trailing" secondItem="DHn-UC-cfI" secondAttribute="trailing" constant="8" id="9EQ-ZR-Kf7"/>
+                <constraint firstItem="DHn-UC-cfI" firstAttribute="top" secondItem="jg6-PO-OkM" secondAttribute="bottom" constant="15" id="9N0-2V-ia2"/>
+                <constraint firstItem="rmc-eE-EOM" firstAttribute="top" secondItem="yFR-tA-Get" secondAttribute="bottom" constant="15" id="Cye-Cc-QTD"/>
+                <constraint firstItem="yFR-tA-Get" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="JnP-U1-YdI"/>
+                <constraint firstAttribute="trailing" secondItem="Zxn-UW-Sso" secondAttribute="trailing" constant="8" id="NNa-Va-dmF"/>
+                <constraint firstItem="DHn-UC-cfI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="SZ6-hv-kYo"/>
+                <constraint firstItem="jg6-PO-OkM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="V0p-8V-yBO"/>
+                <constraint firstItem="Zxn-UW-Sso" firstAttribute="width" secondItem="7w8-2s-UBf" secondAttribute="width" id="XPy-Bn-UB7"/>
+                <constraint firstItem="7w8-2s-UBf" firstAttribute="top" secondItem="rmc-eE-EOM" secondAttribute="bottom" constant="15" id="XuT-6Q-YwA"/>
+                <constraint firstItem="Zxn-UW-Sso" firstAttribute="height" secondItem="yFR-tA-Get" secondAttribute="height" id="bzO-xc-LeD"/>
+                <constraint firstItem="Zxn-UW-Sso" firstAttribute="width" secondItem="rmc-eE-EOM" secondAttribute="width" id="cR9-kj-Z7k"/>
+                <constraint firstItem="Zxn-UW-Sso" firstAttribute="top" secondItem="DHn-UC-cfI" secondAttribute="bottom" constant="15" id="cs0-0o-iyN"/>
+                <constraint firstItem="rmc-eE-EOM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="eau-oK-zM2"/>
+                <constraint firstItem="Zxn-UW-Sso" firstAttribute="width" secondItem="yFR-tA-Get" secondAttribute="width" id="fNo-iX-qDc"/>
+                <constraint firstItem="Zxn-UW-Sso" firstAttribute="height" secondItem="rmc-eE-EOM" secondAttribute="height" id="fcV-dk-gxv"/>
+                <constraint firstAttribute="trailing" secondItem="jg6-PO-OkM" secondAttribute="trailing" constant="8" id="jxe-Qs-J5g"/>
+                <constraint firstItem="yFR-tA-Get" firstAttribute="top" secondItem="Zxn-UW-Sso" secondAttribute="bottom" constant="15" id="kVf-Kn-iT4"/>
+                <constraint firstItem="7w8-2s-UBf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="mOp-Vk-zdZ"/>
+                <constraint firstItem="jg6-PO-OkM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="74" id="r29-Ib-c6N"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-            <point key="canvasLocation" x="81.5" y="292.5"/>
+            <point key="canvasLocation" x="-179.5" y="2.5"/>
         </view>
     </objects>
-    <resources>
-        <image name="reg_btn_bg_blue_big" width="670" height="90"/>
-    </resources>
 </document>

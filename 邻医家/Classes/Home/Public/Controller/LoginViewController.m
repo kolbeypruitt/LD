@@ -20,7 +20,7 @@
 #import "MBProgressHUD+MJ.h"
 #import "IWCommon.h"
 #import "LoginViewController.h"
-#import "UIBarButtonItem+MJ.h"
+#import "UIBarButtonItem+ENTER.h"
 #import "LDTextField.h"
 #import "LoginTool.h"
 #import "SignUpParam.h"
@@ -39,18 +39,13 @@
 }
 - (void)setup
 {
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage resizedImageWithName:@"reg_btn_bg_blue_big"] forBarMetrics:UIBarMetricsDefault];
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemwithTitle:@"注册" target:self action:@selector(signUpBtnClicked)];
-    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemwithTitle:@"返回" target:self action:@selector(backBtnClicked)];
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(signUpBtnClicked) title:@"注册"];
+    
+    [self.loginBtn setBackgroundColor:IWColor(88, 202, 203)];
     [self setupTitle];
     [self setupTextField];
 }
-- (void)backBtnClicked
-{
-    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
-    [self.navigationController popViewControllerAnimated:YES];
-    
-}
+
 - (void)signUpBtnClicked
 {
     SignUpViewController *sign = [[SignUpViewController alloc] init];
@@ -63,12 +58,7 @@
 }
 - (void)setupTitle
 {
-    UILabel *centerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-    centerLabel.text = @"登录";
-    centerLabel.textColor = [UIColor whiteColor];
-    centerLabel.backgroundColor = [UIColor clearColor];
-    centerLabel.font = [UIFont boldSystemFontOfSize:15];
-    self.navigationItem.titleView = centerLabel; 
+    self.navigationItem.title = @"登录";
 }
 - (IBAction)forgetPasswdBtn:(id)sender {
     ForgetPassController *forget = [[ForgetPassController alloc] init];

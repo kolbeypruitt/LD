@@ -5,6 +5,10 @@
 //  Created by Daniel on 15/5/11.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "PostDocParam.h"
+#import "SearchRecruitTool.h"
+#import "SearchDepartmentController.h"
+#import "LDNotification.h"
 #import "DoctorStationDetailController.h"
 #import "PostDoctorController.h"
 #import "Common.h"
@@ -47,7 +51,12 @@
 {
     self.navigationItem.rightBarButtonItem = nil;
     self.navigationItem.title = @"博士后站点";
+    [DefaultCenter addObserver:self selector:@selector(searchDepartment:) name:DEPARTMENTCHOOSEDNOTIFICATION object:nil];
     [self setupSearchBar];
+}
+- (void)dealloc
+{
+    [DefaultCenter removeObserver:self];
 }
 - (void)setupSearchBar
 {
@@ -77,8 +86,25 @@
     detailVC.doctorStation = self.stations[indexPath.row];
     [self.navigationController pushViewController:detailVC animated:YES];
 }
-
-
+#pragma mark - searchbar delegate
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
+{
+    SearchDepartmentController *searchVC = [[SearchDepartmentController alloc] init];
+    searchVC.title = [NSString stringWithFormat:@"搜索%@",self.navigationItem.title];
+    [self.navigationController pushViewController:searchVC animated:YES];
+    return NO;
+}
+#pragma mark - Notificaiton
+- (void)searchDepartment:(NSNotification *)notification
+{
+    self.searchBar.text = notification.userInfo[@"depName"];
+    PostDocParam *param = [PostDocParam paramWithDepartment:notification.userInfo[@"department"]];
+    [SearchRecruitTool searchDoctorStationWithParam:param success:^(id result) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
+}
 @end
 
 

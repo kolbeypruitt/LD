@@ -36,11 +36,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x90bb;&#x533b;&#x5bb6;/Classes/Home/Public/Controller/LoginViewController.m"
-            timestampString = "458814470.859865"
+            timestampString = "459135474.680324"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
             landmarkName = "-chooseRootController"
             landmarkType = "5">
          </BreakpointContent>

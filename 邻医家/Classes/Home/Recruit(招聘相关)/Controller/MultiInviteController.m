@@ -5,14 +5,17 @@
 //  Created by Daniel on 15/6/25.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "SearchRecruitTool.h"
 #import "MultiInviteCell.h"
+#import "RecruitParam.h"
 #import "MultiInviteController.h"
 #import "MultiInviteDetailController.h"
-#import "RecruitParam.h"
 #import "RecruitTool.h"
 #import "RecruitResult.h"
 #import "EmployInfo.h"
 #import "SearchDepartmentController.h"
+#import "LDNotification.h"  
+#import "Common.h"
 @interface MultiInviteController () <UISearchBarDelegate>
 @property (nonatomic,strong) NSMutableArray *employInfos;
 @property (nonatomic,weak) UISearchBar *searcherBar;
@@ -50,9 +53,32 @@
     self.navigationItem.rightBarButtonItem = nil;
     
     UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 30)];
+    searchBar.placeholder = @"搜索科室";
     searchBar.delegate = self;
     self.tableView.tableHeaderView = searchBar;
     self.searcherBar = searchBar;
+    
+    [DefaultCenter addObserver:self selector:@selector(searchDepartment:) name:DEPARTMENTCHOOSEDNOTIFICATION object:nil];
+}
+- (void)dealloc
+{
+    [DefaultCenter removeObserver:self];
+}
+- (void)searchDepartment:(NSNotification *)notification
+{
+    self.searcherBar.text = notification.userInfo[@"depName"];
+    RecruitParam *param = [RecruitParam paramWithType:self.type andDepartments:notification.userInfo[@"departments"]];
+    [SearchRecruitTool searchRecruitWithParam:param success:^(RecruitResult *result) {
+        if ([result.status isEqualToString:@"S"]) {
+            if (self.employInfos.count) {
+                [self.employInfos removeAllObjects];
+            }
+            [self.employInfos addObjectsFromArray:result.employInfos];
+            [self.tableView reloadData];
+        }
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 #pragma mark - tableview delegate and datasource
@@ -81,7 +107,9 @@
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
 {
     SearchDepartmentController *searchVC = [[SearchDepartmentController alloc] init];
+    searchVC.title = [NSString stringWithFormat:@"搜索%@",self.title];
     [self.navigationController pushViewController:searchVC animated:YES];
+    
     return NO;
 }
 @end

@@ -10,7 +10,7 @@
 #import "MBProgressHUD+MJ.h"
 #import "ForgetPassController.h"
 #import "LDTextField.h"
-#import "UIBarButtonItem+MJ.h"
+#import "UIBarButtonItem+ENTER.h"
 #import "CheckInForgetController.h"
 @interface ForgetPassController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet LDTextField *telnumTextField;
@@ -27,9 +27,7 @@
 }
 - (void)setNav
 {
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemwithTitle:@"下一步"
-                                                                     target:self
-                                                                     action:@selector(nextStep)];
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(nextStep) title:@"下一步"];
 }
 - (void)nextStep
 {
@@ -53,14 +51,20 @@
 }
 - (void)getCheckIn
 {
-    [SignUpTool getCheckInWithTelnum:self.telnumTextField.text success:^{
-            NSLog(@"You are amazing!!!");
-        CheckInForgetController *check = [[CheckInForgetController alloc] init];
-        check.telnum = self.telnumTextField.text;
-        [self.navigationController pushViewController:check animated:YES];
+
+    [SignUpTool chekWithTelnum:self.telnumTextField.text success:^(id result) {
+        if ([result[@"status"] isEqualToString:@"S"]) {
+            
+        }else
+        {
+        }
     } failure:^(NSError *error) {
-        [MBProgressHUD showError:@"验证码发送失败"];
     }];
+    
+    CheckInForgetController *check = [[CheckInForgetController alloc] init];
+    check.telnum = self.telnumTextField.text;
+    [self.navigationController pushViewController:check animated:YES];
+    
 }
 - (void)setuptextField
 {

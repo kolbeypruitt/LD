@@ -9,5 +9,10 @@
 #import "PostDocParam.h"
 
 @implementation PostDocParam
-
++ (instancetype)paramWithDepartment:(NSString *)deparment
+{
+    PostDocParam *param = [[PostDocParam alloc] init];
+    param.department = deparment;
+    return param;
+}
 @end

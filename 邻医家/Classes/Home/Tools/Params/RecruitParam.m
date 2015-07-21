@@ -15,4 +15,10 @@
     param.type = type;
     return  param;
 }
++ (instancetype)paramWithType:(int)type andDepartments:(NSString *)departments
+{
+    RecruitParam *param = [self paramWithType:type];
+    param.departments = departments;
+    return param;
+}
 @end

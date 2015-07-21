@@ -7,8 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-@class SignUpParam,SignUpResult;
+@class SignUpParam,SignUpResult,BaseResult;
 @interface SignUpTool : NSObject
 + (void)signUpWithParam:(SignUpParam *)param success:(void (^)(SignUpResult *result))success failure:(void (^)(NSError *error))failure;
-+ (void)getCheckInWithTelnum:(NSString *)telnum success:(void (^)())success failure:(void   (^)(NSError *error))failure;
++ (void)getCheckInWithTelnum:(NSString *)telnum
+                     success:(void (^)(BaseResult *result))success
+                     failure:(void (^)(NSError *error))failure;
+
++ (void)chekWithTelnum:(NSString *)telnum
+               success:(void (^)(id result))success
+               failure:(void (^)(NSError *error))failure;
 @end

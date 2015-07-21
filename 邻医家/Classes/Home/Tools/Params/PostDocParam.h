@@ -9,5 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface PostDocParam : NSObject
-@property (nonatomic,assign) int ID;
+@property (nonatomic,assign) int id;
+@property (nonatomic,copy) NSString *department;
++ (instancetype)paramWithDepartment:(NSString *)deparment;
 @end

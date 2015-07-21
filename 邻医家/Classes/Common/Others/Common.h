@@ -14,7 +14,6 @@
 #define DOCID @"doctor"
 #define DISID @"disease"
 #define CELLBORDER 10
-//http://localhost:8080/assfinance/public/getEmployInfoList
 //说明：type   招聘类型 1-多点执业邀请2-专家邀请3- 实习 4-进修 5-博士后
 #define BGCOLOR IWColor(226, 226, 226)
 #define DEPMENTALLURL @"http://116.228.153.157:8888/assfinance/hospital/getAllByGCId"
@@ -31,6 +30,7 @@
 #define TOKENHOSINFOURL @"http://116.228.153.157:8888/assfinance/hospital/getHospitalInfoById"
 #define TOKENDOCTORINFOURL @"http://116.228.153.157:8888/assfinance/doctor/getMyDoctorInfo"
 #define RECRUITURL @"http://116.228.153.157:8888/assfinance/public/getEmployInfoList"
+#define SEARCHDOCTORSTATIONURL @"http://116.228.153.157:8888/assfinance/public/searchPostdoctorStation"
 #define RECRUITDETAILURL @"http://116.228.153.157:8888/assfinance/public/getEmployInfoById"
 #define IMAGEPREF @"http://116.228.153.157:8888/assfinance/welcome/image"
 #define DOCTORSTATIONURL @"http://116.228.153.157:8888/assfinance/public/getPostdoctorStationList"
@@ -89,6 +89,7 @@
 #define RELEASEDOCARRANGEMENTURL @"http://116.228.153.157:8888/assfinance/hospital/releaseDoctorArrangement"
 #define DOCARRANGEMENTDETAILURL @"http://116.228.153.157:8888/assfinance/hospital/getMyDoctorArrangementById"
 #define USEINFOURL @"http://116.228.153.157:8888/assfinance/user/getAccountInfo"
+#define CHANGEPWDURL @"http://116.228.153.157:8888/assfinance/user/changePassword"
 
 // 获取我的会诊信息
 #define MYCONSULTURL @"http://116.228.153.157:8888/assfinance/doctor/getMyGCInfoList"

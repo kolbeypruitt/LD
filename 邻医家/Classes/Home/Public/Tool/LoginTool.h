@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-@class SignUpParam,LoginResult;
+@class SignUpParam,LoginResult,ChangParam,BaseResult;
 @interface LoginTool : NSObject
 + (void)loginWithParam:(SignUpParam *)param success:(void (^)(LoginResult *result))success failure:(void (^)(NSError *error))failure;
++ (void)changePWDWithParam:(ChangParam *)param success:(void (^)(BaseResult *result))success failure:(void  (^)(NSError *error))failure;
 @end

@@ -51,7 +51,7 @@
                         <constraint firstAttribute="height" constant="35" id="qnU-Mh-7JG"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <state key="normal" title="登录" backgroundImage="reg_btn_bg_blue_big">
+                    <state key="normal" title="登录">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -79,7 +79,4 @@
             <point key="canvasLocation" x="-118.5" y="109.5"/>
         </view>
     </objects>
-    <resources>
-        <image name="reg_btn_bg_blue_big" width="670" height="90"/>
-    </resources>
 </document>
