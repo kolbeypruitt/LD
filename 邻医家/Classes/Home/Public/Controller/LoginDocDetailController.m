@@ -5,8 +5,10 @@
 //  Created by Daniel on 15/6/6.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "LDPersonalController.h"
 #import "DocArrangeCell.h"
 #import "LDPaperDetailController.h"
+#import "UIBarButtonItem+ENTER.h"
 #import "CaseDetailController.h"
 #import "DiseaseCell.h"
 #import "ArrangementCell.h"
@@ -109,7 +111,6 @@
 - (void)setup
 {
     self.view.backgroundColor = IWColor(226, 226, 226);
-    self.navigationItem.rightBarButtonItem = nil;
     [self addCustomeViews];
     [self layoutCustomeViews];
 }
@@ -310,7 +311,16 @@
         [self.navigationController pushViewController:ldVC animated:YES];
     }
 }
-
+- (void)setIsDoctor:(BOOL)isDoctor
+{
+    _isDoctor = isDoctor;
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(editMessage) title:@"编辑"];
+}
+- (void)editMessage
+{
+    LDPersonalController *personal = [[LDPersonalController alloc] init];
+    [self.navigationController pushViewController:personal animated:YES];
+}
 @end
 
 

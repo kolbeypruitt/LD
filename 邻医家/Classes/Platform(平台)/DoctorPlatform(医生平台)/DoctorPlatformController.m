@@ -164,6 +164,7 @@
     Doctor *myself = [[Doctor alloc] init];
     myself.id = me.id;
     LoginDocDetailController *loginVC = [[LoginDocDetailController alloc] init];
+    loginVC.isDoctor = YES;
     loginVC.doctor = myself;
     [self.navigationController pushViewController:loginVC animated:YES];
 }

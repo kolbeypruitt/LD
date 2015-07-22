@@ -10,4 +10,5 @@
 
 @interface LoginDocDetailController : UIViewController
 @property (nonatomic,strong) Doctor *doctor;
+@property (nonatomic,assign) BOOL isDoctor;
 @end
