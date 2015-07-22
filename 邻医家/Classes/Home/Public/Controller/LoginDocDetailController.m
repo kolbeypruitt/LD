@@ -262,7 +262,7 @@
         return self.diseases.count;
     }else
     {
-        return self.arrangements.count;
+        return 0;
     }
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

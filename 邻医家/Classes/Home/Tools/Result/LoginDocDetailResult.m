@@ -13,6 +13,6 @@
 @implementation LoginDocDetailResult
 - (NSDictionary *)objectClassInArray
 {
-    return @{@"cases" : [Case class],@"papers" : [LDPaper class],@"arrangements" : [Arrangement class]};
+    return @{@"cases" : [Case class],@"papers" : [LDPaper class]};
 }
 @end

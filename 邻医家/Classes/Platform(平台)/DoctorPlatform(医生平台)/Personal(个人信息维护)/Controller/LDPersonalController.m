@@ -42,7 +42,7 @@
 - (void)updateTotalStingWithNewSting:(NSString *)newString atIndex:(int)index
 {
     
-    NSRange range = NSMakeRange(index * newString.length,newString.length);
+    NSRange range = NSMakeRange(index * (newString.length + 1),newString.length);
     [self.totalString replaceCharactersInRange:range withString:newString];
     NSLog(@"%@",self.totalString);
 }

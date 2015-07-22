@@ -5,6 +5,11 @@
 //  Created by Daniel on 15/7/22.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+//判断iphone6
+#define iPhone6 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(750, 1334), [[UIScreen mainScreen] currentMode].size) : NO)
+
+//判断iphone6+
+#define iPhone6Plus ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2208), [[UIScreen mainScreen] currentMode].size) : NO)
 
 #import "LDBasePersonalController.h"
 #import "LDCheckView.h"
@@ -12,7 +17,8 @@
 static const int count = 6;
 static const int timeCount = 14;
 @interface LDBasePersonalController ()
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic)  UIScrollView *scrollView;
+@property (weak, nonatomic)  UILabel *nameLabel;
 @property (nonatomic,strong) NSMutableArray *hosLabels;
 @property (nonatomic,strong) NSMutableArray *timeLabels;
 @end
@@ -41,16 +47,25 @@ static const int timeCount = 14;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     [self setupCustomViews];
 }
 - (void)setupCustomViews
 {
-    self.scrollView.contentSize = CGSizeMake(0, 900);
     [self addCustomViews];
+    self.scrollView.contentSize = CGSizeMake(0, 900);
     [self layoutCustomViews];
 }
 - (void)addCustomViews
 {
+    UILabel *nameLabel = [UILabel labelWithTitle:@"点击编辑" font:14 textColor:[UIColor blackColor]];
+    nameLabel.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:nameLabel];
+    self.nameLabel = nameLabel;
+    
+    UIScrollView *scrollView = [[UIScrollView alloc] init];
+    [self.view addSubview:scrollView];
+    self.scrollView = scrollView;
     for (int i = 0; i < count; i++) {
         
         NSString *title = [NSString stringWithFormat:@"医院%d",i+1];
@@ -79,6 +94,18 @@ static const int timeCount = 14;
 }
 - (void)layoutCustomViews
 {
+    CGFloat labelX = 0;
+    CGFloat labelY = 64;
+    CGFloat labelW = self.view.frame.size.width;
+    CGFloat labelH = 40;
+    self.nameLabel.frame = CGRectMake(labelX, labelY, labelW, labelH);
+    
+    CGFloat scrollX = 0;
+    CGFloat scrollY = CGRectGetMaxY(self.nameLabel.frame);
+    CGFloat scrollW = labelW;
+    CGFloat scrollH = self.view.frame.size.height - scrollY;
+    self.scrollView.frame = CGRectMake(scrollX, scrollY, scrollW, scrollH);
+    
     CGFloat hosX = 0;
     CGFloat hosY = 10;
     CGFloat hosW = 40;
@@ -95,11 +122,15 @@ static const int timeCount = 14;
     CGFloat timeH = 40;
     
     CGFloat padding = 0;
-    if (self.view.frame.size.width < 550) {
+    if (iPhone6) {
         padding = 10;
-    }else
+    }
+    else if(iPhone6Plus)
     {
         padding = 20;
+    }
+    else{
+        padding = 5;
     }
     
     for (int i = 0; i < count; i++) {

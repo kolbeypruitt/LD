@@ -5,7 +5,7 @@
 //  Created by Daniel on 15/6/26.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
-@class Doctor;
+@class Doctor,LDArrangement;
 #import <Foundation/Foundation.h>
 
 @interface LoginDocDetailResult : NSObject
@@ -13,5 +13,5 @@
 @property (nonatomic,strong)  Doctor *intorduction;
 @property (nonatomic,strong) NSArray *papers;
 @property (nonatomic,copy) NSString *status;
-@property (nonatomic,strong) NSArray *arrangements;
+@property (nonatomic,strong) LDArrangement *arrangements;
 @end

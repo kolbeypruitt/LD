@@ -347,7 +347,6 @@
 		65C888AA1B2C024D009056D3 /* ConsultDetailMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C888A71B2C024D009056D3 /* ConsultDetailMessage.m */; };
 		65C888AB1B2C024D009056D3 /* ConsultMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C888A91B2C024D009056D3 /* ConsultMessage.m */; };
 		65C9231F1B5FAC1300407AEF /* LDBasePersonalController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C9231D1B5FAC1300407AEF /* LDBasePersonalController.m */; };
-		65C923201B5FAC1300407AEF /* LDBasePersonalController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65C9231E1B5FAC1300407AEF /* LDBasePersonalController.xib */; };
 		65C923231B5FAD2A00407AEF /* LDPersonalController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C923221B5FAD2A00407AEF /* LDPersonalController.m */; };
 		65CAB2871B241130005DAED4 /* DepartmentDirectorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CAB2521B241130005DAED4 /* DepartmentDirectorController.m */; };
 		65CAB2881B241130005DAED4 /* FreeForwardController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CAB2541B241130005DAED4 /* FreeForwardController.m */; };
@@ -552,6 +551,7 @@
 		B0B661651B47EE89003FB8BB /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B661641B47EE89003FB8BB /* NSString+Extension.m */; };
 		B0C32E1E1B3AFBAA008E057C /* MultiJobCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C32E1C1B3AFBAA008E057C /* MultiJobCell.m */; };
 		B0C32E1F1B3AFBAA008E057C /* MultiJobCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0C32E1D1B3AFBAA008E057C /* MultiJobCell.xib */; };
+		B0CADEE21B5FD897002C6D80 /* LDArrangement.m in Sources */ = {isa = PBXBuildFile; fileRef = B0CADEE11B5FD897002C6D80 /* LDArrangement.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1237,7 +1237,6 @@
 		65C888A91B2C024D009056D3 /* ConsultMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsultMessage.m; sourceTree = "<group>"; };
 		65C9231C1B5FAC1300407AEF /* LDBasePersonalController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDBasePersonalController.h; sourceTree = "<group>"; };
 		65C9231D1B5FAC1300407AEF /* LDBasePersonalController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDBasePersonalController.m; sourceTree = "<group>"; };
-		65C9231E1B5FAC1300407AEF /* LDBasePersonalController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LDBasePersonalController.xib; sourceTree = "<group>"; };
 		65C923211B5FAD2A00407AEF /* LDPersonalController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDPersonalController.h; sourceTree = "<group>"; };
 		65C923221B5FAD2A00407AEF /* LDPersonalController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDPersonalController.m; sourceTree = "<group>"; };
 		65CAB2511B241130005DAED4 /* DepartmentDirectorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DepartmentDirectorController.h; sourceTree = "<group>"; };
@@ -1606,6 +1605,8 @@
 		B0C32E1B1B3AFBAA008E057C /* MultiJobCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiJobCell.h; sourceTree = "<group>"; };
 		B0C32E1C1B3AFBAA008E057C /* MultiJobCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiJobCell.m; sourceTree = "<group>"; };
 		B0C32E1D1B3AFBAA008E057C /* MultiJobCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MultiJobCell.xib; sourceTree = "<group>"; };
+		B0CADEE01B5FD897002C6D80 /* LDArrangement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDArrangement.h; sourceTree = "<group>"; };
+		B0CADEE11B5FD897002C6D80 /* LDArrangement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDArrangement.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -3034,7 +3035,6 @@
 			children = (
 				65C9231C1B5FAC1300407AEF /* LDBasePersonalController.h */,
 				65C9231D1B5FAC1300407AEF /* LDBasePersonalController.m */,
-				65C9231E1B5FAC1300407AEF /* LDBasePersonalController.xib */,
 				65C923211B5FAD2A00407AEF /* LDPersonalController.h */,
 				65C923221B5FAD2A00407AEF /* LDPersonalController.m */,
 			);
@@ -3582,25 +3582,11 @@
 		65D3EC3B1B5F36AC0058D83E /* Personal(个人信息维护) */ = {
 			isa = PBXGroup;
 			children = (
+				B0CADEDE1B5FD879002C6D80 /* Model */,
+				B0CADEDF1B5FD879002C6D80 /* View */,
 				65C9231B1B5FAC0200407AEF /* Controller */,
-				65D3EC3D1B5F36AC0058D83E /* Model */,
-				65D3EC3E1B5F36AC0058D83E /* View */,
 			);
 			path = "Personal(个人信息维护)";
-			sourceTree = "<group>";
-		};
-		65D3EC3D1B5F36AC0058D83E /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		65D3EC3E1B5F36AC0058D83E /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		65D526C21B2A95D600CF4FC4 /* Employ(招聘) */ = {
@@ -4087,6 +4073,22 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		B0CADEDE1B5FD879002C6D80 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B0CADEE01B5FD897002C6D80 /* LDArrangement.h */,
+				B0CADEE11B5FD897002C6D80 /* LDArrangement.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B0CADEDF1B5FD879002C6D80 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -4188,7 +4190,6 @@
 				65CAB2D71B241317005DAED4 /* ReviewController.xib in Resources */,
 				650295C81B00952E002249C0 /* RecruitMessageController.xib in Resources */,
 				B06655591B5A1C0400877489 /* LDIntroductionView.xib in Resources */,
-				65C923201B5FAC1300407AEF /* LDBasePersonalController.xib in Resources */,
 				65C412381B05B60300A8B75F /* SignUpViewController.xib in Resources */,
 				65D527221B2A95D600CF4FC4 /* ResumeCell.xib in Resources */,
 				65C5638C1B1EB4E4007FC968 /* property.json in Resources */,
@@ -4556,6 +4557,7 @@
 				65CFC6BD1B52554100A881B6 /* LDMessage.m in Sources */,
 				651106CC1B4126B100F759DE /* SearchHosView.m in Sources */,
 				650295E11B009575002249C0 /* City.m in Sources */,
+				B0CADEE21B5FD897002C6D80 /* LDArrangement.m in Sources */,
 				655453FC1AFCA59D00C4BFFA /* HosRank.m in Sources */,
 				65D527041B2A95D600CF4FC4 /* ConfirmedResumeController.m in Sources */,
 				65C3D1C21B1BF3B20050F540 /* HospitalEnterTool.m in Sources */,
@@ -4822,7 +4824,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/daniel/Desktop/IOS_SDKV1.2.3.1/静态库",
+					"/Users/SXQ/Desktop/IOS_SDKV1.2.3.1/静态库",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -4845,7 +4847,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/daniel/Desktop/IOS_SDKV1.2.3.1/静态库",
+					"/Users/SXQ/Desktop/IOS_SDKV1.2.3.1/静态库",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
