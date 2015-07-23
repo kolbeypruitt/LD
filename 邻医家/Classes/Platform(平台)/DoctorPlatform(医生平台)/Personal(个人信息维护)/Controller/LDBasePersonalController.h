@@ -11,5 +11,6 @@
 @interface LDBasePersonalController : UIViewController
 @property (nonatomic,strong) NSMutableArray *checkViews;
 @property (nonatomic,strong) LDArrangement *arrangement;
+@property (nonatomic,copy) NSMutableString *hospitalString;
 - (BOOL)messageComplete;
 @end

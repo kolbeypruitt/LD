@@ -477,6 +477,8 @@
 		65D9967C1B38F1F0004C1DA6 /* WithDrawConsultTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D9967B1B38F1F0004C1DA6 /* WithDrawConsultTool.m */; };
 		65D9967F1B38FA37004C1DA6 /* ForwardDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D9967E1B38FA37004C1DA6 /* ForwardDelegate.m */; };
 		65E1DF611B1FF7ED006A09E9 /* PatientEnterTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E1DF601B1FF7ED006A09E9 /* PatientEnterTool.m */; };
+		65E1E7D31B60B320008D31D3 /* LDArrangementParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E1E7D21B60B320008D31D3 /* LDArrangementParam.m */; };
+		65E1E7D61B60B405008D31D3 /* ChangeArrangeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E1E7D51B60B405008D31D3 /* ChangeArrangeTool.m */; };
 		65E1F0AA1B0993D7004AEC4A /* MultiJobIDResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E1F0A91B0993D7004AEC4A /* MultiJobIDResult.m */; };
 		65E254611B4231EB009B0525 /* hotarea.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65E254601B4231EB009B0525 /* hotarea.plist */; };
 		65E254631B423B4C009B0525 /* hotdepartment.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65E254621B423B4C009B0525 /* hotdepartment.plist */; };
@@ -1487,6 +1489,10 @@
 		65D9967E1B38FA37004C1DA6 /* ForwardDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForwardDelegate.m; sourceTree = "<group>"; };
 		65E1DF5F1B1FF7ED006A09E9 /* PatientEnterTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientEnterTool.h; sourceTree = "<group>"; };
 		65E1DF601B1FF7ED006A09E9 /* PatientEnterTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientEnterTool.m; sourceTree = "<group>"; };
+		65E1E7D11B60B320008D31D3 /* LDArrangementParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDArrangementParam.h; sourceTree = "<group>"; };
+		65E1E7D21B60B320008D31D3 /* LDArrangementParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDArrangementParam.m; sourceTree = "<group>"; };
+		65E1E7D41B60B405008D31D3 /* ChangeArrangeTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeArrangeTool.h; sourceTree = "<group>"; };
+		65E1E7D51B60B405008D31D3 /* ChangeArrangeTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeArrangeTool.m; sourceTree = "<group>"; };
 		65E1F0A81B0993D7004AEC4A /* MultiJobIDResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiJobIDResult.h; sourceTree = "<group>"; };
 		65E1F0A91B0993D7004AEC4A /* MultiJobIDResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiJobIDResult.m; sourceTree = "<group>"; };
 		65E254601B4231EB009B0525 /* hotarea.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = hotarea.plist; sourceTree = "<group>"; };
@@ -2883,6 +2889,8 @@
 			children = (
 				65A9D7081B4FB1010014F27B /* ApplianTool.h */,
 				65A9D7091B4FB1010014F27B /* ApplianTool.m */,
+				65E1E7D41B60B405008D31D3 /* ChangeArrangeTool.h */,
+				65E1E7D51B60B405008D31D3 /* ChangeArrangeTool.m */,
 			);
 			name = Tool;
 			sourceTree = "<group>";
@@ -4088,6 +4096,8 @@
 			children = (
 				B0CADEE01B5FD897002C6D80 /* LDArrangement.h */,
 				B0CADEE11B5FD897002C6D80 /* LDArrangement.m */,
+				65E1E7D11B60B320008D31D3 /* LDArrangementParam.h */,
+				65E1E7D21B60B320008D31D3 /* LDArrangementParam.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -4423,6 +4433,7 @@
 				655454551AFCA59D00C4BFFA /* UIImage+GIF.m in Sources */,
 				6554545D1AFCA59D00C4BFFA /* ActionSheetDistancePicker.m in Sources */,
 				6540B83B1B2D55900053DB2A /* InviteDocMessage.m in Sources */,
+				65E1E7D61B60B405008D31D3 /* ChangeArrangeTool.m in Sources */,
 				65C888A21B2C0198009056D3 /* QueryConsultTool.m in Sources */,
 				65C58C241B32607E00D3A013 /* InvitePurposeDelegate.m in Sources */,
 				65EAE03F1B3CF3750040C4C2 /* LoginDocDetailResult.m in Sources */,
@@ -4544,6 +4555,7 @@
 				6536D6121B2E777600539F47 /* PatientInviteDetailTool.m in Sources */,
 				65C8889C1B2C0164009056D3 /* QueryConsultResult.m in Sources */,
 				6558CD751B2ABDBF005E7685 /* PostCaseViewController.m in Sources */,
+				65E1E7D31B60B320008D31D3 /* LDArrangementParam.m in Sources */,
 				655420551B2EBC0F00D70A08 /* AcceptedDocController.m in Sources */,
 				6554544E1AFCA59D00C4BFFA /* SDWebImageCompat.m in Sources */,
 				65E1F0AA1B0993D7004AEC4A /* MultiJobIDResult.m in Sources */,

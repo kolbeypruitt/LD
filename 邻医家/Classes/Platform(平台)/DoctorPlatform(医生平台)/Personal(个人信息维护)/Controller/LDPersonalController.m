@@ -5,6 +5,12 @@
 //  Created by Daniel on 15/7/22.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "AssignmentTool.h"
+#import "LDArrangement.h"
+#import "ChangeArrangeTool.h"
+#import "MBProgressHUD+MJ.h"
+#import "BaseResult.h"
+#import "LDArrangementParam.h"
 #import "LDCheckView.h"
 #import "UIBarButtonItem+ENTER.h"
 #import "LDPersonalController.h"
@@ -33,7 +39,24 @@
 - (void)uploadArrangement
 {
     if ([self messageComplete]) {
-         
+        LDArrangementParam *param = [LDArrangementParam paramWithArrangements:[self setupTotalString] arrangeHospitals:self.hospitalString];
+        [ChangeArrangeTool changeArrangeWithParam:param success:^(BaseResult *result) {
+            if([result.status isEqualToString:@"S"])
+            {
+                LDArrangement *arrangement = [[LDArrangement alloc] init];
+                arrangement.arrangements = param.arrangements;
+                arrangement.arrangeHospitals = param.arrangeHospitals;
+                
+                [AssignmentTool saveAssignment:arrangement];
+                
+                [self.navigationController popViewControllerAnimated:YES];
+            }else
+            {
+                [MBProgressHUD showError:@"保存失败!"];
+            }
+        } failure:^(NSError *error) {
+            [MBProgressHUD showError:@"请求网络失败!"];
+        }];
     }
 }
 - (void)loadMessage
@@ -55,7 +78,11 @@
     
     NSRange range = NSMakeRange(index * (newString.length + 1),newString.length);
     [self.totalString replaceCharactersInRange:range withString:newString];
-    NSLog(@"%@",self.totalString);
 }
-
+- (NSMutableString *)setupTotalString
+{
+    NSMutableString *tmpString = [self.totalString mutableCopy];
+    [tmpString deleteCharactersInRange:NSMakeRange(tmpString.length - 1, 1)];
+    return tmpString;
+}
 @end

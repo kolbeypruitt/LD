@@ -25,6 +25,13 @@ static const int timeCount = 14;
 @end
 
 @implementation LDBasePersonalController
+- (NSMutableString *)hospitalString
+{
+    if (_hospitalString == nil) {
+        _hospitalString = [NSMutableString string];
+    }
+    return _hospitalString;
+}
 - (NSMutableArray *)hosLabels
 {
     if (_hosLabels == nil) {
@@ -202,6 +209,27 @@ static const int timeCount = 14;
             return NO;
         }
     }
+    [self setupHospitalString];
     return YES;
 }
+- (void)setupHospitalString
+{
+    if (self.hospitalString.length != 0) {
+        [self.hospitalString deleteCharactersInRange:NSMakeRange(0, self.hospitalString.length)];
+    }
+    
+    for (int i = 0 ; i < self.hosLabels.count; i++) {
+        UITextField *textfield = self.hosLabels[i];
+        [self.hospitalString appendString:[NSString stringWithFormat:@"%@,",textfield.text]];
+    }
+    [self.hospitalString deleteCharactersInRange:NSMakeRange(self.hospitalString.length - 1, 1)];
+}
 @end
+
+
+
+
+
+
+
+
