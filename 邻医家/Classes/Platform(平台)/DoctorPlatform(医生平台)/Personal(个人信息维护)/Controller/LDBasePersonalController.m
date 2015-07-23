@@ -13,12 +13,13 @@
 
 #import "LDBasePersonalController.h"
 #import "LDCheckView.h"
+#import "MBProgressHUD+MJ.h"
 #import "UILabel+LD.h"
+#import "LDArrangement.h"
 static const int count = 6;
 static const int timeCount = 14;
 @interface LDBasePersonalController ()
 @property (weak, nonatomic)  UIScrollView *scrollView;
-@property (weak, nonatomic)  UILabel *nameLabel;
 @property (nonatomic,strong) NSMutableArray *hosLabels;
 @property (nonatomic,strong) NSMutableArray *timeLabels;
 @end
@@ -47,6 +48,7 @@ static const int timeCount = 14;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"个人安排";
     self.view.backgroundColor = [UIColor whiteColor];
     [self setupCustomViews];
 }
@@ -58,20 +60,17 @@ static const int timeCount = 14;
 }
 - (void)addCustomViews
 {
-    UILabel *nameLabel = [UILabel labelWithTitle:@"点击编辑" font:14 textColor:[UIColor blackColor]];
-    nameLabel.textAlignment = NSTextAlignmentCenter;
-    [self.view addSubview:nameLabel];
-    self.nameLabel = nameLabel;
     
     UIScrollView *scrollView = [[UIScrollView alloc] init];
     [self.view addSubview:scrollView];
     self.scrollView = scrollView;
     for (int i = 0; i < count; i++) {
         
-        NSString *title = [NSString stringWithFormat:@"医院%d",i+1];
-        UILabel *hosLabel = [UILabel labelWithTitle:title font:15 textColor:[UIColor blackColor]];
-        [self.scrollView addSubview:hosLabel];
-        [self.hosLabels addObject:hosLabel];
+        UITextField *hosField = [[UITextField alloc] init];
+        hosField.font = [UIFont systemFontOfSize:8];
+        hosField.borderStyle = UITextBorderStyleRoundedRect;
+        [self.scrollView addSubview:hosField];
+        [self.hosLabels addObject:hosField];
         
         LDCheckView *checkView = [[LDCheckView alloc] init];
         checkView.tag = i;
@@ -94,15 +93,10 @@ static const int timeCount = 14;
 }
 - (void)layoutCustomViews
 {
-    CGFloat labelX = 0;
-    CGFloat labelY = 64;
-    CGFloat labelW = self.view.frame.size.width;
-    CGFloat labelH = 40;
-    self.nameLabel.frame = CGRectMake(labelX, labelY, labelW, labelH);
     
     CGFloat scrollX = 0;
-    CGFloat scrollY = CGRectGetMaxY(self.nameLabel.frame);
-    CGFloat scrollW = labelW;
+    CGFloat scrollY = 0;
+    CGFloat scrollW = self.view.frame.size.width;
     CGFloat scrollH = self.view.frame.size.height - scrollY;
     self.scrollView.frame = CGRectMake(scrollX, scrollY, scrollW, scrollH);
     
@@ -134,13 +128,13 @@ static const int timeCount = 14;
     }
     
     for (int i = 0; i < count; i++) {
-        UILabel *hosLabel = self.hosLabels[i];
+        UITextField *hosfield = self.hosLabels[i];
         hosX = 50 + (hosW + padding) * i;
-        hosLabel.frame = CGRectMake(hosX, hosY, hosW, hosH);
+        hosfield.frame = CGRectMake(hosX, hosY, hosW, hosH);
        
         LDCheckView *check = self.checkViews[i];
         checkX = hosX;
-        checkY = CGRectGetMaxY(hosLabel.frame) + padding/2;
+        checkY = CGRectGetMaxY(hosfield.frame) + padding/2;
         check.frame = CGRectMake(checkX, checkY, checkW, checkH);
     }
     
@@ -156,5 +150,58 @@ static const int timeCount = 14;
         LDCheckView *checkView = self.checkViews[i];
         [checkView removeObserver:self forKeyPath:@"checkMessage"];
     }
+}
+/*
+ * 设置安排
+ */
+- (void)setArrangement:(LDArrangement *)arrangement
+{
+    _arrangement = arrangement;
+    
+    [self setHospitalWithData:arrangement.arrangeHospitals];
+    [self setArrangementWithData:arrangement.arrangements];
+}
+- (void)setHospitalWithData:(NSString *)hospitals
+{
+    NSArray *hospitalNames = [hospitals componentsSeparatedByString:@","];
+    for ( int i = 0 ; i < count; i++) {
+        NSString *hosname = hospitalNames[i];
+        UITextField *hosfield = self.hosLabels[i];
+        hosfield.text = hosname;
+    }
+    
+}
+- (void)setArrangementWithData:(NSString *)arrangements
+{
+   //每个医院的安排
+    NSArray *arrangeGroup = [self prepareArrangeData:arrangements];
+    for (int i = 0; i < self.checkViews.count; i++) {
+        LDCheckView *checkView = self.checkViews[i];
+        checkView.checkDatas = arrangeGroup[i];
+    }
+   
+}
+- (NSArray *)prepareArrangeData:(NSString *)originData
+{
+    NSArray *hospitalArrangeStrings = [originData componentsSeparatedByString:@";"];
+    
+    NSMutableArray *arrangementGroup = [NSMutableArray array];
+    for (NSString *arrange in hospitalArrangeStrings) {
+        NSArray *hosarrange = [arrange componentsSeparatedByString:@","];
+        [arrangementGroup addObject:hosarrange];
+    }
+    return [arrangementGroup copy];
+}
+- (BOOL)messageComplete
+{
+    for (int i = 0;i < self.hosLabels.count;i++)
+    {
+        UITextField *textfield = self.hosLabels[i];
+        if (textfield.text.length == 0) {
+            [MBProgressHUD showError: [NSString stringWithFormat:@"请填写第%d医院信息",i]];
+            return NO;
+        }
+    }
+    return YES;
 }
 @end

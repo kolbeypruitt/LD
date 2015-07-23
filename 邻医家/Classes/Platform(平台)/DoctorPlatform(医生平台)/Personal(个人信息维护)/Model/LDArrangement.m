@@ -7,7 +7,7 @@
 //
 
 #import "LDArrangement.h"
-
+#import "MJExtension.h"
 @implementation LDArrangement
-
+MJCodingImplementation
 @end

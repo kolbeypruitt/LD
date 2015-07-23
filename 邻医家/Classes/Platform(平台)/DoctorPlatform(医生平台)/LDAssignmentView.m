@@ -15,6 +15,7 @@ static const int timeCount = 14;
 
 #import "LDAssignmentView.h"
 #import "LDArrangement.h"
+#import "AssignmentTool.h"
 #import "UILabel+LD.h"
 #import "LDCheckView.h"
 @interface LDAssignmentView ()
@@ -151,6 +152,9 @@ static const int timeCount = 14;
 - (void)setArrangement:(LDArrangement *)arrangement
 {
     _arrangement = arrangement;
+    
+    [AssignmentTool saveAssignment:arrangement];
+    
     [self setHospitalWithData:arrangement.arrangeHospitals];
     [self setArrangementWithData:arrangement.arrangements];
 }

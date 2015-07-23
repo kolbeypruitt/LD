@@ -260,6 +260,7 @@
 		6571C7A11B1BF948007D95C0 /* HospitalEnterResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 6571C7A01B1BF948007D95C0 /* HospitalEnterResult.m */; };
 		6571C7A41B1BFB7C007D95C0 /* LDFormData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6571C7A31B1BFB7C007D95C0 /* LDFormData.m */; };
 		6571C7A71B1C0444007D95C0 /* PatientEnterParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 6571C7A61B1C0444007D95C0 /* PatientEnterParam.m */; };
+		65727E5E1B6094060022A4DE /* AssignmentTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 65727E5D1B6094060022A4DE /* AssignmentTool.m */; };
 		6579B3FB1B4E1C8700DC6213 /* ReleaseCaseTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6579B3FA1B4E1C8700DC6213 /* ReleaseCaseTool.m */; };
 		65849C1D1B2805E000EE2D18 /* AllResumeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65849C181B2805E000EE2D18 /* AllResumeViewController.m */; };
 		65849C291B2806E700EE2D18 /* LDMessageButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 65849C241B2806E700EE2D18 /* LDMessageButton.m */; };
@@ -1067,6 +1068,8 @@
 		6571C7A31B1BFB7C007D95C0 /* LDFormData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDFormData.m; sourceTree = "<group>"; };
 		6571C7A51B1C0444007D95C0 /* PatientEnterParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientEnterParam.h; sourceTree = "<group>"; };
 		6571C7A61B1C0444007D95C0 /* PatientEnterParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientEnterParam.m; sourceTree = "<group>"; };
+		65727E5C1B6094060022A4DE /* AssignmentTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssignmentTool.h; sourceTree = "<group>"; };
+		65727E5D1B6094060022A4DE /* AssignmentTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssignmentTool.m; sourceTree = "<group>"; };
 		6579B3F91B4E1C8700DC6213 /* ReleaseCaseTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReleaseCaseTool.h; sourceTree = "<group>"; };
 		6579B3FA1B4E1C8700DC6213 /* ReleaseCaseTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReleaseCaseTool.m; sourceTree = "<group>"; };
 		65849C171B2805E000EE2D18 /* AllResumeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllResumeViewController.h; sourceTree = "<group>"; };
@@ -2447,6 +2450,8 @@
 				65D6501F1B5CD1370074DFBA /* UserTool.m */,
 				65D650241B5CD3FB0074DFBA /* UserResult.h */,
 				65D650251B5CD3FB0074DFBA /* UserResult.m */,
+				65727E5C1B6094060022A4DE /* AssignmentTool.h */,
+				65727E5D1B6094060022A4DE /* AssignmentTool.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -4338,6 +4343,7 @@
 				65D3F2E81B58A98100BB1A8B /* DocArrangeCell.m in Sources */,
 				65CDDE451B2E6B5900628862 /* PatientInviteListTool.m in Sources */,
 				65CC8A261B5355DF00ED584F /* LDMessageController.m in Sources */,
+				65727E5E1B6094060022A4DE /* AssignmentTool.m in Sources */,
 				B0B661651B47EE89003FB8BB /* NSString+Extension.m in Sources */,
 				654861831B4E4F1A001B25CA /* ReleaseArrangeTool.m in Sources */,
 				65CD58F31B57429600C54C3A /* DepartmentListToll.m in Sources */,
