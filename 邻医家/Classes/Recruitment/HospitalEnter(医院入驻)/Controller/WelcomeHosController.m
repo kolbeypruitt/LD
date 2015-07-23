@@ -5,10 +5,11 @@
 //  Created by Daniel on 15/5/20.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "LDDocProtocolController.h"
 #import "LDCopyView.h"
 #import "CommitMessage.h"
 #import "LDInputMessage.h"
-
+#import "LDInputView.h"
 #import "HospitalPlatformController.h"
 #import "HospitalEnterParam.h"
 #import "Common.h"
@@ -24,8 +25,10 @@
 #import "Province.h"
 #import "HospitalEnterTool.h"
 #import "MJExtension.h"
-@interface WelcomeHosController () <UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+#import "LDEnterProctolView.h"
+@interface WelcomeHosController () <UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,LDEnterProctolViewDelegate>
 @property (nonatomic,weak) UIButton  *auditBtn;
+@property (nonatomic,weak) LDEnterProctolView *protocolView;
 @property (nonatomic,weak) UIPickerView *propertyPicker;
 @end
 
@@ -151,7 +154,10 @@
     if (![self messageComplete]) {
         return;
     }
-    
+    if (!self.protocolView.isChecked) {
+        [MBProgressHUD showError:@"须同意入驻协议"];
+        return;
+    }
 
     HospitalEnterParam *param = [[HospitalEnterParam alloc] init];
     param.name = [self.commitMessages[0] stringMsg];
@@ -180,7 +186,46 @@
                                                [MBProgressHUD showError:@"请求网络失败!"];
                                            }];
 }
-
+- (void)addMyTextView
+{
+    
+    //添加协议view
+    LDEnterProctolView *proctolView = [[LDEnterProctolView alloc] init];
+    proctolView.delegate = self;
+    [self.scrollView addSubview:proctolView];
+    self.protocolView = proctolView;
+    
+}
+- (void)layoutTextView
+{
+    CGFloat proX = 0;
+    CGFloat proY = CGRectGetMaxY(self.uploadView.frame) + 10;
+    CGFloat proW = self.view.frame.size.width;
+    CGFloat proH = 30;
+    self.protocolView.frame = CGRectMake(proX, proY, proW, proH);
+   
+    
+    //调整commitbtn的frame
+    CGRect commitFrame = self.commitBtn.frame;
+    commitFrame.origin.y = CGRectGetMaxY(self.protocolView.frame) + 10;
+    self.commitBtn.frame = commitFrame;
+    
+    
+    
+    //调整scrollview的content size
+    self.scrollView.contentSize = CGSizeMake(0, CGRectGetMaxY(self.commitBtn.frame) + 40);
+}
+#pragma mark - rewrite method
+- (void)addCustomViews
+{
+    [super addCustomViews];
+    [self addMyTextView];
+}
+- (void)layoutCustomViews
+{
+    [super layoutCustomViews];
+    [self layoutTextView];
+}
 #pragma mark - textfield delegate method
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
@@ -192,9 +237,14 @@
 {
     [self.view endEditing:YES];
 }
+#pragma mark - protocol delegate
+- (void)enterProctrolView:(LDEnterProctolView *)proctolView didClickedProctolBtn:(UIButton *)button
+{
+    LDDocProtocolController *docVC = [[LDDocProtocolController alloc] init];
+    docVC.title = @"医院入驻协议详情";
+    [self.navigationController pushViewController:docVC animated:YES];
+}
 @end
-
-
 
 
 

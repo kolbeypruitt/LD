@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LDRewardView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="本服务项所涉及的赏金问题及其他的交易问题均由响应的医生和医友自行承担责任，软件运营方/服务提供方不承担任何责任。" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m6m-Ge-vPW">
+                    <rect key="frame" x="45" y="5" width="320" height="35"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rmT-ra-krT" customClass="LDCheckBox">
+                    <rect key="frame" x="10" y="10" width="30" height="30"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="LzH-6f-mqv"/>
+                        <constraint firstAttribute="width" constant="30" id="gVY-ht-eDj"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="rmT-ra-krT" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="60c-2D-FBK"/>
+                <constraint firstItem="m6m-Ge-vPW" firstAttribute="leading" secondItem="rmT-ra-krT" secondAttribute="trailing" constant="5" id="7DE-am-8M6"/>
+                <constraint firstItem="m6m-Ge-vPW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="7Ho-AK-kvH"/>
+                <constraint firstItem="rmT-ra-krT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="Tgq-KH-bd5"/>
+                <constraint firstAttribute="bottom" secondItem="m6m-Ge-vPW" secondAttribute="bottom" constant="10" id="gpJ-bF-4iB"/>
+                <constraint firstAttribute="trailing" secondItem="m6m-Ge-vPW" secondAttribute="trailing" constant="10" id="mSg-6U-sH0"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="checkBox" destination="rmT-ra-krT" id="CZ7-gE-i6q"/>
+                <outlet property="proctocolLabel" destination="m6m-Ge-vPW" id="4oH-tk-GUU"/>
+            </connections>
+            <point key="canvasLocation" x="563.5" y="112"/>
+        </view>
+    </objects>
+</document>

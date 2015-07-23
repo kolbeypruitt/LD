@@ -5,7 +5,8 @@
 //  Created by Daniel on 15/5/20.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
-
+#import "LDDocProtocolController.h"
+#import "LDEnterProctolView.h"
 #import "DoctorTabbarController.h"
 #import "LDFormData.h"
 #import "BaseResult.h"
@@ -32,8 +33,9 @@
 #import "CommitMessage.h"
 #import "LDInputView.h"
 #import "LDIntroductionView.h"
-@interface WelcomeDosController () <UITextViewDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@interface WelcomeDosController () <UITextViewDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,LDEnterProctolViewDelegate>
 @property (nonatomic,weak) LDIntroductionView *introducitonView;
+@property (nonatomic,weak) LDEnterProctolView *proctocolView;
 @end
 
 @implementation WelcomeDosController
@@ -72,6 +74,10 @@
     }
     if (self.introducitonView.textView.text.length == 0) {
         [MBProgressHUD showError:@"请输入个人简介"];
+        return;
+    }
+    if (!self.proctocolView.isChecked) {
+        [MBProgressHUD showError:@"须同意入驻协议"];
         return;
     }
     self.commitBtn.enabled = NO;
@@ -165,6 +171,13 @@
     introductionView.textView.delegate = self;
     [self.scrollView addSubview:introductionView];
     self.introducitonView = introductionView;
+    
+    //添加协议view
+    LDEnterProctolView *proctolView = [[LDEnterProctolView alloc] init];
+    proctolView.delegate = self;
+    [self.scrollView addSubview:proctolView];
+    self.proctocolView = proctolView;
+    
 }
 - (void)layoutTextView
 {
@@ -182,10 +195,18 @@
     uploadViewRect.origin.y = CGRectGetMaxY(self.introducitonView.frame) + 10;
     self.uploadView.frame = uploadViewRect;
     
+    CGFloat proX = 0;
+    CGFloat proY = CGRectGetMaxY(self.uploadView.frame) + 10;
+    CGFloat proW = introW;
+    CGFloat proH = 30;
+    self.proctocolView.frame = CGRectMake(proX, proY, proW, proH);
+    
     //调整commitbtn的frame
     CGRect commitFrame = self.commitBtn.frame;
-    commitFrame.origin.y = CGRectGetMaxY(self.uploadView.frame) + 10;
+    commitFrame.origin.y = CGRectGetMaxY(self.proctocolView.frame) + 10;
     self.commitBtn.frame = commitFrame;
+    
+    
     
     //调整scrollview的content size
     self.scrollView.contentSize = CGSizeMake(0, CGRectGetMaxY(self.commitBtn.frame) + 40);
@@ -212,6 +233,13 @@
         return;
     }
     [textView showPlaceHolder:YES];
+}
+#pragma mark - protocol delegate
+- (void)enterProctrolView:(LDEnterProctolView *)proctolView didClickedProctolBtn:(UIButton *)button
+{
+    LDDocProtocolController *docVC = [[LDDocProtocolController alloc] init];
+    docVC.title = @"医生入驻协议详情";
+    [self.navigationController pushViewController:docVC animated:YES];
 }
 @end
 

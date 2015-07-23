@@ -5,6 +5,8 @@
 //  Created by Daniel on 15/5/20.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "LDEnterProctolView.h"
+#import "LDDocProtocolController.h"
 #import "LDCopyView.h"
 #import "CommitMessage.h"
 #import "PatientEnterTool.h"
@@ -21,8 +23,8 @@
 #import "ReviewController.h"
 #import "ActionSheetCustomPicker+LD.h"
 #import "PatientEnterParam.h"
-@interface WelcomePatientController () <UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
-
+@interface WelcomePatientController () <UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,LDEnterProctolViewDelegate>
+@property (nonatomic,weak) LDEnterProctolView *protocolView;
 @end
 
 @implementation WelcomePatientController
@@ -58,6 +60,10 @@
 - (void)commitBtnClicked
 {
     if ([self messageComplete]) {
+        if (!self.protocolView.isChecked) {
+            [MBProgressHUD showError:@"须同意入驻协议"];
+            return;
+        }
         [self commit];
     }
 }
@@ -146,5 +152,52 @@
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [self.view endEditing:YES];
+}
+- (void)addMyTextView
+{
+    
+    //添加协议view
+    LDEnterProctolView *proctolView = [[LDEnterProctolView alloc] init];
+    proctolView.delegate = self;
+    [self.scrollView addSubview:proctolView];
+    self.protocolView = proctolView;
+    
+}
+- (void)layoutTextView
+{
+    CGFloat proX = 0;
+    CGFloat proY = CGRectGetMaxY(self.uploadView.frame) + 10;
+    CGFloat proW = self.view.frame.size.width;
+    CGFloat proH = 30;
+    self.protocolView.frame = CGRectMake(proX, proY, proW, proH);
+    
+    
+    //调整commitbtn的frame
+    CGRect commitFrame = self.commitBtn.frame;
+    commitFrame.origin.y = CGRectGetMaxY(self.protocolView.frame) + 10;
+    self.commitBtn.frame = commitFrame;
+    
+    
+    
+    //调整scrollview的content size
+    self.scrollView.contentSize = CGSizeMake(0, CGRectGetMaxY(self.commitBtn.frame) + 40);
+}
+#pragma mark - rewrite method
+- (void)addCustomViews
+{
+    [super addCustomViews];
+    [self addMyTextView];
+}
+- (void)layoutCustomViews
+{
+    [super layoutCustomViews];
+    [self layoutTextView];
+}
+#pragma mark - protocol delegate
+- (void)enterProctrolView:(LDEnterProctolView *)proctolView didClickedProctolBtn:(UIButton *)button
+{
+    LDDocProtocolController *docVC = [[LDDocProtocolController alloc] init];
+    docVC.title = @"医友入驻协议详情";
+    [self.navigationController pushViewController:docVC animated:YES];
 }
 @end

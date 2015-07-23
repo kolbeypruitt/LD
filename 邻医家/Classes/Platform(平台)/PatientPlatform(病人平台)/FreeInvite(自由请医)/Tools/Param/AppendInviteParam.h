@@ -14,7 +14,9 @@
 @property (nonatomic,copy) NSString *idcardNo;
 @property (nonatomic,assign) int gender;
 @property (nonatomic,copy) NSString *lastHospital;
+#warning lastdepartment 传ID
 @property (nonatomic,copy) NSString *lastDepartment;
+
 @property (nonatomic,copy) NSString *lastDiagnose;
 @property (nonatomic,copy) NSString *address;
 @property (nonatomic,copy) NSString *profession;

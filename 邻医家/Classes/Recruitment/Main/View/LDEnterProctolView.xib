@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="4tR-0b-4UR" customClass="LDEnterProctolView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Ri-6f-0mS" customClass="LDCheckBox">
+                    <rect key="frame" x="10" y="2" width="30" height="26"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="9dL-Kc-44D"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HBa-A2-a4A">
+                    <rect key="frame" x="50" y="0.0" width="315" height="30"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <state key="normal" title="同意入驻协议(点击查看协议详情)">
+                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="protocolBtnClicked:" destination="4tR-0b-4UR" eventType="touchUpInside" id="K6n-3f-fZl"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="1Ri-6f-0mS" secondAttribute="bottom" constant="2" id="3nw-t9-dbk"/>
+                <constraint firstItem="1Ri-6f-0mS" firstAttribute="top" secondItem="4tR-0b-4UR" secondAttribute="top" constant="2" id="Tyk-uQ-0UI"/>
+                <constraint firstAttribute="bottom" secondItem="HBa-A2-a4A" secondAttribute="bottom" id="gtM-oz-eE9"/>
+                <constraint firstAttribute="trailing" secondItem="HBa-A2-a4A" secondAttribute="trailing" constant="10" id="pCj-mh-XYN"/>
+                <constraint firstItem="HBa-A2-a4A" firstAttribute="leading" secondItem="1Ri-6f-0mS" secondAttribute="trailing" constant="10" id="vCb-M1-ARj"/>
+                <constraint firstItem="HBa-A2-a4A" firstAttribute="top" secondItem="4tR-0b-4UR" secondAttribute="top" id="w1W-dk-EfX"/>
+                <constraint firstItem="1Ri-6f-0mS" firstAttribute="leading" secondItem="4tR-0b-4UR" secondAttribute="leading" constant="10" id="zbb-B8-S2J"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="checkBox" destination="1Ri-6f-0mS" id="kGW-O7-OIg"/>
+                <outlet property="protocolButton" destination="HBa-A2-a4A" id="RAd-ug-D8f"/>
+            </connections>
+            <point key="canvasLocation" x="187.5" y="-260"/>
+        </view>
+    </objects>
+</document>

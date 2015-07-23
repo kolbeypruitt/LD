@@ -5,6 +5,8 @@
 //  Created by Daniel on 15/6/18.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "LDRewardView.h"
+#import "LDInputView.h"
 #import "BaseResult.h"
 #import "AppendInviteTool.h"
 #import "MBProgressHUD+MJ.h"
@@ -24,7 +26,7 @@
 #import "InvitePurposeDelegate.h"
 #import "VipDelegate.h"
 @interface AppendRewardController ()
-
+@property (nonatomic,weak) LDRewardView *rewardView;
 @end
 
 @implementation AppendRewardController
@@ -97,6 +99,10 @@
 - (void)commitBtnClicked
 {
     if ([self messageComplete]) {
+        if (!self.rewardView.conformed) {
+            [MBProgressHUD showError:@"须同意协议"];
+            return;
+        }
         [AppendInviteTool appendInviteWithParam:[self fillParam] success:^(BaseResult *result) {
             if ([result.status isEqualToString:SUCCESSSTATUS]) {
                 [DefaultCenter postNotificationName:FREEINVITENEEDREFRESHNOTIFICATION object:self];
@@ -109,5 +115,38 @@
             [MBProgressHUD showError:@"请求网络失败!"];
         }];
     }
+}
+- (void)addProctolView
+{
+    LDRewardView *rewardView = [[LDRewardView alloc] init];
+    [self.scrollView addSubview:rewardView];
+    self.rewardView = rewardView;
+}
+- (void)layoutProtocolView
+{
+    LDInputView *lastInputView = [self.inputViews lastObject];
+    CGFloat rewardX = 0;
+    CGFloat rewardY = CGRectGetMaxY(lastInputView.frame) + 10;
+    CGFloat rewardW = self.view.frame.size.width;
+    CGFloat rewardH = 50;
+    self.rewardView.frame = CGRectMake(rewardX, rewardY, rewardW, rewardH);
+    
+    //调整commitbtn的frame
+    CGRect commitFrame = self.commitBtn.frame;
+    commitFrame.origin.y = CGRectGetMaxY(self.rewardView.frame) + 10;
+    self.commitBtn.frame = commitFrame;
+    
+    //调整scrollview的content size
+    self.scrollView.contentSize = CGSizeMake(0, CGRectGetMaxY(self.commitBtn.frame) + 40);
+}
+- (void)addCustomViews
+{
+    [super addCustomViews];
+    [self addProctolView];
+}
+- (void)layoutCustomViews
+{
+    [super layoutCustomViews];
+    [self layoutProtocolView];
 }
 @end

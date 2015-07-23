@@ -320,17 +320,17 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     BOOL islogin = [AccountTool isLogin];
     if ([tableView isEqual:self.doctorView]) {
-        if (islogin) {
-            
+//        if (islogin) {
+        
             LoginDocDetailController *docVC = [[LoginDocDetailController alloc] init];
             docVC.doctor = self.doctors[indexPath.row];
             [self.navigationController pushViewController:docVC animated:YES];
-        }else
-        {
-            DoctorDetailController *docVC = [[DoctorDetailController alloc] init];
-            docVC.doctor = self.doctors[indexPath.row];
-            [self.navigationController pushViewController:docVC animated:YES];
-        }
+//        }else
+//        {
+//            DoctorDetailController *docVC = [[DoctorDetailController alloc] init];
+//            docVC.doctor = self.doctors[indexPath.row];
+//            [self.navigationController pushViewController:docVC animated:YES];
+//        }
     }else if ([tableView isEqual:self.hospitalView])
     {
         if (islogin) {

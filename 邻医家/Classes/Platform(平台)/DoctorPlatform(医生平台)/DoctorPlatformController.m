@@ -5,6 +5,7 @@
 //  Created by Daniel on 15/7/10.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "LDConfigureController.h"
 #import "UIImage+MJ.h"
 #import "MyAppliantController.h"
 #import "MyConsultController.h"
@@ -30,13 +31,13 @@
 @property (weak, nonatomic)  LDPlatformButton *adminBtn;
 @property (weak, nonatomic)  LDPlatformButton *freeBtn;
 @property (weak, nonatomic)  LDPlatformButton *inviteBtn;
-
+//服务配置
+@property (nonatomic,weak) LDPlatformButton *serviceSetBtn;
 @property (nonatomic,weak) UIActionSheet *applySheet;
 @property (nonatomic,weak) UIActionSheet *freeSheet;
 @end
 
 @implementation DoctorPlatformController
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -70,10 +71,15 @@
     [inviteBtn setBackgroundColor:IWColor(245, 177, 68)];
     self.inviteBtn = inviteBtn;
     
+    LDPlatformButton  *serviceSetBtn = [LDPlatformButton platformBtnWithImage:@"nav4" title:@"服务配置" target:self action:@selector(setButtonClicked)];
+    [serviceSetBtn setBackgroundColor:IWColor(115, 182, 0)];
+    self.serviceSetBtn = serviceSetBtn;
+    
     [self.view addSubview:self.personalBtn];
     [self.view addSubview:self.adminBtn];
     [self.view addSubview:self.freeBtn];
     [self.view addSubview:self.inviteBtn];
+    [self.view addSubview:serviceSetBtn];
 }
 - (void)layoutCustomViews
 {
@@ -89,6 +95,8 @@
     self.freeBtn.frame = CGRectMake(btnX, CGRectGetMaxY(self.personalBtn.frame)+padding, btnW, btnH);
     
     self.inviteBtn.frame = CGRectMake(self.adminBtn.frame.origin.x, self.freeBtn.frame.origin.y, btnW, btnH);
+    
+    self.serviceSetBtn.frame = CGRectMake(padding, CGRectGetMaxY(self.inviteBtn.frame) + padding, self.view.frame.size.width - 2 * padding, btnH);
     
     
 
@@ -194,5 +202,12 @@
 {
     FreeMessageController *free = [[FreeMessageController alloc] init];
     [self.navigationController pushViewController:free animated:YES];
+}
+- (void)setButtonClicked
+{
+    LDConfigureController *configureVC = [[LDConfigureController alloc] init];
+    configureVC.title = @"医生服务列表";
+    [self.navigationController pushViewController:configureVC animated:YES];
+
 }
 @end
