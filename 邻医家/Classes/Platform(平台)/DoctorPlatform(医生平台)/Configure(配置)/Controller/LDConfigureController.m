@@ -7,7 +7,6 @@
 //
 #import "LDCheckBox.h"
 #import "LDConfigureController.h"
-#import "LDConfigureCell.h"
 @interface LDConfigureController ()
 @property (nonatomic,strong) NSArray *configureTitles;
 @end
@@ -23,21 +22,5 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-}
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return self.configureTitles.count;
-}
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    LDConfigureCell *cell = [LDConfigureCell cellWithTableView:tableView];
-    cell.configureLabel.text = self.configureTitles[indexPath.row];
-    return  cell;
-}
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    LDConfigureCell *cell = (LDConfigureCell *)[tableView cellForRowAtIndexPath:indexPath];
-    cell.checkBox.selected = !cell.checkBox.selected;
 }
 @end

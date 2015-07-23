@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LDConfigureController : UITableViewController
+@interface LDConfigureController : UIViewController
 
 @end

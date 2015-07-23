@@ -101,6 +101,9 @@
 //医生查看自己应聘的招聘信息
 #define MYAPPLIANTURL @"http://192.168.1.8:8080/assfinance/doctor/getListIApplyFor"
 #define MYAPPLIANTDETAILURL @"http://192.168.1.8:8080/assfinance/doctor/getMyEmployInfoById"
+//医生配置
+#define GETDOCTORCONFIGUREURL @"http://192.168.1.8:8080/assfinance/doctor/getMyServiceSettings"
+#define CHANGEDOCTORCONFIGUREURL @"http://192.168.1.8:8080/assfinance/doctor/changeMyServiceSettings"
 
 #define SUCCESSSTATUS @"S"
 #define FAILURESTATUS @"F"

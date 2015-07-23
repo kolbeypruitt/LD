@@ -6,6 +6,7 @@
       "extent" : "full-screen",
       "minimum-system-version" : "8.0",
       "subtype" : "736h",
+      "filename" : "lanuch.jpg",
       "scale" : "3x"
     },
     {
@@ -14,11 +15,13 @@
       "extent" : "full-screen",
       "minimum-system-version" : "8.0",
       "subtype" : "736h",
+      "filename" : "lanuch.jpg",
       "scale" : "3x"
     },
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
+      "filename" : "lanuch.jpg",
       "extent" : "full-screen",
       "minimum-system-version" : "8.0",
       "subtype" : "667h",
@@ -26,6 +29,7 @@
     },
     {
       "orientation" : "portrait",
+      "filename" : "lanuch.jpg",
       "idiom" : "iphone",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
@@ -33,6 +37,7 @@
     },
     {
       "orientation" : "portrait",
+      "filename" : "lanuch.jpg",
       "idiom" : "iphone",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",

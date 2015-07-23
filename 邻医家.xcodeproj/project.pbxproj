@@ -48,8 +48,6 @@
 		651DD0031B60D5C4008A767F /* LDRewardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 651DD0021B60D5C4008A767F /* LDRewardView.m */; };
 		651DD0051B60D5F5008A767F /* LDRewardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 651DD0041B60D5F5008A767F /* LDRewardView.xib */; };
 		651DD00C1B60E26B008A767F /* LDConfigureController.m in Sources */ = {isa = PBXBuildFile; fileRef = 651DD00B1B60E26B008A767F /* LDConfigureController.m */; };
-		651DD0131B60E2EC008A767F /* LDConfigureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 651DD0111B60E2EC008A767F /* LDConfigureCell.m */; };
-		651DD0141B60E2EC008A767F /* LDConfigureCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 651DD0121B60E2EC008A767F /* LDConfigureCell.xib */; };
 		652077C81B33AA330032EC06 /* DepartmentPlatformController.m in Sources */ = {isa = PBXBuildFile; fileRef = 652077C71B33AA330032EC06 /* DepartmentPlatformController.m */; };
 		652356B91B40E0B700BBEF16 /* HotDepartmentResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 652356B81B40E0B700BBEF16 /* HotDepartmentResult.m */; };
 		6536D60F1B2E72AD00539F47 /* InviteDocListParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 6536D60E1B2E72AD00539F47 /* InviteDocListParam.m */; };
@@ -519,6 +517,9 @@
 		65F46D1E1B4BB775006EC9DC /* AppendRecruitParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F46D1D1B4BB775006EC9DC /* AppendRecruitParam.m */; };
 		65F46D211B4BC36E006EC9DC /* AppendRecruitTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F46D201B4BC36E006EC9DC /* AppendRecruitTool.m */; };
 		65FAA33B1B53B2FA00FFE897 /* LDPlatformButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FAA33A1B53B2FA00FFE897 /* LDPlatformButton.m */; };
+		B00099F81B61324C00A8700A /* LDConfigureParam.m in Sources */ = {isa = PBXBuildFile; fileRef = B00099F71B61324C00A8700A /* LDConfigureParam.m */; };
+		B00099FB1B6134D100A8700A /* LDConfigureTool.m in Sources */ = {isa = PBXBuildFile; fileRef = B00099FA1B6134D100A8700A /* LDConfigureTool.m */; };
+		B00099FE1B6135FD00A8700A /* LDConfigureResult.m in Sources */ = {isa = PBXBuildFile; fileRef = B00099FD1B6135FD00A8700A /* LDConfigureResult.m */; };
 		B05194B71B478BB10033CA7E /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B05194B61B478BB10033CA7E /* ChatViewController.m */; };
 		B05194B91B478CEA0033CA7E /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05194B81B478CEA0033CA7E /* SenTestingKit.framework */; };
 		B05194BB1B478CF20033CA7E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05194BA1B478CF20033CA7E /* UIKit.framework */; };
@@ -654,9 +655,6 @@
 		651DD0041B60D5F5008A767F /* LDRewardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LDRewardView.xib; sourceTree = "<group>"; };
 		651DD00A1B60E26B008A767F /* LDConfigureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDConfigureController.h; sourceTree = "<group>"; };
 		651DD00B1B60E26B008A767F /* LDConfigureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDConfigureController.m; sourceTree = "<group>"; };
-		651DD0101B60E2EC008A767F /* LDConfigureCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LDConfigureCell.h; path = ../../../../../../../../Documents/LDConfigureCell.h; sourceTree = "<group>"; };
-		651DD0111B60E2EC008A767F /* LDConfigureCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LDConfigureCell.m; path = ../../../../../../../../Documents/LDConfigureCell.m; sourceTree = "<group>"; };
-		651DD0121B60E2EC008A767F /* LDConfigureCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LDConfigureCell.xib; path = ../../../../../../../../Documents/LDConfigureCell.xib; sourceTree = "<group>"; };
 		652077C61B33AA330032EC06 /* DepartmentPlatformController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DepartmentPlatformController.h; sourceTree = "<group>"; };
 		652077C71B33AA330032EC06 /* DepartmentPlatformController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DepartmentPlatformController.m; sourceTree = "<group>"; };
 		652356B71B40E0B700BBEF16 /* HotDepartmentResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotDepartmentResult.h; sourceTree = "<group>"; };
@@ -1575,6 +1573,12 @@
 		65F46D201B4BC36E006EC9DC /* AppendRecruitTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppendRecruitTool.m; sourceTree = "<group>"; };
 		65FAA3391B53B2FA00FFE897 /* LDPlatformButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDPlatformButton.h; sourceTree = "<group>"; };
 		65FAA33A1B53B2FA00FFE897 /* LDPlatformButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDPlatformButton.m; sourceTree = "<group>"; };
+		B00099F61B61324C00A8700A /* LDConfigureParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LDConfigureParam.h; path = "邻医家/Classes/Platform(平台)/DoctorPlatform(医生平台)/Personal(个人信息维护)/Model/LDConfigureParam.h"; sourceTree = SOURCE_ROOT; };
+		B00099F71B61324C00A8700A /* LDConfigureParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LDConfigureParam.m; path = "邻医家/Classes/Platform(平台)/DoctorPlatform(医生平台)/Personal(个人信息维护)/Model/LDConfigureParam.m"; sourceTree = SOURCE_ROOT; };
+		B00099F91B6134D100A8700A /* LDConfigureTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LDConfigureTool.h; path = "邻医家/Classes/Platform(平台)/DoctorPlatform(医生平台)/Personal(个人信息维护)/Model/LDConfigureTool.h"; sourceTree = SOURCE_ROOT; };
+		B00099FA1B6134D100A8700A /* LDConfigureTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LDConfigureTool.m; path = "邻医家/Classes/Platform(平台)/DoctorPlatform(医生平台)/Personal(个人信息维护)/Model/LDConfigureTool.m"; sourceTree = SOURCE_ROOT; };
+		B00099FC1B6135FD00A8700A /* LDConfigureResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LDConfigureResult.h; path = "邻医家/Classes/Platform(平台)/DoctorPlatform(医生平台)/Personal(个人信息维护)/Model/LDConfigureResult.h"; sourceTree = SOURCE_ROOT; };
+		B00099FD1B6135FD00A8700A /* LDConfigureResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LDConfigureResult.m; path = "邻医家/Classes/Platform(平台)/DoctorPlatform(医生平台)/Personal(个人信息维护)/Model/LDConfigureResult.m"; sourceTree = SOURCE_ROOT; };
 		B05194B51B478BB10033CA7E /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		B05194B61B478BB10033CA7E /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		B05194B81B478CEA0033CA7E /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -1820,6 +1824,12 @@
 		651DD0081B60E23E008A767F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B00099F61B61324C00A8700A /* LDConfigureParam.h */,
+				B00099F71B61324C00A8700A /* LDConfigureParam.m */,
+				B00099FC1B6135FD00A8700A /* LDConfigureResult.h */,
+				B00099FD1B6135FD00A8700A /* LDConfigureResult.m */,
+				B00099F91B6134D100A8700A /* LDConfigureTool.h */,
+				B00099FA1B6134D100A8700A /* LDConfigureTool.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1827,9 +1837,6 @@
 		651DD0091B60E23E008A767F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				651DD0101B60E2EC008A767F /* LDConfigureCell.h */,
-				651DD0111B60E2EC008A767F /* LDConfigureCell.m */,
-				651DD0121B60E2EC008A767F /* LDConfigureCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -4260,7 +4267,6 @@
 			files = (
 				6554543F1AFCA59D00C4BFFA /* MJPhotoBrowser.bundle in Resources */,
 				6553FD071B33AFE3009ABD4D /* DepartmentCell.xib in Resources */,
-				651DD0141B60E2EC008A767F /* LDConfigureCell.xib in Resources */,
 				65D6502B1B5CE6570074DFBA /* LDAboutViewController.xib in Resources */,
 				6540B81F1B2D4C6C0053DB2A /* DonConsultCell.xib in Resources */,
 				654861911B4E5666001B25CA /* ArrangementCell.xib in Resources */,
@@ -4326,6 +4332,7 @@
 				65BD7F141B22DB18004238AB /* SearchDoctorResult.m in Sources */,
 				651DCFFF1B60C910008A767F /* LDDocProtocolController.m in Sources */,
 				65C58C2D1B328E2C00D3A013 /* AppendInviteView.m in Sources */,
+				B00099FB1B6134D100A8700A /* LDConfigureTool.m in Sources */,
 				65CAB2E51B241453005DAED4 /* TemporaryController.m in Sources */,
 				655453F91AFCA59D00C4BFFA /* HomeGroup.m in Sources */,
 				6554545B1AFCA59D00C4BFFA /* ActionSheetCustomPicker.m in Sources */,
@@ -4339,6 +4346,7 @@
 				65CFC6CD1B52586A00A881B6 /* MyInviteDetailController.m in Sources */,
 				B05194B71B478BB10033CA7E /* ChatViewController.m in Sources */,
 				65CAB2DF1B241317005DAED4 /* HospitalEnterTextField.m in Sources */,
+				B00099FE1B6135FD00A8700A /* LDConfigureResult.m in Sources */,
 				659842F01B39370600499A68 /* TopExpertView.m in Sources */,
 				651DD00C1B60E26B008A767F /* LDConfigureController.m in Sources */,
 				656A08D11B3BD3920056588A /* RecruitResult.m in Sources */,
@@ -4420,7 +4428,6 @@
 				65D5271D1B2A95D600CF4FC4 /* InviteDoctorTool.m in Sources */,
 				655454601AFCA59D00C4BFFA /* DistancePickerView.m in Sources */,
 				655454381AFCA59D00C4BFFA /* MJMethod.m in Sources */,
-				651DD0131B60E2EC008A767F /* LDConfigureCell.m in Sources */,
 				6558CD691B2AB96A005E7685 /* SetChargeTool.m in Sources */,
 				B05195181B47EB000033CA7E /* MessageFrame.m in Sources */,
 				655453F81AFCA59D00C4BFFA /* Doctor.m in Sources */,
@@ -4728,6 +4735,7 @@
 				655454151AFCA59D00C4BFFA /* MultiJobResult.m in Sources */,
 				65C25AA71B4E392D0099EB49 /* AppendArrangementController.m in Sources */,
 				656A08BA1B3BC1430056588A /* StationDetailTool.m in Sources */,
+				B00099F81B61324C00A8700A /* LDConfigureParam.m in Sources */,
 				655454201AFCA59D00C4BFFA /* LDHomeFooterView.m in Sources */,
 				65F46D141B4BAD26006EC9DC /* FirstDepartmentDelegate.m in Sources */,
 				6599E7971B0C7E46007396E8 /* SignUpTool.m in Sources */,
@@ -4926,7 +4934,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/daniel/Desktop/IOS_SDKV1.2.3.1/静态库",
+					"/Users/SXQ/Desktop/IOS_SDKV1.2.3.1/静态库",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -4949,7 +4957,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/daniel/Desktop/IOS_SDKV1.2.3.1/静态库",
+					"/Users/SXQ/Desktop/IOS_SDKV1.2.3.1/静态库",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
