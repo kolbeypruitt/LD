@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface LDCheckView : UIView
+@property (nonatomic,strong) NSArray *checkDatas;
 @property (nonatomic,copy) NSString *checkMessage;
 @end

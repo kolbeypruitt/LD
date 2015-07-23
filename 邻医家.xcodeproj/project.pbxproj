@@ -456,6 +456,7 @@
 		65D6B9151B5DE5C0006B7460 /* ChangParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D6B9141B5DE5C0006B7460 /* ChangParam.m */; };
 		65D6B91B1B5E0BF1006B7460 /* SearchRecruitTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D6B91A1B5E0BF1006B7460 /* SearchRecruitTool.m */; };
 		65D6B91E1B5E161E006B7460 /* BaseParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D6B91D1B5E161E006B7460 /* BaseParam.m */; };
+		65D7634E1B607B66000808AF /* LDAssignmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D7634D1B607B66000808AF /* LDAssignmentView.m */; };
 		65D812461B3A494C00A1E0EC /* DoctorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D812451B3A494C00A1E0EC /* DoctorView.m */; };
 		65D8124C1B3A6CA900A1E0EC /* DoctorDetailTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D8124B1B3A6CA900A1E0EC /* DoctorDetailTool.m */; };
 		65D8124F1B3A6CD000A1E0EC /* DoctorDetailParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D8124E1B3A6CD000A1E0EC /* DoctorDetailParam.m */; };
@@ -1443,6 +1444,8 @@
 		65D6B91A1B5E0BF1006B7460 /* SearchRecruitTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchRecruitTool.m; path = "邻医家/Classes/Home/Tools/SearchRecruitTool.m"; sourceTree = SOURCE_ROOT; };
 		65D6B91C1B5E161E006B7460 /* BaseParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseParam.h; sourceTree = "<group>"; };
 		65D6B91D1B5E161E006B7460 /* BaseParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseParam.m; sourceTree = "<group>"; };
+		65D7634C1B607B66000808AF /* LDAssignmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDAssignmentView.h; sourceTree = "<group>"; };
+		65D7634D1B607B66000808AF /* LDAssignmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDAssignmentView.m; sourceTree = "<group>"; };
 		65D812441B3A494C00A1E0EC /* DoctorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorView.h; sourceTree = "<group>"; };
 		65D812451B3A494C00A1E0EC /* DoctorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorView.m; sourceTree = "<group>"; };
 		65D8124A1B3A6CA900A1E0EC /* DoctorDetailTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorDetailTool.h; sourceTree = "<group>"; };
@@ -3477,6 +3480,8 @@
 				65D3F2E51B58A98100BB1A8B /* DocArrangeCell.h */,
 				65D3F2E61B58A98100BB1A8B /* DocArrangeCell.m */,
 				65D3F2E71B58A98100BB1A8B /* DocArrangeCell.xib */,
+				65D7634C1B607B66000808AF /* LDAssignmentView.h */,
+				65D7634D1B607B66000808AF /* LDAssignmentView.m */,
 			);
 			name = VIew;
 			sourceTree = "<group>";
@@ -4395,6 +4400,7 @@
 				65E254691B426769009B0525 /* SearchCaseController.m in Sources */,
 				65D8125B1B3A87A600A1E0EC /* HospitalDetail.m in Sources */,
 				6554545E1AFCA59D00C4BFFA /* ActionSheetLocalePicker.m in Sources */,
+				65D7634E1B607B66000808AF /* LDAssignmentView.m in Sources */,
 				655454421AFCA59D00C4BFFA /* MJPhotoProgressView.m in Sources */,
 				650E607E1B33FF2E00CFF569 /* TemporaryView.m in Sources */,
 				656438C71B54A27200436EAF /* LDInputMessage.m in Sources */,
@@ -4824,7 +4830,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/SXQ/Desktop/IOS_SDKV1.2.3.1/静态库",
+					"/Users/daniel/Desktop/IOS_SDKV1.2.3.1/静态库",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -4847,7 +4853,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/SXQ/Desktop/IOS_SDKV1.2.3.1/静态库",
+					"/Users/daniel/Desktop/IOS_SDKV1.2.3.1/静态库",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";

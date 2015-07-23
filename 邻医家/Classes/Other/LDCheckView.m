@@ -131,5 +131,24 @@
     }
     self.checkMessage =  [[self print_int_bit:_bitMsg sizeToPrint:14] copy];
 }
+- (void)setCheckDatas:(NSArray *)checkDatas
+{
+    _checkDatas = checkDatas;
+    for (int i = 0; i < checkDatas.count; i++) {
+        NSString *checkString = checkDatas[i];
+        LDCheckBox *box = self.checkBoxes[i];
+        if ([checkString isEqualToString:@"0"]) {
+            box.selected = NO;
+        }else if ([checkString isEqualToString:@"1"])
+        {
+            box.selected = YES;
+        }else
+        {
+            box.selected = box.selected;
+        }
+        
+    }
+}
+
 @end
 

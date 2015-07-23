@@ -24,6 +24,7 @@
 #import "LDBaseParam.h"
 #import "LoginDocDetailResult.h"
 #import "LoginDocDetailTool.h"
+#import "LDAssignmentView.h"
 @interface LoginDocDetailController () <UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate>
 /**
  *  选项卡
@@ -45,11 +46,10 @@
 /**
  *  安排
  */
-@property (nonatomic,weak) UITableView *assignmentView;
+@property (nonatomic,weak) LDAssignmentView *assignmentView;
 @property (nonatomic,strong) Doctor *introduction;
 @property (nonatomic,strong) NSArray *papers;
 @property (nonatomic,strong) NSArray *diseases;
-@property (nonatomic,strong) NSArray *arrangements;
 @end
 
 @implementation LoginDocDetailController
@@ -67,13 +67,7 @@
     }
     return _diseases;
 }
-- (NSArray *)arrangements
-{
-    if (_arrangements == nil) {
-        _arrangements = [NSArray array];
-    }
-    return _arrangements;
-}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadData];
@@ -92,8 +86,7 @@
             self.papers = result.papers;
             [self.achievementView reloadData];
             
-            self.arrangements = result.arrangements;
-            [self.assignmentView reloadData];
+            self.assignmentView.arrangement = result.arrangements;
         }
     } failure:^(NSError *errror) {
         
@@ -118,8 +111,7 @@
 {
     //选项卡
     NSArray *items = @[@"介绍",@"成果",@"病例",@"安排"];
-    UISegmentedControl *segmentControl = [[UISegmentedControl alloc] initWithItems:items];
-    [segmentControl addTarget:self action:@selector(segmentControlPressed:) forControlEvents:UIControlEventValueChanged];
+    UISegmentedControl *segmentControl = [[UISegmentedControl alloc] initWithItems:items]; [segmentControl addTarget:self action:@selector(segmentControlPressed:) forControlEvents:UIControlEventValueChanged];
     segmentControl.selectedSegmentIndex = 0;
     [self.view addSubview:segmentControl];
     self.segmentControl = segmentControl;
@@ -151,12 +143,9 @@
     [self.scrollView addSubview:self.caseView];
     
     //安排
-    UITableView *assignmentView = [[UITableView alloc] init];
-    assignmentView.backgroundColor = IWColor(226, 226, 226);
-    assignmentView.delegate = self;
-    assignmentView.dataSource = self;
+    LDAssignmentView *assignmentView = [[LDAssignmentView alloc] init];
+    [self.scrollView addSubview:assignmentView];
     self.assignmentView = assignmentView;
-    [self.scrollView addSubview:self.assignmentView];
 }
 #pragma mark - segmentcontrol 点击切换视图
 - (void)segmentControlPressed:(UISegmentedControl *)segmentControl
@@ -272,15 +261,10 @@
         AchieveMentCell *cell = [AchieveMentCell cellWithTabelView:tableView];
         cell.paper = self.papers[indexPath.row];
         return cell;
-    }else if([tableView isEqual:self.caseView])
+    }else
     {
         DiseaseCell *cell = [DiseaseCell cellWithTableView:tableView];
         cell.commonCase = self.diseases[indexPath.row];
-        return cell;
-    }else
-    {
-        DocArrangeCell *cell = [DocArrangeCell cellWithTabelView:tableView];
-        cell.arrangement = self.arrangements[indexPath.row];
         return cell;
     }
     
