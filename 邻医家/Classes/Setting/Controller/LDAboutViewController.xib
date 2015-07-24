@@ -14,23 +14,22 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZ4-mg-4D3">
-                    <rect key="frame" x="0.0" y="64" width="600" height="100"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="100" id="hW6-cW-cwa"/>
-                    </constraints>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n2U-sr-Sbr">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <mutableString key="text">“铃医家APP”是一款面向医务工作者、病患和医院，集专业医学资讯、招聘、会诊、转诊信息、请医等功能服务的手机客户端。古代铃医（扁鹊、华佗等名医都是铃医）以摇铃招徕病家，互联网时代的铃医和医家通过“铃医家APP”获得合适岗位、高效会诊、精准病人；病患通过“铃医家APP”精准定位三甲专家门诊、实现自由请医。“铃医家”为医生提供一个行医更轻快的平台，为病患打造一个就医更精准的空间。以专业的医疗服务平台，让医疗资源健康流动，从行业的高度，让每一位医生更加自由！是一个以医生为核心，服务医生，服务医院，为病人提供个性化服务的专业医生执业服务平台。联系我们电话   021-62760826    021-62769208邮箱    地址   上海市陕西北路1283弄9号玉城大厦3005室（地铁7号线至长寿路站5号口出站）</mutableString>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="lZ4-mg-4D3" secondAttribute="trailing" id="Vcl-gM-uBH"/>
-                <constraint firstItem="lZ4-mg-4D3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="dDL-SQ-uoN"/>
-                <constraint firstItem="lZ4-mg-4D3" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="zNQ-Wb-gwr"/>
+                <constraint firstItem="n2U-sr-Sbr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="WhA-3G-e6K"/>
+                <constraint firstItem="n2U-sr-Sbr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="YpR-c4-y8b"/>
+                <constraint firstAttribute="bottom" secondItem="n2U-sr-Sbr" secondAttribute="bottom" id="aMM-wj-rpk"/>
+                <constraint firstAttribute="trailing" secondItem="n2U-sr-Sbr" secondAttribute="trailing" id="fts-Pu-hm3"/>
             </constraints>
-            <point key="canvasLocation" x="492" y="357"/>
+            <point key="canvasLocation" x="331" y="268"/>
         </view>
     </objects>
 </document>

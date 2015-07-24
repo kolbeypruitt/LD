@@ -9,5 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface LDConfigureResult : NSObject
-
+@property (nonatomic,copy) NSString *settings;
+@property (nonatomic,copy) NSString *status;
 @end
