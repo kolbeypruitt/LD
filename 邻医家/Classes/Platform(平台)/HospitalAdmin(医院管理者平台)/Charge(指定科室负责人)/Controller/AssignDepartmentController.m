@@ -56,7 +56,7 @@
                 [self.navigationController popViewControllerAnimated:YES];
             }else
             {
-                [MBProgressHUD showError:@"发布失败!"];
+                [MBProgressHUD showError:result.errorMsg];
             }
         } failure:^(NSError *error) {
             
