@@ -50,6 +50,7 @@
 
 @end
 @implementation PublicHomeController
+
 - (NSMutableArray *)doctors
 {
     if (_doctors == nil) {
@@ -89,11 +90,20 @@
 - (void)setNav
 {
     self.title = @"首页";
-    //登录按钮
+//    //登录按钮
 //    Account *acc = [AccountTool account];
 //    if (acc == nil) {
-        self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemwithImage:@"login_img" title:nil target:self action:@selector(loginBtnClicked)];
+//        self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemwithImage:@"login_img" title:nil target:self action:@selector(loginBtnClicked)];
 //    }
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if ([AccountTool isLogin]) {//登录用户
+        self.navigationItem.rightBarButtonItem = nil;
+    }else{//未登录
+        self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemwithImage:@"login_img" title:nil target:self action:@selector(loginBtnClicked)];
+    }
 }
 - (void)loginBtnClicked
 {
