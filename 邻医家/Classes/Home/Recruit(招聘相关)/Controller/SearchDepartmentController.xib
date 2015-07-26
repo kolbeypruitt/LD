@@ -39,7 +39,7 @@
                 <constraint firstAttribute="trailing" secondItem="Zdc-c2-V6D" secondAttribute="trailing" id="fsJ-ni-D8Y"/>
                 <constraint firstItem="QDc-sX-fJw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="w0y-rp-ml5"/>
             </constraints>
-            <point key="canvasLocation" x="373" y="342"/>
+            <point key="canvasLocation" x="371" y="418"/>
         </view>
     </objects>
 </document>

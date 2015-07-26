@@ -153,6 +153,19 @@
                                                                                     origin:button];
     [customPicket showActionSheetPicker];
 }
+#pragma mark - topexpert delegate
+- (void)topExpertView:(TopExpertView *)topView clickedBtn:(UIButton *)button
+{
+    int count = (int)self.navigationController.viewControllers.count;
+    MoreDocController *moreVC = [self.navigationController.viewControllers objectAtIndex:(count - 2)];
+    
+    SearchDoctorParam *param = [[SearchDoctorParam alloc] init];
+    param.doctor = [NSNumber numberWithInt:button.tag];
+    param.lastId = 0;
+    param.num = 10;
+    moreVC.param = param;
+    [self.navigationController popViewControllerAnimated:YES];
+}
 - (void)sendParamWithCities:(NSString *)cities
 {
     int count = (int)self.navigationController.viewControllers.count;

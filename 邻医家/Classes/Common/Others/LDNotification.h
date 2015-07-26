@@ -16,4 +16,5 @@
 #define MANAGERLISTREFRESHNOTIFICATION @"managerrefresh"
 #define RELEASECASESUCCESSNOTIFICATION @"realeasesuccess"
 #define RELEASEARRANGESUCCESSNOTIFICATION @"arrangesuccess"
+#define SUBJECTCHOSSEDNOTIFICATION @"subjectchossed"
 #endif

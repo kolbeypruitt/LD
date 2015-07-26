@@ -61,10 +61,10 @@
     inviteVC.title = sender.currentTitle;
     
     if ([sender isEqual:self.multiJobBtn]) {
-        inviteVC.type = 1;
+        inviteVC.type = 2;
     }else if([sender isEqual:self.inviteExpertBtn])
     {
-        inviteVC.type = 2;
+        inviteVC.type = 1;
     }else if([self isEqual:self.practiceBtn])
     {
         inviteVC.type = 3;

@@ -5,7 +5,7 @@
 //  Created by Daniel on 15/7/21.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
-@class RecruitParam,RecruitResult,PostDocParam;
+@class RecruitParam,RecruitResult,PostDocParam,StationListResult;
 #import <Foundation/Foundation.h>
 
 @interface SearchRecruitTool : NSObject
@@ -13,6 +13,6 @@
                        success:(void (^)(RecruitResult *result))success
                        failure:(void (^)(NSError *error))failure;
 + (void)searchDoctorStationWithParam:(PostDocParam *)param
-                             success:(void (^)(id result))success
+                             success:(void (^)(StationListResult *result))success
                              failure:(void (^)(NSError *error))failure;
 @end

@@ -7,6 +7,7 @@
 //
 #import "RecruitParam.h"
 #import "SearchRecruitTool.h"
+#import "StationListResult.h"
 #import "PostDocParam.h"
 #import "Common.h"
 #import "MJExtension.h" 
@@ -26,11 +27,12 @@
         }
     }];
 }
-+ (void)searchDoctorStationWithParam:(PostDocParam *)param success:(void (^)(id))success failure:(void (^)(NSError *))failure
++ (void)searchDoctorStationWithParam:(PostDocParam *)param success:(void (^)(StationListResult *))success failure:(void (^)(NSError *))failure
 {
     [LDHttpTool getWithURL:SEARCHDOCTORSTATIONURL params:param.keyValues success:^(id json) {
         if (success) {
-            success(json);
+            StationListResult *result = [StationListResult objectWithKeyValues:json];
+            success(result);
         }
     } failure:^(NSError *error) {
         if (failure) {

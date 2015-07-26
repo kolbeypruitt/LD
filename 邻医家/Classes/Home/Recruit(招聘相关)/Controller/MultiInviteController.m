@@ -67,7 +67,7 @@
 - (void)searchDepartment:(NSNotification *)notification
 {
     self.searcherBar.text = notification.userInfo[@"depName"];
-    RecruitParam *param = [RecruitParam paramWithType:self.type andDepartments:notification.userInfo[@"departments"]];
+    RecruitParam *param = [RecruitParam paramWithType:self.type andDepartments:notification.userInfo[@"department"]];
     [SearchRecruitTool searchRecruitWithParam:param success:^(RecruitResult *result) {
         if ([result.status isEqualToString:@"S"]) {
             if (self.employInfos.count) {

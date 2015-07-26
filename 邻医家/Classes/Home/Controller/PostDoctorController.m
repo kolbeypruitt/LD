@@ -5,9 +5,10 @@
 //  Created by Daniel on 15/5/11.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "StationListResult.h"
 #import "PostDocParam.h"
 #import "SearchRecruitTool.h"
-#import "SearchDepartmentController.h"
+#import "LDSearchSubjectController.h"
 #import "LDNotification.h"
 #import "DoctorStationDetailController.h"
 #import "PostDoctorController.h"
@@ -51,7 +52,7 @@
 {
     self.navigationItem.rightBarButtonItem = nil;
     self.navigationItem.title = @"博士后站点";
-    [DefaultCenter addObserver:self selector:@selector(searchDepartment:) name:DEPARTMENTCHOOSEDNOTIFICATION object:nil];
+    [DefaultCenter addObserver:self selector:@selector(searchDepartment:) name:SUBJECTCHOSSEDNOTIFICATION object:nil];
     [self setupSearchBar];
 }
 - (void)dealloc
@@ -62,7 +63,7 @@
 {
     UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, 30)];
     searchBar.delegate = self;
-    searchBar.placeholder = @"热门科室";
+    searchBar.placeholder = @"热门学科";
     self.tableView.tableHeaderView = searchBar;
     self.searchBar = searchBar;
 }
@@ -89,18 +90,24 @@
 #pragma mark - searchbar delegate
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
 {
-    SearchDepartmentController *searchVC = [[SearchDepartmentController alloc] init];
-    searchVC.title = [NSString stringWithFormat:@"搜索%@",self.navigationItem.title];
+    LDSearchSubjectController *searchVC = [[LDSearchSubjectController alloc] init];
     [self.navigationController pushViewController:searchVC animated:YES];
     return NO;
 }
 #pragma mark - Notificaiton
 - (void)searchDepartment:(NSNotification *)notification
 {
-    self.searchBar.text = notification.userInfo[@"depName"];
-    PostDocParam *param = [PostDocParam paramWithDepartment:notification.userInfo[@"department"]];
-    [SearchRecruitTool searchDoctorStationWithParam:param success:^(id result) {
-        
+    self.searchBar.text = notification.userInfo[@"subjectName"];
+    PostDocParam *param = [PostDocParam paramWithDirection:notification.userInfo[@"subjectId"]];
+ 
+    [SearchRecruitTool searchDoctorStationWithParam:param success:^(StationListResult *result) {
+        if ([result.status isEqualToString:SUCCESSSTATUS]) {
+            if (self.stations.count) {
+                [self.stations removeAllObjects];
+            }
+            [self.stations addObjectsFromArray:result.postdoctorStations];
+            [self.tableView reloadData];
+        }
     } failure:^(NSError *error) {
         
     }];
