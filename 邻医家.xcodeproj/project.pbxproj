@@ -57,6 +57,7 @@
 		6536D61E1B2E8FF400539F47 /* AllInviteResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 6536D61D1B2E8FF400539F47 /* AllInviteResult.m */; };
 		6536D6271B2EA1A000539F47 /* AllInviteTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6536D6261B2EA1A000539F47 /* AllInviteTool.m */; };
 		6536D62A1B2EA3E500539F47 /* PatienAllDocController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6536D6291B2EA3E500539F47 /* PatienAllDocController.m */; };
+		653917021B65C3FD000BD8A5 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 653917011B65C3FD000BD8A5 /* Launch Screen.xib */; };
 		653B84E71B3B960B00331252 /* MultijobDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 653B84E61B3B960B00331252 /* MultijobDetailController.m */; };
 		653B84EA1B3B969200331252 /* PolicyDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 653B84E91B3B969200331252 /* PolicyDetail.m */; };
 		653B84ED1B3B97BA00331252 /* PolicyDetailTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 653B84EC1B3B97BA00331252 /* PolicyDetailTool.m */; };
@@ -680,6 +681,7 @@
 		6536D6261B2EA1A000539F47 /* AllInviteTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllInviteTool.m; sourceTree = "<group>"; };
 		6536D6281B2EA3E500539F47 /* PatienAllDocController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatienAllDocController.h; sourceTree = "<group>"; };
 		6536D6291B2EA3E500539F47 /* PatienAllDocController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatienAllDocController.m; sourceTree = "<group>"; };
+		653917011B65C3FD000BD8A5 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		653B84E51B3B960B00331252 /* MultijobDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultijobDetailController.h; sourceTree = "<group>"; };
 		653B84E61B3B960B00331252 /* MultijobDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultijobDetailController.m; sourceTree = "<group>"; };
 		653B84E81B3B969200331252 /* PolicyDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolicyDetail.h; sourceTree = "<group>"; };
@@ -2778,6 +2780,7 @@
 		655453DE1AFCA59D00C4BFFA /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				653917011B65C3FD000BD8A5 /* Launch Screen.xib */,
 				65C5638B1B1EB4E4007FC968 /* property.json */,
 				65C563861B1E9AE6007FC968 /* city.json */,
 				655453E31AFCA59D00C4BFFA /* Info.plist */,
@@ -4299,6 +4302,7 @@
 				65D6502B1B5CE6570074DFBA /* LDAboutViewController.xib in Resources */,
 				6540B81F1B2D4C6C0053DB2A /* DonConsultCell.xib in Resources */,
 				654861911B4E5666001B25CA /* ArrangementCell.xib in Resources */,
+				653917021B65C3FD000BD8A5 /* Launch Screen.xib in Resources */,
 				65EAE0561B3D4B310040C4C2 /* DepartmentDetailController.xib in Resources */,
 				65CC3F511B0EC9E10099A3F3 /* doctorEnter.plist in Resources */,
 				651DD0001B60C910008A767F /* LDDocProtocolController.xib in Resources */,

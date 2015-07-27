@@ -18,6 +18,7 @@
 #import "Account.h"
 #import "DoctorTabbarController.h"
 #import "AccountTool.h"
+#import <unistd.h>
 @interface AppDelegate ()
 
 @end
@@ -26,6 +27,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    sleep(0.4);
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.window makeKeyAndVisible];
     if ([AccountTool isLogin]) {

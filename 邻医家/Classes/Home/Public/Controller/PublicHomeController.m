@@ -328,7 +328,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    BOOL islogin = [AccountTool isLogin];
+//    BOOL islogin = [AccountTool isLogin];
     if ([tableView isEqual:self.doctorView]) {
 //        if (islogin) {
         
@@ -343,16 +343,16 @@
 //        }
     }else if ([tableView isEqual:self.hospitalView])
     {
-        if (islogin) {
+//        if (islogin) {
             LoginHosController *hos = [[LoginHosController alloc] init];
             hos.hospital = self.hospitals[indexPath.row];
             [self.navigationController pushViewController:hos animated:YES];
-        }else
-        {
-            HosDetailController *hos = [[HosDetailController alloc] init];
-            hos.hospital = self.hospitals[indexPath.row];
-            [self.navigationController pushViewController:hos animated:YES];
-        }
+//        }else
+//        {
+//            HosDetailController *hos = [[HosDetailController alloc] init];
+//            hos.hospital = self.hospitals[indexPath.row];
+//            [self.navigationController pushViewController:hos animated:YES];
+//        }
     }else if ([tableView isEqual:self.diseaseView])
     {
         

@@ -42,7 +42,7 @@
 {
     if (self = [super initWithFrame:frame]) {
         self.userInteractionEnabled = YES;
-        self.backgroundColor = IWColor(226, 226, 226);
+        self.backgroundColor = [UIColor whiteColor];
         [self addCustomViews];
     }
     return self;
@@ -54,7 +54,7 @@
     for (int i = 0; i<count; i++) {
         UILabel *titleLabel = [UILabel labelWithTitle:[titleArray objectAtIndex:i]
                                                  font:14
-                                            textColor:[UIColor blueColor]];
+                                            textColor:IWColor(88, 202, 203)];
         [self addSubview:titleLabel];
         [self.titleLabels addObject:titleLabel];
         
@@ -150,19 +150,19 @@
     UIView *thirdLine = self.lines[2];
     thirdLine.frame = CGRectMake(padding, CGRectGetMaxY(contentDepartment.frame), SCREENWIDTH - 2 *padding, 1);
     //
-    if ([AccountTool isLogin]) {
-        return;
-    }
-    UILabel *lastTitleLabel = [self.titleLabels lastObject];
-    lastTitleLabel.textAlignment = NSTextAlignmentCenter;
-    UIView *lastLine = [self.lines lastObject];
-    
-    CGFloat lastX = 0;
-    CGFloat lastY = CGRectGetMaxY(thirdLine.frame);
-    CGFloat lastW = SCREENWIDTH;
-    CGFloat lastH = techH;
-    lastTitleLabel.frame = CGRectMake(lastX, lastY, lastW, lastH);
-    lastLine.frame = CGRectMake(padding, CGRectGetMaxY(lastTitleLabel.frame) + padding/2, SCREENWIDTH - 2 * padding, 1);
+//    if ([AccountTool isLogin]) {
+//        return;
+//    }
+//    UILabel *lastTitleLabel = [self.titleLabels lastObject];
+//    lastTitleLabel.textAlignment = NSTextAlignmentCenter;
+//    UIView *lastLine = [self.lines lastObject];
+//    
+//    CGFloat lastX = 0;
+//    CGFloat lastY = CGRectGetMaxY(thirdLine.frame);
+//    CGFloat lastW = SCREENWIDTH;
+//    CGFloat lastH = techH;
+//    lastTitleLabel.frame = CGRectMake(lastX, lastY, lastW, lastH);
+//    lastLine.frame = CGRectMake(padding, CGRectGetMaxY(lastTitleLabel.frame) + padding/2, SCREENWIDTH - 2 * padding, 1);
     
 }
 @end

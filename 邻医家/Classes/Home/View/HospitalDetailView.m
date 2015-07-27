@@ -52,7 +52,7 @@
     for (int i = 0; i<titleArray.count; i++) {
         UILabel *titleLabel = [UILabel labelWithTitle:[titleArray objectAtIndex:i]
                                                  font:14
-                                            textColor:[UIColor blueColor]];
+                                            textColor:IWColor(88, 202, 203)];
         [self addSubview:titleLabel];
         [self.titleLabels addObject:titleLabel];
         
@@ -110,30 +110,43 @@
     //简介
     UILabel *contentIntroduction  = self.contentLabels[1];
     UILabel *titleIntroduction = self.titleLabels[1];
+    
     CGFloat titleIntroctionX = padding;
     CGFloat titleIntroctionY = CGRectGetMaxY(firstLine.frame);
     CGFloat titleIntroctionW = techW;
     CGFloat titleIntroctionH = techH;
     titleIntroduction.frame = CGRectMake(titleIntroctionX, titleIntroctionY, titleIntroctionW, titleIntroctionH);
+    
     CGFloat contentIntroductionX = CGRectGetMaxX(titleIntroduction.frame) + padding;
     CGFloat contentIntroductionY = titleIntroctionY + padding/2;
     CGFloat contentIntroductionW = SCREENWIDTH - contentX - padding;
-    NSDictionary *attributes = @{NSFontAttributeName : contentIntroduction.font};
-    CGRect rect = [self.hosdetail.introduction boundingRectWithSize:CGSizeMake(contentIntroductionW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil];
-    CGSize size = rect.size;
-    contentIntroduction.frame = (CGRect){{contentIntroductionX,contentIntroductionY},size};
+    
+    if (self.hosdetail.introduction.length != 0) {
+        NSDictionary *attributes = @{NSFontAttributeName : contentIntroduction.font};
+        CGRect rect = [self.hosdetail.introduction boundingRectWithSize:CGSizeMake(contentIntroductionW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil];
+        CGSize size = rect.size;
+        
+        contentIntroduction.frame = (CGRect){{contentIntroductionX,contentIntroductionY},size};
+    }else
+    {
+        contentH = titleIntroctionH;
+        contentIntroduction.frame = CGRectMake(contentX, contentY, contentW, contentH);
+    }
+    
     
     UIView *secondLine = self.lines[1];
-    secondLine.frame = (CGRect){{padding,CGRectGetMaxY(contentIntroduction.frame)+ padding/2},{SCREENWIDTH - 2 * padding,1}};
+    secondLine.frame = (CGRect){{padding,CGRectGetMaxY(titleIntroduction.frame)+ padding/2},{SCREENWIDTH - 2 * padding,1}};
     
     //地区
     UILabel *titleDepartment = self.titleLabels[2];
     UILabel *contentDepartment = self.contentLabels[2];
+    
     CGFloat titleDepartmentX = padding;
-    CGFloat titleDepartmentY = CGRectGetMaxY(secondLine.frame);
+    CGFloat titleDepartmentY = CGRectGetMaxY(secondLine.frame) + padding;
     CGFloat titleDepartmentW = techW;
     CGFloat titleDepartmentH = techH;
     titleDepartment.frame = CGRectMake(titleDepartmentX, titleDepartmentY, titleDepartmentW, titleDepartmentH);
+    
     CGFloat contentDepartmentX = CGRectGetMaxX(titleDepartment.frame) + padding;
     CGFloat contentDepartmentY = titleDepartmentY;
     CGFloat contentDepartmentW = titleDepartmentW * 2;
@@ -141,6 +154,7 @@
     contentDepartment.frame = CGRectMake(contentDepartmentX, contentDepartmentY, contentDepartmentW, contentDepartmentH);
     UIView *thirdLine = self.lines[2];
     thirdLine.frame = CGRectMake(padding, CGRectGetMaxY(contentDepartment.frame), SCREENWIDTH - 2 *padding, 1);
+    
     //地址
     UILabel *addressLabel = self.titleLabels[3];
     UILabel *addressContent = self.contentLabels[3];
@@ -177,19 +191,19 @@
     fifthLine.frame = CGRectMake(padding, CGRectGetMaxY(webContent.frame), SCREENWIDTH -  2 *padding, 1);
     
     
-    if ([AccountTool isLogin]) {
-        return;
-    }
-    UILabel *lastTitleLabel = [self.titleLabels lastObject];
-    lastTitleLabel.textAlignment = NSTextAlignmentCenter;
-    UIView *lastLine = [self.lines lastObject];
-    
-    CGFloat lastX = 0;
-    CGFloat lastY = CGRectGetMaxY(fifthLine.frame);
-    CGFloat lastW = SCREENWIDTH;
-    CGFloat lastH = techH;
-    lastTitleLabel.frame = CGRectMake(lastX, lastY, lastW, lastH);
-    lastLine.frame = CGRectMake(padding, CGRectGetMaxY(lastTitleLabel.frame) + padding/2, SCREENWIDTH - 2 * padding, 1);
+//    if ([AccountTool isLogin]) {
+//        return;
+//    }
+//    UILabel *lastTitleLabel = [self.titleLabels lastObject];
+//    lastTitleLabel.textAlignment = NSTextAlignmentCenter;
+//    UIView *lastLine = [self.lines lastObject];
+//    
+//    CGFloat lastX = 0;
+//    CGFloat lastY = CGRectGetMaxY(fifthLine.frame);
+//    CGFloat lastW = SCREENWIDTH;
+//    CGFloat lastH = techH;
+//    lastTitleLabel.frame = CGRectMake(lastX, lastY, lastW, lastH);
+//    lastLine.frame = CGRectMake(padding, CGRectGetMaxY(lastTitleLabel.frame) + padding/2, SCREENWIDTH - 2 * padding, 1);
  
 }
 @end
