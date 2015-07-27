@@ -27,6 +27,15 @@
     _message = message;
     self.titleLabel.text = message.title;
     self.timeLabel.text = message.createTime;
+    
+    NSString *imageName = nil;
+    if (message.succeed == 0) {//未响应
+        imageName = @"notyetReply";
+    }else
+    {
+        imageName = @"alreadyReply";
+    }
+    self.replyImageView.image = [UIImage imageNamed:imageName];
    
 }
 

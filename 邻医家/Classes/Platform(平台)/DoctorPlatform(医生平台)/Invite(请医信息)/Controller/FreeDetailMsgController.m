@@ -43,12 +43,12 @@
 - (void)setDetailMsg:(InviteDocDetail *)detailMsg
 {
     _detailMsg = detailMsg;
-    if (detailMsg.sdstatus == 1) {
+    if (detailMsg.sdstatus == 0) {
         self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(acceptInvite) title:@"接受"];
     }else if(detailMsg.sdstatus == 2)
     {
         self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:nil action:nil title:@"已录取"];
-    }else if(detailMsg.sdstatus == 0)
+    }else if(detailMsg.sdstatus == 1)
     {
         self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:nil action:nil title:@"请医响应"];
     }

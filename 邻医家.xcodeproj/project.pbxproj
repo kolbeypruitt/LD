@@ -230,7 +230,6 @@
 		6554546E1AFCA59D00C4BFFA /* IWSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 655453DD1AFCA59D00C4BFFA /* IWSettingCell.m */; };
 		655454731AFCA59D00C4BFFA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 655453E31AFCA59D00C4BFFA /* Info.plist */; };
 		6558CD691B2AB96A005E7685 /* SetChargeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6558CD681B2AB96A005E7685 /* SetChargeTool.m */; };
-		6558CD6C1B2ABD60005E7685 /* MessageTypeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6558CD6B1B2ABD60005E7685 /* MessageTypeController.m */; };
 		6558CD751B2ABDBF005E7685 /* PostCaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6558CD6E1B2ABDBF005E7685 /* PostCaseViewController.m */; };
 		6558CD761B2ABDBF005E7685 /* PostExpertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6558CD701B2ABDBF005E7685 /* PostExpertViewController.m */; };
 		6558CD771B2ABDBF005E7685 /* PostHospitalController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6558CD721B2ABDBF005E7685 /* PostHospitalController.m */; };
@@ -532,6 +531,10 @@
 		B00099F81B61324C00A8700A /* LDConfigureParam.m in Sources */ = {isa = PBXBuildFile; fileRef = B00099F71B61324C00A8700A /* LDConfigureParam.m */; };
 		B00099FB1B6134D100A8700A /* LDConfigureTool.m in Sources */ = {isa = PBXBuildFile; fileRef = B00099FA1B6134D100A8700A /* LDConfigureTool.m */; };
 		B00099FE1B6135FD00A8700A /* LDConfigureResult.m in Sources */ = {isa = PBXBuildFile; fileRef = B00099FD1B6135FD00A8700A /* LDConfigureResult.m */; };
+		B0075F2A1B665C1300F285D5 /* NSString+Check.m in Sources */ = {isa = PBXBuildFile; fileRef = B0075F291B665C1300F285D5 /* NSString+Check.m */; };
+		B0075F2D1B66716B00F285D5 /* PostHosMessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0075F2C1B66716B00F285D5 /* PostHosMessageController.m */; };
+		B0075F311B66720D00F285D5 /* PostHosMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B0075F2F1B66720D00F285D5 /* PostHosMessageCell.m */; };
+		B0075F321B66720D00F285D5 /* PostHosMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0075F301B66720D00F285D5 /* PostHosMessageCell.xib */; };
 		B05194B71B478BB10033CA7E /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B05194B61B478BB10033CA7E /* ChatViewController.m */; };
 		B05194B91B478CEA0033CA7E /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05194B81B478CEA0033CA7E /* SenTestingKit.framework */; };
 		B05194BB1B478CF20033CA7E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05194BA1B478CF20033CA7E /* UIKit.framework */; };
@@ -1030,8 +1033,6 @@
 		655453E31AFCA59D00C4BFFA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6558CD671B2AB96A005E7685 /* SetChargeTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetChargeTool.h; sourceTree = "<group>"; };
 		6558CD681B2AB96A005E7685 /* SetChargeTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetChargeTool.m; sourceTree = "<group>"; };
-		6558CD6A1B2ABD60005E7685 /* MessageTypeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTypeController.h; sourceTree = "<group>"; };
-		6558CD6B1B2ABD60005E7685 /* MessageTypeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTypeController.m; sourceTree = "<group>"; };
 		6558CD6D1B2ABDBF005E7685 /* PostCaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostCaseViewController.h; sourceTree = "<group>"; };
 		6558CD6E1B2ABDBF005E7685 /* PostCaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostCaseViewController.m; sourceTree = "<group>"; };
 		6558CD6F1B2ABDBF005E7685 /* PostExpertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostExpertViewController.h; sourceTree = "<group>"; };
@@ -1609,6 +1610,13 @@
 		B00099FA1B6134D100A8700A /* LDConfigureTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LDConfigureTool.m; path = "邻医家/Classes/Platform(平台)/DoctorPlatform(医生平台)/Personal(个人信息维护)/Model/LDConfigureTool.m"; sourceTree = SOURCE_ROOT; };
 		B00099FC1B6135FD00A8700A /* LDConfigureResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LDConfigureResult.h; path = "邻医家/Classes/Platform(平台)/DoctorPlatform(医生平台)/Personal(个人信息维护)/Model/LDConfigureResult.h"; sourceTree = SOURCE_ROOT; };
 		B00099FD1B6135FD00A8700A /* LDConfigureResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LDConfigureResult.m; path = "邻医家/Classes/Platform(平台)/DoctorPlatform(医生平台)/Personal(个人信息维护)/Model/LDConfigureResult.m"; sourceTree = SOURCE_ROOT; };
+		B0075F281B665C1300F285D5 /* NSString+Check.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Check.h"; sourceTree = "<group>"; };
+		B0075F291B665C1300F285D5 /* NSString+Check.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Check.m"; sourceTree = "<group>"; };
+		B0075F2B1B66716B00F285D5 /* PostHosMessageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostHosMessageController.h; sourceTree = "<group>"; };
+		B0075F2C1B66716B00F285D5 /* PostHosMessageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostHosMessageController.m; sourceTree = "<group>"; };
+		B0075F2E1B66720D00F285D5 /* PostHosMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostHosMessageCell.h; sourceTree = "<group>"; };
+		B0075F2F1B66720D00F285D5 /* PostHosMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostHosMessageCell.m; sourceTree = "<group>"; };
+		B0075F301B66720D00F285D5 /* PostHosMessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostHosMessageCell.xib; sourceTree = "<group>"; };
 		B05194B51B478BB10033CA7E /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		B05194B61B478BB10033CA7E /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		B05194B81B478CEA0033CA7E /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -2215,6 +2223,8 @@
 		655452A01AFCA59C00C4BFFA /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				B0075F281B665C1300F285D5 /* NSString+Check.h */,
+				B0075F291B665C1300F285D5 /* NSString+Check.m */,
 				B0B661631B47EE89003FB8BB /* NSString+Extension.h */,
 				B0B661641B47EE89003FB8BB /* NSString+Extension.m */,
 				655452A11AFCA59C00C4BFFA /* NSDate+MJ.h */,
@@ -3945,8 +3955,6 @@
 		65D5272B1B2AA7E800CF4FC4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				6558CD6A1B2ABD60005E7685 /* MessageTypeController.h */,
-				6558CD6B1B2ABD60005E7685 /* MessageTypeController.m */,
 				6558CD6D1B2ABDBF005E7685 /* PostCaseViewController.h */,
 				6558CD6E1B2ABDBF005E7685 /* PostCaseViewController.m */,
 				6558CD6F1B2ABDBF005E7685 /* PostExpertViewController.h */,
@@ -3962,6 +3970,8 @@
 				65C25AA51B4E392D0099EB49 /* AppendArrangementController.m */,
 				654861921B4E5C35001B25CA /* ArrangementDetailController.h */,
 				654861931B4E5C35001B25CA /* ArrangementDetailController.m */,
+				B0075F2B1B66716B00F285D5 /* PostHosMessageController.h */,
+				B0075F2C1B66716B00F285D5 /* PostHosMessageController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -4030,6 +4040,9 @@
 				6548618D1B4E5666001B25CA /* ArrangementCell.h */,
 				6548618E1B4E5666001B25CA /* ArrangementCell.m */,
 				6548618F1B4E5666001B25CA /* ArrangementCell.xib */,
+				B0075F2E1B66720D00F285D5 /* PostHosMessageCell.h */,
+				B0075F2F1B66720D00F285D5 /* PostHosMessageCell.m */,
+				B0075F301B66720D00F285D5 /* PostHosMessageCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -4331,6 +4344,7 @@
 				65AE9D781B4D186000627EFA /* AppendCaseController.xib in Resources */,
 				65D3F2F41B58E50B00BB1A8B /* LDCopyView.xib in Resources */,
 				654A30C31B00896C0043821B /* MJRefresh.bundle in Resources */,
+				B0075F321B66720D00F285D5 /* PostHosMessageCell.xib in Resources */,
 				651DD0051B60D5F5008A767F /* LDRewardView.xib in Resources */,
 				65D650121B5C8E070074DFBA /* AuditViewController.xib in Resources */,
 				B051950F1B47D1110033CA7E /* ChatToolView.xib in Resources */,
@@ -4592,6 +4606,7 @@
 				65D0E1611B4A543B00283275 /* GroupViewController.m in Sources */,
 				6598CE391B56344A00A3EC8E /* LDMessageHeader.m in Sources */,
 				6536D62A1B2EA3E500539F47 /* PatienAllDocController.m in Sources */,
+				B0075F2A1B665C1300F285D5 /* NSString+Check.m in Sources */,
 				6549963F1B02EA8D00FA33DC /* RecommendResult.m in Sources */,
 				65C888AA1B2C024D009056D3 /* ConsultDetailMessage.m in Sources */,
 				656438D61B54E1B700436EAF /* CommitMessage.m in Sources */,
@@ -4697,6 +4712,7 @@
 				655454101AFCA59D00C4BFFA /* RecommendHosParam.m in Sources */,
 				6536D6121B2E777600539F47 /* PatientInviteDetailTool.m in Sources */,
 				65C8889C1B2C0164009056D3 /* QueryConsultResult.m in Sources */,
+				B0075F2D1B66716B00F285D5 /* PostHosMessageController.m in Sources */,
 				6558CD751B2ABDBF005E7685 /* PostCaseViewController.m in Sources */,
 				65E1E7D31B60B320008D31D3 /* LDArrangementParam.m in Sources */,
 				655420551B2EBC0F00D70A08 /* AcceptedDocController.m in Sources */,
@@ -4790,6 +4806,7 @@
 				6554544D1AFCA59D00C4BFFA /* SDImageCache.m in Sources */,
 				65E63B401B66231700A87031 /* PatientInviteDocCell.m in Sources */,
 				6540B8171B2D4C6C0053DB2A /* DocStubbornModel.m in Sources */,
+				B0075F311B66720D00F285D5 /* PostHosMessageCell.m in Sources */,
 				655453E61AFCA59D00C4BFFA /* UIBarButtonItem+MJ.m in Sources */,
 				655454151AFCA59D00C4BFFA /* MultiJobResult.m in Sources */,
 				65C25AA71B4E392D0099EB49 /* AppendArrangementController.m in Sources */,
@@ -4800,7 +4817,6 @@
 				65F46D141B4BAD26006EC9DC /* FirstDepartmentDelegate.m in Sources */,
 				6599E7971B0C7E46007396E8 /* SignUpTool.m in Sources */,
 				65CFC7BE1B185F8F007F7062 /* AFSecurityPolicy.m in Sources */,
-				6558CD6C1B2ABD60005E7685 /* MessageTypeController.m in Sources */,
 				65D650261B5CD3FB0074DFBA /* UserResult.m in Sources */,
 				655454271AFCA59D00C4BFFA /* IWTabBarButton.m in Sources */,
 				65CAB28A1B241130005DAED4 /* SurgeryViewController.m in Sources */,
@@ -4994,7 +5010,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/daniel/Desktop/IOS_SDKV1.2.3.1/静态库",
+					"/Users/SXQ/Desktop/IOS_SDKV1.2.3.1/静态库",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -5017,7 +5033,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/daniel/Desktop/IOS_SDKV1.2.3.1/静态库",
+					"/Users/SXQ/Desktop/IOS_SDKV1.2.3.1/静态库",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";

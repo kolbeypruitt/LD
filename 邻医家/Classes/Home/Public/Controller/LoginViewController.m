@@ -5,6 +5,7 @@
 //  Created by Daniel on 15/5/15.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "NSString+Check.h"
 #import "HospitalPlatformController.h"
 #import "DepartmentPlatformController.h"
 #import "IWTabBarViewController.h"
@@ -65,36 +66,41 @@
     [self.navigationController pushViewController:forget animated:YES];
 }
 - (IBAction)loginBtn:(id)sender {
-    if (self.telnumField.text.length) {
-        if (self.passwdField.text.length) {
-            SignUpParam *param = [SignUpParam paramWithTel:self.telnumField.text
+    if ([self messageComplete]) {
+        SignUpParam *param = [SignUpParam paramWithTel:self.telnumField.text
                                                       code:nil
                                                     passwd:self.passwdField.text];
             
-            [LoginTool loginWithParam:param success:^(LoginResult *result) {
-                if ([result.status isEqualToString:SUCCESSSTATUS]) {
-                    Account *at = [AccountTool account];
-                    if (at == nil )
-                    {
-                        at = (Account *)result;
-                        [AccountTool saveAccount:at];
-                    }
-                    [self chooseRootController];
-                }else
+        [LoginTool loginWithParam:param success:^(LoginResult *result) {
+            if ([result.status isEqualToString:SUCCESSSTATUS]) {
+                Account *at = [AccountTool account];
+                if (at == nil )
                 {
-                    [MBProgressHUD showError:result.errorMsg];
+                    at = (Account *)result;
+                    [AccountTool saveAccount:at];
                 }
-            } failure:^(NSError *error) {
-                
-            }];
-        }else
-        {
-            [MBProgressHUD showError:@"请输入密码"];
-        }
-    }else
-    {
-        [MBProgressHUD showError:@"请输入手机号"];
+                [self chooseRootController];
+            }else
+            {
+                [MBProgressHUD showError:result.errorMsg];
+            }
+        } failure:^(NSError *error) {
+            [MBProgressHUD showError:@"请求网络失败!"];
+        }];
     }
+}
+- (BOOL)messageComplete
+{
+    if (![self.telnumField.text dg_isPhoneNumber]) {
+        [MBProgressHUD showError:@"请输入正确手机号"];
+        return NO;
+    }
+    if (![self.passwdField.text dg_isValidPassword]) {
+        [MBProgressHUD showError:@"请输入6位以上密码"];
+        return NO;
+    }
+    return YES;
+    
 }
 - (void)chooseRootController
 {

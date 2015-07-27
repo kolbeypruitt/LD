@@ -34,6 +34,7 @@
     
     NSString *imageName = nil;
     if (message.succeed == 1) {
+#warning 换图片
         imageName = @"alreadyReply";
     }else
     {

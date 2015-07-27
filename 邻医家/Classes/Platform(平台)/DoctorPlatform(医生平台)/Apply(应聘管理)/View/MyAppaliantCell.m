@@ -31,6 +31,7 @@
     self.timeTitle.text = empinfo.startdate;
     NSString *imageName = nil;
     if (empinfo.succeed == 1) {//已录取
+#warning 换图片
         imageName = @"alreadyReply";
     }else
     {

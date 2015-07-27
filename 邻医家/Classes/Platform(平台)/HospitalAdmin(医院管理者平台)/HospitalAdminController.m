@@ -6,13 +6,13 @@
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
 #import "Common.h"
+#import "PostHosMessageController.h"
 #import "HospitalAdminController.h"
 #import "DepartmentListController.h"
 #import "EnrolledRecruitController.h"
 #import "IWCommon.h"
 #import "RecruitChildController.h"
 #import "UILabel+LD.h"
-#import "MessageTypeController.h"
 #import "LDPlatformButton.h"
 @interface HospitalAdminController ()
 /**
@@ -109,7 +109,8 @@
 }
 - (void)postMessageBtnClicked
 {
-    MessageTypeController *messageVC = [[MessageTypeController alloc] init];
+//    MessageTypeController *messageVC = [[MessageTypeController alloc] init];
+    PostHosMessageController *messageVC = [[PostHosMessageController alloc] init];
     [self.navigationController pushViewController:messageVC animated:YES];
 }
 - (void)adminBtnClicked
