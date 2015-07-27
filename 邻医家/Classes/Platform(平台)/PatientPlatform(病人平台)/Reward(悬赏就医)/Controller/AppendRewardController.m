@@ -54,7 +54,7 @@
     LDInputMessage *message8 = [LDInputMessage messageWithFirstTitle:@"详细地址" placeHolder:@"请输入请医地址" optionDelegate:nil];
     LDInputMessage *message9 = [LDInputMessage messageWithFirstTitle:@"邀请医生的专业" placeHolder:@"请输入医生专业" optionDelegate:nil];
     LDInputMessage *message10 = [LDInputMessage messageWithFirstTitle:@"邀请医生的职位" placeHolder:@"请选择职位" optionDelegate:[[NiyaoDelegate alloc] init]];
-    LDInputMessage *message11 = [LDInputMessage messageWithFirstTitle:@"邀请医生的地址" placeHolder:@"请选择地址" optionDelegate:[[FirstDepartmentDelegate alloc] init]];
+    LDInputMessage *message11 = [LDInputMessage messageWithFirstTitle:@"邀请医生的地址" placeHolder:@"请选择地址" optionDelegate:[[ZonePickerDelegate alloc] init]];
     LDInputMessage *message12 = [LDInputMessage messageWithFirstTitle:@"请医目的" placeHolder:@"请选择请医目的" optionDelegate:[[InvitePurposeDelegate alloc] init]];
     LDInputMessage *message13 = [LDInputMessage messageWithFirstTitle:@"VIP" placeHolder:@"是否需要VIP" optionDelegate:[[VipDelegate alloc] init]];
     LDInputMessage *message14 = [LDInputMessage messageWithFirstTitle:@"备注" placeHolder:@"请输入备注" optionDelegate:nil];

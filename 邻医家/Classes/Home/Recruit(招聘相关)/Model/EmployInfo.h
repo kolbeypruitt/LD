@@ -13,6 +13,7 @@
 @property (nonatomic,assign) int id;
 @property (nonatomic,copy) NSString *name;
 @property (nonatomic,copy) NSString *startdate;
+@property (nonatomic,assign) int succeed;
 @end
 //{
 //    employInfos =     (

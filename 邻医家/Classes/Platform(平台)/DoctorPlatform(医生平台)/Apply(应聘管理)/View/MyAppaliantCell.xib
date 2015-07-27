@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myappaliantcell" id="KGk-i7-Jjw" customClass="MyAppaliantCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cut_7" translatesAutoresizingMaskIntoConstraints="NO" id="K6C-4e-egK">
+                        <rect key="frame" x="18" y="14" width="35" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="35" id="BLd-m6-K4F"/>
+                            <constraint firstAttribute="height" constant="35" id="goZ-em-ag6"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIm-r1-McJ">
+                        <rect key="frame" x="63" y="8" width="239" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="scI-w5-ETH"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MoL-cl-yxr">
+                        <rect key="frame" x="63" y="34" width="72" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Wt-Ga-YO0">
+                        <rect key="frame" x="266" y="37" width="36" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="36" id="Q1q-9k-Aga"/>
+                            <constraint firstAttribute="height" constant="16" id="dyt-By-DiC"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="centerY" secondItem="K6C-4e-egK" secondAttribute="centerY" id="0cw-GD-o2x"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="fIm-r1-McJ" secondAttribute="trailing" constant="10" id="BeH-Ii-JcV"/>
+                    <constraint firstItem="MoL-cl-yxr" firstAttribute="leading" secondItem="fIm-r1-McJ" secondAttribute="leading" id="Ja6-6B-LrN"/>
+                    <constraint firstItem="fIm-r1-McJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="Qs7-9n-Oqh"/>
+                    <constraint firstItem="K6C-4e-egK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="TMi-Fn-8fI"/>
+                    <constraint firstItem="fIm-r1-McJ" firstAttribute="leading" secondItem="K6C-4e-egK" secondAttribute="trailing" constant="10" id="UOK-MA-fdY"/>
+                    <constraint firstItem="4Wt-Ga-YO0" firstAttribute="centerY" secondItem="MoL-cl-yxr" secondAttribute="centerY" id="Uk2-dv-ezb"/>
+                    <constraint firstItem="MoL-cl-yxr" firstAttribute="width" secondItem="fIm-r1-McJ" secondAttribute="width" multiplier="0.3" id="Zid-r2-tBj"/>
+                    <constraint firstItem="MoL-cl-yxr" firstAttribute="height" secondItem="fIm-r1-McJ" secondAttribute="height" id="fyB-na-zwU"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="4Wt-Ga-YO0" secondAttribute="bottom" constant="10" id="nbl-fA-xqc"/>
+                    <constraint firstItem="MoL-cl-yxr" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="vED-Vx-UlO"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="4Wt-Ga-YO0" secondAttribute="trailing" constant="10" id="wjz-CG-gMO"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="nbl-fA-xqc"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="nameTitle" destination="fIm-r1-McJ" id="4Fu-RR-gou"/>
+                <outlet property="replyImageView" destination="4Wt-Ga-YO0" id="7ga-nA-VRx"/>
+                <outlet property="timeTitle" destination="MoL-cl-yxr" id="wxy-9x-ZZH"/>
+            </connections>
+            <point key="canvasLocation" x="523" y="91"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Cut_7" width="70" height="70"/>
+    </resources>
+</document>

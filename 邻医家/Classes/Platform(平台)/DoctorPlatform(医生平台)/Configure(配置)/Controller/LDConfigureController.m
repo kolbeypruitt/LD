@@ -92,7 +92,7 @@
 {
     NSString *valueToChange = [NSString stringWithFormat:@"%@",flag];
     [self.flagString replaceCharactersInRange:NSMakeRange(index, 1) withString:valueToChange];
-    NSLog(@"%@",self.flagString);
+//    NSLog(@"%@",self.flagString);
 }
 - (void)layoutCustomViews
 {

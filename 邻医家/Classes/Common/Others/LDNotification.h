@@ -17,4 +17,5 @@
 #define RELEASECASESUCCESSNOTIFICATION @"realeasesuccess"
 #define RELEASEARRANGESUCCESSNOTIFICATION @"arrangesuccess"
 #define SUBJECTCHOSSEDNOTIFICATION @"subjectchossed"
+#define INVITEREFRESHENOTIFICATION @"inviterefresh"
 #endif

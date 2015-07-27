@@ -39,6 +39,6 @@
 }
 - (void)rightViewTap:(UITapGestureRecognizer *)recognizer
 {
-    NSLog(@"I am here");
+//    NSLog(@"I am here");
 }
 @end

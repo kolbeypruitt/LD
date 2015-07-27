@@ -5,11 +5,11 @@
 //  Created by Daniel on 15/7/10.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "MyAppaliantCell.h"
 #import "MultiInviteDetailController.h"
 #import "ApplianTool.h"
 #import "MyAppliantController.h"
 #import "RecruitResult.h"
-#import "MultiInviteCell.h"
 #import "EmployInfo.h"
 #import "MyAppliatDetailController.h"
 @interface MyAppliantController ()
@@ -51,14 +51,12 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
     return self.employInfos.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    MultiInviteCell *cell = [MultiInviteCell cellWithTableView:tableView];
-    cell.employInfo = self.employInfos[indexPath.row];
+    MyAppaliantCell *cell = [MyAppaliantCell cellWithTableView:tableView];
+    cell.empinfo = self.employInfos[indexPath.row];
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

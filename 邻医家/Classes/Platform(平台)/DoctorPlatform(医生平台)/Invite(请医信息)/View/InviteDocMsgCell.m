@@ -10,6 +10,7 @@
 #import "Common.h"
 @interface InviteDocMsgCell ()
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *relpyImageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @end
 @implementation InviteDocMsgCell
@@ -30,5 +31,14 @@
     _message = message;
     self.titleLabel.text = message.title;
     self.timeLabel.text = message.time;
+    
+    NSString *imageName = nil;
+    if (message.succeed == 1) {
+        imageName = @"alreadyReply";
+    }else
+    {
+       imageName = @"notyetReply";
+    }
+    self.relpyImageView.image = [UIImage imageNamed:imageName];
 }
 @end

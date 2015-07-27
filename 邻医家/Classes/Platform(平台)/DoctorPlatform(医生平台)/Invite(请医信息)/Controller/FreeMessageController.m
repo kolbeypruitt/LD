@@ -13,6 +13,7 @@
 #import "LDBaseParam.h"
 #import "InfoListResult.h"
 #import "MJRefresh.h"
+#import "LDNotification.h"
 @interface FreeMessageController ()
 @property (nonatomic,strong) NSMutableArray *inviteDocMessages;
 @end
@@ -29,6 +30,15 @@
     [super viewDidLoad];
     [self setupRefresh];
     [self setup];
+    [self setNotification];
+}
+- (void)setNotification
+{
+    [DefaultCenter addObserver:self.tableView.header selector:@selector(beginRefreshing) name:INVITEREFRESHENOTIFICATION object:nil];
+}
+- (void)dealloc
+{
+    [DefaultCenter removeObserver:self];
 }
 - (void)setupRefresh
 {

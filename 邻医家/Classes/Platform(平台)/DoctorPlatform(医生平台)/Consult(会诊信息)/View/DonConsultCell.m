@@ -9,6 +9,7 @@
 #import "DonConsultCell.h"
 @interface DonConsultCell ()
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *replyImageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @end
 @implementation DonConsultCell
@@ -26,6 +27,7 @@
     _message = message;
     self.titleLabel.text = message.title;
     self.timeLabel.text = message.createTime;
+   
 }
 
 @end

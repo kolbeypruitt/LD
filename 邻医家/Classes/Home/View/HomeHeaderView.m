@@ -73,7 +73,7 @@
         btnX = i * btnWidth;
         button.frame = CGRectMake(btnX, btnY, btnWidth, btnHeight);
     }
-    NSLog(@"%@",self.btns);
+//    NSLog(@"%@",self.btns);
 }
 @end
 

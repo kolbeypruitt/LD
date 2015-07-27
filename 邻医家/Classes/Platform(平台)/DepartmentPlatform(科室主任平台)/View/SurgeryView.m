@@ -92,7 +92,7 @@
 }
 - (void)buttonClicked:(UIButton *)button
 {
-    NSLog(@"You are amazing!!!");
+//    NSLog(@"You are amazing!!!");
 }
 - (void)setModel:(SurgeryModel *)model
 {

@@ -115,7 +115,7 @@
 }
 - (void)respondToTap:(UITapGestureRecognizer *)recognizer
 {
-    NSLog(@"I am freeConsultView");
+//    NSLog(@"I am freeConsultView");
     if ([self.delegate respondsToSelector:@selector(didClickedFreeConsultView:)]) {
         [self.delegate didClickedFreeConsultView:self];
     }

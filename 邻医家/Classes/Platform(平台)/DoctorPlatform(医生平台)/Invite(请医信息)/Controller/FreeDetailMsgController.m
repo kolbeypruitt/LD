@@ -9,10 +9,14 @@
 #import "UIBarButtonItem+ENTER.h"
 #import "FreeDetailMsgController.h"
 #import "FreeMsgResult.h"
+#import "ReplyInviteTool.h"
+#import "BaseResult.h"
 #import "FreeDetailMsgParam.h"
 #import "FreeDetailMsgTool.h"
 #import "InviteDocMessage.h"
+#import "Common.h"
 #import "InviteDocDetail.h"
+#import "LDNotification.h"
 @interface FreeDetailMsgController ()
 @property (nonatomic,strong) InviteDocDetail *detailMsg;
 @end
@@ -39,14 +43,15 @@
 - (void)setDetailMsg:(InviteDocDetail *)detailMsg
 {
     _detailMsg = detailMsg;
-    NSString *rightTitle = nil;
     if (detailMsg.sdstatus == 1) {
-        rightTitle = @"未录取";
+        self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(acceptInvite) title:@"接受"];
     }else if(detailMsg.sdstatus == 2)
     {
-        rightTitle = @"已录取";
+        self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:nil action:nil title:@"已录取"];
+    }else if(detailMsg.sdstatus == 0)
+    {
+        self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:nil action:nil title:@"请医响应"];
     }
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:nil action:nil title:rightTitle];
     self.clientToChat = detailMsg.clientNumber;
     self.singleLine = NO;
     
@@ -56,6 +61,19 @@
     {
         [self setMessage1:detailMsg];
     }
+}
+- (void)acceptInvite
+{
+    FreeDetailMsgParam *param = [FreeDetailMsgParam paramWithId:self.detailMsg.id];
+    [ReplyInviteTool replyInviteMsgWithParam:param success:^(BaseResult *result) {
+        if ([result.status isEqualToString:@"S"]) {
+            [DefaultCenter postNotificationName:INVITEREFRESHENOTIFICATION object:self];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+        
+    } failure:^(NSError *error) {
+        
+    }];
 }
 - (void)setMessage0:(InviteDocDetail *)detailMsg
 {

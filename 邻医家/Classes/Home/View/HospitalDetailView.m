@@ -83,11 +83,10 @@
     locationLabel.text = hosdetail.city;
     addressLabel.text = hosdetail.address;
     websiteLabel.text = hosdetail.website;
-    [self layoutSubviews];
+    [self layoutCustomViews];
 }
-- (void)layoutSubviews
+- (void)layoutCustomViews
 {
-    [super layoutSubviews];
         CGFloat padding = 10;
     //性质
     UILabel *titleTech = self.titleLabels[0];
@@ -135,7 +134,7 @@
     
     
     UIView *secondLine = self.lines[1];
-    secondLine.frame = (CGRect){{padding,CGRectGetMaxY(titleIntroduction.frame)+ padding/2},{SCREENWIDTH - 2 * padding,1}};
+    secondLine.frame = (CGRect){{padding,CGRectGetMaxY(contentIntroduction.frame)+ padding/2},{SCREENWIDTH - 2 * padding,1}};
     
     //地区
     UILabel *titleDepartment = self.titleLabels[2];

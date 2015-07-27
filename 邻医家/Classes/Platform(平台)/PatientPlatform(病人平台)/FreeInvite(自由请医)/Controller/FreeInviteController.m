@@ -8,7 +8,7 @@
 #import "MBProgressHUD+MJ.h"
 #import "AppendInviteController.h"
 #import "InviteDocMessage.h"
-#import "InviteDocMsgCell.h"
+#import "PatientInviteDocCell.h"
 #import "FreeInviteController.h"
 #import "InviteDetailController.h"
 #import "Common.h"
@@ -108,8 +108,8 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    InviteDocMsgCell *cell = [InviteDocMsgCell cellWithTableView:tableView];
-    cell.message = [self.inviteDocList objectAtIndex:indexPath.row];
+    PatientInviteDocCell *cell = [PatientInviteDocCell cellWithTableView:tableView];
+    cell.message = self.inviteDocList[indexPath.row];
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

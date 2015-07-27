@@ -9,9 +9,5 @@
 #import "LDBaseParam.h"
 
 @interface FreeDetailMsgParam : LDBaseParam
-/**
- *  请医信息ID
- */
-@property (nonatomic,assign) int id;
-+ (instancetype)paramWithId:(int)Id;
+
 @end

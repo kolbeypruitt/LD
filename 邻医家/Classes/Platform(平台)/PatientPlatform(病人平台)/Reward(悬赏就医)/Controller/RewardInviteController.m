@@ -8,7 +8,7 @@
 #import "AppendRewardController.h"
 #import "RewardDetailController.h"
 #import "MBProgressHUD+MJ.h"
-#import "InviteDocMsgCell.h"
+#import "PatientInviteDocCell.h"
 #import "Common.h"
 #import "InviteDocMessage.h"
 #import "InfoListResult.h"
@@ -85,8 +85,8 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    InviteDocMsgCell *cell = [InviteDocMsgCell cellWithTableView:tableView];
-    cell.message = [self.rewardList objectAtIndex:indexPath.row];
+    PatientInviteDocCell *cell = [PatientInviteDocCell cellWithTableView:tableView];
+    cell.message = self.rewardList[indexPath.row];
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
