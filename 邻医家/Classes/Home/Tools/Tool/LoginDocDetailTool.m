@@ -13,9 +13,9 @@
 #import "MJExtension.h"
 
 @implementation LoginDocDetailTool
-+ (void)loginDocdetailWithParam:(LDBaseParam *)param success:(void (^)(LoginDocDetailResult *))success failure:(void (^)(NSError *))failure
++ (void)loginDocdetailWithParam:(LDBaseParam *)param url:(NSString *)url success:(void (^)(LoginDocDetailResult *))success failure:(void (^)(NSError *))failure
 {
-    [LDHttpTool getWithURL:DOCTORDETAILURL params:param.keyValues success:^(id json) {
+    [LDHttpTool getWithURL:url params:param.keyValues success:^(id json) {
         if (success) {
             LoginDocDetailResult *result = [LoginDocDetailResult objectWithKeyValues:json];
             success(result);

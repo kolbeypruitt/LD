@@ -112,18 +112,19 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    BOOL islogin = [AccountTool isLogin];
-    if (islogin) {
-            
+//    BOOL islogin = [AccountTool isLogin];
+//    if (islogin) {
+    
             LoginDocDetailController *docVC = [[LoginDocDetailController alloc] init];
             docVC.doctor = self.doctors[indexPath.row];
+            docVC.isDoctor = NO;
             [self.navigationController pushViewController:docVC animated:YES];
-        }else
-        {
-            DoctorDetailController *docVC = [[DoctorDetailController alloc] init];
-            docVC.doctor = self.doctors[indexPath.row];
-            [self.navigationController pushViewController:docVC animated:YES];
-        }
+//        }else
+//        {
+//            DoctorDetailController *docVC = [[DoctorDetailController alloc] init];
+//            docVC.doctor = self.doctors[indexPath.row];
+//            [self.navigationController pushViewController:docVC animated:YES];
+//        }
     
 }
 #pragma mark - searchBar delegate

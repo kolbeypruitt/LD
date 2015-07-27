@@ -334,6 +334,7 @@
         
             LoginDocDetailController *docVC = [[LoginDocDetailController alloc] init];
             docVC.doctor = self.doctors[indexPath.row];
+            docVC.isDoctor = NO;
             [self.navigationController pushViewController:docVC animated:YES];
 //        }else
 //        {

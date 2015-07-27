@@ -5,6 +5,7 @@
 //  Created by Daniel on 15/6/6.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "MBProgressHUD+MJ.h"
 #import "LDPersonalController.h"
 #import "DocArrangeCell.h"
 #import "LDPaperDetailController.h"
@@ -18,7 +19,6 @@
 #import "Case.h"
 #import "LoginDocDetailController.h"
 #import "Common.h"
-#import "IWCommon.h"
 #import "Doctor.h"
 #import "DoctorView.h"
 #import "LDBaseParam.h"
@@ -70,23 +70,33 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self loadData];
     [self setup];
+    [self loadData];
 }
 - (void)loadData
 {
+    NSString *url = nil;
     LDBaseParam *param = [LDBaseParam paramWithId:self.doctor.id];
-    [LoginDocDetailTool loginDocdetailWithParam:param success:^(LoginDocDetailResult *result) {
+    if (self.isDoctor) {
+        url = TOKENDOCTORINFOURL;
+        self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(editMessage) title:@"编辑"];
+    }else
+    {
+        url = DOCTORDETAILURL;
+    }
+    
+    [LoginDocDetailTool loginDocdetailWithParam:param url:url success:^(LoginDocDetailResult *result) {
         if ([result.status isEqualToString:@"S"]) {
             self.introduction = result.intorduction;
             self.navigationItem.title = result.intorduction.name;
+            
             self.diseases = result.cases;
             [self.caseView reloadData];
             
+            self.assignmentView.arrangement = result.arrangements;
+            
             self.papers = result.papers;
             [self.achievementView reloadData];
-            
-            self.assignmentView.arrangement = result.arrangements;
         }
     } failure:^(NSError *errror) {
         
@@ -297,8 +307,9 @@
 }
 - (void)setIsDoctor:(BOOL)isDoctor
 {
+    
     _isDoctor = isDoctor;
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(editMessage) title:@"编辑"];
+   
 }
 - (void)editMessage
 {

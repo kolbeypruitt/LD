@@ -10,6 +10,7 @@
 
 @interface LoginDocDetailTool : NSObject
 + (void)loginDocdetailWithParam:(LDBaseParam *)param
+                            url:(NSString *)url
                         success:(void (^)(LoginDocDetailResult *result))success
                         failure:(void (^)(NSError *errror))failure;
 @end

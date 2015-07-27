@@ -297,6 +297,7 @@
     if ([tableView isEqual:self.doctorView]) {
         LoginDocDetailController *VC = [[LoginDocDetailController alloc] init];
         VC.doctor = self.doctors[indexPath.row];
+        VC.isDoctor = NO;
         [self.navigationController pushViewController:VC animated:YES];
     }else if ([tableView isEqual:self.caseView])
     {
