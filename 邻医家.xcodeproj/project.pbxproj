@@ -490,6 +490,8 @@
 		65D9147E1B27CDD200BBFCA9 /* PostConsultParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D9147D1B27CDD200BBFCA9 /* PostConsultParam.m */; };
 		65D9967C1B38F1F0004C1DA6 /* WithDrawConsultTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D9967B1B38F1F0004C1DA6 /* WithDrawConsultTool.m */; };
 		65D9967F1B38FA37004C1DA6 /* ForwardDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D9967E1B38FA37004C1DA6 /* ForwardDelegate.m */; };
+		65DF68311B676E1F0009EF96 /* MyConsultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65DF682F1B676E1F0009EF96 /* MyConsultCell.m */; };
+		65DF68321B676E1F0009EF96 /* MyConsultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65DF68301B676E1F0009EF96 /* MyConsultCell.xib */; };
 		65E1DF611B1FF7ED006A09E9 /* PatientEnterTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E1DF601B1FF7ED006A09E9 /* PatientEnterTool.m */; };
 		65E1E7D31B60B320008D31D3 /* LDArrangementParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E1E7D21B60B320008D31D3 /* LDArrangementParam.m */; };
 		65E1E7D61B60B405008D31D3 /* ChangeArrangeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E1E7D51B60B405008D31D3 /* ChangeArrangeTool.m */; };
@@ -1533,6 +1535,9 @@
 		65D9967B1B38F1F0004C1DA6 /* WithDrawConsultTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WithDrawConsultTool.m; sourceTree = "<group>"; };
 		65D9967D1B38FA37004C1DA6 /* ForwardDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForwardDelegate.h; sourceTree = "<group>"; };
 		65D9967E1B38FA37004C1DA6 /* ForwardDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForwardDelegate.m; sourceTree = "<group>"; };
+		65DF682E1B676E1F0009EF96 /* MyConsultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyConsultCell.h; sourceTree = "<group>"; };
+		65DF682F1B676E1F0009EF96 /* MyConsultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyConsultCell.m; sourceTree = "<group>"; };
+		65DF68301B676E1F0009EF96 /* MyConsultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyConsultCell.xib; sourceTree = "<group>"; };
 		65E1DF5F1B1FF7ED006A09E9 /* PatientEnterTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientEnterTool.h; sourceTree = "<group>"; };
 		65E1DF601B1FF7ED006A09E9 /* PatientEnterTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientEnterTool.m; sourceTree = "<group>"; };
 		65E1E7D11B60B320008D31D3 /* LDArrangementParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDArrangementParam.h; sourceTree = "<group>"; };
@@ -3598,6 +3603,9 @@
 				65E63B421B662D0F00A87031 /* MyAppaliantCell.h */,
 				65E63B431B662D0F00A87031 /* MyAppaliantCell.m */,
 				65E63B441B662D0F00A87031 /* MyAppaliantCell.xib */,
+				65DF682E1B676E1F0009EF96 /* MyConsultCell.h */,
+				65DF682F1B676E1F0009EF96 /* MyConsultCell.m */,
+				65DF68301B676E1F0009EF96 /* MyConsultCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -4348,6 +4356,7 @@
 				650295C81B00952E002249C0 /* RecruitMessageController.xib in Resources */,
 				B06655591B5A1C0400877489 /* LDIntroductionView.xib in Resources */,
 				65C412381B05B60300A8B75F /* SignUpViewController.xib in Resources */,
+				65DF68321B676E1F0009EF96 /* MyConsultCell.xib in Resources */,
 				65D527221B2A95D600CF4FC4 /* ResumeCell.xib in Resources */,
 				65E63B461B662D0F00A87031 /* MyAppaliantCell.xib in Resources */,
 				65C5638C1B1EB4E4007FC968 /* property.json in Resources */,
@@ -4690,6 +4699,7 @@
 				B05195071B479B590033CA7E /* SBJsonWriter.m in Sources */,
 				65C58C1E1B325CF800D3A013 /* VipDelegate.m in Sources */,
 				65EAE0481B3D20AB0040C4C2 /* LoginHosController.m in Sources */,
+				65DF68311B676E1F0009EF96 /* MyConsultCell.m in Sources */,
 				65C3D1BF1B1BF0A40050F540 /* LDHttpTool.m in Sources */,
 				65CFC7BA1B185F8F007F7062 /* AFHTTPRequestOperation.m in Sources */,
 				6536D6271B2EA1A000539F47 /* AllInviteTool.m in Sources */,

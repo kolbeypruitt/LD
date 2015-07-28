@@ -6,6 +6,7 @@
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
 #import "NSString+Check.h"
+#import "IWTabBarViewController.h"
 #import "BaseResult.h"
 #import "IWCommon.h"
 #import "UIBarButtonItem+ENTER.h"
@@ -63,10 +64,8 @@
         [SignUpTool signUpWithParam:param success:^(SignUpResult *result) {
             if ([result.status isEqualToString:@"S"]) {
                 
-                const int count = self.navigationController.childViewControllers.count;
-                UIViewController *rootVC = self.navigationController.childViewControllers[count - 3];
-                [weakSelf.navigationController popToViewController:rootVC animated:YES];
-                
+                IWTabBarViewController *publicHome = [[IWTabBarViewController alloc] init];
+                self.view.window.rootViewController = publicHome;
             }else
             {
                 [MBProgressHUD showError:result.errorMsg];

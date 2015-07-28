@@ -13,6 +13,6 @@
 @property (nonatomic,copy) NSString *name;
 @property (nonatomic,copy) NSString *phone;
 @property (nonatomic,copy) NSString *mailbox;
-@property (nonatomic,assign) int department;
+@property (nonatomic,assign) int id;
 @property (nonatomic,copy) NSString *introduction;
 @end

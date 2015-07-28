@@ -21,7 +21,7 @@
 }
 - (void)setup
 {
-    self.title = @"关于邻医家";
+    self.title = @"关于铃医家";
 }
 
 

@@ -44,7 +44,7 @@
                 <outlet property="checkBox" destination="1Ri-6f-0mS" id="kGW-O7-OIg"/>
                 <outlet property="protocolButton" destination="HBa-A2-a4A" id="RAd-ug-D8f"/>
             </connections>
-            <point key="canvasLocation" x="187.5" y="-260"/>
+            <point key="canvasLocation" x="-78.5" y="-102"/>
         </view>
     </objects>
 </document>

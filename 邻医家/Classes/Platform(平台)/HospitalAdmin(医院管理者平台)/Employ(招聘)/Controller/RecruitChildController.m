@@ -11,6 +11,7 @@
 #import "LDBaseParam.h"
 #import "GetEmployeeResult.h"
 #import "Common.h"
+#import "LDNotification.h"
 #import "AppendRecruitController.h"
 @interface RecruitChildController ()
 
@@ -20,7 +21,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupNotificaiton];
     [self loadData];
+}
+- (void)setupNotificaiton
+{
+    [DefaultCenter addObserver:self selector:@selector(loadData) name:APPENDRECRUITSUCCESSNOTIFICATION object:nil];
+}
+- (void)dealloc
+{
+    [DefaultCenter removeObserver:self];
 }
 #pragma mark - 加载数据
 - (void)loadData

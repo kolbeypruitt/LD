@@ -58,7 +58,7 @@
     
     IWSettingGroup *group = [self addGroup];
     IWSettingArrowItem *personal = [IWSettingArrowItem itemWithTitle:@"个人资料" destVcClass:[LDSettingPersonalController class]];
-    IWSettingArrowItem *about = [IWSettingArrowItem itemWithTitle:@"关于邻医家" destVcClass:[LDAboutViewController class]];
+    IWSettingArrowItem *about = [IWSettingArrowItem itemWithTitle:@"关于铃医家" destVcClass:[LDAboutViewController class]];
     
     group.items  = @[personal,about];
 }

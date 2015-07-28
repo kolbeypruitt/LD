@@ -6,6 +6,7 @@
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
 #import "NSString+Check.h"
+#import "LDNotification.h"
 #import "Common.h"
 #import "MBProgressHUD+MJ.h"
 #import "LDInputView.h"
@@ -66,12 +67,14 @@
         return;
     }
     AppendRecruitParam *param = [self fillParam];
+    __weak typeof(self) weakSelf = self;
     [AppendRecruitTool appendRecruitWithParam:param success:^(BaseResult *result) {
         if ([result.status isEqualToString:@"S"]) {
+            [DefaultCenter postNotificationName:APPENDRECRUITSUCCESSNOTIFICATION object:weakSelf];
             [self.navigationController popViewControllerAnimated:YES];
         }else
         {
-            [MBProgressHUD showError:@"发布失败!"];
+            [MBProgressHUD showError:result.errorMsg];
         }
         
     } failure:^(NSError *error) {
@@ -82,7 +85,7 @@
 {
     AppendRecruitParam *param = [[AppendRecruitParam alloc] init];
     param.name = [self.commitMessages[0] stringMsg];
-    param.jobtype = [self.commitMessages[1] stringMsg];
+    param.employtype = [self.commitMessages[1] intMsg];
     param.department = [self.commitMessages[2] intMsg];
     param.jobname = [self.commitMessages[3] stringMsg];
     param.location = [self.commitMessages[4] intMsg];

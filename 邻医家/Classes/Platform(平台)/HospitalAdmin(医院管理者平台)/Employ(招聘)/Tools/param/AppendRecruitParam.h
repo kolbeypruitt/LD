@@ -16,9 +16,9 @@
 @property (nonatomic,copy) NSString *language;
 @property (nonatomic,copy) NSString *age;
 @property (nonatomic,copy) NSString *profession;
-@property (nonatomic,copy) NSString *jobtype;
 @property (nonatomic,copy) NSString *address;
 @property (nonatomic,assign) int employNum;
 @property (nonatomic,copy) NSString *jobname;
 @property (nonatomic,copy) NSString *introduction;
+@property (nonatomic,assign) int employtype;
 @end

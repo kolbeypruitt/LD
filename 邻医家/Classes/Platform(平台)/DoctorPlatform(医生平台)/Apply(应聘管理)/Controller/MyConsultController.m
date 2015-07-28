@@ -5,10 +5,10 @@
 //  Created by Daniel on 15/7/10.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "MyConsultCell.h"
 #import "MyConsultViewController.h"
 #import "MyConsultController.h"
 #import "ApplianTool.h"
-#import "DonConsultCell.h"
 #import "ConsultMessage.h"
 #import "QueryConsultResult.h"
 @interface MyConsultController ()
@@ -52,13 +52,11 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
     return self.messages.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    DonConsultCell *cell = [DonConsultCell cellWithTable:tableView];
+    MyConsultCell *cell = [MyConsultCell cellWithTableView:tableView];
     cell.message = self.messages[indexPath.row];
     return cell;
 }

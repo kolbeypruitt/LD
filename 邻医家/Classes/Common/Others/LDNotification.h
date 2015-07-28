@@ -18,4 +18,5 @@
 #define RELEASEARRANGESUCCESSNOTIFICATION @"arrangesuccess"
 #define SUBJECTCHOSSEDNOTIFICATION @"subjectchossed"
 #define INVITEREFRESHENOTIFICATION @"inviterefresh"
+#define APPENDRECRUITSUCCESSNOTIFICATION @"appendrecruitsuccessnotification"
 #endif

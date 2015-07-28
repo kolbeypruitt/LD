@@ -35,5 +35,8 @@
 {
     return self.checkBox.selected;
 }
-
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    
+}
 @end

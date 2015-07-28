@@ -97,7 +97,7 @@
     self.topImageView = imageView;
     
     //选项卡
-    NSArray *items = @[@"医院入驻",@"医生入驻",@"病友入驻"];
+    NSArray *items = @[@"医院入驻",@"医生入驻",@"医友入驻"];
     UISegmentedControl *segmentControl = [[UISegmentedControl alloc] initWithItems:items];
     [segmentControl addTarget:self action:@selector(segmentControlPressed:) forControlEvents:UIControlEventValueChanged];
     segmentControl.selectedSegmentIndex = 0;
@@ -116,7 +116,7 @@
     UITableView *hospitalEnter = [[UITableView alloc] init];
     
     UIButton *hosBtn = [[UIButton alloc] initWithFrame:rect];
-    [self setupBtn:hosBtn title:@"欢迎医院入住" target:self action:@selector(buttonClicked:)];
+    [self setupBtn:hosBtn title:@"欢迎医院管理者入驻" target:self action:@selector(buttonClicked:)];
     hospitalEnter.tableHeaderView = hosBtn;
     self.hosBtn = hosBtn;
     
@@ -131,7 +131,7 @@
     UITableView *doctorEnter = [[UITableView alloc] init];
     
     UIButton *docBtn = [[UIButton alloc] initWithFrame:rect];
-    [self setupBtn:docBtn title:@"欢迎医生入住" target:self action:@selector(buttonClicked:)];
+    [self setupBtn:docBtn title:@"欢迎医生入驻" target:self action:@selector(buttonClicked:)];
     doctorEnter.tableHeaderView = docBtn;
     self.docBtn = docBtn;
     
@@ -146,7 +146,7 @@
     UITableView *patientEnter = [[UITableView alloc] init];
     
     UIButton *patientBtn = [[UIButton alloc] initWithFrame:rect];
-    [self setupBtn:patientBtn title:@"欢迎医友入住" target:self action:@selector(buttonClicked:)];
+    [self setupBtn:patientBtn title:@"欢迎医友入驻" target:self action:@selector(buttonClicked:)];
     patientEnter.tableHeaderView = patientBtn;
     self.patientBtn = patientBtn;
     patientEnter.contentInset = UIEdgeInsetsMake(0, 0, 30, 0);

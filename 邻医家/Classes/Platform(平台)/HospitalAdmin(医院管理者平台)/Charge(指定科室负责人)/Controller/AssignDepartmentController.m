@@ -97,7 +97,7 @@
     param.telnum = [self.commitMessages[1] stringMsg];
     param.phone = [self.commitMessages[2] stringMsg];
     param.mailbox = [self.commitMessages[3] stringMsg];
-    param.department = [self.commitMessages[4] intMsg];
+    param.id = [self.commitMessages[4] intMsg];
     param.introduction = [self.commitMessages[5] stringMsg];
     return param;
 }
