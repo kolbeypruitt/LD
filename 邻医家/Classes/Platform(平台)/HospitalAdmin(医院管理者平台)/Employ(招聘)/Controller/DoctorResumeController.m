@@ -111,6 +111,7 @@
 {
     return 40;
 }
+#warning 科室主任邀请医生
 #pragma resumeView delegate
 - (void)inviteBtnClicked
 {

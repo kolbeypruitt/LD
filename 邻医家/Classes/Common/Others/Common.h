@@ -40,7 +40,7 @@
 #define HOSPITALDETAILURL @"http://116.228.153.157:8888/assfinance/public/getHospitalInfoById"
 #define HOTAREAURL @"http://116.228.153.157:8888/assfinance/public/hotLocations"
 #define DOCTORDETAILURL @"http://116.228.153.157:8888/assfinance/public/getDoctorInfoById"
-//getMyDoctorInfo
+
 #define GETRECOMMENDURL @"http://116.228.153.157:8888/assfinance/public/getRecommanded"
 #define RECOMMENDDOCURL @"http://116.228.153.157:8888/assfinance/public/recommandedDoctors"
 #define RECOMMENDHOSURL @"http://116.228.153.157:8888/assfinance/public/recommandedHospitals"
@@ -63,6 +63,9 @@
 #define CONSULTDETAILURL @"http://116.228.153.157:8888/assfinance/hospital/getMyGroupConsultationById"
 #define GETEMPLOYURL @"http://116.228.153.157:8888/assfinance/hospital/getMyEmployInfo"
 #define GETSUCCESSEDEMPLOYURL @"http://116.228.153.157:8888/assfinance/hospital/getMySucceedEmployInfo"
+
+#define DEPARTMENTINVITEDOCTOR @"http://116.228.153.157:8888/assfinance/hospital/acceptDoctor"
+
 #define GETEMPLOYDETAILURL @"http://116.228.153.157:8888/assfinance/hospital/getMyEmployInfoById"
 #define GETACCEPTEDURL @"http://116.228.153.157:8888/assfinance/hospital/getAcceptedResumeById"
 #define GETALLRESUMEURL @"http://116.228.153.157:8888/assfinance/hospital/getAllResumeById"
