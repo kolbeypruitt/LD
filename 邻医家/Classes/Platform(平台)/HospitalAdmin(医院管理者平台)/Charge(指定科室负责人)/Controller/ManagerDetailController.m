@@ -31,6 +31,7 @@
 }
 - (void)setup
 {
+    self.tableView.contentInset = UIEdgeInsetsMake(-30, 0, 0, 0);
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(dismissManager) title:@"撤销"];
 }
 - (void)dismissManager

@@ -79,6 +79,7 @@
 #define FREEDETAILURL @"http://116.228.153.157:8888/assfinance/doctor/getSDInfoById"
 #define REPLYINVITEURL @"http://116.228.153.157:8888/assfinance/doctor/replySDInfoById"
 #define SEEKDOCLISTURL @"http://116.228.153.157:8888/assfinance/patient/getSeekDoctorList"
+#define DOCTORREPLYCONSULTURL @"http://116.228.153.157:8888/assfinance/doctor/replyGCInfoById"
 #define PATIENTINVITEDEURL @"http://116.228.153.157:8888/assfinance/patient/getSeekDoctorById"
 #define ALLDOCLISTURL @"http://116.228.153.157:8888/assfinance/patient/getAllById"
 #define ACCEPTDOCURL @"http://116.228.153.157:8888/assfinance/patient/getAcceptById"

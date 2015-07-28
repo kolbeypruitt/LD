@@ -32,10 +32,10 @@
     NSString *imageName = nil;
     if (empinfo.succeed == 1) {//已录取
 #warning 换图片
-        imageName = @"alreadyReply";
+        imageName = @"enroll2";
     }else
     {
-        imageName = @"notyetReply";
+        imageName = @"unenroll2";
     }
     self.replyImageView.image = [UIImage imageNamed:imageName];
 }

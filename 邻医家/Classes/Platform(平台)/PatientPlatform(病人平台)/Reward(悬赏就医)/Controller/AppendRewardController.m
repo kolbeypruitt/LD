@@ -5,6 +5,7 @@
 //  Created by Daniel on 15/6/18.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "NSString+Check.h"
 #import "LDRewardView.h"
 #import "LDInputView.h"
 #import "BaseResult.h"
@@ -115,6 +116,23 @@
             [MBProgressHUD showError:@"请求网络失败!"];
         }];
     }
+}
+- (BOOL)messageComplete
+{
+    LDInputView *inputView = self.inputViews[0];
+    UITextField *textfield = inputView.inputField;
+    if (![textfield.text dg_isNumber]) {
+        [MBProgressHUD showError:@"请输入正确的金额"];
+        return NO;
+    }
+    inputView = self.inputViews[1];
+    textfield = inputView.inputField;
+    if (![textfield.text dg_isValidIdentity]) {
+        
+        [MBProgressHUD showError:@"请输入正确的身份证号"];
+        return NO;
+    }
+    return [super messageComplete];
 }
 - (void)addProctolView
 {

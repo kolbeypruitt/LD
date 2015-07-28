@@ -5,6 +5,7 @@
 //  Created by Daniel on 15/6/6.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "LDInputView.h"
 #import "CommitMessage.h"
 #import "TimeDeletage.h"
 #import "MBProgressHUD+MJ.h"
@@ -23,6 +24,7 @@
 #import "Common.h"
 #import "HospitalEnterTextField.h"
 #import "LDInputMessage.h"
+#import "NSString+Check.h"
 @interface SurgeryViewController ()
 
 @end
@@ -64,6 +66,16 @@
     if ([self messageComplete]) {
         [self post];
     }
+}
+- (BOOL)messageComplete
+{
+        LDInputView *inputView = self.inputViews[3];
+        UITextField *textfield = inputView.inputField;
+        if (![textfield.text dg_isNumber]) {
+            [MBProgressHUD showError:@"手术台数请输入数字"];
+            return NO;
+        }
+    return [super messageComplete];
 }
 - (void)post
 {

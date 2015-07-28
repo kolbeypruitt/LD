@@ -5,6 +5,9 @@
 //  Created by Daniel on 15/6/6.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "TimeDeletage.h"
+#import "LDInputView.h"
+#import "NSString+Check.h"
 #import "LDNotification.h"
 #import "ConsultDetailParam.h"
 #import "ForwardDelegate.h"
@@ -42,6 +45,7 @@
 {
     LDInputMessage *messaeg0 = [LDInputMessage messageWithFirstTitle:@"病人姓名" placeHolder:@"请输入病人姓名" optionDelegate:nil];
     LDInputMessage *messaeg1 = [LDInputMessage messageWithFirstTitle:@"身份证号" placeHolder:@"请输入身份证号" optionDelegate:nil];
+    LDInputMessage *messaegx = [LDInputMessage messageWithFirstTitle:@"转诊时间" placeHolder:@"" optionDelegate:[[TimeDeletage alloc] init]];
     LDInputMessage *messaeg2 = [LDInputMessage messageWithFirstTitle:@"最后一次就医医院" placeHolder:@"请输入医院名称" optionDelegate:nil];
     LDInputMessage *messaeg3 = [LDInputMessage messageWithFirstTitle:@"科室" placeHolder:@"请选择科室" optionDelegate:[[SingleDepartmentDelegate alloc] init]];
     LDInputMessage *messaeg4 = [LDInputMessage messageWithFirstTitle:@"最后一次医院诊断" placeHolder:@"请输入诊断详情" optionDelegate:nil];
@@ -53,7 +57,7 @@
     LDInputMessage *messaeg10 = [LDInputMessage messageWithFirstTitle:@"转诊目的" placeHolder:@"请选择转诊目的" optionDelegate:[[ForwardDelegate alloc] init]];
     LDInputMessage *messaeg11 = [LDInputMessage messageWithFirstTitle:@"是否需要VIP" placeHolder:@"请选择VIP" optionDelegate:[[VipDelegate alloc] init]];
     LDInputMessage *messaeg12 = [LDInputMessage messageWithFirstTitle:@"是否需要抢救" placeHolder:@"请选择" optionDelegate:[[IshospitalDelegate alloc] init]];
-    self.inputMessages = @[messaeg0,messaeg1,messaeg2,messaeg3,messaeg4,messaeg5,messaeg6,messaeg7,messaeg8,messaeg9,messaeg10,messaeg11,messaeg12];
+    self.inputMessages = @[messaeg0,messaeg1,messaegx,messaeg2,messaeg3,messaeg4,messaeg5,messaeg6,messaeg7,messaeg8,messaeg9,messaeg10,messaeg11,messaeg12];
 }
 - (void)post
 {
@@ -62,17 +66,19 @@
 
     param.patientName = [self.commitMessages[0] stringMsg];
     param.idcardNo = [self.commitMessages[1] stringMsg];
-    param.lastHospitalDepartment = [self.commitMessages[2] stringMsg];
-    param.department = [self.commitMessages[3] intMsg];
-    param.lastDiagnose = [self.commitMessages[4] stringMsg];
-    param.hospitalLocationTogo = [self.commitMessages[5] intMsg];
-    param.hospitalAddressTogo = [self.commitMessages[6] stringMsg];
-    param.profession = [self.commitMessages[7] stringMsg];
-    param.doctorJob = [self.commitMessages[8] stringMsg];
-    param.isHospital = [self.commitMessages[9] intMsg];
-    param.purpose = [self.commitMessages[10] stringMsg];
-    param.isvip = [self.commitMessages[11] intMsg];
-    param.isfirstaid = [self.commitMessages[12] intMsg];
+    param.time = [self.commitMessages[2] stringMsg];
+    param.appointHospital = [self.commitMessages[3] stringMsg];
+    param.lastHospitalDepartment = [self.commitMessages[4] stringMsg];
+    param.department = [self.commitMessages[5] intMsg];
+    param.lastDiagnose = [self.commitMessages[6] stringMsg];
+    param.hospitalLocationTogo = [self.commitMessages[7] intMsg];
+    param.hospitalAddressTogo = [self.commitMessages[8] stringMsg];
+    param.profession = [self.commitMessages[9] stringMsg];
+    param.doctorJob = [self.commitMessages[0] stringMsg];
+    param.isHospital = [self.commitMessages[10] intMsg];
+    param.purpose = [self.commitMessages[11] stringMsg];
+    param.isvip = [self.commitMessages[12] intMsg];
+    param.isfirstaid = [self.commitMessages[13] intMsg];
     
     [PostConsultTool postConsulWithParam:param success:^(BaseResult *result) {
         if ([result.status isEqualToString:SUCCESSSTATUS]) {
@@ -95,7 +101,16 @@
     }
 }
 
-
+- (BOOL)messageComplete
+{
+    LDInputView *inputView = self.inputViews[1];
+    UITextField *textfield = inputView.inputField;
+    if (![textfield.text dg_isValidIdentity]) {
+        [MBProgressHUD showError:@"请输入正确身份证号"];
+        return NO;
+    }
+    return [super messageComplete];
+}
 
 
 

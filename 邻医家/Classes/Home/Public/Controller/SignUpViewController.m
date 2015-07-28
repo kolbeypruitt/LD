@@ -5,6 +5,7 @@
 //  Created by Daniel on 15/5/15.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "NSString+Check.h"
 #import "BaseResult.h"
 #import "IWCommon.h"
 #import "UIBarButtonItem+ENTER.h"
@@ -82,11 +83,11 @@
 }
 - (BOOL)messageComplete
 {
-    if (self.telnumField.text.length == 0) {
+    if (![self.telnumField.text dg_isPhoneNumber]) {
         [MBProgressHUD showError:@"请输入手机号"];
         return NO;
     }
-    if (self.firstpwdField.text.length < 6 || self.secondpwdField.text.length < 6) {
+    if (![self.firstpwdField.text dg_isValidPassword] || ![self.secondpwdField.text dg_isValidPassword]) {
         [MBProgressHUD showError:@"请输入6位以上密码"];
         return NO;
     }else

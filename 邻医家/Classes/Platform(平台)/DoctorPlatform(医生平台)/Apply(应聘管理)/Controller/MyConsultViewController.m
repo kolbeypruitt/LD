@@ -6,9 +6,12 @@
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
 #import "ApplianTool.h"
+#import "MBProgressHUD+MJ.h"
+#import "DocReplyTool.h"
 #import "MyConsultViewController.h"
 #import "UIBarButtonItem+ENTER.h"
 #import "LDBaseParam.h"
+#import "BaseResult.h"
 #import "ConsultMessage.h"
 #import "LDMessage.h"
 #import "ConsultDetailMessage.h"
@@ -36,17 +39,42 @@
         
     }];
 }
+- (void)respondConsult
+{
+    LDBaseParam *param = [LDBaseParam paramWithId:self.consultMsg.id];
+    [DocReplyTool replyConsultWithParam:param success:^(BaseResult *result) {
+        if ([result.status isEqualToString:@"S"]) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }else
+        {
+            [MBProgressHUD showError:@"应聘失败,请重试!"];
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+}
 - (void)setDetailMsg:(ConsultDetailMessage *)detailMsg
 {
     _detailMsg = detailMsg;
-    NSString *rightTitle = nil;
-    if (detailMsg.gsstatus == 1) {
-        rightTitle = @"未录取";
-        }else if(detailMsg.gsstatus == 2)
+    switch (detailMsg.gsstatus) {
+        case 0://未应聘
         {
-            rightTitle = @"已录取";
+            self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(respondConsult) title:@"应聘"];
+            break;
         }
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:nil action:nil title:rightTitle];
+        case 1://已应聘
+        {
+            self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:nil action:nil title:@"未录取"];
+            break;
+        }
+        case 2://已录取
+        {
+            self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:nil action:nil title:@"已录取"];
+            break;
+        }
+        default:
+            break;
+    }
     self.clientToChat = detailMsg.clientNumber;
     self.singleLine = NO;
     

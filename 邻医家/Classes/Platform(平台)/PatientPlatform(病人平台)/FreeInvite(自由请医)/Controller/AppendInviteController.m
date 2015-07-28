@@ -6,6 +6,8 @@
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
 #import "MBProgressHUD+MJ.h"
+#import "LDInputView.h"
+#import "NSString+Check.h"
 #import "Common.h"
 #import "MJExtension.h"
 #import "AppendInviteParam.h"
@@ -67,6 +69,16 @@
             [MBProgressHUD showError:@"请求网络失败!"];
         }];
     }
+}
+- (BOOL)messageComplete
+{
+    LDInputView *inputView = self.inputViews[0];
+    UITextField *textfield = inputView.inputField;
+    if (![textfield.text dg_isValidIdentity]) {
+        [MBProgressHUD showError:@"请输入正确的身份证号"];
+        return NO;
+    }
+    return [super messageComplete];
 }
 - (NSDictionary *)fillParam
 {

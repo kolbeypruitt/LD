@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "LDInputController.h"
 
-@interface AppendCaseController : UIViewController
+@interface AppendCaseController : LDInputController
 
 @end

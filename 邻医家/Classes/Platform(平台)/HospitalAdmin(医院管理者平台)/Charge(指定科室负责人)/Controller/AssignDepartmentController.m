@@ -5,6 +5,8 @@
 //  Created by Daniel on 15/6/12.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "LDInputView.h"
+#import "NSString+Check.h"
 #import "LDInputMessage.h"
 #import "CommitMessage.h"
 #import "BaseResult.h"
@@ -63,6 +65,30 @@
         }];
     }
 
+}
+- (BOOL)messageComplete
+{
+    LDInputView *inputView = self.inputViews[1];
+    UITextField *textfield = inputView.inputField;
+    if (![textfield.text dg_isPhoneNumber]) {
+        [MBProgressHUD showError:@"请输入正确手机号"];
+        return NO;
+    }
+    
+    inputView = self.inputViews[2];
+    textfield = inputView.inputField;
+    if (![textfield.text dg_isNumber]) {
+        [MBProgressHUD showError:@"请输入正确座机号"];
+        return NO;
+    }
+    
+    inputView = self.inputViews[3];
+    textfield = inputView.inputField;
+    if (![textfield.text dg_isValidMailbox]) {
+        [MBProgressHUD showError:@"请输入正确邮箱"];
+        return NO;
+    }
+    return [super messageComplete];
 }
 - (SetCharageParam *)fillParam
 {

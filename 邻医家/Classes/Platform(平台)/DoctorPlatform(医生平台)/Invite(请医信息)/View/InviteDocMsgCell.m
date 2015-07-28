@@ -35,10 +35,10 @@
     NSString *imageName = nil;
     if (message.succeed == 1) {
 #warning 换图片
-        imageName = @"alreadyReply";
+        imageName = @"enroll2";
     }else
     {
-       imageName = @"notyetReply";
+       imageName = @"unenroll2";
     }
     self.relpyImageView.image = [UIImage imageNamed:imageName];
 }
