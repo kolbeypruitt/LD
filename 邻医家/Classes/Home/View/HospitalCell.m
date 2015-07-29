@@ -81,10 +81,10 @@
     _hospital = hospital;
     if (hospital.headurl) {
         NSString *imageName = [IMAGEPREF stringByAppendingString:hospital.headurl];
-        [self.iconView setImageWithURL:[NSURL URLWithString:imageName] placeholderImage:[UIImage imageNamed:@"hospital_def_img"]];
+        [self.iconView setImageWithURL:[NSURL URLWithString:imageName] placeholderImage:[UIImage imageNamed:@"hospital_default"]];
     }else
     {
-        [self.iconView setImage:[UIImage imageNamed:@"hospital_def_img"]];
+        [self.iconView setImage:[UIImage imageNamed:@"hospital_default"]];
     }
     self.nameLabel.text = hospital.name;
     self.detailLabel.text = hospital.detail;

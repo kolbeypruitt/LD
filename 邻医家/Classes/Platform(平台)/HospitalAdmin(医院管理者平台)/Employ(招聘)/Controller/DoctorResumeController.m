@@ -19,6 +19,9 @@
 #import "InviteDoctorTool.h"
 #import "DoctorResume.h"
 #import "DoctorResumeResult.h"
+#import "Account.h"
+#import "AccountTool.h"
+#import "DepartmentInviteTool.h"
 @interface DoctorResumeController ()
 @property (nonatomic,strong) DoctorResume  *resume;
 @property (nonatomic,weak) DoctorResumeFooter *footer;
@@ -111,23 +114,41 @@
 {
     return 40;
 }
-#warning 科室主任邀请医生
 #pragma resumeView delegate
 - (void)inviteBtnClicked
 {
     EmployDetailParam *param = [EmployDetailParam paramWithId:self.resume.id];
-    [InviteDoctorTool inviteDoctorWithParam:param success:^(BaseResult *result) {
-        if ([result.status isEqualToString:@"S"]) {
-            int count = (int)self.navigationController.viewControllers.count;
-            UIViewController *VC = [self.navigationController.viewControllers objectAtIndex:count-3];
-            [self.navigationController popToViewController:VC animated:YES];
-        }else
-        {
-            [MBProgressHUD showError:result.errorMsg];
-        }
-    } failure:^(NSError *error) {
-        
-    }];
+    Account *acc = [AccountTool account];
+    if (acc.type == 4) {
+#warning 科室主任邀请医生
+        [DepartmentInviteTool departmentInviteWithParam:param success:^(BaseResult *result) {
+            if ([result.status isEqualToString:@"S"]) {
+                int count = (int)self.navigationController.viewControllers.count;
+                UIViewController *VC = [self.navigationController.viewControllers objectAtIndex:count-3];
+                [self.navigationController popToViewController:VC animated:YES];
+            }else
+            {
+                [MBProgressHUD showError:result.errorMsg];
+            }
+        } failure:^(NSError *error) {
+            
+        }];
+    }else
+    {
+        [InviteDoctorTool inviteDoctorWithParam:param success:^(BaseResult *result) {
+            if ([result.status isEqualToString:@"S"]) {
+                int count = (int)self.navigationController.viewControllers.count;
+                UIViewController *VC = [self.navigationController.viewControllers objectAtIndex:count-3];
+                [self.navigationController popToViewController:VC animated:YES];
+            }else
+            {
+                [MBProgressHUD showError:result.errorMsg];
+            }
+        } failure:^(NSError *error) {
+            
+        }];    
+    }
+    
     
 }
 - (void)chatBtnClicked:(UIButton *)chatBtn

@@ -100,6 +100,7 @@
 {
     MultiInviteDetailController *detaiVC = [[MultiInviteDetailController alloc] init];
     detaiVC.title = self.title;
+    detaiVC.type = self.type;
     detaiVC.employInfo = self.employInfos[indexPath.row];
     [self.navigationController pushViewController:detaiVC animated:YES];
 }

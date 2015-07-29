@@ -64,7 +64,7 @@
     _commonCase = commonCase;
     self.nameLabel.text = commonCase.name;
     self.detailLabel.text =commonCase.detail;
-    [self.iconView setImage:[UIImage imageNamed:@"patient_def_img"]];
+    [self.iconView setImage:[UIImage imageNamed:@"patient_default"]];
     
 }
 - (void)layoutSubviews

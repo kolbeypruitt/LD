@@ -7,5 +7,8 @@
 //
 #import <UIKit/UIKit.h>
 @interface MultiInviteController : UITableViewController
+/**
+ *1 多点执业，2,专家邀请
+ */
 @property (nonatomic,assign) int type;
 @end

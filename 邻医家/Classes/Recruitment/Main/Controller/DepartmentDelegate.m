@@ -5,6 +5,7 @@
 //  Created by Daniel on 15/5/25.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "LDNotification.h"
 #import "HospitalEnterTextField.h"
 #import "DepartmentDelegate.h"
 #import "LDEnterData.h"
@@ -91,24 +92,48 @@
 - (void)actionSheetPickerDidSucceed:(AbstractActionSheetPicker *)actionSheetPicker origin:(id)origin
 {
     if ([origin isKindOfClass:[UITextField class]]) {
+        
+        if (![self cityChoosed]) {
+            return;
+        }
+        
         UITextField *textfield = (UITextField *)origin;
         textfield.text = [NSString stringWithFormat:@"%@ %@",self.firstContent,self.secondContent];
         textfield.tag = self.choosedId;
     }else if([origin isKindOfClass:[HospitalEnterTextField class]])
     {
         HospitalEnterTextField *textfield = (HospitalEnterTextField *)origin;
-        if (self.firstContent.length == 0) {
-            UIAlertView *alerview = [[UIAlertView alloc] initWithTitle:@"" message:@"请选择一级科室" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alerview show];
-            return;
-        }
-        if (self.secondContent.length == 0) {
-            UIAlertView *alerview = [[UIAlertView alloc] initWithTitle:@"" message:@"请选择二级科室" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alerview show];
+        if (![self cityChoosed]) {
             return;
         }
         textfield.text = [NSString stringWithFormat:@"%@ %@",self.firstContent,self.secondContent];
         textfield.enterData.department = self.choosedId;
+    }else if([origin isKindOfClass:[UIButton class]])
+    {
+        
+        if (![self cityChoosed]) {
+            return;
+        }
+        
+        UIButton *button = (UIButton *)origin;
+        button.tag = self.choosedId;
+        NSDictionary *usrInfo = @{@"department" : [NSNumber numberWithInt:self.choosedId],@"depName" : self.secondContent};
+        [[NSNotificationCenter defaultCenter] postNotificationName:DEPARTMENTCHOOSEDNOTIFICATION object:self userInfo:usrInfo];
     }
+}
+- (BOOL)cityChoosed
+{
+        if (self.firstContent.length == 0) {
+            UIAlertView *alerview = [[UIAlertView alloc] initWithTitle:@"" message:@"请选择一级科室" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alerview show];
+            return NO;
+        }
+        if (self.secondContent.length == 0) {
+            UIAlertView *alerview = [[UIAlertView alloc] initWithTitle:@"" message:@"请选择二级科室" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alerview show];
+            return NO;
+        }
+    return YES;
+    
 }
 @end

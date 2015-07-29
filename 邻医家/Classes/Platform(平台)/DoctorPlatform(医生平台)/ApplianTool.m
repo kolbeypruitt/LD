@@ -14,6 +14,7 @@
 #import "ApplianTool.h"
 #import "LDHttpTool.h"
 #import "InfoListResult.h"
+#import "BaseResult.h"
 @implementation ApplianTool
 + (void)myInviteSuccess:(void (^)(InfoListResult *))success failure:(void (^)(NSError *))failure
 {
@@ -100,7 +101,19 @@
     }];
 }
 
-
++ (void)applyForMultyAndExpertWithParam:(LDBaseParam *)param success:(void (^)(BaseResult *))success failure:(void (^)(NSError *))failure
+{
+    [LDHttpTool getWithURL:DOCTORAPPLYRECRUITURL params:param.keyValues success:^(id json) {
+        if (success) {
+            BaseResult *result = [BaseResult objectWithKeyValues:json];
+            success(result);
+        }
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure(error);
+        }
+    }];
+}
 
 @end
 

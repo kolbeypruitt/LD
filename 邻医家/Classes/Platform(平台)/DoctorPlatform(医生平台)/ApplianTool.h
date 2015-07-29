@@ -5,7 +5,7 @@
 //  Created by Daniel on 15/7/10.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
-@class RecruitResult,QueryConsultResult,LDBaseParam,EmployDetail,AppliantDetailResult,InfoListResult,ConsultDetailMessage;
+@class RecruitResult,QueryConsultResult,LDBaseParam,EmployDetail,AppliantDetailResult,InfoListResult,ConsultDetailMessage,BaseResult;
 #import <Foundation/Foundation.h>
 @interface ApplianTool : NSObject
 + (void)myInviteSuccess:(void (^)(InfoListResult *result))success
@@ -29,6 +29,12 @@
 + (void)myAppliantWithParam:(LDBaseParam *)param
                     success:(void (^)(AppliantDetailResult *result))success
                     failure:(void (^)(NSError *error))failure;
+/**
+ * 医生应聘多点执业和专家邀请
+ */
++ (void)applyForMultyAndExpertWithParam:(LDBaseParam *)param
+                                success:(void (^)(BaseResult *result))success
+                                failure:(void (^)(NSError *error))failure;
 @end
 
 @interface AppliantDetailResult : NSObject

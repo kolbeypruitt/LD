@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchDepartmentController">
             <connections>
+                <outlet property="moreDepartmentBtn" destination="gRs-HD-eWm" id="wUw-6J-WRk"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -24,22 +25,37 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zdc-c2-V6D" customClass="HotDepmentView">
-                    <rect key="frame" x="0.0" y="94" width="600" height="220"/>
+                    <rect key="frame" x="0.0" y="94" width="600" height="250"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="220" id="jKK-hv-fGw"/>
+                        <constraint firstAttribute="height" constant="250" id="jKK-hv-fGw"/>
                     </constraints>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gRs-HD-eWm">
+                    <rect key="frame" x="0.0" y="354" width="600" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="kUh-jP-F6E"/>
+                    </constraints>
+                    <state key="normal" title="更多科室">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="moreBtnClicked:" destination="-1" eventType="touchUpInside" id="UR3-b5-nnd"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="Zdc-c2-V6D" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="3lv-UC-QeC"/>
                 <constraint firstItem="QDc-sX-fJw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="5dM-zh-OKC"/>
+                <constraint firstItem="gRs-HD-eWm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="78z-80-4eC"/>
+                <constraint firstAttribute="trailing" secondItem="gRs-HD-eWm" secondAttribute="trailing" id="8qU-rH-pdB"/>
                 <constraint firstItem="Zdc-c2-V6D" firstAttribute="top" secondItem="QDc-sX-fJw" secondAttribute="bottom" id="9KX-vL-Vex"/>
                 <constraint firstAttribute="trailing" secondItem="QDc-sX-fJw" secondAttribute="trailing" id="BHO-2N-4oE"/>
                 <constraint firstAttribute="trailing" secondItem="Zdc-c2-V6D" secondAttribute="trailing" id="fsJ-ni-D8Y"/>
+                <constraint firstItem="gRs-HD-eWm" firstAttribute="top" secondItem="Zdc-c2-V6D" secondAttribute="bottom" constant="10" id="rdh-Mt-W4E"/>
                 <constraint firstItem="QDc-sX-fJw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="w0y-rp-ml5"/>
             </constraints>
-            <point key="canvasLocation" x="371" y="418"/>
+            <point key="canvasLocation" x="18" y="356"/>
         </view>
     </objects>
 </document>

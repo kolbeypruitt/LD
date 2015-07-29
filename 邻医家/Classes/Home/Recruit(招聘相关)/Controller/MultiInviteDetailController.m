@@ -5,7 +5,9 @@
 //  Created by Daniel on 15/6/25.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
-
+#import "ApplianTool.h"
+#import "LDBaseParam.h"
+#import "BaseResult.h"
 #import "MultiInviteDetailController.h"
 #import "Common.h"
 #import "CaseDetailParam.h"
@@ -14,6 +16,10 @@
 #import "LDMessage.h"
 #import "EmployDetailInfo.h"
 #import "EmployInfo.h"
+#import "UIButton+LD.h"
+#import "MBProgressHUD+MJ.h"
+#import "Account.h"
+#import "AccountTool.h"
 @interface MultiInviteDetailController ()
 
 @property (nonatomic,strong) EmployDetailInfo *detailInfo;
@@ -29,6 +35,34 @@
 - (void)setup
 {
     self.tableView.contentInset = UIEdgeInsetsMake(-30, 0, 0, 0);
+    if (self.type == 1 || self.type == 2) {
+        Account *acc = [AccountTool account];
+        if (acc.type == 2) {
+            [self setTableFooter];
+        }
+    }
+    
+}
+- (void)setTableFooter
+{
+    UIButton *footer = [UIButton buttonWithTitle:@"应聘" font:15 titleColor:[UIColor whiteColor] target:self action:@selector(applyRecruit)];
+    footer.frame = CGRectMake(0, 0, self.view.frame.size.width, 40);
+    [footer setBackgroundColor:IWColor(88, 202, 203)];
+    self.tableView.tableFooterView = footer;
+}
+- (void)applyRecruit
+{
+    LDBaseParam *param = [LDBaseParam paramWithId:self.employInfo.id];
+   [ApplianTool applyForMultyAndExpertWithParam:param success:^(BaseResult *result) {
+       if ([result.status isEqualToString:@"S"]) {
+           [self.navigationController popViewControllerAnimated:YES];
+       }else
+       {
+           [MBProgressHUD showError:result.errorMsg];
+       }
+   } failure:^(NSError *error) {
+       
+   }];
 }
 - (void)loadData
 {
