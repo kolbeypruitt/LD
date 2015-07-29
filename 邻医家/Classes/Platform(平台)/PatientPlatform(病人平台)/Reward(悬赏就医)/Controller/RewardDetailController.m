@@ -116,15 +116,27 @@
         [inviteHeader.allBtn addTarget:self action:@selector(receiveBtnClicked) forControlEvents:UIControlEventTouchUpInside];
         inviteHeader.inviteDetail = detailMsg;
         self.tableView.tableHeaderView = inviteHeader;
+    }else
+    {
+        
+        NSString *title = [NSString stringWithFormat:@"已录取%d封简历",self.detailMsg.accept];
+        UIButton *headBtn = [UIButton buttonWithTitle:title font:14 titleColor:IWColor(88, 202, 203) target:self action:@selector(confirmBtnClicked)];
+        [headBtn setBackgroundColor:[UIColor whiteColor]];
+        headBtn.frame = CGRectMake(0, 0, self.view.frame.size.width, 35);
+        self.tableView.tableHeaderView = headBtn;
     }
 }
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-        return nil;
+    NSString *title = [NSString stringWithFormat:@"悬赏金额%d",self.detailMsg.money];
+    UIButton *button = [UIButton buttonWithTitle:title font:15 titleColor:IWColor(88, 202, 203) target:nil action:nil];
+    [button setBackgroundColor:[UIColor whiteColor]];
+    return button;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-        return 0;
+        return 35;
 }
 
 @end

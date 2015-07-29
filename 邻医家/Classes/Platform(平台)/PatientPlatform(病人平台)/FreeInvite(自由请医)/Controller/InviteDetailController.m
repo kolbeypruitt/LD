@@ -6,6 +6,7 @@
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
 #import "LDMessage.h"
+#import "UIButton+LD.h"
 #import "AllInviteParam.h"
 #import "BaseResult.h"
 #import "MBProgressHUD+MJ.h"
@@ -64,6 +65,9 @@
         [inviteHeader.allBtn addTarget:self action:@selector(receiveBtnClicked) forControlEvents:UIControlEventTouchUpInside];
         inviteHeader.inviteDetail = detailMsg;
         self.tableView.tableHeaderView = inviteHeader;
+    }else
+    {
+     
     }
 }
 
@@ -116,11 +120,15 @@
 #pragma mark - tabelview delegate
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    return nil;
+    NSString *title = [NSString stringWithFormat:@"已录取%d封简历",self.detailMsg.accept];
+    UIButton *headBtn = [UIButton buttonWithTitle:title font:14 titleColor:IWColor(88, 202, 203) target:self action:@selector(confirmBtnClicked:)];
+    [headBtn setBackgroundColor:[UIColor whiteColor]];
+    headBtn.frame = CGRectMake(0, 0, self.view.frame.size.width, 35);
+    return headBtn;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 0;
+    return 35;
 }
 @end
 

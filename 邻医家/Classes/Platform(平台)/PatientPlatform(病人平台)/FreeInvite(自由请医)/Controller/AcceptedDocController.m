@@ -5,8 +5,8 @@
 //  Created by Daniel on 15/6/15.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "DoctorResumeController.h"
 #import "Common.h"
-#import "PatientDocResumeController.h"
 #import "DoctorCell.h"
 #import "PatienInviteDetail.h"
 #import "AcceptedDocController.h"
@@ -64,7 +64,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Employer *emloyer = self.confirmedDoctors[indexPath.row];
-    PatientDocResumeController *docVC = [[PatientDocResumeController alloc] init];
+    DoctorResumeController *docVC = [[DoctorResumeController alloc] init];
     docVC.employer = emloyer;
     [self.navigationController pushViewController:docVC animated:YES];
 }
