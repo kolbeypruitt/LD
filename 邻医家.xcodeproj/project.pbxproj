@@ -471,6 +471,7 @@
 		65D6B9151B5DE5C0006B7460 /* ChangParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D6B9141B5DE5C0006B7460 /* ChangParam.m */; };
 		65D6B91B1B5E0BF1006B7460 /* SearchRecruitTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D6B91A1B5E0BF1006B7460 /* SearchRecruitTool.m */; };
 		65D6B91E1B5E161E006B7460 /* BaseParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D6B91D1B5E161E006B7460 /* BaseParam.m */; };
+		65D6F66F1B68D9480075313A /* FirstCityDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D6F66E1B68D9480075313A /* FirstCityDelegate.m */; };
 		65D7634E1B607B66000808AF /* LDAssignmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D7634D1B607B66000808AF /* LDAssignmentView.m */; };
 		65D812461B3A494C00A1E0EC /* DoctorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D812451B3A494C00A1E0EC /* DoctorView.m */; };
 		65D8124C1B3A6CA900A1E0EC /* DoctorDetailTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D8124B1B3A6CA900A1E0EC /* DoctorDetailTool.m */; };
@@ -1498,6 +1499,8 @@
 		65D6B91A1B5E0BF1006B7460 /* SearchRecruitTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchRecruitTool.m; path = "邻医家/Classes/Home/Tools/SearchRecruitTool.m"; sourceTree = SOURCE_ROOT; };
 		65D6B91C1B5E161E006B7460 /* BaseParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseParam.h; sourceTree = "<group>"; };
 		65D6B91D1B5E161E006B7460 /* BaseParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseParam.m; sourceTree = "<group>"; };
+		65D6F66D1B68D9480075313A /* FirstCityDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstCityDelegate.h; sourceTree = "<group>"; };
+		65D6F66E1B68D9480075313A /* FirstCityDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstCityDelegate.m; sourceTree = "<group>"; };
 		65D7634C1B607B66000808AF /* LDAssignmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDAssignmentView.h; sourceTree = "<group>"; };
 		65D7634D1B607B66000808AF /* LDAssignmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDAssignmentView.m; sourceTree = "<group>"; };
 		65D812441B3A494C00A1E0EC /* DoctorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorView.h; sourceTree = "<group>"; };
@@ -3347,13 +3350,15 @@
 				65CAB2B31B241317005DAED4 /* ReviewController.xib */,
 				65CAB2B41B241317005DAED4 /* WelcomeController.h */,
 				65CAB2B51B241317005DAED4 /* WelcomeController.m */,
-				65CAB2B61B241317005DAED4 /* ZonePickerDelegate.h */,
-				65CAB2B71B241317005DAED4 /* ZonePickerDelegate.m */,
 				65D6500E1B5C8E070074DFBA /* AuditViewController.h */,
 				65D6500F1B5C8E070074DFBA /* AuditViewController.m */,
 				65D650101B5C8E070074DFBA /* AuditViewController.xib */,
 				65D650161B5C94000074DFBA /* AuditTabBarController.h */,
 				65D650171B5C94000074DFBA /* AuditTabBarController.m */,
+				65D6F66D1B68D9480075313A /* FirstCityDelegate.h */,
+				65D6F66E1B68D9480075313A /* FirstCityDelegate.m */,
+				65CAB2B61B241317005DAED4 /* ZonePickerDelegate.h */,
+				65CAB2B71B241317005DAED4 /* ZonePickerDelegate.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -4826,6 +4831,7 @@
 				655454201AFCA59D00C4BFFA /* LDHomeFooterView.m in Sources */,
 				65D3E61C1B64A46F00D5B2DE /* LDSearchSubjectView.m in Sources */,
 				65F46D141B4BAD26006EC9DC /* FirstDepartmentDelegate.m in Sources */,
+				65D6F66F1B68D9480075313A /* FirstCityDelegate.m in Sources */,
 				6599E7971B0C7E46007396E8 /* SignUpTool.m in Sources */,
 				65CFC7BE1B185F8F007F7062 /* AFSecurityPolicy.m in Sources */,
 				65D650261B5CD3FB0074DFBA /* UserResult.m in Sources */,
