@@ -26,14 +26,27 @@
 #import "LoginTool.h"
 #import "SignUpParam.h"
 #import "LoginResult.h"
+#import "RSAEncryptor.h"
 @interface LoginViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet LDTextField *telnumField;
 @property (weak, nonatomic) IBOutlet LDTextField *passwdField;
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
-
+@property (nonatomic,strong) RSAEncryptor *rsaEncryptor;
 @end
 
 @implementation LoginViewController
+- (RSAEncryptor *)rsaEncryptor
+{
+    if (_rsaEncryptor == nil) {
+        RSAEncryptor* rsaEncryptor = [[RSAEncryptor alloc] init];
+        NSString* publicKeyPath = [[NSBundle mainBundle] pathForResource:@"public_key" ofType:@"der"];
+        NSString* privateKeyPath = [[NSBundle mainBundle] pathForResource:@"private_key" ofType:@"p12"];
+        [rsaEncryptor loadPublicKeyFromFile: publicKeyPath];
+        [rsaEncryptor loadPrivateKeyFromFile: privateKeyPath password:@"1234"];    // 这里，请换成你生成p12时的密码
+        _rsaEncryptor = rsaEncryptor;
+    }
+    return _rsaEncryptor;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setup];
@@ -67,9 +80,9 @@
 }
 - (IBAction)loginBtn:(id)sender {
     if ([self messageComplete]) {
-        SignUpParam *param = [SignUpParam paramWithTel:self.telnumField.text
+        SignUpParam *param = [SignUpParam paramWithTel:[self.rsaEncryptor rsaEncryptString:self.telnumField.text]
                                                       code:nil
-                                                    passwd:self.passwdField.text];
+                                                    passwd:[self.rsaEncryptor rsaEncryptString: self.passwdField.text]];
             
         [LoginTool loginWithParam:param success:^(LoginResult *result) {
             if ([result.status isEqualToString:SUCCESSSTATUS]) {
