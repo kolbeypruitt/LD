@@ -22,7 +22,7 @@
 		<key>B2E968C734CBCF835625F04B94B284B9B64A9534</key>
 		<string>../..</string>
 		<key>E3DC5EEF5582DB2FF34CDF18929013C60FBB6DFE</key>
-		<string>../../%E9%82%BB%E5%8C%BB%E5%AE%B6/Classes/Other/RSAEncryptor/</string>
+		<string>../../%E9%82%BB%E5%8C%BB%E5%AE%B6/Classes/Other/RSAEncryptor</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>github.com:ShawnLeee/LD.git</string>

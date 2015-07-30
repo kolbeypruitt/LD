@@ -35,13 +35,13 @@
     [self setBtn:self.inviteExpertBtn bgColor:IWColor(88, 202, 203) image:@"nav5"];
     
     self.studyBtn.layer.cornerRadius = BUTTONRADIUS;
-    [self setBtn:self.studyBtn bgColor:IWColor(64, 197, 88) image:@"nav6"];
+    [self setBtn:self.studyBtn bgColor:IWColor(64, 197, 88) image:@"study"];
     
     self.postDocBtn.layer.cornerRadius = BUTTONRADIUS;
     [self setBtn:self.postDocBtn bgColor:IWColor(244, 96, 115) image:@"nav7"];
     
     self.practiceBtn.layer.cornerRadius = BUTTONRADIUS;
-    [self setBtn:self.practiceBtn bgColor:IWColor(249, 161, 54) image:@"nav8"];
+    [self setBtn:self.practiceBtn bgColor:IWColor(249, 161, 54) image:@"practice"];
 }
 - (void)setBtn:(LDPlatformButton *)button bgColor:(UIColor *)color image:(NSString *)image
 {
