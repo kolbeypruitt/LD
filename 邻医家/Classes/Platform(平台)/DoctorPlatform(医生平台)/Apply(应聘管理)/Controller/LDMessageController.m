@@ -22,6 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = BGCOLOR;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 - (void)setMessages:(NSArray *)messages
 {

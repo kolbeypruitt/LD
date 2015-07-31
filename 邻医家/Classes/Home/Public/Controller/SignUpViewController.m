@@ -5,6 +5,8 @@
 //  Created by Daniel on 15/5/15.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "Account.h"
+#import "AccountTool.h"
 #import "NSString+Check.h"
 #import "IWTabBarViewController.h"
 #import "BaseResult.h"
@@ -63,7 +65,12 @@
         SignUpParam *param = [SignUpParam paramWithTel:self.telnumField.text code:self.checkinField.text passwd:self.firstpwdField.text];
         [SignUpTool signUpWithParam:param success:^(SignUpResult *result) {
             if ([result.status isEqualToString:@"S"]) {
-                
+                Account *at = [AccountTool account];
+                if (at == nil )
+                {
+                    at = (Account *)result;
+                    [AccountTool saveAccount:at];
+                }
                 IWTabBarViewController *publicHome = [[IWTabBarViewController alloc] init];
                 self.view.window.rootViewController = publicHome;
             }else
@@ -104,14 +111,13 @@
 
 - (IBAction)getCheckIn:(id)sender {
     UIButton *button = (UIButton *)sender;
-    
     if (self.telnumField.text.length) {
         
         button.enabled = NO;
         
         [SignUpTool getCheckInWithTelnum:self.telnumField.text success:^(BaseResult *result) {
             if ([result.status isEqualToString:@"S"]) {
-                
+                [MBProgressHUD showSuccess:@"验证码发送到您的手机"];
             }else
             {
                 [MBProgressHUD showError:@"验证码发送失败，请重试!"];
