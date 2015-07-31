@@ -96,6 +96,9 @@
 		6540B8551B2D7E560053DB2A /* ReplyInviteTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6540B8541B2D7E560053DB2A /* ReplyInviteTool.m */; };
 		6540B85E1B2D90EB0053DB2A /* FreeDetailMsgController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6540B85B1B2D90EB0053DB2A /* FreeDetailMsgController.m */; };
 		6540B85F1B2D90EB0053DB2A /* FreeMessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6540B85D1B2D90EB0053DB2A /* FreeMessageController.m */; };
+		6542BAEE1B6B67EE0083740C /* private_key.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 6542BAEA1B6B67EE0083740C /* private_key.p12 */; };
+		6542BAEF1B6B67EE0083740C /* public_key.der in Resources */ = {isa = PBXBuildFile; fileRef = 6542BAEB1B6B67EE0083740C /* public_key.der */; };
+		6542BAF01B6B67EE0083740C /* RSAEncryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 6542BAED1B6B67EE0083740C /* RSAEncryptor.m */; };
 		654861801B4E4CB4001B25CA /* ReleaseArrangeParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 6548617F1B4E4CB4001B25CA /* ReleaseArrangeParam.m */; };
 		654861831B4E4F1A001B25CA /* ReleaseArrangeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 654861821B4E4F1A001B25CA /* ReleaseArrangeTool.m */; };
 		654861861B4E5283001B25CA /* DocArrangeListTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 654861851B4E5283001B25CA /* DocArrangeListTool.m */; };
@@ -281,9 +284,6 @@
 		6598CE3C1B56514700A3EC8E /* TimeDeletage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6598CE3B1B56514700A3EC8E /* TimeDeletage.m */; };
 		6599E6741B032721001C1582 /* UIButton+LD.m in Sources */ = {isa = PBXBuildFile; fileRef = 6599E6731B032721001C1582 /* UIButton+LD.m */; };
 		6599E7971B0C7E46007396E8 /* SignUpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6599E7961B0C7E46007396E8 /* SignUpTool.m */; };
-		65A2BFBC1B6A053F00310D94 /* private_key.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 65A2BFB81B6A053F00310D94 /* private_key.p12 */; };
-		65A2BFBD1B6A053F00310D94 /* public_key.der in Resources */ = {isa = PBXBuildFile; fileRef = 65A2BFB91B6A053F00310D94 /* public_key.der */; };
-		65A2BFBE1B6A053F00310D94 /* RSAEncryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 65A2BFBB1B6A053F00310D94 /* RSAEncryptor.m */; };
 		65A2BFC01B6A055000310D94 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65A2BFBF1B6A055000310D94 /* Security.framework */; };
 		65A9D7001B4FA85C0014F27B /* MyAppliantController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65A9D6FF1B4FA85C0014F27B /* MyAppliantController.m */; };
 		65A9D7031B4FA87D0014F27B /* MyInviteController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65A9D7021B4FA87D0014F27B /* MyInviteController.m */; };
@@ -770,6 +770,10 @@
 		6540B85B1B2D90EB0053DB2A /* FreeDetailMsgController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeDetailMsgController.m; sourceTree = "<group>"; };
 		6540B85C1B2D90EB0053DB2A /* FreeMessageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeMessageController.h; sourceTree = "<group>"; };
 		6540B85D1B2D90EB0053DB2A /* FreeMessageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeMessageController.m; sourceTree = "<group>"; };
+		6542BAEA1B6B67EE0083740C /* private_key.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = private_key.p12; sourceTree = "<group>"; };
+		6542BAEB1B6B67EE0083740C /* public_key.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = public_key.der; sourceTree = "<group>"; };
+		6542BAEC1B6B67EE0083740C /* RSAEncryptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSAEncryptor.h; sourceTree = "<group>"; };
+		6542BAED1B6B67EE0083740C /* RSAEncryptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSAEncryptor.m; sourceTree = "<group>"; };
 		6548617E1B4E4CB4001B25CA /* ReleaseArrangeParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReleaseArrangeParam.h; sourceTree = "<group>"; };
 		6548617F1B4E4CB4001B25CA /* ReleaseArrangeParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReleaseArrangeParam.m; sourceTree = "<group>"; };
 		654861811B4E4F1A001B25CA /* ReleaseArrangeTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReleaseArrangeTool.h; sourceTree = "<group>"; };
@@ -1140,10 +1144,6 @@
 		6599E6731B032721001C1582 /* UIButton+LD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+LD.m"; sourceTree = "<group>"; };
 		6599E7951B0C7E46007396E8 /* SignUpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpTool.h; sourceTree = "<group>"; };
 		6599E7961B0C7E46007396E8 /* SignUpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpTool.m; sourceTree = "<group>"; };
-		65A2BFB81B6A053F00310D94 /* private_key.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = private_key.p12; sourceTree = "<group>"; };
-		65A2BFB91B6A053F00310D94 /* public_key.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = public_key.der; sourceTree = "<group>"; };
-		65A2BFBA1B6A053F00310D94 /* RSAEncryptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSAEncryptor.h; sourceTree = "<group>"; };
-		65A2BFBB1B6A053F00310D94 /* RSAEncryptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSAEncryptor.m; sourceTree = "<group>"; };
 		65A2BFBF1B6A055000310D94 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		65A9D6FE1B4FA85C0014F27B /* MyAppliantController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAppliantController.h; sourceTree = "<group>"; };
 		65A9D6FF1B4FA85C0014F27B /* MyAppliantController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAppliantController.m; sourceTree = "<group>"; };
@@ -2109,6 +2109,17 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		6542BAE91B6B67EE0083740C /* RSAEncryptor */ = {
+			isa = PBXGroup;
+			children = (
+				6542BAEA1B6B67EE0083740C /* private_key.p12 */,
+				6542BAEB1B6B67EE0083740C /* public_key.der */,
+				6542BAEC1B6B67EE0083740C /* RSAEncryptor.h */,
+				6542BAED1B6B67EE0083740C /* RSAEncryptor.m */,
+			);
+			path = RSAEncryptor;
+			sourceTree = "<group>";
+		};
 		654A30AA1B00896C0043821B /* MJRefresh */ = {
 			isa = PBXGroup;
 			children = (
@@ -2587,7 +2598,7 @@
 		6554533A1AFCA59C00C4BFFA /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				65A2BFB71B6A053F00310D94 /* RSAEncryptor */,
+				6542BAE91B6B67EE0083740C /* RSAEncryptor */,
 				65D3EC441B5F3C0F0058D83E /* LDCheckView.h */,
 				65D3EC451B5F3C0F0058D83E /* LDCheckView.m */,
 				65D3EC381B5F33E40058D83E /* LDCheckBox.h */,
@@ -2947,17 +2958,6 @@
 				653B84FF1B3BA46900331252 /* DoctorStationListTool.m */,
 			);
 			path = Tool;
-			sourceTree = "<group>";
-		};
-		65A2BFB71B6A053F00310D94 /* RSAEncryptor */ = {
-			isa = PBXGroup;
-			children = (
-				65A2BFB81B6A053F00310D94 /* private_key.p12 */,
-				65A2BFB91B6A053F00310D94 /* public_key.der */,
-				65A2BFBA1B6A053F00310D94 /* RSAEncryptor.h */,
-				65A2BFBB1B6A053F00310D94 /* RSAEncryptor.m */,
-			);
-			path = RSAEncryptor;
 			sourceTree = "<group>";
 		};
 		65A9D6F91B4FA7F20014F27B /* Apply(应聘管理) */ = {
@@ -4376,7 +4376,7 @@
 				65C412301B05998700A8B75F /* LoginViewController.xib in Resources */,
 				187054F71AFDF4E800287E71 /* Images.xcassets in Resources */,
 				65CC3F5C1B0F05310099A3F3 /* ForgetPassController.xib in Resources */,
-				65A2BFBD1B6A053F00310D94 /* public_key.der in Resources */,
+				6542BAEF1B6B67EE0083740C /* public_key.der in Resources */,
 				6540B8401B2D570D0053DB2A /* InviteDocMsgCell.xib in Resources */,
 				65C563871B1E9AE6007FC968 /* city.json in Resources */,
 				65E254631B423B4C009B0525 /* hotdepartment.plist in Resources */,
@@ -4400,7 +4400,7 @@
 				6516A6951B12F807006B9BBB /* department.json in Resources */,
 				65D3E6161B64A16300D5B2DE /* subjects.plist in Resources */,
 				65CFC6AD1B522F2F00A881B6 /* MyAppliatDetailController.xib in Resources */,
-				65A2BFBC1B6A053F00310D94 /* private_key.p12 in Resources */,
+				6542BAEE1B6B67EE0083740C /* private_key.p12 in Resources */,
 				65CC3F611B0F0A410099A3F3 /* CheckInForgetController.xib in Resources */,
 				65D3E6211B64A63300D5B2DE /* LDSearchSubjectController.xib in Resources */,
 				65D3F2E91B58A98100BB1A8B /* DocArrangeCell.xib in Resources */,
@@ -4612,7 +4612,7 @@
 				65D7634E1B607B66000808AF /* LDAssignmentView.m in Sources */,
 				655454421AFCA59D00C4BFFA /* MJPhotoProgressView.m in Sources */,
 				650E607E1B33FF2E00CFF569 /* TemporaryView.m in Sources */,
-				65A2BFBE1B6A053F00310D94 /* RSAEncryptor.m in Sources */,
+				6542BAF01B6B67EE0083740C /* RSAEncryptor.m in Sources */,
 				656438C71B54A27200436EAF /* LDInputMessage.m in Sources */,
 				65C6B2981B046EB8000BAFC6 /* PublicHomeController.m in Sources */,
 				65D3E6201B64A63300D5B2DE /* LDSearchSubjectController.m in Sources */,
