@@ -47,11 +47,12 @@
 }
 - (void)logout
 {
-    if ([AccountTool deleteAccount]) {
-        PublicHomeController *publicHome = [[PublicHomeController alloc] init];
-        IWNavigationController *nav = [[IWNavigationController alloc] initWithRootViewController:publicHome];
-        self.view.window.rootViewController = nav;
+    if ([AccountTool account]) {
+        [AccountTool deleteAccount];
     }
+    PublicHomeController *publicHome = [[PublicHomeController alloc] init];
+    IWNavigationController *nav = [[IWNavigationController alloc] initWithRootViewController:publicHome];
+    self.view.window.rootViewController = nav;
 }
 - (void)setupGroup0
 {
