@@ -6,6 +6,7 @@
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
 #import "AssignmentTool.h"
+#import "LDNotification.h"
 #import "LDArrangement.h"
 #import "ChangeArrangeTool.h"
 #import "MBProgressHUD+MJ.h"
@@ -48,7 +49,8 @@
                 arrangement.arrangeHospitals = param.arrangeHospitals;
                 
                 [AssignmentTool saveAssignment:arrangement];
-                
+#warning save success,reload upper page 
+                [[NSNotificationCenter defaultCenter] postNotificationName:REFRESHASSIGNMENTNOTIFICATION object:self];
                 [self.navigationController popViewControllerAnimated:YES];
             }else
             {

@@ -19,4 +19,5 @@
 #define SUBJECTCHOSSEDNOTIFICATION @"subjectchossed"
 #define INVITEREFRESHENOTIFICATION @"inviterefresh"
 #define APPENDRECRUITSUCCESSNOTIFICATION @"appendrecruitsuccessnotification"
+#define REFRESHASSIGNMENTNOTIFICATION @"refreshassignmentnotification"
 #endif

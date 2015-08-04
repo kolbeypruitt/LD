@@ -5,6 +5,8 @@
 //  Created by Daniel on 15/6/6.
 //  Copyright (c) 2015年 DanielGrason. All rights reserved.
 //
+#import "LDNotification.h"
+#import "AssignmentTool.h"
 #import "MBProgressHUD+MJ.h"
 #import "LDPersonalController.h"
 #import "DocArrangeCell.h"
@@ -114,8 +116,17 @@
 - (void)setup
 {
     self.view.backgroundColor = IWColor(226, 226, 226);
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshAssignment) name:REFRESHASSIGNMENTNOTIFICATION object:nil];
     [self addCustomeViews];
     [self layoutCustomeViews];
+}
+- (void)refreshAssignment
+{
+    self.assignmentView.arrangement = [AssignmentTool arrangement];
+}
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 - (void)addCustomeViews
 {
