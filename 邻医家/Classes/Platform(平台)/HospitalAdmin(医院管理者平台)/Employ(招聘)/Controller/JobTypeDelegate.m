@@ -14,7 +14,7 @@
     if (self = [super init]) {
         Choice *choice1 = [Choice choiceWithName:@"全职" type:1];
         Choice *choice2 = [Choice choiceWithName:@"兼职" type:2];
-        Choice *choice3 = [Choice choiceWithName:@"实习" type:3];
+        Choice *choice3 = [Choice choiceWithName:@"实习/规培" type:3];
         Choice *choice4 = [Choice choiceWithName:@"进修" type:4];
         Choice *choice5 = [Choice choiceWithName:@"博士后" type:5];
         [self.choices addObjectsFromArray:@[choice1,choice2,choice3,choice4,choice5]];

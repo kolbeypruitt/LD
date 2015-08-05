@@ -81,7 +81,7 @@
 - (void)addCustomeViews
 {
     //选项卡
-    NSArray *items = @[@"全职",@"兼职",@"实习",@"进修",@"博士"];
+    NSArray *items = @[@"全职",@"兼职",@"实习/规培",@"进修",@"博士"];
     UISegmentedControl *segmentControl = [[UISegmentedControl alloc] initWithItems:items];
     [segmentControl addTarget:self action:@selector(segmentControlPressed:) forControlEvents:UIControlEventValueChanged];
     segmentControl.selectedSegmentIndex = 0;
