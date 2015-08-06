@@ -87,7 +87,8 @@
     LDMessage *message6 = [LDMessage messageWithFirstTitle:@"专业" secondTitle:detailInfo.profession ];
     LDMessage *message7 = [LDMessage messageWithFirstTitle:@"职位要求" secondTitle:detailInfo.introduction ];
     LDMessage *message8 = [LDMessage messageWithFirstTitle:@"职位性质" secondTitle:detailInfo.jobtype];
-    self.messages = @[message0,message1,message2,message3,message4,message5,message6,message7,message8];
+    LDMessage *message9 = [LDMessage messageWithFirstTitle:@"编号" secondTitle:detailInfo.code];
+    self.messages = @[message0,message1,message2,message3,message4,message5,message6,message7,message8,message9];
 
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section

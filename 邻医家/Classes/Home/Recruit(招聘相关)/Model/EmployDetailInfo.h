@@ -24,6 +24,7 @@
 @property (nonatomic,copy) NSString *name;
 @property (nonatomic,copy) NSString *profession;
 @property (nonatomic,copy) NSString *startdate;
+@property (nonatomic,copy) NSString *code;
 @end
 //employInfo =     {
 //    address = 1;

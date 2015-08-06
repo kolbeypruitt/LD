@@ -100,7 +100,8 @@
     LDMessage *message8 = [LDMessage messageWithFirstTitle:@"年龄" secondTitle:[NSString stringWithFormat:@"%d",employDetail.age]];
     LDMessage *message9 = [LDMessage messageWithFirstTitle:@"专业" secondTitle:employDetail.profession];
     LDMessage *message10 = [LDMessage messageWithFirstTitle:@"招聘条件" secondTitle:employDetail.introduction];
-    self.messages = @[message0,message1,message2,message3,message4,message5,message6,message7,message8,message9,message10];
+    LDMessage *message11 = [LDMessage messageWithFirstTitle:@"编号" secondTitle:employDetail.code];
+    self.messages = @[message0,message1,message2,message3,message4,message5,message6,message7,message8,message9,message10,message11];
     
     LDMessageHeader *inviteHeader = [[LDMessageHeader alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width,80)];
     [inviteHeader.acceptBtn addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];

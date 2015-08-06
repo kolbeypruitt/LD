@@ -24,4 +24,5 @@
 @property (nonatomic,copy) NSString *profession;
 @property (nonatomic,copy) NSString *purpose;
 @property (nonatomic,copy) NSString *ramark;
+@property (nonatomic,copy) NSString *code;
 @end

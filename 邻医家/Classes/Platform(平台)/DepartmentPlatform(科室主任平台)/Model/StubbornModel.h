@@ -22,6 +22,7 @@
 @property (nonatomic,copy) NSString *status;
 @property (nonatomic,copy) NSString *time;
 @property (nonatomic,assign) int type;
+@property (nonatomic,copy) NSString *code;
 @end
 //{
 //    accept = 0;

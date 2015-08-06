@@ -34,4 +34,5 @@
 @property (nonatomic,copy) NSString *patientName;
 @property (nonatomic,copy) NSString *profession;
 @property (nonatomic,copy) NSString *purpose;
+@property (nonatomic,copy) NSString *code;
 @end

@@ -106,7 +106,8 @@
     LDMessage *message7 = [LDMessage messageWithFirstTitle:@"医院名称" secondTitle:surgeryModel.hospital];
     LDMessage *message8 = [LDMessage messageWithFirstTitle:@"拟邀医生技术职位" secondTitle:surgeryModel.jobType];
     LDMessage *message9 = [LDMessage messageWithFirstTitle:@"是否住院" secondTitle:surgeryModel.ishospital];
-    self.messages = @[message0,message1,message2,message3,message4,message5,message6,message7,message8,message9];
+    LDMessage *message10 = [LDMessage messageWithFirstTitle:@"编号" secondTitle:surgeryModel.code];
+    self.messages = @[message0,message1,message2,message3,message4,message5,message6,message7,message8,message9,message10];
 }
 - (void)setStubbornModel:(StubbornModel *)stubbornModel
 {
@@ -120,7 +121,8 @@
     LDMessage *message6 = [LDMessage messageWithFirstTitle:@"医院名称" secondTitle:stubbornModel.hospital];
     LDMessage *message7 = [LDMessage messageWithFirstTitle:@"拟邀医生技术职位" secondTitle:stubbornModel.jobType];
     LDMessage *message8 = [LDMessage messageWithFirstTitle:@"是否住院" secondTitle:stubbornModel.ishospital];
-    self.messages = @[message0,message1,message2,message3,message4,message5,message6,message7,message8];
+    LDMessage *message9 = [LDMessage messageWithFirstTitle:@"编号" secondTitle:stubbornModel.code];
+    self.messages = @[message0,message1,message2,message3,message4,message5,message6,message7,message8,message9];
 }
 - (void)setTemModel:(TemporaryModel *)temModel
 {
@@ -132,7 +134,8 @@
     LDMessage *message4 = [LDMessage messageWithFirstTitle:@"医院名称" secondTitle:temModel.hospital];
     LDMessage *message5 = [LDMessage messageWithFirstTitle:@"拟邀医生技术职位" secondTitle:temModel.jobType];
     LDMessage *message6 = [LDMessage messageWithFirstTitle:@"是否住院" secondTitle:temModel.ishospital];
-    self.messages = @[message0,message1,message2,message3,message4,message5,message6];
+    LDMessage *message7 = [LDMessage messageWithFirstTitle:@"编号" secondTitle:temModel.code];
+    self.messages = @[message0,message1,message2,message3,message4,message5,message6,message7];
 }
 - (void)setForModel:(ForwardModel *)forModel
 {
@@ -150,7 +153,8 @@
     LDMessage *message10 = [LDMessage messageWithFirstTitle:@"转诊的目的" secondTitle:forModel.purpose];
     LDMessage *message11 = [LDMessage messageWithFirstTitle:@"是否需要VIP" secondTitle:forModel.isVIP];
     LDMessage *message12 = [LDMessage messageWithFirstTitle:@"是否需要抢救" secondTitle:forModel.idfirstaid];
-    self.messages =  @[message0,message1,message2,message3,message4,message5,message6,message7,message8,message9,message10,message11,message12];
+    LDMessage *message13 = [LDMessage messageWithFirstTitle:@"编号" secondTitle:forModel.code];
+    self.messages =  @[message0,message1,message2,message3,message4,message5,message6,message7,message8,message9,message10,message11,message12,message13];
 }
 #pragma mark - Button events
 - (void)buttonClicked:(UIButton *)button

@@ -27,6 +27,7 @@
 @property (nonatomic,copy) NSString *profession;
 @property (nonatomic,copy) NSString *purpose;
 @property (nonatomic,copy) NSString *status;
+@property (nonatomic,copy) NSString *code;
 @end
 //{
 //    accept = 0;

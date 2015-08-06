@@ -108,7 +108,8 @@
     LDMessage *message9 = [LDMessage messageWithFirstTitle:@"请医目的" secondTitle:detailMsg.purpose];
     LDMessage *message10 = [LDMessage messageWithFirstTitle:@"VIP" secondTitle:detailMsg.isVIP];
     LDMessage *message11 = [LDMessage messageWithFirstTitle:@"备注" secondTitle:detailMsg.ramark];
-    self.messages = @[message0,message1,message2,message3,message4,message5,message6,message7,message8,message9,message10,message11];
+    LDMessage *message12 = [LDMessage messageWithFirstTitle:@"编号" secondTitle:detailMsg.code];
+    self.messages = @[message0,message1,message2,message3,message4,message5,message6,message7,message8,message9,message10,message11,message12];
     
     if (self.message.succeed == 0) {//未录取
         LDMessageHeader *inviteHeader = [[LDMessageHeader alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width,80)];

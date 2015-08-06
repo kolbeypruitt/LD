@@ -104,7 +104,7 @@
                 <constraint firstItem="MWi-Xq-1AK" firstAttribute="height" secondItem="igV-PR-j3t" secondAttribute="height" id="vSY-tE-JLo"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-            <point key="canvasLocation" x="333.5" y="211.5"/>
+            <point key="canvasLocation" x="236.5" y="183.5"/>
         </view>
     </objects>
 </document>

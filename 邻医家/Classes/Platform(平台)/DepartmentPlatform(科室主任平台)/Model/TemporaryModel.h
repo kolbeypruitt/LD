@@ -20,6 +20,7 @@
 @property (nonatomic,copy) NSString *ishospital;
 @property (nonatomic,copy) NSString *status;
 @property (nonatomic,copy) NSString *time;
+@property (nonatomic,copy) NSString *code;
 @end
 //{
 //    accept = 0;
